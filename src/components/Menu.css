@@ -10,7 +10,7 @@ ion-menu.md ion-content {
 }
 
 ion-menu.md ion-list {
-  padding: 20px 0;
+  
 }
 
 ion-menu.md ion-note {
@@ -111,3 +111,9 @@ ion-note {
 ion-item.selected {
   --color: var(--ion-color-primary);
 } 
+
+.gradiente{
+  background: linear-gradient(180deg, #268BC8 0%, #8DC2E2 96.62%);
+  width: 288px;
+  height: 148px;  
+}

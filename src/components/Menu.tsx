@@ -24,28 +24,29 @@ interface AppPage {
 
 const appPages: AppPage[] = [
   {
-    title: '¿Qué cayó?',
+    title: '¿Qué Cayó?',
     url: '/screens/que-cayo',
-    iosIcon: 'chevronForward',
+    iosIcon: chevronForward,
     mdIcon: chevronForward
   },
+  {
+    title: '¿Yo Gané?',
+    url: '/screens/Page',
+    iosIcon: chevronForward,
+    mdIcon: chevronForward
+   },
   // {
-  //   title: '¿Yo gane?',
-  //   url: '/page/Outbox',
-  //   mdIcon: paperPlaneSharp
-  // },
-  // {
-  //   title: 'Los números suertudos',
+  //   title: 'Los nÃºmeros suertudos',
   //   url: '/page/Favorites',
   //   mdIcon: heartSharp
   // },
   // {
-  //   title: 'Disponibilidad de número',
+  //   title: 'Disponibilidad de nÃºmero',
   //   url: '/page/Archived',
   //   mdIcon: archiveSharp
   // },
   // {
-  //   title: 'Avísame si gano',
+  //   title: 'AvÃ­same si gano',
   //   url: '/page/Trash',
   //   mdIcon: trashSharp
   // }
@@ -60,18 +61,18 @@ const Menu: React.FC = () => {
     <IonMenu contentId="main" type="overlay">
       <IonContent>
         <IonList id="inbox-list">
-          <IonListHeader>
+          <IonListHeader className = "menu-header">
             <div className = "gradiente">
-              <IonImg src = "\assets\imagenes\LoteriApp_logo_300x148 3.png"></IonImg>
+              <IonImg src = "\assets\imagenes\LoteriApp_logo_300x148 3.png" className = "logo"></IonImg>
             </div>
           </IonListHeader>
   
           {appPages.map((appPage, index) => {
             return (
-              <IonMenuToggle key={index} autoHide={false} color = "primary">
-                <IonItem color = "primary" className={location.pathname === appPage.url ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
+              <IonMenuToggle key={index} autoHide={false}>
+                <IonItem className={location.pathname === appPage.url ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
                   <IonLabel >{appPage.title}</IonLabel>
-                  <IonIcon color = "warning" slot="end" ios={appPage.iosIcon} md={appPage.mdIcon} />
+                  <IonIcon  slot="end" ios={appPage.iosIcon} md={appPage.mdIcon} />
                 </IonItem>                
               </IonMenuToggle>
             );

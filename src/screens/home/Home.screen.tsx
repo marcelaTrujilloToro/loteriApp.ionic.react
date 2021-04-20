@@ -10,29 +10,31 @@ import {
 import React from "react";
 import Header from "../../components/Header/Header";
 
+import './Home.styles.css';
+
 const HomeScreen = () => {
   return (
     <IonPage>
       <Header></Header>
 
-      <IonContent className = "ion-no-padding">
+      <IonContent className="ion-no-padding">
         <div className="la-content-gradiente">
           
-          <IonGrid className = "la-content-grid">
+          <IonGrid className="la-content-grid">
 
-            <IonRow className = "la-grid-row1">
+            <IonRow className="la-imagen-row">
               <IonCol>
                 f1c1
               </IonCol>
             </IonRow>
 
-            <IonRow className = "la-grid-row2">
+            <IonRow className="la-titulo-texto-row">
               <IonCol >
                 f2c1
               </IonCol>
             </IonRow>
 
-            <IonRow className = "la-grid-row3">
+            <IonRow className="la-menu-opciones-row">
               <IonCol>
                 f3c1
               </IonCol>           

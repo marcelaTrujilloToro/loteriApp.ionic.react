@@ -6,23 +6,18 @@ ion-col {
   text-align: center;
 }
 
-.la-content-gradiente {
-  background: linear-gradient(180deg, #b3d5ee 0%, #c5daea 100%);
-  height: 100%;
-}
-
 .la-content-grid {
   height: 100%;
 }
 
-.la-grid-row1 {
+.la-imagen-row {
   height: 30%;
 }
 
-.la-grid-row2 {
+.la-titulo-texto-row {
   height: 20%;
 }
 
-.la-grid-row3 {
+.la-menu-opciones-row {
   height: 50%;
 }

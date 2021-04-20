@@ -1,0 +1,31 @@
+ion-header {
+  height: 60px;
+  background: rgba(38, 139, 200, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-md::after {
+  height: 0px;
+}
+
+.la-header-logo {
+  width: 152.03px;
+  height: 75px;
+  position: relative;
+  top: -25px;
+}
+
+.la-header-elipse {
+  height: 50px;
+  width: 90%;
+  border-radius: 50%;
+  background: rgba(38, 139, 200, 1);
+  position: relative;
+  top: 26px;
+  left: -18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

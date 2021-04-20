@@ -1,8 +1,9 @@
 import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
-import Menu from './components/Menu';
-import QueCayo from './screens/que-cayo/que-cayo.screen';
+import Menu from './components/Menu/Menu';
+import QueCayo from './screens/que-cayo/QueCayo.screen';
+import Home from './screens/home/Home.screen';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -32,9 +33,9 @@ const App: React.FC = () => {
           <Menu />
           <IonRouterOutlet id="main">
             <Route path="/" exact={true}>
-              <Redirect to="/screens/Inbox" />
+              <Home></Home>
             </Route>
-            <Route path="/screens/:name" exact={true}>
+            <Route path="/screens/que-cayo/:name" exact={true}>
               <QueCayo></QueCayo>
             </Route>
           </IonRouterOutlet>

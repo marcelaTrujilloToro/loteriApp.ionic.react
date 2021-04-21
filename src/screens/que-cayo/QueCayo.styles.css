@@ -28,6 +28,7 @@ ion-page {
 .la-fuente-subtitulo {
   color: rgba(1, 95, 163, 1);
   position: relative;
+  font-weight: lighter;
   top: 30px;
   text-align: center;
 }
@@ -39,4 +40,10 @@ ion-page {
   border-radius: 5px;
   position: relative;
   top: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.la-content-logo-lotvalle{
+  width: 5000px;
 }

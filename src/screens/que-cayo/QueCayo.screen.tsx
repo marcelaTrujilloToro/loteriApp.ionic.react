@@ -13,7 +13,7 @@ const QueCayo = () => {
         <div className="la-content-gradiente">
           <IonGrid>
             <IonRow>
-              <IonCol size = "7" offset="4" size-lg className = "la-fuente-titulo">
+              <IonCol className = "la-fuente-titulo">
                 ¿Qué Cayó?
               </IonCol>
             </IonRow>
@@ -35,7 +35,7 @@ const QueCayo = () => {
             <IonRow>
               <IonCol size = "6" offset="4">
                 <div className = "la-content-rectangulo-azul">
-                  <img src="assets\imagenes\logo.png"/>
+                  <img  className="la-content-logo-lotvalle" src="\assets\img\splash\LoteriApp_loter-2_84x45.png"/>
                 </div>
               </IonCol>
              

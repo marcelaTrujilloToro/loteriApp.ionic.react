@@ -14,11 +14,12 @@ ion-header {
   width: 152.03px;
   height: 75px;
   position: relative;
-  top: -25px;
+  top: -15px;
+  padding-left: 10px;
 }
 
 .la-header-elipse {
-  height: 50px;
+  height: 60px;
   width: 90%;
   border-radius: 50%;
   background: rgba(38, 139, 200, 1);

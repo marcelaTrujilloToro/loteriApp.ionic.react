@@ -19,24 +19,16 @@ const HomeScreen = () => {
       <Header></Header>
 
       <IonContent className="ion-no-padding">
-        <div >
-          <div className="la-content-banner">
-            <img
-              src="assets\img\home\LA_banner_1_360x160px.jpg"
-              className="la-img-banner1"
-            ></img>
-          </div>
+        <div className="la-content-gradiente">
           <IonGrid className="ion-no-padding la-content-grid">
-            {/* <IonRow className="la-imagen-row ">
+            <IonRow className="la-imagen-row">
               <IonCol>
-                <div className="la-content-banner">
-                  <IonImg
-                    src="assets\img\home\LA_banner_1_360x160px.jpg"
-                    className="la-img-banner1"
-                  ></IonImg>
-                </div>
+                <IonImg
+                  src="assets\img\home\LA_banner_1_360x160px.jpg"
+                  className="la-img-banner1"
+                ></IonImg>
               </IonCol>
-            </IonRow> */}
+            </IonRow>
 
             <IonRow className="la-titulo-texto-row">
               <IonCol>

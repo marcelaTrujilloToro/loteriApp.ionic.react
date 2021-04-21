@@ -19,15 +19,26 @@ ion-col {
 }
 
 .la-imagen-row {
-  /* height: 20%; */
+  height: 37%;
+  background: rgba(0, 78, 133, 1);  
+  padding-top: 35px;
+  padding-bottom: 10px;
+}
+
+/* For height 810px and larger: */
+@media only screen and (min-height: 810px) {
+  .la-imagen-row {
+    height: 30%;
+  }
 }
 
 .la-content-banner {
-  background: rgba(0, 78, 133, 1);
-  width: 100%;
-  height: 100%;
-  padding-top: 35px;
+  padding-top: 35px;  
   padding-bottom: 10px;
+}
+
+.la-img-banner1{
+  background-color: brown;
 }
 
 .la-img-banner {
@@ -36,10 +47,6 @@ ion-col {
   background-color: brown;
 }
 
-.la-img-banner1{
-  height: 100%;
-  background-color: brown;
-}
 
 .la-titulo-texto-row {
   height: 25%;

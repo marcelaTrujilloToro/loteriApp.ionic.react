@@ -19,14 +19,11 @@ const HomeScreen = () => {
       <Header></Header>
 
       <IonContent className="ion-no-padding">
-        <div className="la-content-gradiente">
+        <div className="la-content-fondo">
           <IonGrid className="ion-no-padding la-content-grid">
             <IonRow className="la-imagen-row">
               <IonCol>
-                <IonImg
-                  src="assets\img\home\LA_banner_1_360x160px.jpg"
-                  className="la-img-banner1"
-                ></IonImg>
+                <IonImg src="/assets/img/home/LA_banner_1_360x160px.jpg"></IonImg>
               </IonCol>
             </IonRow>
 
@@ -49,20 +46,24 @@ const HomeScreen = () => {
                   <IonGrid className="ion-no-padding la-grid-opciones">
                     <IonRow className="la-contendor-row">
                       <IonCol>
-                        <IonGrid className="la-contenedor-img-opcion">
+                        <IonGrid className="la-contenedor-opcion">
                           <IonRow>
                             <IonCol>
-                              <IonImg
-                                className="la-img-opcion"
-                                src="\assets\imagenes\Group 14.png"
-                              ></IonImg>
+                              <div className="cuadro-amarillo">
+                                <IonImg
+                                  className="la-img-opcion"
+                                  src="/assets/imagenes/Loteriapp_opcion_que_cayo.png"
+                                ></IonImg>
+                              </div>
                             </IonCol>
                           </IonRow>
+
                           <IonRow>
                             <IonCol>
                               <IonText>¿Qué Cayó?</IonText>
                             </IonCol>
                           </IonRow>
+
                           <IonRow>
                             <IonCol>
                               <div className="la-linea-roja-opcion"></div>
@@ -70,21 +71,26 @@ const HomeScreen = () => {
                           </IonRow>
                         </IonGrid>
                       </IonCol>
+
                       <IonCol>
-                        <IonGrid className="la-contenedor-img-opcion">
+                        <IonGrid className="la-contenedor-opcion">
                           <IonRow>
                             <IonCol>
-                              <IonImg
-                                className="la-img-opcion"
-                                src="\assets\imagenes\Group 10.png"
-                              ></IonImg>
+                              <div className="cuadro-amarillo">
+                                <IonImg
+                                  className="la-img-opcion"
+                                  src="/assets/imagenes/Loteriapp_opcion_yo_gane.png"
+                                ></IonImg>
+                              </div>
                             </IonCol>
                           </IonRow>
+
                           <IonRow>
                             <IonCol>
                               <IonText>¿Yo Gané?</IonText>
                             </IonCol>
                           </IonRow>
+
                           <IonRow>
                             <IonCol>
                               <div className="la-linea-roja-opcion"></div>
@@ -96,20 +102,24 @@ const HomeScreen = () => {
 
                     <IonRow className="la-contendor-row">
                       <IonCol>
-                        <IonGrid className="la-contenedor-img-opcion">
+                        <IonGrid className="la-contenedor-opcion">
                           <IonRow>
                             <IonCol>
-                              <IonImg
-                                className="la-img-opcion"
-                                src="\assets\imagenes\Group 17.png"
-                              ></IonImg>
+                              <div className="cuadro-amarillo">
+                                <IonImg
+                                  className="la-img-opcion"
+                                  src="/assets/imagenes/Loteriapp_opcion_numeros_suertudos.png"
+                                ></IonImg>
+                              </div>
                             </IonCol>
                           </IonRow>
+
                           <IonRow>
                             <IonCol>
                               <IonText># Suertudos</IonText>
                             </IonCol>
                           </IonRow>
+
                           <IonRow>
                             <IonCol>
                               <div className="la-linea-roja-opcion"></div>
@@ -119,20 +129,24 @@ const HomeScreen = () => {
                       </IonCol>
 
                       <IonCol>
-                        <IonGrid className="la-contenedor-img-opcion">
+                        <IonGrid className="la-contenedor-opcion">
                           <IonRow>
                             <IonCol>
-                              <IonImg
-                                className="la-img-opcion"
-                                src="\assets\imagenes\Group 11.png"
-                              ></IonImg>
+                              <div className="cuadro-amarillo">
+                                <IonImg
+                                  className="la-img-opcion"
+                                  src="/assets/imagenes/Loteriapp_opcion_avisame.png"
+                                ></IonImg>
+                              </div>
                             </IonCol>
                           </IonRow>
+
                           <IonRow>
                             <IonCol>
-                              <IonText>Avísame sí gano</IonText>
+                              <IonText>Avísame si gano</IonText>
                             </IonCol>
                           </IonRow>
+
                           <IonRow>
                             <IonCol>
                               <div className="la-linea-roja-opcion"></div>

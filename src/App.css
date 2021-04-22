@@ -1,0 +1,57 @@
+ion-page {
+  box-sizing: border-box;
+}
+
+.la-content-gradiente-light {
+  background: rgba(214, 229, 240, 1);
+  height: 100%;
+}
+
+.la-content-gradiente-darker {
+  background: linear-gradient(180deg, #b3d5ee 0%, #c5daea 100%);
+  height: 100%;
+}
+
+.la-titulo-18 {
+  color: rgba(19, 11, 89, 1);
+  font-weight: bold;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 18px;
+  margin-top: 17px;
+  margin-bottom: 10px;
+}
+
+.la-titulo-22 {
+  color: rgba(19, 11, 89, 1);
+  font-weight: bold;
+  font-size: 22px;
+  top: 30px;
+}
+
+.la-texto-blue-14 {
+  color: rgba(1, 95, 163, 1);
+  position: relative;
+  font-weight: lighter;
+  font-size: 14px;
+}
+
+.la-titulo-16 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.la-texto-darkblue-12 {
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  color: rgba(19, 11, 89, 1);
+}
+
+.la-boton {
+  width: 100px;
+  height: 40px;
+  background: #004e85;
+  border-radius: 5px;
+}

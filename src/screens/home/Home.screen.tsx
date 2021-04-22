@@ -19,7 +19,7 @@ const HomeScreen = () => {
       <Header></Header>
 
       <IonContent className="ion-no-padding">
-        <div className="la-content-fondo">
+        <div className="la-content-gradiente-light">
           <IonGrid className="ion-no-padding la-content-grid">
             <IonRow className="la-imagen-row">
               <IonCol>
@@ -29,14 +29,24 @@ const HomeScreen = () => {
 
             <IonRow className="la-titulo-texto-row">
               <IonCol>
-                <div className="la-contenedor-texto">
-                  <p className="la-titulo-row">Título 1</p>
-                  <p className="la-subtitulo-row">
-                    Lorem ipsum dolor sit amet, consectetur adipis elit sed
-                    malesuada aliquam pharetra dignissim volutpat parturient
-                    risus sem.
-                  </p>
-                </div>
+
+                <IonGrid className="la-contenedor-texto">
+                  <IonRow className="ion-align-items-end">
+                    <IonCol>
+                      <p className="la-titulo-18 la-titulo-row">Título 1</p>
+                    </IonCol>
+                  </IonRow>
+                  <IonRow className="ion-align-items-center">
+                    <IonCol>
+                      <p className="la-texto-blue-14 la-texto-row">
+                        Lorem ipsum dolor sit amet, consectetur adipis elit sed
+                        malesuada aliquam pharetra dignissim volutpat parturient
+                        risus sem.
+                      </p>
+                    </IonCol>
+                  </IonRow>
+                </IonGrid>
+
               </IonCol>
             </IonRow>
 

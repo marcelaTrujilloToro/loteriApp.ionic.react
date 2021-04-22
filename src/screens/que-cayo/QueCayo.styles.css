@@ -10,7 +10,6 @@ ion-page {
 .la-fuente-titulo {
   color: rgba(19, 11, 89, 1);
   font-weight: bold;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 22px;
   top: 30px;
 }
@@ -33,17 +32,18 @@ ion-page {
   text-align: center;
 }
 
-.la-content-rectangulo-azul {
-  width: 114.41px;
-  height: 114.41px;
-  background: #d0e4f2;
+.la-rectangulo-azul {
+  width: 115px;
+  height: 115px;
+  background: rgba(208, 228, 242, 1);
   border-radius: 5px;
   position: relative;
   top: 60px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
-.la-content-logo-lotvalle{
-  width: 5000px;
+.la-logo{
+   max-width: 110%;
 }

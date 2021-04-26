@@ -19,6 +19,13 @@ import {
 const QueCayoScreen = () => {
   const [showModal, setShowModal] = useState(false);
 
+  const abrirModal = () => {
+    setShowModal(true);
+};
+  const cerrarModal = () => {
+    setShowModal(false);
+};
+
   return (
     <IonPage>
       <Header></Header>
@@ -27,41 +34,35 @@ const QueCayoScreen = () => {
         <div className="la-content-gradiente">
           <IonGrid>
             <IonRow>
-              <IonCol className="la-fuente-titulo">¿Qué Cayó?</IonCol>
-            </IonRow>
-
-            <IonRow>
-              <IonCol size="7" offset="5">
+              <IonCol className="la-col-titulo">
+                <IonTitle className="la-titulo-22">¿Qué Cayó?</IonTitle>
                 <div className="la-content-rectangulo-rojo "></div>
               </IonCol>
             </IonRow>
 
             <IonRow>
               <IonCol className="la-fuente-subtitulo">
-                <p>
+                <IonText>
                   Lorem ipsum dolor sit amet, consectetur adipis elit sed
                   malesuada aliquam pharetra dignissim volutpat parturient.
-                </p>
+                </IonText>
               </IonCol>
             </IonRow>
 
             <IonRow>
-              <IonCol size="6" offset="4">
+              <IonCol >
                 <div className="la-rectangulo-azul">
                   <img
                     className="la-logo"
                     src="/assets/img/splash/LoteriApp_loter-2_84x45.png"
-                  />
+                    onClick={() => abrirModal()}></img>
+                  
                 </div>
+
                 <IonModal isOpen={showModal} cssClass="my-custom-class">
-                  <Modal />
-                  <IonButton onClick={() => setShowModal(false)} fill="clear">
-                    X
-                  </IonButton>
+                  <Modal ocultarModal= {cerrarModal}/>
                 </IonModal>
-                <IonButton onClick={() => setShowModal(true)}>
-                  Show Modal
-                </IonButton>
+
               </IonCol>
             </IonRow>
           </IonGrid>

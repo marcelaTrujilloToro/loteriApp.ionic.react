@@ -54,4 +54,20 @@ ion-page {
   height: 40px;
   background: #004e85;
   border-radius: 5px;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.la-boton-cerrar {
+  font-family: Rounded Mplus 1c;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 16px;
+  color: rgba(94, 59, 11, 1);
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 100;
 }

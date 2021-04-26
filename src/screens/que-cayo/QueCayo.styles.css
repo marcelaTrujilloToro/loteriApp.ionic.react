@@ -5,7 +5,6 @@
 }
 
 .la-col-titulo {
-  top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,7 +17,7 @@
   width: 56px;
   border-radius: 1.2px;
   position: relative;
-  top: 15px;
+  top: 50px;
 }
 
 .la-fuente-subtitulo {
@@ -43,4 +42,11 @@
 
 .la-logo{
    max-width: 110%;
+}
+
+.la-que-cayo-modal .modal-wrapper.sc-ion-modal-ios, .modal-shadow.sc-ion-modal-ios{
+  width: 80%;
+  height: 55%;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+border-radius: 5px;
 }

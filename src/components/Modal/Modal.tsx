@@ -17,6 +17,8 @@ interface ModalProps {
 const Modal: React.FC<ModalProps> = (props) => {
   return (
     <IonContent>
+      <div className="la-que-cayo-modal-content">
+
       <IonButton
         className="la-boton-cerrar"
         onClick={() => {
@@ -28,7 +30,7 @@ const Modal: React.FC<ModalProps> = (props) => {
       >
         X
       </IonButton>
-      <IonGrid className="la-modal ion-no-padding">
+      <IonGrid className="ion-no-padding">
         <IonRow>
           <IonCol>
             <p className="la-texto-darkblue-12 la-texto">
@@ -112,6 +114,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           </IonCol>
         </IonRow>
       </IonGrid>
+      </div>
     </IonContent>
   );
 };

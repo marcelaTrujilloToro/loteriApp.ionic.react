@@ -59,7 +59,7 @@ const QueCayoScreen = () => {
                   
                 </div>
 
-                <IonModal isOpen={showModal} cssClass="my-custom-class">
+                <IonModal isOpen={showModal} cssClass="la-que-cayo-modal">
                   <Modal ocultarModal= {cerrarModal}/>
                 </IonModal>
 

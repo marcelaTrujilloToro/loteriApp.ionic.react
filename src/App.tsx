@@ -1,10 +1,3 @@
-import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
-import { Redirect, Route } from 'react-router-dom';
-import Menu from './components/Menu/Menu';
-import QueCayoScreen from './screens/que-cayo/QueCayo.screen';
-import Home from './screens/home/Home.screen';
-
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -21,11 +14,19 @@ import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
+import React from 'react';
+import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
+import { IonReactRouter } from '@ionic/react-router';
+import { Redirect, Route } from 'react-router-dom';
+import Menu from './components/Menu/Menu';
+import QueCayoScreen from './screens/que-cayo/QueCayo.screen';
+import Home from './screens/home/Home.screen';
+import QueCayoResultadoScreen from './screens/que-cayo-resultado/QueCayoResultadoScreen';
+
 /* Theme variables */
 import './theme/variables.css';
 import './App.css';
 
-import React from 'react';
 
 const App: React.FC = () => {
   return (
@@ -34,12 +35,19 @@ const App: React.FC = () => {
         <IonSplitPane contentId="main">
           <Menu />
           <IonRouterOutlet id="main">
+
             <Route path="/" exact={true}>
               <Home></Home>
             </Route>
+
             <Route path="/screens/que-cayo/:name" exact={true}>
               <QueCayoScreen></QueCayoScreen>
             </Route>
+
+            <Route path="/screens/que-cayo-resultado/QueCayoResultadoScreen" exact={true}>
+              <QueCayoResultadoScreen/>
+            </Route>
+
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>

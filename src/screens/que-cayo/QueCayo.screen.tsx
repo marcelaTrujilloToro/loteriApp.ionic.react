@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "../../components/Header/Header";
 import "../que-cayo/QueCayo.styles.css";
-import Modal from "../../components/Modal/Modal";
+import ModalQueCayo from "../../components/Modal-que-cayo/ModalQueCayo";
 
 import {
   IonButton,
@@ -21,17 +21,17 @@ const QueCayoScreen = () => {
 
   const abrirModal = () => {
     setShowModal(true);
-};
+  };
   const cerrarModal = () => {
     setShowModal(false);
-};
+  };
 
   return (
     <IonPage>
       <Header></Header>
 
       <IonContent className="ion-no-padding">
-        <div className="la-content-gradiente">
+        <div className="la-content-gradiente-darker">
           <IonGrid>
             <IonRow>
               <IonCol className="la-col-titulo">
@@ -60,7 +60,7 @@ const QueCayoScreen = () => {
                 </div>
 
                 <IonModal isOpen={showModal} cssClass="la-que-cayo-modal">
-                  <Modal ocultarModal= {cerrarModal}/>
+                  <ModalQueCayo ocultarModal= {cerrarModal}/>
                 </IonModal>
 
               </IonCol>

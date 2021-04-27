@@ -10,8 +10,6 @@ ion-menu ion-content {
 /* ion-menu.md ion-content {
    background-color: rgba(1, 95, 163, 1);
 } 
-
-
 ion-menu.md ion-list {
   background-color: rgba(1, 95, 163, 1); 
 } */
@@ -45,27 +43,21 @@ ion-menu.md ion-item {
   color: rgba(166, 199, 223, 1);
   
 }
-
 ion-menu.md ion-item.selected {
   background-color: rgba(1, 95, 163, 1); 
   color: rgba(235, 219, 82, 1);
 }
-
 ion-menu.md ion-item ion-icon {
   color: rgba(166, 199, 223, 1);
 }
-
 ion-menu.md ion-item.selected ion-icon {
   color: rgba(235, 219, 82, 1); 
 }
-
-
 ion-menu.md ion-item ion-label {
   color: rgba(166, 199, 223, 1);
   font-weight: bold;
   background-color: rgba(1, 95, 163, 1);
 }
-
 ion-menu.md ion-item.selected ion-label {
   color: rgba(235, 219, 82, 1);
   font-weight: bold;
@@ -89,11 +81,9 @@ ion-menu.md ion-item.selected ion-label {
 ion-menu.ios ion-item {
   background-color: rgba(1, 95, 163, 1);
 }
-
 ion-menu.ios ion-item ion-icon {
   color: rgba(166, 199, 223, 1);
 }
-
 ion-menu.ios ion-item .selected ion-icon {
   color:rgba(235, 219, 82, 1)
 } */

@@ -1,0 +1,29 @@
+.la-content-grid {
+  height: 100%;
+  width: 100%;
+}
+
+.la-rectangulo-rojo {
+  background: rgba(236, 8, 0, 1);
+  border-radius: 1.15px;
+  height: 2.25px;
+  width: 56px;
+  border-radius: 1.2px;
+  position: relative;
+  top: 15px;
+  
+}
+
+.la-title-row {
+  height: 15%;
+}
+
+.la-billete-row {
+  height: 30%;
+}
+
+.la-lista-sorteo-row {
+  height: 50%;
+}
+
+

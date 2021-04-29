@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ModalQueCayo.css";
 import QueCayoResultadoScreen from "../../../src/screens/que-cayo-resultado/QueCayoResultadoScreen";
 
@@ -19,6 +19,8 @@ interface ModalProps {
 
 const ModalQueCayo: React.FC<ModalProps> = (props) => {
   const history = useHistory();
+
+  
 
   return (
     <IonContent >

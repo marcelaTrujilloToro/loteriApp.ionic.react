@@ -71,3 +71,18 @@ ion-page {
   right: 0;
   z-index: 100;
 }
+
+.la-division-premios {
+  list-style-type: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.la-premio-fuente {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14.5px;
+  line-height: 16px;
+  color: rgba(1, 95, 163, 1);
+}

@@ -11,7 +11,6 @@
   border-radius: 1.2px;
   position: relative;
   top: 15px;
-  
 }
 
 .la-title-row {
@@ -19,11 +18,86 @@
 }
 
 .la-billete-row {
-  height: 30%;
+  height: 35%;
 }
 
 .la-lista-sorteo-row {
-  height: 50%;
+  height: 45%;
 }
 
+.la-col-num-sorteo {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
 
+.la-circulo-blanco {
+  width: 48px;
+  height: 48px;
+  background-color: rgba(255, 255, 255, 1);
+  border: 2px solid rgba(19, 11, 89, 1);
+  border-radius: 50%;
+}
+
+.la-circulo-rojo {
+  width: 36px;
+  height: 36px;
+  background-color: rgba(236, 8, 0, 1);
+  border: 2px solid rgba(255, 255, 255, 1);
+  border-radius: 50%;
+}
+
+.la-fuente-billete-22 {
+  padding-top: 10px;
+  color: rgba(1, 95, 163, 1);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+}
+
+.la-titulo-num-sorteo {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  color: #015fa3;
+}
+
+.la-num-sorteo {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  color: #ec0800;
+}
+
+.la-info-sorteo {
+  position: relative;
+  top: -5px;
+}
+
+.la-logo-ltr {
+  width: 60%;
+}
+
+.la-cifra-sorteo {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 49px;
+  text-align: center;
+  color: rgba(0, 106, 181, 1);
+}
+
+.la-serie-sorteo {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #ffffff;
+}

@@ -77,7 +77,7 @@ const Menu: React.FC = () => {
               <IonMenuToggle key={index} autoHide={false}>
                 <IonItem
                   className={
-                    location.pathname === appPage.url ? "selected" : ""
+                    location.pathname === appPage.url ? "selected" : "la-menu-item"
                   }
                   routerLink={appPage.url}
                   routerDirection="none"

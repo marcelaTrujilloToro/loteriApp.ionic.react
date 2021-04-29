@@ -125,8 +125,9 @@ ion-menu ion-content{
 }
 
 
-.item-native::after{
-  background-color: rgba(1, 95, 163, 1);
+.la-menu-item .item-native{
+  background: rgba(1, 95, 163, 1) !important;
+  --background:rgba(1, 95, 163, 1);
   opacity: 1;
 }
 

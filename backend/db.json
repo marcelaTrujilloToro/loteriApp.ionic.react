@@ -1,0 +1,31 @@
+{
+    "loterias": 
+    [
+        {
+            "codigo": "024",
+            "ultimoSorteo": "3428"
+        }
+    ],
+
+    "resultados":
+    [
+        {
+            "nombreDiaMes": "Miercoles",
+            "diaMes": "10",
+            "nombreMes": "Marzo",
+            "anio": "2021",
+            "serieMayor": "183",
+            "numeroMayor": "9397",
+            "sorteo": "1234",
+            "fecha": "2021/04/29",
+            "secos":[
+                {
+                    "nombre": "PRIMER PREMIO SECO",
+                    "numero": "1234",
+                    "serie": "123"
+                }
+            ]
+        }
+        
+    ]
+}

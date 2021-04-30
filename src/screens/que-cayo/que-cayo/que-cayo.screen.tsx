@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./que-cayo.style.css";
 import Header from "../../../components/header/header.comp";
 import ModalQueCayo from "../components/modal-que-cayo/modal-que-cayo.comp";
+import { useLoterias } from "../../../hooks/loteria/useLoterias.hook";
 
 import {
   IonButton,
@@ -17,6 +18,8 @@ import {
 } from "@ionic/react";
 
 const QueCayoScreen = () => {
+  const { isLoading, isError, data: loteriasList } = useLoterias();
+
   const [showModal, setShowModal] = useState(false);
 
   const abrirModal = () => {
@@ -25,6 +28,23 @@ const QueCayoScreen = () => {
   const cerrarModal = () => {
     setShowModal(false);
   };
+
+  if (isLoading) {
+    return (
+      <IonPage>
+        <Header></Header>
+        <IonContent className="ion-no-padding">Cargando...</IonContent>
+      </IonPage>
+    );
+  }
+  if (isError) {
+    return (
+      <IonPage>
+        <Header></Header>
+        <IonContent className="ion-no-padding">Error</IonContent>
+      </IonPage>
+    );
+  }
 
   return (
     <IonPage>
@@ -50,20 +70,21 @@ const QueCayoScreen = () => {
             </IonRow>
 
             <IonRow>
-              <IonCol >
-                <div className="la-rectangulo-azul">
-                  <img
-                    className="la-logo"
-                    src="/assets/img/splash/LoteriApp_loter-2_84x45.png"
-                    onClick={() => abrirModal()}></img>
-                  
-                </div>
+              {loteriasList?.map((loteria) => (
+                <IonCol key={loteria.codigo}>
+                  <div className="la-rectangulo-azul">
+                    <img
+                      className="la-logo"
+                      src={`/assets/img/loterias/${loteria.codigo}.png`}
+                      onClick={() => abrirModal()}
+                    ></img>
+                  </div>
 
-                <IonModal isOpen={showModal} cssClass="la-que-cayo-modal">
-                  <ModalQueCayo ocultarModal= {cerrarModal}/>
-                </IonModal>
-
-              </IonCol>
+                  <IonModal isOpen={showModal} cssClass="la-que-cayo-modal">
+                    <ModalQueCayo ocultarModal={cerrarModal} />
+                  </IonModal>
+                </IonCol>
+              ))}
             </IonRow>
           </IonGrid>
         </div>

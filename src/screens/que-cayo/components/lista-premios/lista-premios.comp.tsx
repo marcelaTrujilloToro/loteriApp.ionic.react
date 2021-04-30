@@ -1,11 +1,11 @@
 import { IonCol, IonGrid, IonRow } from "@ionic/react";
 import React from "react";
-import { Premio } from "../../models/Premio";
-import PremioItem from "../PremioItem/PremioItem";
-import "./ListaPremios.style.css";
+import { Seco } from "../../../../models/que-cayo/Seco";
+import PremioItem from "../premio-item/premio-item.comp";
+import "./lista-premios.style.css";
 
 type ListaPremioProps = {
-  listaPremios: Array<Premio>;
+  listaPremios: Array<Seco>;
 };
 
 const ListaPremios: React.FC<ListaPremioProps> = (props) => {

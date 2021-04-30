@@ -16,7 +16,7 @@ import {
   chevronForward,
 } from "ionicons/icons";
 
-import "./Menu.css";
+import "./menu.style.css";
 
 interface AppPage {
   url: string;

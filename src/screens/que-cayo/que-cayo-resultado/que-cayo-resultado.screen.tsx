@@ -1,46 +1,41 @@
-import { IonCol, IonContent, IonGrid, IonPage, IonRow } from "@ionic/react";
 import React, { useState } from "react";
-import Header from "../../components/Header/Header";
-import { Premio } from "../../models/Premio";
-import ListaPremios from "../../components/ListaPremios/ListaPremios";
-import "./QueCayoResultado.style.css";
+import { IonCol, IonContent, IonGrid, IonPage, IonRow } from "@ionic/react";
+import "./que-cayo-resultado.style.css";
+import Header from "../../../components/header/header.comp";
+import { Seco } from "../../../models/que-cayo/Seco";
+import ListaPremios from "../components/lista-premios/lista-premios.comp";
 
 const QueCayoResultadoScreen: React.FC = () => {
-  const [arregloPremios, setArregloPremios] = useState<Array<Premio>>([
+  const [arregloPremios, setArregloPremios] = useState<Array<Seco>>([
     {
       codigo: "1",
-      descripcion: "PRIMER PREMIO SECO DE 100 MILL",
+      nombre: "PRIMER PREMIO SECO DE 100 MILL",
       numero: "0936",
       serie: "245",
-      valor: "1000",
     },
     {
       codigo: "2",
-      descripcion: "PRIMER PREMIO SECO DE 50 MILL",
+      nombre: "PRIMER PREMIO SECO DE 50 MILL",
       numero: "0936",
       serie: "245",
-      valor: "1000",
     },
     {
       codigo: "3",
-      descripcion: "SEGUNDO PREMIO SECO DE 50 MILL",
+      nombre: "SEGUNDO PREMIO SECO DE 50 MILL",
       numero: "0936",
       serie: "245",
-      valor: "1000",
     },
     {
       codigo: "4",
-      descripcion: "PRIMER PREMIO SECO DE 20 MILL",
+      nombre: "PRIMER PREMIO SECO DE 20 MILL",
       numero: "0936",
       serie: "245",
-      valor: "1000",
     },
     {
       codigo: "5",
-      descripcion: "SEGUNDO PREMIO SECO DE 20 MILL",
+      nombre: "SEGUNDO PREMIO SECO DE 20 MILL",
       numero: "0936",
       serie: "245",
-      valor: "1000",
     },
   ]);
 
@@ -82,11 +77,11 @@ const QueCayoResultadoScreen: React.FC = () => {
                   </IonRow>
                   <IonRow>
                     <IonCol className="la-col-num-sorteo">
-                      <div className="la-circulo-blanco"> <span className="la-cifra-sorteo">9</span> </div>
-                      <div className="la-circulo-blanco"><span className="la-cifra-sorteo">3</span></div>
-                      <div className="la-circulo-blanco"><span className="la-cifra-sorteo">9</span></div>
-                      <div className="la-circulo-blanco"><span className="la-cifra-sorteo">7</span></div>
-                      <div className="la-circulo-rojo"><span className="la-serie-sorteo">183</span></div>
+                      <div className="la-balota-blanca"> <span className="la-cifra-sorteo">9</span> </div>
+                      <div className="la-balota-blanca"><span className="la-cifra-sorteo">3</span></div>
+                      <div className="la-balota-blanca"><span className="la-cifra-sorteo">9</span></div>
+                      <div className="la-balota-blanca"><span className="la-cifra-sorteo">7</span></div>
+                      <div className="la-balota-roja"><span className="la-serie-sorteo">183</span></div>
                     </IonCol>
                   </IonRow>
                   <IonRow>

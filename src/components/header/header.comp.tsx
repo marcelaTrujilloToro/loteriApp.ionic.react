@@ -1,5 +1,5 @@
 import React from "react";
-import "../Header/Header.css";
+import "./header.style.css";
 
 import {
   IonButton,

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Header from "../../components/Header/Header";
-import "../que-cayo/QueCayo.styles.css";
-import ModalQueCayo from "../../components/Modal-que-cayo/ModalQueCayo";
+import "./que-cayo.style.css";
+import Header from "../../../components/header/header.comp";
+import ModalQueCayo from "../components/modal-que-cayo/modal-que-cayo.comp";
 
 import {
   IonButton,

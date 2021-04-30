@@ -18,10 +18,10 @@ import React from 'react';
 import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
-import Menu from './components/Menu/Menu';
-import QueCayoScreen from './screens/que-cayo/QueCayo.screen';
+import Menu from './components/menu/menu.comp';
+import QueCayoScreen from './screens/que-cayo/que-cayo/que-cayo.screen';
 import Home from './screens/home/Home.screen';
-import QueCayoResultadoScreen from './screens/que-cayo-resultado/QueCayoResultadoScreen';
+import QueCayoResultadoScreen from './screens/que-cayo/que-cayo-resultado/que-cayo-resultado.screen';
 
 /* Theme variables */
 import './theme/variables.css';

@@ -9,9 +9,9 @@ import {
   IonTitle,
 } from "@ionic/react";
 import React from "react";
-import Header from "../../components/Header/Header";
-
 import "./Home.styles.css";
+import Header from "../../components/header/header.comp";
+
 
 const HomeScreen = () => {
   return (

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./ModalQueCayo.css";
-import QueCayoResultadoScreen from "../../../src/screens/que-cayo-resultado/QueCayoResultadoScreen";
+import "./modal-que-cayo.style.css";
+import QueCayoResultadoScreen from "../../que-cayo-resultado/que-cayo-resultado.screen";
 
 import {
   IonButton,

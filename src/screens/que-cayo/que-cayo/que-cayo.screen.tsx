@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import "./que-cayo.style.css";
 import Header from "../../../components/header/header.comp";
 import ModalQueCayo from "../components/modal-que-cayo/modal-que-cayo.comp";
-import { useLoterias } from "../../../hooks/loteria/useLoterias.hook";
+import { useLoterias } from '../../../hooks/loteria/useLoterias.hook';
+import Loading from '../../../shared/screen/loading/loading.screen';
 
+import Error from '../../../shared/screen/error/error.screen'
 import {
   IonButton,
   IonCol,
@@ -17,10 +19,11 @@ import {
   IonTitle,
 } from "@ionic/react";
 
-const QueCayoScreen = () => {
+const QueCayoScreen: React.FC = () => {
   const { isLoading, isError, data: loteriasList } = useLoterias();
 
   const [showModal, setShowModal] = useState(false);
+  const [showAlert1, setShowAlert1] = useState(false);
 
   const abrirModal = () => {
     setShowModal(true);
@@ -31,18 +34,15 @@ const QueCayoScreen = () => {
 
   if (isLoading) {
     return (
-      <IonPage>
-        <Header></Header>
-        <IonContent className="ion-no-padding">Cargando...</IonContent>
-      </IonPage>
+      <Loading></Loading>
     );
   }
+
+
   if (isError) {
+
     return (
-      <IonPage>
-        <Header></Header>
-        <IonContent className="ion-no-padding">Error</IonContent>
-      </IonPage>
+      <Error></Error>
     );
   }
 

@@ -3,7 +3,7 @@ import {
 } from 'react-query';
 
 import useAzenApi from '../../api/useAzenApi';
-import { Loteria } from '../../models/loteria/loteria';
+import { Loteria } from '../../models/loteria/Loteria';
 
 export const useLoterias = () => {
     

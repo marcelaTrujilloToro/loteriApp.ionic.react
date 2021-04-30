@@ -86,3 +86,13 @@ ion-page {
   line-height: 16px;
   color: rgba(1, 95, 163, 1);
 }
+
+.la-error-carga{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  padding: 30px;
+  
+}

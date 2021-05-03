@@ -52,11 +52,12 @@ const App: React.FC = () => {
               </Route>
 
               <Route
-                path="/screens/que-cayo-resultado/QueCayoResultadoScreen"
+                path="/screens/que-cayo-resultado/QueCayoResultadoScreen/:codigoLoteria/:numeroSorteo"
                 exact={true}
               >
                 <QueCayoResultadoScreen />
               </Route>
+              
             </IonRouterOutlet>
           </IonSplitPane>
         </IonReactRouter>

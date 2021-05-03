@@ -4,40 +4,37 @@ import "./que-cayo-resultado.style.css";
 import Header from "../../../components/header/header.comp";
 import { Seco } from "../../../models/que-cayo/Seco";
 import ListaPremios from "../components/lista-premios/lista-premios.comp";
+import { useResultados } from '../../../hooks/resultados/useResultados.hook'
+import { useParams } from "react-router";
+import Loading from "../../../shared/screen/loading/loading.screen";
+import Error from "../../../shared/screen/error/error.screen";
+
+export interface QueCayoResultadoScreenParams {
+  codigoLoteria: string;
+  numeroSorteo: string;
+}
 
 const QueCayoResultadoScreen: React.FC = () => {
-  const [arregloPremios, setArregloPremios] = useState<Array<Seco>>([
-    {
-      codigo: "1",
-      nombre: "PRIMER PREMIO SECO DE 100 MILL",
-      numero: "0936",
-      serie: "245",
-    },
-    {
-      codigo: "2",
-      nombre: "PRIMER PREMIO SECO DE 50 MILL",
-      numero: "0936",
-      serie: "245",
-    },
-    {
-      codigo: "3",
-      nombre: "SEGUNDO PREMIO SECO DE 50 MILL",
-      numero: "0936",
-      serie: "245",
-    },
-    {
-      codigo: "4",
-      nombre: "PRIMER PREMIO SECO DE 20 MILL",
-      numero: "0936",
-      serie: "245",
-    },
-    {
-      codigo: "5",
-      nombre: "SEGUNDO PREMIO SECO DE 20 MILL",
-      numero: "0936",
-      serie: "245",
-    },
-  ]);
+  
+  const { codigoLoteria, numeroSorteo } = useParams<QueCayoResultadoScreenParams>();
+
+  const { isLoading, isError, data:resultado } = useResultados(codigoLoteria, numeroSorteo);
+
+  
+
+  if (isLoading) {
+    return (
+      <Loading></Loading>
+    );
+  }
+
+
+  if (isError) {
+
+    return (
+      <Error></Error>
+    );
+  }
 
   return (
     <IonPage>
@@ -55,12 +52,11 @@ const QueCayoResultadoScreen: React.FC = () => {
 
             <IonRow className="la-billete-row">
               <div style={{backgroundImage: `url(/assets/imagenes/Loteriapp-billete-completo.png)`, backgroundRepeat:"no-repeat", backgroundSize:"cover", backgroundPosition:"center"}} >
-                {/* <img className="la" src="/assets/imagenes/Loteriapp-billete-completo.png"></img> */}
                 <IonGrid  >
                   <IonRow>
                     <IonCol>
                       <img className="la-logo-ltr"
-                        src="/assets/imagenes/Loteriapp_logo_valle.png"
+                        src={`/assets/imagenes/${codigoLoteria}-sin-fondo.png`}
                         alt=""
                       />
                     </IonCol>
@@ -70,23 +66,25 @@ const QueCayoResultadoScreen: React.FC = () => {
                           <IonCol className="la-fuente-billete-22">PREMIO MAYOR</IonCol>
                         </IonRow>
                         <IonRow>
-                          <IonCol className="la-titulo-16">Miercoles 10 de Marzo - 2021</IonCol>
+                          <IonCol className="la-titulo-16">{resultado?.nombreDiaMes} {resultado?.diaMes} de {resultado?.nombreMes} - {resultado?.anio}</IonCol>
                         </IonRow>
                       </IonGrid>
                     </IonCol>
                   </IonRow>
+
                   <IonRow>
                     <IonCol className="la-col-num-sorteo">
-                      <div className="la-balota-blanca"> <span className="la-cifra-sorteo">9</span> </div>
-                      <div className="la-balota-blanca"><span className="la-cifra-sorteo">3</span></div>
-                      <div className="la-balota-blanca"><span className="la-cifra-sorteo">9</span></div>
-                      <div className="la-balota-blanca"><span className="la-cifra-sorteo">7</span></div>
-                      <div className="la-balota-roja"><span className="la-serie-sorteo">183</span></div>
+                      <div className="la-balota-blanca"> <span className="la-cifra-sorteo">{resultado?.numeroMayor[0]}</span> </div>
+                      <div className="la-balota-blanca"><span className="la-cifra-sorteo">{resultado?.numeroMayor[1]}</span></div>
+                      <div className="la-balota-blanca"><span className="la-cifra-sorteo">{resultado?.numeroMayor[2]}</span></div>
+                      <div className="la-balota-blanca"><span className="la-cifra-sorteo">{resultado?.numeroMayor[3]}</span></div>
+                      <div className="la-balota-roja"><span className="la-serie-sorteo">{resultado?.serieMayor}</span></div>
                     </IonCol>
                   </IonRow>
+                  
                   <IonRow>
                     <IonCol size="2" offset="4"> <span className="la-titulo-num-sorteo la-info-sorteo">Sorteo</span></IonCol>
-                    <IonCol size="2" ><span className="la-num-sorteo la-info-sorteo">4685</span></IonCol>
+                    <IonCol size="2" ><span className="la-num-sorteo la-info-sorteo">{numeroSorteo}</span></IonCol>
                   </IonRow>
                 </IonGrid>
               </div>
@@ -94,7 +92,7 @@ const QueCayoResultadoScreen: React.FC = () => {
 
             <IonRow className="la-lista-sorteo-row">
               <IonCol>
-                <ListaPremios listaPremios={arregloPremios}></ListaPremios>
+                <ListaPremios listaSecos={resultado?.secos}></ListaPremios>
               </IonCol>
             </IonRow>
           </IonGrid>

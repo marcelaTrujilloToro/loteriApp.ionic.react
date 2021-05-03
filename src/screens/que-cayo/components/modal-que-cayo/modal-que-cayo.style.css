@@ -17,7 +17,8 @@ ion-modal {
 .la-num-sorteo {
   font-weight: bold;
   font-size: 22px;
-  color: #004e85;
+  color: rgba(0, 78, 133, 1);
+  text-align: center;
 }
 
 .la-texto {
@@ -36,4 +37,11 @@ ion-modal {
   height: 100%;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
+}
+
+.native-input.sc-ion-input-ios{
+  padding: 0px;
+  color: rgba(0, 78, 133, 1);
+  font-weight: bold;
+  font-size: 22px;
 }

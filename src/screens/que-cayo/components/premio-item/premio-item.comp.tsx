@@ -10,7 +10,7 @@ type PremioProps = {
 const PremioItem: React.FC<PremioProps> = (props) => {
   return (
     <IonRow className="la-division-premios">
-      <IonCol className="la-premio-fuente" size="7">
+      <IonCol className="la-premio-fuente" size="9">
         {props.premio.nombre}
       </IonCol>
       <IonCol className="la-premio-fuente">{props.premio.numero}</IonCol>

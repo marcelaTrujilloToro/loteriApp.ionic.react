@@ -21,9 +21,8 @@ import {
 
 const QueCayoScreen: React.FC = () => {
   const { isLoading, isError, data: loteriasList } = useLoterias();
-
+  
   const [showModal, setShowModal] = useState(false);
-  const [showAlert1, setShowAlert1] = useState(false);
 
   const abrirModal = () => {
     setShowModal(true);
@@ -81,7 +80,7 @@ const QueCayoScreen: React.FC = () => {
                   </div>
 
                   <IonModal isOpen={showModal} cssClass="la-que-cayo-modal">
-                    <ModalQueCayo ocultarModal={cerrarModal} />
+                    <ModalQueCayo ocultarModal={cerrarModal} loteria={loteria}/>
                   </IonModal>
                 </IonCol>
               ))}

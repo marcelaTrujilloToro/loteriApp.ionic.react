@@ -13,7 +13,7 @@ export const useLoterias = () => {
         const { data } = await azenApi.get(`/loterias/`);
         return data;
     }, {
-        cacheTime: 10 * 1000,
+        staleTime: Infinity,
         retry: 1,
     });
 }

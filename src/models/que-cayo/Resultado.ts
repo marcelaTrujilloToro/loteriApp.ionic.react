@@ -1,5 +1,13 @@
+import { Seco } from "./Seco";
+
 export interface Resultado{
-    nombre: string;
-    numero:string;
-    serie: string;
+    nombreDiaMes: string;
+    anio:string;
+    diaMes:string;
+    nombreMes: string;
+    serieMayor: string;
+    numeroMayor: string;
+    sorteo: string;
+    fecha: string;
+    secos: Seco[];
 }

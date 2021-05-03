@@ -5,14 +5,14 @@ import PremioItem from "../premio-item/premio-item.comp";
 import "./lista-premios.style.css";
 
 type ListaPremioProps = {
-  listaPremios: Array<Seco>;
+  listaSecos: Array<Seco>;
 };
 
 const ListaPremios: React.FC<ListaPremioProps> = (props) => {
   return (
     <IonGrid className=" ion-no-padding la-grid-lista-premios">
-      {props.listaPremios.map((premio) => {
-        return <PremioItem premio={premio}></PremioItem>;
+      {props.listaSecos.map((seco) => {
+        return <PremioItem key={seco.nombre} premio={seco}></PremioItem>;
       })}
     </IonGrid>
   );

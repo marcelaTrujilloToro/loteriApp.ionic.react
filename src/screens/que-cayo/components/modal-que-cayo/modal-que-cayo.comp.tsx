@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./modal-que-cayo.style.css";
-import QueCayoResultadoScreen from "../../que-cayo-resultado/que-cayo-resultado.screen";
+import QueCayoResultadoScreen, { QueCayoResultadoScreenParams } from "../../que-cayo-resultado/que-cayo-resultado.screen";
 
 import {
   IonButton,
@@ -12,17 +12,26 @@ import {
   IonText,
 } from "@ionic/react";
 import { useHistory } from "react-router";
+import { Loteria } from "../../../../models/loteria/Loteria";
 
 interface ModalProps {
   ocultarModal: () => void;
+  loteria: Loteria;
 }
 
 const ModalQueCayo: React.FC<ModalProps> = (props) => {
+
   const history = useHistory();
 
-  
+  const [sorteoDigito1, setSorteoDigito1] = useState(props.loteria.ultimoSorteo[0]);
+  const [sorteoDigito2, setSorteoDigito2] = useState(props.loteria.ultimoSorteo[1]);
+  const [sorteoDigito3, setSorteoDigito3] = useState(props.loteria.ultimoSorteo[2]);
+  const [sorteoDigito4, setSorteoDigito4] = useState(props.loteria.ultimoSorteo[3]);
+
 
   return (
+
+
     <IonContent >
       <div className="la-que-cayo-modal-content">
         <IonButton
@@ -53,11 +62,14 @@ const ModalQueCayo: React.FC<ModalProps> = (props) => {
           <IonRow>
             <IonCol>
               <IonGrid>
-                <IonRow>
-                  <IonCol>
-                    <IonInput
-                      className="la-num-sorteo"
-                      type="number"
+                <IonRow className="la-num-sorteo">
+                  <IonCol >
+                    <IonInput                      
+                      type="text"
+                      value={sorteoDigito1}
+                      onChange = {(evento:any) => {
+                        setSorteoDigito1(evento.target.value);
+                     }}
                     ></IonInput>
                   </IonCol>
                 </IonRow>
@@ -71,11 +83,14 @@ const ModalQueCayo: React.FC<ModalProps> = (props) => {
 
             <IonCol>
               <IonGrid>
-                <IonRow>
+                <IonRow  className="la-num-sorteo">
                   <IonCol>
                     <IonInput
-                      className="la-num-sorteo"
-                      type="number"
+                      type="text"
+                      value={sorteoDigito2}
+                      onChange = {(evento:any) => {
+                        setSorteoDigito2(evento.target.value);
+                     }}
                     ></IonInput>
                   </IonCol>
                 </IonRow>
@@ -89,11 +104,14 @@ const ModalQueCayo: React.FC<ModalProps> = (props) => {
 
             <IonCol>
               <IonGrid>
-                <IonRow>
+                <IonRow className="la-num-sorteo">
                   <IonCol>
                     <IonInput
-                      className="la-num-sorteo"
-                      type="number"
+                      type="text"
+                      value={sorteoDigito3}
+                      onChange = {(evento:any) => {
+                        setSorteoDigito3(evento.target.value);
+                     }}
                     ></IonInput>
                   </IonCol>
                 </IonRow>
@@ -107,11 +125,14 @@ const ModalQueCayo: React.FC<ModalProps> = (props) => {
 
             <IonCol>
               <IonGrid>
-                <IonRow>
+                <IonRow className="la-num-sorteo">
                   <IonCol>
                     <IonInput
-                      className="la-num-sorteo"
-                      type="number"
+                      type="text"
+                      value={sorteoDigito4}
+                      onChange = {(evento:any) => {
+                        setSorteoDigito4(evento.target.value);
+                     }}
                     ></IonInput>
                   </IonCol>
                 </IonRow>
@@ -129,9 +150,10 @@ const ModalQueCayo: React.FC<ModalProps> = (props) => {
               <button
                 className="la-boton la-boton-consultar"
                 onClick={() => {
-                  history.push(
-                    "/screens/que-cayo-resultado/QueCayoResultadoScreen");
-                    props.ocultarModal();
+                  props.ocultarModal();                                 
+                  history.push({
+                    pathname: `/screens/que-cayo-resultado/QueCayoResultadoScreen/${props.loteria.codigo}/${props.loteria.ultimoSorteo}`,
+                  })
                 }}
               >
                 CONSULTAR

@@ -7,12 +7,12 @@ ion-menu ion-content {
 }
 
 
-/* ion-menu.md ion-content {
+ /* ion-menu.md ion-content {
    background-color: rgba(1, 95, 163, 1);
 } 
 ion-menu.md ion-list {
   background-color: rgba(1, 95, 163, 1); 
-} */
+}  */
 
 /* ion-menu.md ion-note {
   margin-bottom: 30px;
@@ -111,7 +111,7 @@ ion-menu.ios ion-note {
 ion-item.selected {
   color: rgba(235, 219, 82, 1);
   font-weight: bold;
-  background-color: rgba(1, 95, 163, 1);
+  background-color: rgba(1, 95, 163, 1) !important; 
 }
 
 ion-item{

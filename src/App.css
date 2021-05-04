@@ -85,6 +85,7 @@ ion-page {
   font-size: 14.5px;
   line-height: 16px;
   color: rgba(1, 95, 163, 1);
+  text-align: left;
 }
 
 .la-error-carga{

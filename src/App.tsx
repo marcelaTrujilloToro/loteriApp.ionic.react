@@ -52,7 +52,7 @@ const App: React.FC = () => {
               </Route>
 
               <Route
-                path="/screens/que-cayo-resultado/QueCayoResultadoScreen/:codigoLoteria/:numeroSorteo"
+                path="/screens/que-cayo-resultado/que-cayo-resultado.screen/:codigoLoteria/:numeroSorteo"
                 exact={true}
               >
                 <QueCayoResultadoScreen />

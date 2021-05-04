@@ -11,9 +11,14 @@ import {
 import React from "react";
 import "./Home.styles.css";
 import Header from "../../components/header/header.comp";
+import QueCayoScreen from "../que-cayo/que-cayo/que-cayo.screen";
+import { useHistory } from "react-router";
 
 
 const HomeScreen = () => {
+
+  const history = useHistory();
+  
   return (
     <IonPage>
       <Header></Header>
@@ -63,6 +68,11 @@ const HomeScreen = () => {
                                 <IonImg
                                   className="la-img-opcion"
                                   src="/assets/imagenes/Loteriapp_opcion_que_cayo.png"
+                                  onClick={() => {
+                                    history.replace({
+                                      pathname: `/screens/que-cayo/que-cayo.screen`,
+                                    })
+                                  }}
                                 ></IonImg>
                               </div>
                             </IonCol>

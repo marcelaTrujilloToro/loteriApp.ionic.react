@@ -28,16 +28,16 @@ interface AppPage {
 const appPages: AppPage[] = [
   {
     title: "¿Qué Cayó?",
-    url: "../../screens/que-cayo/QueCayo.screen",
+    url: "/screens/que-cayo/:name",
     iosIcon: chevronForward,
     mdIcon: chevronForward,
-  },
+  }
   // {
-  //   title: ¿Yo Gané?',
-  //   url: "",
+  //   title: '¿Yo Gané?',
+  //   url: "/screens/que-cayo/:name",
   //   iosIcon: chevronForward,
   //   mdIcon: chevronForward,
-  // },
+  // }
   // {
   //   title: 'Los Números Suertudos',
   //   url: "",

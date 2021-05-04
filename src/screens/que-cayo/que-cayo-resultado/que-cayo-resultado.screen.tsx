@@ -3,7 +3,7 @@ import { IonCol, IonContent, IonGrid, IonPage, IonRow } from "@ionic/react";
 import "./que-cayo-resultado.style.css";
 import Header from "../../../components/header/header.comp";
 import { Seco } from "../../../models/que-cayo/Seco";
-import ListaPremios from "../components/lista-premios/lista-premios.comp";
+import ListaSecos from "../components/lista-secos/lista-secos.comp";
 import { useResultados } from '../../../hooks/resultados/useResultados.hook'
 import { useParams } from "react-router";
 import Loading from "../../../shared/screen/loading/loading.screen";
@@ -92,7 +92,7 @@ const QueCayoResultadoScreen: React.FC = () => {
 
             <IonRow className="la-lista-sorteo-row">
               <IonCol>
-                <ListaPremios listaSecos={resultado?.secos}></ListaPremios>
+                <ListaSecos listaSecos={resultado?.secos}></ListaSecos>
               </IonCol>
             </IonRow>
           </IonGrid>

@@ -1,8 +1,9 @@
 
-.la-col-titulo {
+.la-col-titulo-q-c {
   display: flex;
   flex-direction: column;
   align-items: center;
+  top: 30px
 }
 
 .la-content-rectangulo-rojo {
@@ -12,7 +13,7 @@
   width: 56px;
   border-radius: 1.2px;
   position: relative;
-  top: 50px;
+  top: 10px;
 }
 
 .la-fuente-subtitulo {
@@ -41,6 +42,14 @@
 
 .la-que-cayo-modal .modal-wrapper.sc-ion-modal-ios,
 .modal-shadow.sc-ion-modal-ios {
+  width: 80%;
+  height: 55%;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.la-que-cayo-modal .modal-wrapper.sc-ion-modal-md,
+.modal-shadow.sc-ion-modal-md {
   width: 80%;
   height: 55%;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);

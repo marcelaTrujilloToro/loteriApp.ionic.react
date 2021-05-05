@@ -53,7 +53,7 @@ const QueCayoScreen: React.FC = () => {
         <div className="la-content-gradiente-darker">
           <IonGrid>
             <IonRow>
-              <IonCol className="la-col-titulo">
+              <IonCol className="la-col-titulo-q-c">
                 <IonTitle className="la-titulo-22">¿Qué Cayó?</IonTitle>
                 <div className="la-content-rectangulo-rojo "></div>
               </IonCol>

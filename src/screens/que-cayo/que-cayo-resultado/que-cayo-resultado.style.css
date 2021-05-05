@@ -1,3 +1,9 @@
+.la-col-titulo-resultado{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .la-content-grid {
   height: 100%;
   width: 100%;
@@ -105,4 +111,11 @@
   line-height: 22px;
   text-align: center;
   color: #ffffff;
+}
+
+.la-billete-amarillo{
+  background-image: url('../../../assets/imagenes/LoteriApp-billete-completo.png');
+  background-repeat: no-repeat ;
+  background-size: cover;
+  background-position: center;
 }

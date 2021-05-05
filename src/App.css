@@ -25,7 +25,6 @@ ion-page {
   color: rgba(19, 11, 89, 1);
   font-weight: bold;
   font-size: 22px;
-  top: 30px;
 }
 
 .la-texto-blue-14 {
@@ -50,13 +49,14 @@ ion-page {
 }
 
 .la-boton {
-  width: 100px;
-  height: 40px;
   background: #004e85;
   border-radius: 5px;
-  font-weight: bold;
+  color:white;
   font-size: 12px;
+  font-weight: bold;
+  height: 40px;
   line-height: 15px;
+  width: 100px;
 }
 
 .la-boton-cerrar {
@@ -86,14 +86,4 @@ ion-page {
   line-height: 16px;
   color: rgba(1, 95, 163, 1);
   text-align: left;
-}
-
-.la-error-carga{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  font-size: 25px;
-  padding: 30px;
-  
 }

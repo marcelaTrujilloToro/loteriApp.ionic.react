@@ -60,10 +60,10 @@ const ModalQueCayo: React.FC<ModalProps> = (props) => {
           <IonRow>
             <IonCol>
               <IonGrid>
-                <IonRow className="la-num-sorteo">
+                <IonRow >
                   <IonCol>
                     <IonInput
-                      type="text"
+                      type="number"
                       value={sorteoDigito1}
                       onIonChange={(e:any) =>{
                         setSorteoDigito1(e.detail.value);
@@ -81,10 +81,10 @@ const ModalQueCayo: React.FC<ModalProps> = (props) => {
 
             <IonCol>
               <IonGrid>
-                <IonRow className="la-num-sorteo">
+                <IonRow >
                   <IonCol>
                     <IonInput
-                      type="text"
+                      type="number"
                       value={sorteoDigito2}
                       onIonChange={(e:any) =>{
                         setSorteoDigito2(e.detail.value);
@@ -102,10 +102,10 @@ const ModalQueCayo: React.FC<ModalProps> = (props) => {
 
             <IonCol>
               <IonGrid>
-                <IonRow className="la-num-sorteo">
+                <IonRow >
                   <IonCol>
                     <IonInput
-                      type="text"
+                      type="number"
                       value={sorteoDigito3}
                       onIonChange={(e:any) =>{
                         setSorteoDigito3(e.detail.value);
@@ -123,7 +123,7 @@ const ModalQueCayo: React.FC<ModalProps> = (props) => {
 
             <IonCol>
               <IonGrid>
-                <IonRow className="la-num-sorteo">
+                <IonRow >
                   <IonCol>
                     <IonInput
                       type="text"

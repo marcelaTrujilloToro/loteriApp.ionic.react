@@ -1,4 +1,5 @@
 /* Core CSS required for Ionic components to work properly */
+
 import "@ionic/react/css/core.css";
 
 /* Basic CSS for apps built with Ionic */
@@ -34,6 +35,7 @@ import QueCayoResultadoScreen from "./screens/que-cayo/que-cayo-resultado/que-ca
 
 // Create a client
 const queryClient = new QueryClient();
+
 
 const App: React.FC = () => {
   return (

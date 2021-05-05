@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import billete from './LoteriApp-billete-completo.png';
 import { IonCol, IonContent, IonGrid, IonPage, IonRow } from "@ionic/react";
 import "./que-cayo-resultado.style.css";
 import Header from "../../../components/header/header.comp";
@@ -13,6 +14,7 @@ export interface QueCayoResultadoScreenParams {
   codigoLoteria: string;
   numeroSorteo: string;
 }
+
 
 const QueCayoResultadoScreen: React.FC = () => {
   
@@ -44,15 +46,15 @@ const QueCayoResultadoScreen: React.FC = () => {
         <div className="la-content-gradiente-darker">
           <IonGrid className=" la-content-grid">
             <IonRow className="la-title-row">
-              <IonCol className="la-col-titulo">
+              <IonCol className="la-col-titulo-resultado">
                 <div className="la-titulo-22 ">Resultados de Sorteo</div>
                 <div className="la-rectangulo-rojo "></div>
               </IonCol>
             </IonRow>
 
             <IonRow className="la-billete-row">
-              <div style={{backgroundImage: `url(/assets/imagenes/Loteriapp-billete-completo.png)`, backgroundRepeat:"no-repeat", backgroundSize:"cover", backgroundPosition:"center"}} >
-                <IonGrid  >
+              <div className="la-billete-amarillo" >
+                <IonGrid >
                   <IonRow>
                     <IonCol>
                       <img className="la-logo-ltr"

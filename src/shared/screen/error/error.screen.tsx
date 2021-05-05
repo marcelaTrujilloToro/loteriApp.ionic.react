@@ -21,7 +21,7 @@ const Error: React.FC = () => {
       <Header></Header>
 
       <IonContent>
-        <div className="la-content-gradiente-darker la-error-carga">
+        <div className="la-content-gradiente-darker">
           <IonAlert            
             isOpen={error}
             onDidDismiss={() => setError(false)}

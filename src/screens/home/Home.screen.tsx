@@ -69,7 +69,7 @@ const HomeScreen = () => {
                                   className="la-img-opcion"
                                   src="/assets/imagenes/Loteriapp_opcion_que_cayo.png"
                                   onClick={() => {
-                                    history.replace({
+                                    history.push({
                                       pathname: `/screens/que-cayo/que-cayo.screen`,
                                     })
                                   }}

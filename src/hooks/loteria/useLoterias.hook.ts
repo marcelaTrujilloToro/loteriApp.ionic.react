@@ -10,7 +10,7 @@ export const useLoterias = () => {
     const azenApi = useAzenApi();
 
     return useQuery<Loteria[]>(['loterias'], async () => {
-        const { data } = await azenApi.get(`/loterias/`);
+        const { data } = await azenApi.get(`loterias`);
         return data;
     }, {
         staleTime: Infinity,

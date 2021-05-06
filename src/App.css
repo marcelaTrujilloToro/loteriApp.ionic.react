@@ -12,6 +12,11 @@ ion-page {
   height: 100%;
 }
 
+.la-content-grid {
+  height: 100%;
+  width: 100%;
+}
+
 .la-titulo-18 {
   color: rgba(19, 11, 89, 1);
   font-weight: bold;
@@ -21,10 +26,19 @@ ion-page {
   margin-bottom: 10px;
 }
 
+
+.la-col-titulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 25px
+}
+
 .la-titulo-22 {
   color: rgba(19, 11, 89, 1);
   font-weight: bold;
   font-size: 22px;
+  display: flex;
 }
 
 .la-texto-blue-14 {
@@ -56,7 +70,7 @@ ion-page {
   font-weight: bold;
   height: 40px;
   line-height: 15px;
-  width: 100px;
+  
 }
 
 .la-boton-cerrar {
@@ -86,4 +100,10 @@ ion-page {
   line-height: 16px;
   color: rgba(1, 95, 163, 1);
   text-align: left;
+}
+
+.la-linea-roja-digito {
+  width: 30px;
+  height: 1.5px;
+  background-color: #ec0800;
 }

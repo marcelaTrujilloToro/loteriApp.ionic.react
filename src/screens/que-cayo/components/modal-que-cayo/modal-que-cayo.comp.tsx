@@ -73,7 +73,7 @@ const ModalQueCayo: React.FC<ModalProps> = (props) => {
                 </IonRow>
                 <IonRow>
                   <IonCol>
-                    <div className="la-linea-roja"></div>
+                    <div className="la-linea-roja-digito"></div>
                   </IonCol>
                 </IonRow>
               </IonGrid>
@@ -94,7 +94,7 @@ const ModalQueCayo: React.FC<ModalProps> = (props) => {
                 </IonRow>
                 <IonRow>
                   <IonCol>
-                    <div className="la-linea-roja"></div>
+                    <div className="la-linea-roja-digito"></div>
                   </IonCol>
                 </IonRow>
               </IonGrid>
@@ -115,7 +115,7 @@ const ModalQueCayo: React.FC<ModalProps> = (props) => {
                 </IonRow>
                 <IonRow>
                   <IonCol>
-                    <div className="la-linea-roja"></div>
+                    <div className="la-linea-roja-digito"></div>
                   </IonCol>
                 </IonRow>
               </IonGrid>
@@ -136,7 +136,7 @@ const ModalQueCayo: React.FC<ModalProps> = (props) => {
                 </IonRow>
                 <IonRow>
                   <IonCol>
-                    <div className="la-linea-roja"></div>
+                    <div className="la-linea-roja-digito"></div>
                   </IonCol>
                 </IonRow>
               </IonGrid>

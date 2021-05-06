@@ -1,0 +1,31 @@
+.la-yg-row-felicitaciones{
+    height: 35%;
+}
+
+.la-yg-row-lista{
+    height: 30%;
+}
+
+.la-yg-row-slider{
+    height: 35%;
+}
+
+.la-img-felicitacion{
+    width: 274.3px;
+    height: 130px;
+    position: relative;
+    top: 30px;
+}
+
+.la-img-slider{
+    width: 360px;
+    height: 181px;
+}
+
+.swiper-container-horizontal>.swiper-pagination-bullets{
+    background-color: rgba(0, 78, 133, 1) ; 
+}
+
+.swiper-pagination-bullet-active{
+    background: rgba(255, 220, 0, 1)
+}

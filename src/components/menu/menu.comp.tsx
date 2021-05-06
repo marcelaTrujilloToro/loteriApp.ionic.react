@@ -31,13 +31,13 @@ const appPages: AppPage[] = [
     url: "/screens/que-cayo/:name",
     iosIcon: chevronForward,
     mdIcon: chevronForward,
+  },
+  {
+    title: '¿Yo Gané?',
+    url: "/screens/yo-gane-principal/:name",
+    iosIcon: chevronForward,
+    mdIcon: chevronForward,
   }
-  // {
-  //   title: '¿Yo Gané?',
-  //   url: "/screens/que-cayo/:name",
-  //   iosIcon: chevronForward,
-  //   mdIcon: chevronForward,
-  // }
   // {
   //   title: 'Los Números Suertudos',
   //   url: "",

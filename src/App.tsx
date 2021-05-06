@@ -32,6 +32,9 @@ import Menu from "./components/menu/menu.comp";
 import QueCayoScreen from "./screens/que-cayo/que-cayo/que-cayo.screen";
 import Home from "./screens/home/Home.screen";
 import QueCayoResultadoScreen from "./screens/que-cayo/que-cayo-resultado/que-cayo-resultado.screen";
+import YoGanePrincipalScreen from "./screens/yo-gane/yo-gane-principal/yo-gane-principal.screen";
+import YoGaneScreen from "./screens/yo-gane/yo-gane/yo-gane.screen";
+import YoGaneGanadorScreen from "./screens/yo-gane/yo-gane-resultado/yo-gane-ganador/yo-gane-ganador.screen"
 
 // Create a client
 const queryClient = new QueryClient();
@@ -46,18 +49,30 @@ const App: React.FC = () => {
             <Menu />
             <IonRouterOutlet id="main">
               <Route path="/" exact={true}>
-                <Home></Home>
+                <Home/>
               </Route>
 
               <Route path="/screens/que-cayo/:name" exact={true}>
-                <QueCayoScreen></QueCayoScreen>
+                <QueCayoScreen/>
               </Route>
 
               <Route
                 path="/screens/que-cayo-resultado/que-cayo-resultado.screen/:codigoLoteria/:numeroSorteo"
                 exact={true}
               >
-                <QueCayoResultadoScreen />
+                <QueCayoResultadoScreen/>
+              </Route>
+
+              <Route path="/screens/yo-gane-principal/:name" exact={true}>
+                <YoGanePrincipalScreen/>
+              </Route>
+
+              <Route path="/screens/yo-gane/:name" exact={true}>
+                <YoGaneScreen/>
+              </Route>
+              
+              <Route path="/screens/yo-gane/yo-gane-resultado/yo-gane-ganador/yo-gane-ganador.screen" exact={true}>
+                <YoGaneGanadorScreen/>
               </Route>
               
             </IonRouterOutlet>

@@ -8,13 +8,6 @@ ion-modal {
   background: rgba(28, 28, 28, 0.6);
 }
 
-.la-linea-roja {
-  width: 35px;
-  height: 1.5px;
-  background-color: #ec0800;
-}
-
-
 .la-texto {
   margin-top: 50px;
   padding-left: 15px;
@@ -24,6 +17,8 @@ ion-modal {
 .la-boton-consultar {
   position: relative;
   top: 20px;
+  width: 100px;
+  height: 40px;
 }
 
 .la-que-cayo-modal-content {
@@ -33,14 +28,14 @@ ion-modal {
   border-radius: 5px;
 }
 
-.native-input.sc-ion-input-ios{
+.native-input.sc-ion-input-ios {
   padding: 0px;
   color: rgba(0, 78, 133, 1);
   font-weight: bold;
   font-size: 22px;
 }
 
-.native-input.sc-ion-input-md{
+.native-input.sc-ion-input-md {
   padding: 0px;
   color: rgba(0, 78, 133, 1);
   font-weight: bold;

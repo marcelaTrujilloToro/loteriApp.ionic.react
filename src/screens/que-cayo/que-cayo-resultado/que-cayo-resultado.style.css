@@ -4,11 +4,6 @@
   align-items: center;
 }
 
-.la-content-grid {
-  height: 100%;
-  width: 100%;
-}
-
 .la-rectangulo-rojo {
   background: rgba(236, 8, 0, 1);
   border-radius: 1.15px;

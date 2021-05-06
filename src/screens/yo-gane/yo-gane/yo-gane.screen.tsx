@@ -1,17 +1,15 @@
 import React, { useState } from "react";
-import "./que-cayo.style.css";
-import Header from "../../../components/header/header.comp";
-import ModalQueCayo from "../components/modal-que-cayo/modal-que-cayo.comp";
-import { useLoterias } from '../../../hooks/loteria/useLoterias.hook';
-import Loading from '../../../shared/screen/loading/loading.screen';
 
-import Error from '../../../shared/screen/error/error.screen'
+import "./yo-gane.style.css";
+import Header from "../../../components/header/header.comp";
+import { useLoterias } from "../../../hooks/loteria/useLoterias.hook";
+import Loading from "../../../shared/screen/loading/loading.screen";
+import Error from "../../../shared/screen/error/error.screen";
+import ModalYoGane from "../components/modal-yo-gane/modal-yo-gane.comp";
 import {
-  IonButton,
   IonCol,
   IonContent,
   IonGrid,
-  IonImg,
   IonModal,
   IonPage,
   IonRow,
@@ -19,30 +17,25 @@ import {
   IonTitle,
 } from "@ionic/react";
 
-const QueCayoScreen: React.FC = () => {
+
+const YoGaneScreen: React.FC = () => {
   const { isLoading, isError, data: loteriasList } = useLoterias();
-  
-  const [showModal, setShowModal] = useState(false);
+
+  const [verModal, setVerModal] = useState(false);
 
   const abrirModal = () => {
-    setShowModal(true);
+    setVerModal(true);
   };
   const cerrarModal = () => {
-    setShowModal(false);
+    setVerModal(false);
   };
 
   if (isLoading) {
-    return (
-      <Loading></Loading>
-    );
+    return <Loading></Loading>;
   }
 
-
   if (isError) {
-
-    return (
-      <Error></Error>
-    );
+    return <Error></Error>;
   }
 
   return (
@@ -54,7 +47,7 @@ const QueCayoScreen: React.FC = () => {
           <IonGrid>
             <IonRow>
               <IonCol className="la-col-titulo">
-                <IonTitle className="la-titulo-22">¿Qué Cayó?</IonTitle>
+                <IonTitle className="la-titulo-22">¿Yo Gané?</IonTitle>
                 <div className="la-content-rectangulo-rojo "></div>
               </IonCol>
             </IonRow>
@@ -79,8 +72,11 @@ const QueCayoScreen: React.FC = () => {
                     ></img>
                   </div>
 
-                  <IonModal isOpen={showModal} cssClass="la-que-cayo-modal">
-                    <ModalQueCayo ocultarModal={cerrarModal} loteria={loteria}/>
+                  <IonModal isOpen={verModal} cssClass="la-modal-yo-gane">
+                    <ModalYoGane
+                      ocultarModal={cerrarModal}
+                      loteria={loteria}
+                    />
                   </IonModal>
                 </IonCol>
               ))}
@@ -91,4 +87,5 @@ const QueCayoScreen: React.FC = () => {
     </IonPage>
   );
 };
-export default QueCayoScreen;
+
+export default YoGaneScreen;

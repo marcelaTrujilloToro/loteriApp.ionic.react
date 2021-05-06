@@ -100,6 +100,11 @@ const HomeScreen = () => {
                                 <IonImg
                                   className="la-img-opcion"
                                   src="/assets/imagenes/Loteriapp_opcion_yo_gane.png"
+                                  onClick={() => {
+                                    history.push({
+                                      pathname: `/screens/yo-gane-principal/yo-gane.screen`,
+                                    })
+                                  }}
                                 ></IonImg>
                               </div>
                             </IonCol>

@@ -1,11 +1,4 @@
 
-.la-col-titulo-q-c {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  top: 30px
-}
-
 .la-content-rectangulo-rojo {
   background: rgba(236, 8, 0, 1);
   border-radius: 1.15px;
@@ -22,6 +15,8 @@
   font-weight: lighter;
   top: 70px;
   text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .la-rectangulo-azul {

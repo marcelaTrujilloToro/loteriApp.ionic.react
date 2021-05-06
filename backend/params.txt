@@ -1,4 +1,13 @@
+que-cayo:
 {
     "loteria": "024",
     "sorteo": "4648"
+}
+
+yo-gane:
+{
+    "loteria": "024",
+    "sorteo": "4648",
+    "numero": "4444",
+    "serie": "1231"
 }

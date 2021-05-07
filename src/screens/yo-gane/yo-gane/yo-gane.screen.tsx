@@ -2,10 +2,10 @@ import React, { useState } from "react";
 
 import "./yo-gane.style.css";
 import Header from "../../../components/header/header.comp";
-import { useLoterias } from "../../../hooks/loteria/useLoterias.hook";
-import Loading from "../../../shared/screen/loading/loading.screen";
-import Error from "../../../shared/screen/error/error.screen";
+import ListaLoterias from "../../../components/lista-loterias/lista-loterias.comp";
+import { Loteria } from "../../../models/loteria/Loteria";
 import ModalYoGane from "../components/modal-yo-gane/modal-yo-gane.comp";
+
 import {
   IonCol,
   IonContent,
@@ -19,30 +19,37 @@ import {
 
 
 const YoGaneScreen: React.FC = () => {
-  const { isLoading, isError, data: loteriasList } = useLoterias();
-
+  
   const [verModal, setVerModal] = useState(false);
+
+  const [loteriaSeleccionada, setLoteriaSeleccionada] = useState<Loteria>();
 
   const abrirModal = () => {
     setVerModal(true);
   };
+
   const cerrarModal = () => {
     setVerModal(false);
   };
 
-  if (isLoading) {
-    return <Loading></Loading>;
-  }
-
-  if (isError) {
-    return <Error></Error>;
-  }
+  const onLoteriaSeleccionadaFn = (loteria: Loteria) => {
+    setLoteriaSeleccionada(loteria);
+    abrirModal();
+  };
 
   return (
     <IonPage>
       <Header></Header>
 
       <IonContent className="ion-no-padding">
+        {loteriaSeleccionada !== undefined ? (
+          <IonModal isOpen={verModal} cssClass="la-modal-yo-gane">
+            <ModalYoGane
+              ocultarModal={cerrarModal}
+              loteria={loteriaSeleccionada}
+            />
+          </IonModal>
+        ) : null}
         <div className="la-content-gradiente-darker">
           <IonGrid>
             <IonRow>
@@ -61,26 +68,8 @@ const YoGaneScreen: React.FC = () => {
               </IonCol>
             </IonRow>
 
-            <IonRow>
-              {loteriasList?.map((loteria) => (
-                <IonCol key={loteria.codigo}>
-                  <div className="la-rectangulo-azul">
-                    <img
-                      className="la-logo"
-                      src={`/assets/img/loterias/${loteria.codigo}.png`}
-                      onClick={() => abrirModal()}
-                    ></img>
-                  </div>
+            <ListaLoterias onLoteriaSeleccionadaFn={onLoteriaSeleccionadaFn}/>
 
-                  <IonModal isOpen={verModal} cssClass="la-modal-yo-gane">
-                    <ModalYoGane
-                      ocultarModal={cerrarModal}
-                      loteria={loteria}
-                    />
-                  </IonModal>
-                </IonCol>
-              ))}
-            </IonRow>
           </IonGrid>
         </div>
       </IonContent>

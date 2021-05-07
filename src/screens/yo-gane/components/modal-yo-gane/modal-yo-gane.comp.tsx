@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./modal-yo-gane.style.css";
 import { Loteria } from "../../../../models/loteria/Loteria";
@@ -21,6 +21,33 @@ interface ModalYoGaneProps {
 const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
 
     const history = useHistory();
+
+    const [sorteoDig1, setSorteoDig1] = useState<string>(props.loteria.ultimoSorteo[0]);
+    const [sorteoDig2, setSorteoDig2] = useState<string>(props.loteria.ultimoSorteo[1]);
+    const [sorteoDig3, setSorteoDig3] = useState<string>(props.loteria.ultimoSorteo[2]);
+    const [sorteoDig4, setSorteoDig4] = useState<string>(props.loteria.ultimoSorteo[3]);
+
+    const [tiqueteDig1, setTiqueteDig1] = useState<string>();
+    const [tiqueteDig2, setTiqueteDig2] = useState<string>();
+    const [tiqueteDig3, setTiqueteDig3] = useState<string>();
+    const [tiqueteDig4, setTiqueteDig4] = useState<string>();
+
+    const [serieDig1, setSerieDig1] = useState<string>();
+    const [serieDig2, setSerieDig2] = useState<string>();
+    const [serieDig3, setSerieDig3] = useState<string>();
+    const [serieDig4, setSerieDig4] = useState<string>();
+
+    const getSorteo = () => {
+      return`${sorteoDig1}${sorteoDig2}${sorteoDig3}${sorteoDig4}`;
+    };
+
+    const getTiquete = () => {
+      return`${tiqueteDig1}${tiqueteDig2}${tiqueteDig3}${tiqueteDig4}`;
+    };
+
+    const getSerie = () => {
+      return`${serieDig1}${serieDig2}${serieDig3}${serieDig4}`;
+    };
 
     return (
     <IonContent>
@@ -56,7 +83,11 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
                 <IonRow>
                   <IonCol>
                     <IonInput
-                        type="number"                    
+                        type="number" 
+                        value={sorteoDig1}
+                        onIonChange={(e:any) =>{
+                          setSorteoDig1(e.detail.value);
+                        }}                   
                     ></IonInput>
                   </IonCol>
                 </IonRow>
@@ -74,6 +105,10 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
                   <IonCol>
                     <IonInput
                         type="number"
+                        value={sorteoDig2}
+                        onIonChange={(e:any) =>{
+                          setSorteoDig2(e.detail.value);
+                        }}   
                     ></IonInput>
                   </IonCol>
                 </IonRow>
@@ -90,7 +125,11 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
                 <IonRow>
                   <IonCol>
                   <IonInput
-                        type="number"                    
+                        type="number" 
+                        value={sorteoDig3}
+                        onIonChange={(e:any) =>{
+                          setSorteoDig3(e.detail.value);
+                        }}                      
                     ></IonInput>
                   </IonCol>
                 </IonRow>
@@ -107,7 +146,11 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
                 <IonRow>
                   <IonCol>
                   <IonInput
-                        type="number"                    
+                        type="number"  
+                        value={sorteoDig4}
+                        onIonChange={(e:any) =>{
+                          setSorteoDig4(e.detail.value);
+                        }}                     
                     ></IonInput>
                   </IonCol>
                 </IonRow>
@@ -132,7 +175,11 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
                 <IonRow>
                   <IonCol>
                   <IonInput
-                        type="number"                    
+                        type="number"
+                        value={tiqueteDig1}
+                        onIonChange={(e:any) =>{
+                          setTiqueteDig1(e.detail.value);
+                        }}                       
                     ></IonInput>
                   </IonCol>
                 </IonRow>
@@ -149,7 +196,11 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
                 <IonRow>
                   <IonCol>
                   <IonInput
-                        type="number"                    
+                        type="number"
+                        value={tiqueteDig2}
+                        onIonChange={(e:any) =>{
+                          setTiqueteDig2(e.detail.value);
+                        }}                    
                     ></IonInput>
                   </IonCol>
                 </IonRow>
@@ -166,7 +217,11 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
                 <IonRow>
                   <IonCol>
                   <IonInput
-                        type="number"                    
+                        type="number"
+                        value={tiqueteDig3}
+                        onIonChange={(e:any) =>{
+                          setTiqueteDig3(e.detail.value);
+                        }}                     
                     ></IonInput>
                   </IonCol>
                 </IonRow>
@@ -183,7 +238,11 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
                 <IonRow>
                   <IonCol>
                   <IonInput
-                        type="number"                    
+                        type="number"  
+                        value={tiqueteDig4}
+                        onIonChange={(e:any) =>{
+                          setTiqueteDig4(e.detail.value);
+                        }}                   
                     ></IonInput>
                   </IonCol>
                 </IonRow>
@@ -208,7 +267,11 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
                 <IonRow>
                   <IonCol>
                     <IonInput
-                        type="number"                    
+                        type="number"   
+                        value={serieDig1}
+                        onIonChange={(e:any) =>{
+                          setSerieDig1(e.detail.value);
+                        }}                  
                     ></IonInput>
                   </IonCol>
                 </IonRow>
@@ -225,7 +288,11 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
                 <IonRow>
                   <IonCol>
                   <IonInput
-                        type="number"                    
+                        type="number" 
+                        value={serieDig2}
+                        onIonChange={(e:any) =>{
+                          setSerieDig2(e.detail.value);
+                        }}                    
                     ></IonInput>
                   </IonCol>
                 </IonRow>
@@ -242,7 +309,11 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
                 <IonRow>
                   <IonCol>
                   <IonInput
-                        type="number"                    
+                        type="number"
+                        value={serieDig3}
+                        onIonChange={(e:any) =>{
+                          setSerieDig3(e.detail.value);
+                        }}                     
                     ></IonInput>
                   </IonCol>
                 </IonRow>
@@ -259,7 +330,11 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
                 <IonRow>
                   <IonCol>
                   <IonInput
-                        type="number"                    
+                        type="number" 
+                        value={serieDig4}
+                        onIonChange={(e:any) =>{
+                          setSerieDig4(e.detail.value);
+                        }}                    
                     ></IonInput>
                   </IonCol>
                 </IonRow>
@@ -279,7 +354,7 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
                 onClick={() => {
                     props.ocultarModal();
                     history.push({
-                      pathname: `/screens/yo-gane/yo-gane-resultado/yo-gane-ganador/yo-gane-ganador.screen`,
+                      pathname: `/screens/yo-gane/yo-gane-resultado/yo-gane-resultado.screen/`,
                     });
                   }}
               >

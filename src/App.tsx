@@ -34,7 +34,7 @@ import Home from "./screens/home/Home.screen";
 import QueCayoResultadoScreen from "./screens/que-cayo/que-cayo-resultado/que-cayo-resultado.screen";
 import YoGanePrincipalScreen from "./screens/yo-gane/yo-gane-principal/yo-gane-principal.screen";
 import YoGaneScreen from "./screens/yo-gane/yo-gane/yo-gane.screen";
-import YoGaneGanadorScreen from "./screens/yo-gane/yo-gane-resultado/yo-gane-ganador/yo-gane-ganador.screen"
+import YoGaneResultadoScreen from "./screens/yo-gane/yo-gane-resultado/yo-gane-resultado.screen"
 
 // Create a client
 const queryClient = new QueryClient();
@@ -71,8 +71,8 @@ const App: React.FC = () => {
                 <YoGaneScreen/>
               </Route>
               
-              <Route path="/screens/yo-gane/yo-gane-resultado/yo-gane-ganador/yo-gane-ganador.screen" exact={true}>
-                <YoGaneGanadorScreen/>
+              <Route path="/screens/yo-gane/yo-gane-resultado/yo-gane-resultado.screen" exact={true}>
+                <YoGaneResultadoScreen/>
               </Route>
               
             </IonRouterOutlet>

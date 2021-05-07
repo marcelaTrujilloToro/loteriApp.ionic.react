@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import "./que-cayo.style.css";
 import Header from "../../../components/header/header.comp";
+import ListaLoterias from "../../../components/lista-loterias/lista-loterias.comp";
+import { Loteria } from "../../../models/loteria/Loteria";
 import ModalQueCayo from "../components/modal-que-cayo/modal-que-cayo.comp";
-import { useLoterias } from '../../../hooks/loteria/useLoterias.hook';
-import Loading from '../../../shared/screen/loading/loading.screen';
 
-import Error from '../../../shared/screen/error/error.screen'
 import {
   IonButton,
   IonCol,
@@ -20,36 +19,37 @@ import {
 } from "@ionic/react";
 
 const QueCayoScreen: React.FC = () => {
-  const { isLoading, isError, data: loteriasList } = useLoterias();
-  
-  const [showModal, setShowModal] = useState(false);
+  const [verModal, setVerModal] = useState(false);
+
+  const [loteriaSeleccionada, setLoteriaSeleccionada] = useState<Loteria>();
 
   const abrirModal = () => {
-    setShowModal(true);
+    setVerModal(true);
   };
+
   const cerrarModal = () => {
-    setShowModal(false);
+    setVerModal(false);
   };
 
-  if (isLoading) {
-    return (
-      <Loading></Loading>
-    );
-  }
-
-
-  if (isError) {
-
-    return (
-      <Error></Error>
-    );
-  }
+  const onLoteriaSeleccionadaFn = (loteria: Loteria) => {
+    setLoteriaSeleccionada(loteria);
+    abrirModal();
+  };
 
   return (
     <IonPage>
       <Header></Header>
 
       <IonContent className="ion-no-padding">
+        {loteriaSeleccionada !== undefined ? (
+          <IonModal isOpen={verModal} cssClass="la-que-cayo-modal">
+            <ModalQueCayo
+              ocultarModal={cerrarModal}
+              loteria={loteriaSeleccionada}
+            />
+          </IonModal>
+        ) : null}
+
         <div className="la-content-gradiente-darker">
           <IonGrid>
             <IonRow>
@@ -68,23 +68,7 @@ const QueCayoScreen: React.FC = () => {
               </IonCol>
             </IonRow>
 
-            <IonRow>
-              {loteriasList?.map((loteria) => (
-                <IonCol key={loteria.codigo}>
-                  <div className="la-rectangulo-azul">
-                    <img
-                      className="la-logo"
-                      src={`/assets/img/loterias/${loteria.codigo}.png`}
-                      onClick={() => abrirModal()}
-                    ></img>
-                  </div>
-
-                  <IonModal isOpen={showModal} cssClass="la-que-cayo-modal">
-                    <ModalQueCayo ocultarModal={cerrarModal} loteria={loteria}/>
-                  </IonModal>
-                </IonCol>
-              ))}
-            </IonRow>
+            <ListaLoterias onLoteriaSeleccionadaFn={onLoteriaSeleccionadaFn} />
           </IonGrid>
         </div>
       </IonContent>

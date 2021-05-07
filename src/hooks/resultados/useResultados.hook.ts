@@ -9,7 +9,7 @@ export const useResultados = (codigoLoteria:string, sorteo:string) => {
     
     const azenApi = useAzenApi();
 
-    return useQuery<Resultado>(['resultados'], async () => {
+    return useQuery<Resultado>('resultados', async () => {
         const { data } = await azenApi.get(`resultados`);
         return data[0];
     }, {

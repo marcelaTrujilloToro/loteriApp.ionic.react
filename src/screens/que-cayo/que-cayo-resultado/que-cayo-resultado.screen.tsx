@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import billete from './LoteriApp-billete-completo.png';
 import { IonCol, IonContent, IonGrid, IonPage, IonRow } from "@ionic/react";
 import "./que-cayo-resultado.style.css";
 import Header from "../../../components/header/header.comp";
-import { Seco } from "../../../models/que-cayo/Seco";
 import ListaSecos from "../components/lista-secos/lista-secos.comp";
 import { useResultados } from '../../../hooks/resultados/useResultados.hook'
 import { useParams } from "react-router";

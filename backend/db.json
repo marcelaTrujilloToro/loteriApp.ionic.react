@@ -48,8 +48,7 @@
           ]
       },
 
-    "yogane":
-    
+    "yogane":    
       {
           "imagenGano": "http://img-ganador.jpg",
           "imagenPerdio": "http://img-perdio.jpg",
@@ -57,14 +56,14 @@
           "premios":[
               {
                   "nombre": "PRIMER PREMIO SECO DE 100 MILL",
-                  "numero": "096",
-                  "serie": "123",
+                  "numero": "0960",
+                  "serie": "1230",
                   "valor": "$1000"
                 },
                 {
                   "nombre": "PRIMER PREMIO SECO DE 50 MILL",
-                  "numero": "096",
-                  "serie": "123",
+                  "numero": "0960",
+                  "serie": "1230",
                   "valor": "$1000"
                 }
           ]

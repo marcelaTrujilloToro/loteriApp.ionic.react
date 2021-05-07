@@ -12,12 +12,12 @@ import {
 import { useHistory } from "react-router";
 import { Loteria } from "../../../../models/loteria/Loteria";
 
-interface ModalProps {
+interface ModalQueCayoProps {
   ocultarModal: () => void;
-  loteria: Loteria;
+  loteria: Loteria ;
 }
 
-const ModalQueCayo: React.FC<ModalProps> = (props) => {
+const ModalQueCayo: React.FC<ModalQueCayoProps> = (props) => {
   const history = useHistory();
 
   const [sorteoDigito1, setSorteoDigito1] = useState <string>(props.loteria.ultimoSorteo[0]);

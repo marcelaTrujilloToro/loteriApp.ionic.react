@@ -11,12 +11,27 @@ import {
   IonSlide,
   IonSlides,
 } from "@ionic/react";
-import "./yo-gane-ganador.style.css";
-import Header from "../../../../components/header/header.comp";
+import "./yo-gane-resultado.style.css";
+import Header from "../../../components/header/header.comp";
+import {ListaPremios} from "../components/lista-premios/lista-premios.comp";
+import { useYoGane } from "../../../hooks/yo-gane/useYoGane.hook";
+import { Premio } from "../../../models/yo-gane/Premio";
+import { useParams } from "react-router";
+import YoGaneScreen from "../yo-gane/yo-gane.screen";
 
+export interface YoGaneResultadoScreenParams {
+  codigoLoteria: string;
+  numeroSorteo: string;
+  numero: string;
+  serie: string;
+}
 
+const YoGaneResultadoScreen = () => {
 
-const YoGaneGanadorScreen = () => {
+  const {codigoLoteria, numeroSorteo, numero, serie} = useParams<YoGaneResultadoScreenParams>();
+
+  const {data: resultados} = useYoGane(codigoLoteria, numeroSorteo, numero, serie);
+
   return (
     <IonPage>
       <Header></Header>
@@ -37,10 +52,7 @@ const YoGaneGanadorScreen = () => {
 
             <IonRow className="la-yg-row-lista">
               <IonCol>
-                <IonList>
-                  <IonItem>Seco1</IonItem>
-                  <IonItem>Seco2</IonItem>
-                </IonList>
+                <ListaPremios listaPremios={resultados?.premios}  ></ListaPremios>
               </IonCol>
             </IonRow>
 
@@ -50,10 +62,10 @@ const YoGaneGanadorScreen = () => {
                     <img  src="/assets/img/consulta_premios/LoteriApp_consultapremios_slider_360x180px.jpg" alt="" />
                 </IonSlide>
                 <IonSlide>
-                  <h1>Slide 2</h1>
+                    <img  src="/assets/img/splash/LoteriApp_azen_96x30.png" alt="" />
                 </IonSlide>
                 <IonSlide>
-                  <h1>Slide 3</h1>
+                    <img  src="/assets/img/consulta_premios/LoteriApp_consultapremios_slider_360x180px.jpg" alt="" />
                 </IonSlide>
               </IonSlides>
             </IonRow>
@@ -64,4 +76,4 @@ const YoGaneGanadorScreen = () => {
   );
 };
 
-export default YoGaneGanadorScreen;
+export default YoGaneResultadoScreen;

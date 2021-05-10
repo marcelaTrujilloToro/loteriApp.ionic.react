@@ -71,7 +71,7 @@ const App: React.FC = () => {
                 <YoGaneScreen/>
               </Route>
               
-              <Route path="/screens/yo-gane/yo-gane-resultado/yo-gane-resultado.screen" exact={true}>
+              <Route path="/screens/yo-gane/yo-gane-resultado/yo-gane-resultado.screen/:codigoLoteria/:numeroSorteo/:numero/:serie" exact={true}>
                 <YoGaneResultadoScreen/>
               </Route>
               

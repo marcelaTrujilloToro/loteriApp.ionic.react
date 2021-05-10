@@ -11,6 +11,8 @@ import {
   IonTitle,
 } from "@ionic/react";
 
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+
 import "./yo-gane-principal.style.css";
 import Header from "../../../components/header/header.comp";
 import { useHistory } from "react-router";
@@ -18,6 +20,17 @@ import { useHistory } from "react-router";
 const YoGanePrincipalScreen: React.FC = () => {
 
   const history = useHistory();
+
+  const startScanningMobile = async () => {
+     
+    const data = await BarcodeScanner.scan({
+        showTorchButton: true, // iOS and Android
+        prompt: "Acerque la línea roja al código de barras del billete", // Android
+        formats: "CODE_128",
+      });
+      alert(JSON.stringify(data));
+
+  };
 
   return (
     <IonPage>
@@ -63,7 +76,10 @@ const YoGanePrincipalScreen: React.FC = () => {
             <IonRow className="la-row-botones">
               <IonCol>
               <div className="la-div-botones">
-                <button className="la-boton la-boton-camara">CÁMARA</button>
+                <button 
+                  className="la-boton la-boton-camara"
+                  onClick={startScanningMobile}
+                >CÁMARA</button>
                 <button className="la-boton la-boton-datos"
                 onClick={() => {
                   history.push({

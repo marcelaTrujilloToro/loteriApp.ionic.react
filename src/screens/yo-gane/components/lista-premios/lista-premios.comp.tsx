@@ -9,6 +9,7 @@ type ListaPremiosProps = {
 }
 
 export const ListaPremios: React.FC <ListaPremiosProps> = (props) => {
+  
     if (props.listaPremios === undefined) {
         return(
           <IonTitle>No hay secos</IonTitle>

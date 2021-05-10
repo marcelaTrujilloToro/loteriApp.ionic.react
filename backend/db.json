@@ -50,9 +50,9 @@
 
     "yogane":    
       {
-          "imagenGano": "http://img-ganador.jpg",
-          "imagenPerdio": "http://img-perdio.jpg",
-          "mensaje": "lo sentimos",
+          "imagenGano": "/assets/img/consulta_premios/LoteriApp_consultapremios_ganador_274x130px.png",
+          "imagenPerdio": "/assets/img/consulta_premios/LoteriApp_consultapremios_no_gana_245x130px.jpg",
+          "mensaje": "Lo sentimos, mañana sera tu dia",
           "premios":[
               {
                   "nombre": "PRIMER PREMIO SECO DE 100 MILL",

@@ -354,7 +354,7 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
                 onClick={() => {
                     props.ocultarModal();
                     history.push({
-                      pathname: `/screens/yo-gane/yo-gane-resultado/yo-gane-resultado.screen/`,
+                      pathname: `/screens/yo-gane/yo-gane-resultado/yo-gane-resultado.screen/${props.loteria.codigo}/${getSorteo()}/${getTiquete()}/${getSerie()}`,
                     });
                   }}
               >

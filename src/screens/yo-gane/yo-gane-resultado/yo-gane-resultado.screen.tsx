@@ -88,7 +88,7 @@ const YoGaneResultadoScreen: React.FC = () => {
                 <IonSlide >
                   <img
                     
-                    src="https://i0.wp.com/tolimaonline.com/wp-content/uploads/2020/08/Loter%C3%ADa-del-Tolima.jpg?fit=1280%2C720&ssl=1"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaHxk_yxlr0r_MHzI2NHw9V719TrDmsztZaw&usqp=CAU"
                     alt=""
                     />
                 </IonSlide>

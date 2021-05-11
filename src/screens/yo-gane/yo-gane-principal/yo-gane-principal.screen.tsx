@@ -16,21 +16,36 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import "./yo-gane-principal.style.css";
 import Header from "../../../components/header/header.comp";
 import { useHistory } from "react-router";
+import { parseJsonText } from "typescript";
 
-const YoGanePrincipalScreen: React.FC = () => {
+const YoGanePrincipalScreen: React.FC =  () => {
 
   const history = useHistory();
 
-  const startScanningMobile = async () => {
-     
+  const iniciarScanner = async () => {
+
     const data = await BarcodeScanner.scan({
         showTorchButton: true, // iOS and Android
         prompt: "Acerque la línea roja al código de barras del billete", // Android
         formats: "CODE_128",
       });
-      alert(JSON.stringify(data));
 
+      return data.text;
   };
+
+  const obtenerDatosCodigoBarras = (codigo: string, readingOrder: number, leerXFracciones: boolean) => {
+
+    return {        
+        codigo: leerXFracciones ? codigo : codigo.substr(0, codigo.length - 2),
+        sorteo: codigo.substr(7,4),
+        numero: codigo.substr(11, 4),
+        serie: codigo.substr(15, 3),
+        readingOrder
+    };
+  };
+
+  
+  
 
   return (
     <IonPage>
@@ -78,8 +93,14 @@ const YoGanePrincipalScreen: React.FC = () => {
               <div className="la-div-botones">
                 <button 
                   className="la-boton la-boton-camara"
-                  onClick={startScanningMobile}
-                >CÁMARA</button>
+                  onClick={async () => {
+                    const codigoBarras = obtenerDatosCodigoBarras(await iniciarScanner(), 1, true);
+                    history.push({
+                      pathname: `/screens/yo-gane/yo-gane-resultado/yo-gane-resultado.screen/${codigoBarras.codigo}/${codigoBarras.sorteo}/${codigoBarras.numero}/${codigoBarras.serie}`,
+                    });
+                  }}
+                  
+                  >CÁMARA</button>
                 <button className="la-boton la-boton-datos"
                 onClick={() => {
                   history.push({
@@ -100,3 +121,6 @@ const YoGanePrincipalScreen: React.FC = () => {
 };
 
 export default YoGanePrincipalScreen;
+
+
+

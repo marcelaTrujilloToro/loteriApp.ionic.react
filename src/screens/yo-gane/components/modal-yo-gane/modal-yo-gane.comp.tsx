@@ -35,7 +35,6 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
     const [serieDig1, setSerieDig1] = useState<string>();
     const [serieDig2, setSerieDig2] = useState<string>();
     const [serieDig3, setSerieDig3] = useState<string>();
-    const [serieDig4, setSerieDig4] = useState<string>();
 
     const getSorteo = () => {
       return`${sorteoDig1}${sorteoDig2}${sorteoDig3}${sorteoDig4}`;
@@ -46,7 +45,7 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
     };
 
     const getSerie = () => {
-      return`${serieDig1}${serieDig2}${serieDig3}${serieDig4}`;
+      return`${serieDig1}${serieDig2}${serieDig3}`;
     };
 
     return (
@@ -325,26 +324,6 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
               </IonGrid>
             </IonCol>
 
-            <IonCol>
-              <IonGrid>
-                <IonRow>
-                  <IonCol>
-                  <IonInput
-                        type="number" 
-                        value={serieDig4}
-                        onIonChange={(e:any) =>{
-                          setSerieDig4(e.detail.value);
-                        }}                    
-                    ></IonInput>
-                  </IonCol>
-                </IonRow>
-                <IonRow>
-                  <IonCol>
-                    <div className="la-linea-roja-digito"></div>
-                  </IonCol>
-                </IonRow>
-              </IonGrid>
-            </IonCol>
           </IonRow>
 
           <IonRow>

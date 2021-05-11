@@ -31,7 +31,6 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  top:20px
 }
 
 .la-balota-blanca {
@@ -84,11 +83,11 @@
 
 .la-info-sorteo {
   position: relative;
-  top: 12px;
+  top: -5px;
 }
 
 .la-logo-ltr {
-  width: 70%;
+  width: 60%;
 }
 
 .la-cifra-sorteo {

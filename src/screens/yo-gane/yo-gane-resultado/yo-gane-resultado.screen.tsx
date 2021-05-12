@@ -19,6 +19,8 @@ import { useYoGane } from "../../../hooks/yo-gane/useYoGane.hook";
 import { Premio } from "../../../models/yo-gane/Premio";
 import { useParams } from "react-router";
 import YoGaneScreen from "../yo-gane/yo-gane.screen";
+import Loading from "../../../shared/screen/loading/loading.screen";
+import Error from "../../../shared/screen/error/error.screen";
 
 export interface YoGaneResultadoScreenParams {
   codigoLoteria: string;
@@ -35,12 +37,27 @@ const YoGaneResultadoScreen: React.FC = () => {
     serie,
   } = useParams<YoGaneResultadoScreenParams>();
 
-  const { data: resultados } = useYoGane(
+  const { isLoading, isError, data: resultados } = useYoGane(
     codigoLoteria,
     numeroSorteo,
     numero,
     serie
   );
+  
+
+  if (isLoading) {
+    return (
+      <Loading></Loading>
+    );
+  }
+
+
+  if (isError) {
+
+    return (
+      <Error></Error>
+    );
+  }
 
   return (
     <IonPage>

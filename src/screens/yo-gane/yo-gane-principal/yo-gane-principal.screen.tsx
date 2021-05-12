@@ -21,6 +21,7 @@ const YoGanePrincipalScreen: React.FC = () => {
   const history = useHistory();
 
   const iniciarScanner = async () => {
+    
     const data = await BarcodeScanner.scan({
       showTorchButton: true, // iOS and Android
       prompt: "Acerque la línea roja al código de barras del billete", // Android

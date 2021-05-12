@@ -35,6 +35,8 @@ import QueCayoResultadoScreen from "./screens/que-cayo/que-cayo-resultado/que-ca
 import YoGanePrincipalScreen from "./screens/yo-gane/yo-gane-principal/yo-gane-principal.screen";
 import YoGaneScreen from "./screens/yo-gane/yo-gane/yo-gane.screen";
 import YoGaneResultadoScreen from "./screens/yo-gane/yo-gane-resultado/yo-gane-resultado.screen"
+import NumerosSuertudosScreen from "./screens/numeros-suertudos/numeros-suertudos/numeros-suertudos.screen";
+import NumerosSuertudosResultadosScreen from "./screens/numeros-suertudos/numeros-suertudos-resultados/numeros-suertudos-resultados.screen";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -74,6 +76,16 @@ const App: React.FC = () => {
               <Route path="/screens/yo-gane/yo-gane-resultado/yo-gane-resultado.screen/:codigoLoteria/:numeroSorteo/:numero/:serie" exact={true}>
                 <YoGaneResultadoScreen/>
               </Route>
+
+              <Route path="/screens/numeros-suertudos/:name" exact={true}>
+                <NumerosSuertudosScreen/>
+              </Route>
+
+              <Route path="/screens/numeros-suertudos/numeros-suertudos-resultados/numeros-suertudos-resultados.screen/" exact={true}>
+                <NumerosSuertudosResultadosScreen/>
+              </Route>
+
+
               
             </IonRouterOutlet>
           </IonSplitPane>

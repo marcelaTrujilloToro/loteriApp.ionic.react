@@ -134,6 +134,11 @@ const HomeScreen = () => {
                                 <IonImg
                                   className="la-img-opcion"
                                   src="/assets/imagenes/Loteriapp_opcion_numeros_suertudos.png"
+                                  onClick={() => {
+                                    history.push({
+                                      pathname: `/screens/numeros-suertudos/numeros-suertudos.screen`,
+                                    })
+                                  }}
                                 ></IonImg>
                               </div>
                             </IonCol>

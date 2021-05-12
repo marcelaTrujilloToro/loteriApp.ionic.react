@@ -37,13 +37,13 @@ const appPages: AppPage[] = [
     url: "/screens/yo-gane-principal/:name",
     iosIcon: chevronForward,
     mdIcon: chevronForward,
-  }
-  // {
-  //   title: 'Los Números Suertudos',
-  //   url: "",
-  //   iosIcon: chevronForward,
-  //   mdIcon: chevronForward,
-  // },
+  },
+  {
+    title: 'Los Números Suertudos',
+    url: "/screens/numeros-suertudos/:name",
+    iosIcon: chevronForward,
+    mdIcon: chevronForward,
+  },
   // {
   //   title: 'Disponibilidad de Número',
   //   url: "",

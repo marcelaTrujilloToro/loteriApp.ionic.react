@@ -30,6 +30,7 @@ export interface YoGaneResultadoScreenParams {
 }
 
 const YoGaneResultadoScreen: React.FC = () => {
+  
   const {
     codigoLoteria,
     numeroSorteo,

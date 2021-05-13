@@ -4,8 +4,6 @@ import {
   IonCol,
   IonContent,
   IonGrid,
-  IonItem,
-  IonList,
   IonPage,
   IonRow,
   IonSlide,
@@ -16,9 +14,7 @@ import "./yo-gane-resultado.style.css";
 import Header from "../../../components/header/header.comp";
 import { ListaPremios } from "../components/lista-premios/lista-premios.comp";
 import { useYoGane } from "../../../hooks/yo-gane/useYoGane.hook";
-import { Premio } from "../../../models/yo-gane/Premio";
 import { useParams } from "react-router";
-import YoGaneScreen from "../yo-gane/yo-gane.screen";
 import Loading from "../../../shared/screen/loading/loading.screen";
 import Error from "../../../shared/screen/error/error.screen";
 
@@ -30,34 +26,21 @@ export interface YoGaneResultadoScreenParams {
 }
 
 const YoGaneResultadoScreen: React.FC = () => {
-  
-  const {
-    codigoLoteria,
-    numeroSorteo,
-    numero,
-    serie,
-  } = useParams<YoGaneResultadoScreenParams>();
+  const { codigoLoteria, numeroSorteo, numero, serie } =
+    useParams<YoGaneResultadoScreenParams>();
 
-  const { isLoading, isError, data: resultados } = useYoGane(
-    codigoLoteria,
-    numeroSorteo,
-    numero,
-    serie
-  );
-  
+  const {
+    isLoading,
+    isError,
+    data: resultados,
+  } = useYoGane(codigoLoteria, numeroSorteo, numero, serie);
 
   if (isLoading) {
-    return (
-      <Loading></Loading>
-    );
+    return <Loading></Loading>;
   }
 
-
   if (isError) {
-
-    return (
-      <Error></Error>
-    );
+    return <Error></Error>;
   }
 
   return (
@@ -70,12 +53,11 @@ const YoGaneResultadoScreen: React.FC = () => {
             <IonRow className="la-yg-row-imagen">
               <IonCol>
                 <div>
-                  {resultados?.premios 
-                    ? (
-                      <img
-                        className="la-imagen-gano"
-                        src={resultados.imagenGano}
-                      />
+                  {resultados?.premios ? (
+                    <img
+                      className="la-imagen-gano"
+                      src={resultados.imagenGano}
+                    />
                   ) : (
                     <IonText className="la-mensaje-perdio">
                       <p>{resultados?.mensaje}</p>
@@ -85,13 +67,57 @@ const YoGaneResultadoScreen: React.FC = () => {
               </IonCol>
             </IonRow>
 
+            <IonRow className="la-yg-row-datos">
+              <IonCol>
+                <IonGrid className="ion-no-padding">
+                  <IonRow>
+                    <IonCol>
+                      Sorteo
+                    </IonCol>
+                  </IonRow>
+                  <IonRow>
+                    <IonCol>
+                      {numeroSorteo}
+                    </IonCol>
+                  </IonRow>
+                </IonGrid>
+              </IonCol>
+              <IonCol>
+              <IonGrid className="ion-no-padding">
+                  <IonRow>
+                    <IonCol>
+                     Numero
+                    </IonCol>
+                  </IonRow>
+                  <IonRow>
+                    <IonCol>
+                      {numero}
+                    </IonCol>
+                  </IonRow>
+                </IonGrid>
+              </IonCol>
+              <IonCol>
+              <IonGrid className="ion-no-padding">
+                  <IonRow>
+                    <IonCol>
+                      Serie
+                    </IonCol>
+                  </IonRow>
+                  <IonRow>
+                    <IonCol>
+                      {serie}
+                    </IonCol>
+                  </IonRow>
+                </IonGrid>
+              </IonCol>
+            </IonRow>
+
             <IonRow className="la-yg-row-lista">
               <IonCol>
-                {resultados?.premios
-                   ? (
-                    <ListaPremios
-                      listaPremios={resultados?.premios}
-                    ></ListaPremios>
+                {resultados?.premios ? (
+                  <ListaPremios
+                    listaPremios={resultados?.premios}
+                  ></ListaPremios>
                 ) : (
                   <img
                     className="la-imagen-perdio"
@@ -103,22 +129,20 @@ const YoGaneResultadoScreen: React.FC = () => {
 
             <IonRow className="la-yg-row-slider">
               <IonSlides pager={true}>
-                <IonSlide >
+                <IonSlide>
                   <img
-                    
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaHxk_yxlr0r_MHzI2NHw9V719TrDmsztZaw&usqp=CAU"
                     alt=""
-                    />
+                  />
                 </IonSlide>
                 <IonSlide>
                   <img
                     src="https://github.com/marcelaTrujilloToro/loteriApp.ionic.react/blob/main/public/assets/img/splash/LoteriApp_azen_96x30.png?raw=true"
                     alt=""
-                    />
+                  />
                 </IonSlide>
-                <IonSlide >
+                <IonSlide>
                   <img
-                    
                     src="https://github.com/marcelaTrujilloToro/loteriApp.ionic.react/blob/main/public/assets/img/consulta_premios/LoteriApp_consultapremios_slider_360x180px.jpg?raw=true"
                     alt=""
                   />

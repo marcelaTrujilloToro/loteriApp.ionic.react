@@ -1,4 +1,4 @@
-import { IonCol, IonGrid, IonRow } from "@ionic/react";
+import { IonCol,  IonRow } from "@ionic/react";
 import React from "react";
 import { Seco } from "../../../../models/que-cayo/Seco";
 

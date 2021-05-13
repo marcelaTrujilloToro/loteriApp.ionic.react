@@ -1,17 +1,20 @@
 .la-yg-row-imagen {
-  height: 31%;
+  height: 25%;
+}
+
+.la-yg-row-datos{
+  height: 15%;
+  align-items: center;
 }
 
 .la-yg-row-lista {
-  height: 35%;
-  position: relative;
-  top: 30px;
+  height: 30%;
   padding-left: 10px;
   padding-right: 10px;
 }
 
 .la-yg-row-slider {
-  height: 32%;
+  height: 30%;
   width: 100%;
 }
 
@@ -19,12 +22,12 @@
   width: 274.3px;
   height: 130px;
   position: relative;
-  top: 50px;
+  top: 30px;
 }
 
 .la-mensaje-perdio {
   position: relative;
-  top: 50px;
+  top: 30px;
   font-size: 20px;
   line-height: 24px;
   font-weight: normal;
@@ -34,7 +37,7 @@
 
 .la-imagen-perdio {
   position: relative;
-  bottom: 50px;
+  bottom: 5px;
 }
 
 

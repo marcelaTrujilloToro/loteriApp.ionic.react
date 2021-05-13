@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Loteria } from "../../../models/loteria/Loteria";
+import "./numeros-suertudos.style.css";
 import Header from "../../../components/header/header.comp";
 import ListaLoterias from "../../../components/lista-loterias/lista-loterias.comp";
 import ModalNumerosSuertudos from "../components/modal-numeros-suertudos/modal-numeros-suertudos.comp";
@@ -39,7 +40,7 @@ const NumerosSuertudosScreen: React.FC = () => {
 
       <IonContent className="ion-no-padding">
         {loteriaSeleccionada !== undefined ? (
-          <IonModal isOpen={verModal} cssClass="la-que-cayo-modal">
+          <IonModal isOpen={verModal} cssClass="la-num-suertudos-modal">
             <ModalNumerosSuertudos
               ocultarModal={cerrarModal}
               loteria={loteriaSeleccionada}

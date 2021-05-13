@@ -81,7 +81,7 @@ const App: React.FC = () => {
                 <NumerosSuertudosScreen/>
               </Route>
 
-              <Route path="/screens/numeros-suertudos/numeros-suertudos-resultados/numeros-suertudos-resultados.screen/" exact={true}>
+              <Route path="/screens/numeros-suertudos/numeros-suertudos-resultados/numeros-suertudos-resultados.screen/:codigoLoteria/:primeraCifra/:segundaCifra/:terceraCifra/:ultimaCifra/:cantSorteos" exact={true}>
                 <NumerosSuertudosResultadosScreen/>
               </Route>
 

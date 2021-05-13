@@ -11,3 +11,13 @@ yo-gane:
     "numero": "4444",
     "serie": "1231"
 }
+
+numeros-suertudos:
+{
+    "loteria": "024",
+    "ultimaCifra": 1 o 0;
+    "terceraCifra": 1 o 0;
+    "segundaCifra": 1 o 0;
+    "primeraCifra": 1 o 0;
+    "cantidadSorteos": "";
+}

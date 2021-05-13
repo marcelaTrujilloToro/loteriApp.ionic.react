@@ -4,8 +4,8 @@
         {
           "codigo": "024",
           "ultimoSorteo": "4685"
-      }
-    ]
+        }
+      ]
     ,
 
     "resultados":
@@ -67,6 +67,22 @@
                   "valor": "$1000"
                 }
           ]
-      }
+      },
+      
+      
+      "suertudos":
+      [
+        {
+          "numero": "--86",
+          "cantidad": "2",
+          "premio": "aprox"
+        },
+        {
+          "numero": "--75",
+          "cantidad": "6",
+          "premio": "aprox"
+        }
+      ]
+      
     
 }

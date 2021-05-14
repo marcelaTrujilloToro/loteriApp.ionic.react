@@ -8,7 +8,8 @@ type ListaSuertudosProps = {
     listaSuertudos: Suertudo[] | undefined;
 }
 
-const ListaSuertudos: React.FC <ListaSuertudosProps> = (props) => {
+const ListaSuertudos: React.FC<ListaSuertudosProps> = (props) => {
+  
 
         if (props.listaSuertudos === undefined) {
             return(

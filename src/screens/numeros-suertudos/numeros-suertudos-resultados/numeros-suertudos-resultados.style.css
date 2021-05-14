@@ -1,13 +1,25 @@
+
 .la-titulo-ns-row {
   height: 15%;
 }
 
-.la-botones-ns-row {
-  height: 15%;
+.la-logo-loteria-seleccionada-row{
+height: 30%;
 }
 
+.la-subtitulo-suertudos-row{
+  height: 10%;
+  align-items:center;
+}
+
+.la-items-ns-row {
+  height: 10%;
+  align-items: flex-end;
+}
+
+
 .la-lista-premios-ns-row {
-  height: 70%;
+  height: 35%;
 }
 
 .la-col-titulo-suertudos {
@@ -21,18 +33,10 @@
   top: 15px;
 }
 
-.la-select-suertudos {
-  position: relative;
-  top: 25px;
-  background: rgba(18, 184, 18, 1);
-  border-radius: 5px;
-  color: white;
-  font-size: 14px;
-  font-weight: normal;
-  height: 40px;
+.la-logo-loteria{
   width: 50%;
-  line-height: 15px;
 }
+
 .la-select-suertudos .item-interactive .item-select .item-md .ion-activatable .ion-focusable .hydrated .item-label{
   background-color: chartreuse;
 }

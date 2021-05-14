@@ -11,44 +11,46 @@
     "resultados":
     
       {
-          "nombreDiaMes": "Miercoles",
-          "diaMes": "10",
-          "nombreMes": "Marzo",
-          "anio": "2021",
-          "serieMayor": "183",
-          "numeroMayor": "9397",
-          "sorteo": "4685",
-          "fecha": "2021/04/29",
-          "secos":[
+        "nombreDiaMes": "Miercoles",
+        "diaMes": "10",
+        "nombreMes": "Marzo",
+        "anio": "2021",
+        "serieMayor": "183",
+        "numeroMayor": "9397",
+        "sorteo": "4685",
+        "fecha": "2021/04/29",
+        "secos":[
+            {
+                "nombre": "PRIMER PREMIO SECO DE 100 MILL",
+                "numero": "0936",
+                "serie": "245"
+              },
               {
-                  "nombre": "PRIMER PREMIO SECO DE 100 MILL",
-                  "numero": "0936",
-                  "serie": "245"
-                },
-                {
-                  "nombre": "PRIMER PREMIO SECO DE 50 MILL",
-                  "numero": "0936",
-                  "serie": "245"
-                },
-                {
-                  "nombre": "SEGUNDO PREMIO SECO DE 50 MILL",
-                  "numero": "0936",
-                  "serie": "245"
-                },
-                {
-                  "nombre": "PRIMER PREMIO SECO DE 20 MILL",
-                  "numero": "0936",
-                  "serie": "245"
-                },
-                {
-                  "nombre": "SEGUNDO PREMIO SECO DE 20 MILL",
-                  "numero": "0936",
-                  "serie": "245"
-                }
-          ]
-      },
+                "nombre": "PRIMER PREMIO SECO DE 50 MILL",
+                "numero": "0936",
+                "serie": "245"
+              },
+              {
+                "nombre": "SEGUNDO PREMIO SECO DE 50 MILL",
+                "numero": "0936",
+                "serie": "245"
+              },
+              {
+                "nombre": "PRIMER PREMIO SECO DE 20 MILL",
+                "numero": "0936",
+                "serie": "245"
+              },
+              {
+                "nombre": "SEGUNDO PREMIO SECO DE 20 MILL",
+                "numero": "0936",
+                "serie": "245"
+              }
+        ]
+    }
+    
+      ,
 
-    "yogane":    
+    "yoGane":    
       {
           "imagenGano": "/assets/img/consulta_premios/LoteriApp_consultapremios_ganador_274x130px.png",
           "imagenPerdio": "/assets/img/consulta_premios/LoteriApp_consultapremios_no_gana_245x130px.jpg",
@@ -80,6 +82,21 @@
         {
           "numero": "--75",
           "cantidad": "6",
+          "premio": "aprox"
+        },
+        {
+          "numero": "---5",
+          "cantidad": "12",
+          "premio": "aprox"
+        },
+        {
+          "numero": "--10",
+          "cantidad": "3",
+          "premio": "aprox"
+        },
+        {
+          "numero": "--61",
+          "cantidad": "4",
           "premio": "aprox"
         }
       ]

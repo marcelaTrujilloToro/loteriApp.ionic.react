@@ -17,9 +17,8 @@ const Error: React.FC = () => {
     const [error, setError] = useState(true);
 
     return (
-    <IonPage>
-      <Header></Header>
-
+    
+      
       <IonContent>
         <div className="la-content-gradiente-darker">
           <IonAlert            
@@ -30,7 +29,7 @@ const Error: React.FC = () => {
             />
         </div>
       </IonContent>
-    </IonPage>
+   
   );
 };
 export default Error;

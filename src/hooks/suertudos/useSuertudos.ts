@@ -11,7 +11,7 @@ export const useSuertudos = (codigoLoteria: string, primeraCifra:string, segunda
 
     return useQuery <Suertudo[]>(['suertudos'], async () => {
         const {data} = await azenApi.get(`suertudos`);
-        return data[0];
+        return data;
     }, {
         retry:1,
     });

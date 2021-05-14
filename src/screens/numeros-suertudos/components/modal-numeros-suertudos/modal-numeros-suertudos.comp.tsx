@@ -21,13 +21,16 @@ interface ModalNumerosSuertudosProps {
 }
 
 const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
+  
   const history = useHistory();
 
-  const [primeraCifra, setPrimeraCifra] = useState<string>("off");
-  const [segundaCifra, setSegundaCifra] = useState<string>("off");
-  const [terceraCifra, setTerceraCifra] = useState<string>("off");
-  const [ultimaCifra, setUltimaCifra] = useState<string>("off");
-  const [cantSorteos, setCantSorteos] = useState<string>("10");
+  const [checkPrimeraCifra, setCheckPrimeraCifra] = useState(false);
+  const [checkSegundaCifra, setCheckSegundaCifra] = useState(false);
+  const [checkTerceraCifra, setCheckTerceraCifra] = useState(false);
+  const [checkUltimaCifra, setCheckUltimaCifra] = useState(false);
+
+  const [cantidadSorteos, setCantidadSorteos] = useState<string>("10");
+
 
   return (
     <IonContent>
@@ -57,9 +60,9 @@ const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
                   <IonLabel color="primary">Primera cifra</IonLabel>
                   <IonCheckbox
                     slot="end"
-                    value={primeraCifra}
+                    checked={checkPrimeraCifra}
                     onIonChange={(e) => {
-                      setPrimeraCifra(e.detail.value);
+                      setCheckPrimeraCifra(e.detail.checked);
                     }}
                   />
                 </IonItem>
@@ -67,9 +70,9 @@ const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
                   <IonLabel color="primary">Segunda cifra</IonLabel>
                   <IonCheckbox
                     slot="end"
-                    value={segundaCifra}
+                    checked={checkSegundaCifra}
                     onIonChange={(e) => {
-                      setSegundaCifra(e.detail.value);
+                      setCheckSegundaCifra(e.detail.checked);
                     }}
                   />
                 </IonItem>
@@ -77,19 +80,21 @@ const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
                   <IonLabel color="primary">Tercera cifra</IonLabel>
                   <IonCheckbox
                     slot="end"
-                    value={terceraCifra}
+                    checked={checkTerceraCifra}
                     onIonChange={(e) => {
-                      setTerceraCifra(e.detail.value);
+                      setCheckTerceraCifra(e.detail.checked);
+                      
                     }}
+                    
                   />
                 </IonItem>
                 <IonItem>
                   <IonLabel color="primary">Ultima cifra</IonLabel>
                   <IonCheckbox
                     slot="end"
-                    value={ultimaCifra}
+                    checked={checkUltimaCifra}
                     onIonChange={(e) => {
-                      setUltimaCifra(e.detail.value);
+                      setCheckUltimaCifra(e.detail.checked);
                     }}
                   />
                 </IonItem>
@@ -110,9 +115,9 @@ const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
                   <IonCol>
                     <IonInput
                       type="number"
-                      value={cantSorteos}
+                      value={cantidadSorteos}
                       onIonChange={(e: any) => {
-                        setCantSorteos(e.detail.value);
+                        setCantidadSorteos(e.detail.value);
                       }}
                     ></IonInput>
                   </IonCol>
@@ -133,7 +138,7 @@ const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
                 onClick={() => {
                   props.ocultarModal();
                   history.push({
-                    pathname: `/screens/numeros-suertudos/numeros-suertudos-resultados/numeros-suertudos-resultados.screen/${props.loteria.codigo}/${primeraCifra}/${segundaCifra}/${terceraCifra}/${ultimaCifra}/${cantSorteos}`,
+                    pathname: `/screens/numeros-suertudos/numeros-suertudos-resultados/numeros-suertudos-resultados.screen/${props.loteria.codigo}/${checkPrimeraCifra}/${checkSegundaCifra}/${checkTerceraCifra}/${checkUltimaCifra}/${cantidadSorteos}/`,
                   });
                 }}
               >

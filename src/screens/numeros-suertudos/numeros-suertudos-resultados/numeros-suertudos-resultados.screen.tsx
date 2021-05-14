@@ -10,11 +10,11 @@ import {
   IonGrid,
   IonPage,
   IonRow,
-  IonSelect,
-  IonSelectOption,
   IonTitle,
 } from "@ionic/react";
 import { useParams } from "react-router";
+import Loading from "../../../shared/screen/loading/loading.screen";
+import Error from "../../../shared/screen/error/error.screen";
 
 export interface SuertudosResultadosScreenParams {
   codigoLoteria: string;
@@ -48,11 +48,19 @@ const NumerosSuertudosResultadosScreen: React.FC = () => {
     cantidadSorteos
   );
 
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
+
+  if (isError) {
+    return <Error></Error>;
+  }
+
   return (
     <IonPage>
       <Header></Header>
 
-      <IonContent className="ion-no-padding">
+      <IonContent className="ion-no-padding" >
         <div className="la-content-gradiente-darker">
           <IonGrid className=" la-content-grid ion-no-padding">
             <IonRow className="la-titulo-ns-row">
@@ -64,15 +72,42 @@ const NumerosSuertudosResultadosScreen: React.FC = () => {
               </IonCol>
             </IonRow>
 
-            
+            <IonRow className="la-logo-loteria-seleccionada-row">
+              <IonCol>
+                <img
+                  className="la-logo-loteria"
+                  src={`/assets/imagenes/${codigoLoteria}-sin-fondo.png`}
+                  alt=""
+                />
+              </IonCol>
+            </IonRow>
+
+            <IonRow className="la-subtitulo-suertudos-row">
+              <IonCol>
+                <p>
+                  Suertudos de los ultimos {cantidadSorteos} sorteos
+                </p>
+              </IonCol>
+            </IonRow>
+
+            <IonRow className="la-items-ns-row">
+              <IonCol>
+                <p>Numero</p>
+              </IonCol>
+              <IonCol>
+                <p>Cantidad</p>
+              </IonCol>
+              <IonCol>
+                <p>Premio</p>
+              </IonCol>
+            </IonRow>
 
             <IonRow className="la-lista-premios-ns-row">
               <IonCol>
-                {resultadoSuertudos ? (
-                <ListaSuertudos listaSuertudos={resultadoSuertudos}></ListaSuertudos>
-
-                ):( null)}
-                </IonCol>
+                <ListaSuertudos
+                  listaSuertudos={resultadoSuertudos}
+                ></ListaSuertudos>
+              </IonCol>
             </IonRow>
           </IonGrid>
         </div>

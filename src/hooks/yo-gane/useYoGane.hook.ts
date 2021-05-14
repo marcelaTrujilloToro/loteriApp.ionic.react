@@ -13,7 +13,7 @@ export const useYoGane = (loteria: string, sorteo:string, numero:string, serie:s
 
     return useQuery<YoGane>('yoGane', async () => {
         const { data } = await azenApi.get(`yoGane`);
-        return data[0];
+        return data;
     }, {
         retry: 1,
     });

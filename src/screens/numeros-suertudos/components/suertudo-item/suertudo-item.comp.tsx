@@ -9,7 +9,7 @@ type SuertudoProps = {
 const SuertudoItem: React.FC<SuertudoProps> = (props) => {
   return (
     <IonRow className="la-division-premios">
-      <IonCol className="la-premio-fuente " size="8">
+      <IonCol className="la-premio-fuente " >
         {props.suertudo.numero}
       </IonCol>
       <IonCol className="la-premio-fuente ">{props.suertudo.cantidad}</IonCol>

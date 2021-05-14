@@ -12,9 +12,7 @@ const Loading: React.FC = () => {
   }, 2000);
 
   return (
-    <IonPage>
-      <Header></Header>
-
+    
       <IonContent>
         <div className="la-content-gradiente-darker">
           <IonLoading            
@@ -26,7 +24,6 @@ const Loading: React.FC = () => {
             />
         </div>
       </IonContent>
-    </IonPage>
   );
 };
 export default Loading;

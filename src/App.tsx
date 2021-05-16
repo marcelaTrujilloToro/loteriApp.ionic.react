@@ -34,13 +34,13 @@ import Home from "./screens/home/Home.screen";
 import QueCayoResultadoScreen from "./screens/que-cayo/que-cayo-resultado/que-cayo-resultado.screen";
 import YoGanePrincipalScreen from "./screens/yo-gane/yo-gane-principal/yo-gane-principal.screen";
 import YoGaneScreen from "./screens/yo-gane/yo-gane/yo-gane.screen";
-import YoGaneResultadoScreen from "./screens/yo-gane/yo-gane-resultado/yo-gane-resultado.screen"
+import YoGaneResultadoScreen from "./screens/yo-gane/yo-gane-resultado/yo-gane-resultado.screen";
 import NumerosSuertudosScreen from "./screens/numeros-suertudos/numeros-suertudos/numeros-suertudos.screen";
 import NumerosSuertudosResultadosScreen from "./screens/numeros-suertudos/numeros-suertudos-resultados/numeros-suertudos-resultados.screen";
+import { LoteriaProvider } from "./providers/loteria/loteria.context";
 
 // Create a client
 const queryClient = new QueryClient();
-
 
 const App: React.FC = () => {
   return (
@@ -51,42 +51,47 @@ const App: React.FC = () => {
             <Menu />
             <IonRouterOutlet id="main">
               <Route path="/" exact={true}>
-                <Home/>
+                <Home />
               </Route>
 
-              <Route path="/screens/que-cayo/:name" exact={true}>
-                <QueCayoScreen/>
-              </Route>
+              <LoteriaProvider>
+                <Route path="/screens/que-cayo/:name" exact={true}>
+                  <QueCayoScreen />
+                </Route>
 
-              <Route
-                path="/screens/que-cayo-resultado/que-cayo-resultado.screen/:codigoLoteria/:numeroSorteo"
-                exact={true}
-              >
-                <QueCayoResultadoScreen/>
-              </Route>
+                <Route
+                  path="/screens/que-cayo-resultado/que-cayo-resultado.screen/:numeroSorteo"
+                  exact={true}
+                >
+                  <QueCayoResultadoScreen />
+                </Route>
+              </LoteriaProvider>
 
               <Route path="/screens/yo-gane-principal/:name" exact={true}>
-                <YoGanePrincipalScreen/>
+                <YoGanePrincipalScreen />
               </Route>
 
               <Route path="/screens/yo-gane/:name" exact={true}>
-                <YoGaneScreen/>
+                <YoGaneScreen />
               </Route>
-              
-              <Route path="/screens/yo-gane/yo-gane-resultado/yo-gane-resultado.screen/:codigoLoteria/:numeroSorteo/:numero/:serie" exact={true}>
-                <YoGaneResultadoScreen/>
+
+              <Route
+                path="/screens/yo-gane/yo-gane-resultado/yo-gane-resultado.screen/:codigoLoteria/:numeroSorteo/:numero/:serie"
+                exact={true}
+              >
+                <YoGaneResultadoScreen />
               </Route>
 
               <Route path="/screens/numeros-suertudos/:name" exact={true}>
-                <NumerosSuertudosScreen/>
+                <NumerosSuertudosScreen />
               </Route>
 
-              <Route path="/screens/numeros-suertudos/numeros-suertudos-resultados/numeros-suertudos-resultados.screen/:codigoLoteria/:primeraCifra/:segundaCifra/:terceraCifra/:ultimaCifra/:cantidadSorteos" exact={true}>
-                <NumerosSuertudosResultadosScreen/>
+              <Route
+                path="/screens/numeros-suertudos/numeros-suertudos-resultados/numeros-suertudos-resultados.screen/:codigoLoteria/:primeraCifra/:segundaCifra/:terceraCifra/:ultimaCifra/:cantidadSorteos"
+                exact={true}
+              >
+                <NumerosSuertudosResultadosScreen />
               </Route>
-
-
-              
             </IonRouterOutlet>
           </IonSplitPane>
         </IonReactRouter>

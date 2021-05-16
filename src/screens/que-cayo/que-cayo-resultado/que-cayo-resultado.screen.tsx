@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { IonCol, IonContent, IonGrid, IonPage, IonRow } from "@ionic/react";
 import "./que-cayo-resultado.style.css";
 import Header from "../../../components/header/header.comp";
@@ -7,18 +7,20 @@ import { useResultados } from '../../../hooks/resultados/useResultados.hook'
 import { useParams } from "react-router";
 import Loading from "../../../shared/screen/loading/loading.screen";
 import Error from "../../../shared/screen/error/error.screen";
+import { LoteriaContext } from "../../../providers/loteria/loteria.context";
 
 export interface QueCayoResultadoScreenParams {
-  codigoLoteria: string;
   numeroSorteo: string;
 }
 
 
 const QueCayoResultadoScreen: React.FC = () => {
   
-  const { codigoLoteria, numeroSorteo } = useParams<QueCayoResultadoScreenParams>();
+  const {loteria} = useContext(LoteriaContext);
+  
+  const { numeroSorteo } = useParams<QueCayoResultadoScreenParams>();
 
-  const { isLoading, isError, data:resultado } = useResultados(codigoLoteria, numeroSorteo);
+  const { isLoading, isError, data:resultado } = useResultados(loteria.codigo, numeroSorteo);
 
   
 
@@ -56,7 +58,7 @@ const QueCayoResultadoScreen: React.FC = () => {
                   <IonRow>
                     <IonCol>
                       <img className="la-logo-ltr"
-                        src={`/assets/imagenes/${codigoLoteria}-sin-fondo.png`}
+                        src={`/assets/imagenes/${loteria.codigo}-sin-fondo.png`}
                         alt=""
                       />
                     </IonCol>

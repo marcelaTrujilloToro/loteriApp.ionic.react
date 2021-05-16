@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./que-cayo.style.css";
 import Header from "../../../components/header/header.comp";
 import ListaLoterias from "../../../components/lista-loterias/lista-loterias.comp";
@@ -17,11 +17,12 @@ import {
   IonText,
   IonTitle,
 } from "@ionic/react";
+import { LoteriaContext } from "../../../providers/loteria/loteria.context";
 
 const QueCayoScreen: React.FC = () => {
   const [verModal, setVerModal] = useState(false);
 
-  const [loteriaSeleccionada, setLoteriaSeleccionada] = useState<Loteria>();
+  const {loteria, setLoteria} = useContext(LoteriaContext);
 
   const abrirModal = () => {
     setVerModal(true);
@@ -32,7 +33,7 @@ const QueCayoScreen: React.FC = () => {
   };
 
   const onLoteriaSeleccionadaFn = (loteria: Loteria) => {
-    setLoteriaSeleccionada(loteria);
+    setLoteria(loteria);
     abrirModal();
   };
 
@@ -41,11 +42,10 @@ const QueCayoScreen: React.FC = () => {
       <Header></Header>
 
       <IonContent className="ion-no-padding">
-        {loteriaSeleccionada !== undefined ? (
+        {loteria !== undefined ? (
           <IonModal isOpen={verModal} cssClass="la-que-cayo-modal">
             <ModalQueCayo
               ocultarModal={cerrarModal}
-              loteria={loteriaSeleccionada}
             />
           </IonModal>
         ) : null}

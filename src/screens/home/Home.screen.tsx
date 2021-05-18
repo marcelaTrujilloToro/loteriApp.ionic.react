@@ -166,6 +166,11 @@ const HomeScreen = () => {
                                 <IonImg
                                   className="la-img-opcion"
                                   src="/assets/imagenes/Loteriapp_opcion_avisame.png"
+                                  onClick={() => {
+                                    history.push({
+                                      pathname: `/screens/avisame-si-gano/avisame-si-gano.screen`,
+                                    })
+                                  }}
                                 ></IonImg>
                               </div>
                             </IonCol>

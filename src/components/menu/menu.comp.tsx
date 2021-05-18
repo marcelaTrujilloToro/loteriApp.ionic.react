@@ -44,14 +44,14 @@ const appPages: AppPage[] = [
     iosIcon: chevronForward,
     mdIcon: chevronForward,
   },
+  {
+    title: 'Aví­same si Gano',
+    url: "/screens/avisame-si-gano/:name",
+    iosIcon: chevronForward,
+    mdIcon: chevronForward,
+  },
   // {
   //   title: 'Disponibilidad de Número',
-  //   url: "",
-  //   iosIcon: chevronForward,
-  //   mdIcon: chevronForward,
-  // },
-  // {
-  //   title: 'Aví­same si Gano',
   //   url: "",
   //   iosIcon: chevronForward,
   //   mdIcon: chevronForward,

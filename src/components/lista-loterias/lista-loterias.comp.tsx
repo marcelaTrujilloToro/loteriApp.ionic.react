@@ -34,7 +34,7 @@ const ListaLoterias: React.FC <ListaLoteriasProps> = (props) => {
             ></img>
           </div>          
         </IonCol>
-      ))};
+      ))}
     </IonRow>
   );
 };

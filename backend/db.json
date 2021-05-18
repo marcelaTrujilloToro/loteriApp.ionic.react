@@ -99,7 +99,23 @@
           "cantidad": "4",
           "premio": "aprox"
         }
-      ]
+      ],
+
+      "avisame":
+      {
+        "codigoVerificacion":
+          {
+            "valido": 1,
+            "mensaje": "Excedio cantidad de intentos",
+            "excedeIntentos": 1
+          },
+        "notificacion":
+          {
+            "eliminado": 1,
+            "mensaje": "Numero no valido, ¿Desea volverlo a ingresar?"
+          }
+        
+      }
       
     
 }

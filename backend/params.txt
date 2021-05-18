@@ -15,9 +15,20 @@ yo-gane:
 numeros-suertudos:
 {
     "loteria": "024",
-    "ultimaCifra": 1 o 0;
-    "terceraCifra": 1 o 0;
-    "segundaCifra": 1 o 0;
-    "primeraCifra": 1 o 0;
+    "ultimaCifra":  1|0;
+    "terceraCifra": 1|0;
+    "segundaCifra": 1|0;
+    "primeraCifra": 1|0;
     "cantidadSorteos": "";
+}
+
+avisame:
+{
+    "loteria": "024",
+    "celular": "1111111111";
+    "email": "pepitoperez@correo.com";
+    "fecha": aaaammdd
+    "codigo: 123456;
+    "numero: "1234";
+    "operacion: 1|0;
 }

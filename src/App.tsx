@@ -37,6 +37,7 @@ import YoGaneScreen from "./screens/yo-gane/yo-gane/yo-gane.screen";
 import YoGaneResultadoScreen from "./screens/yo-gane/yo-gane-resultado/yo-gane-resultado.screen";
 import NumerosSuertudosScreen from "./screens/numeros-suertudos/numeros-suertudos/numeros-suertudos.screen";
 import NumerosSuertudosResultadosScreen from "./screens/numeros-suertudos/numeros-suertudos-resultados/numeros-suertudos-resultados.screen";
+import AvisameSiGanoScreen from "./screens/avisame-si-gano/avisame-si-gano/avisame-si-gano.screen";
 import { LoteriaProvider } from "./providers/loteria/loteria.context";
 
 // Create a client
@@ -92,6 +93,16 @@ const App: React.FC = () => {
               >
                 <NumerosSuertudosResultadosScreen />
               </Route>
+
+              <Route path="/screens/avisame-si-gano/:name" exact={true}>
+                <AvisameSiGanoScreen/>
+              </Route>
+
+              <Route path="/screens/avisame-si-gano/avisame-si-gano-datos/avisame-si-gano-datos.screen" exact={true}>
+                <AvisameSiGanoScreen/>
+              </Route>
+
+
             </IonRouterOutlet>
           </IonSplitPane>
         </IonReactRouter>

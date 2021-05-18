@@ -20,9 +20,11 @@ import {
 import { LoteriaContext } from "../../../providers/loteria/loteria.context";
 
 const QueCayoScreen: React.FC = () => {
+
+  const {loteriaSeleccionada, setLoteriaSeleccionada} = useContext(LoteriaContext);
+  
   const [verModal, setVerModal] = useState(false);
 
-  const {loteria, setLoteria} = useContext(LoteriaContext);
 
   const abrirModal = () => {
     setVerModal(true);
@@ -33,7 +35,7 @@ const QueCayoScreen: React.FC = () => {
   };
 
   const onLoteriaSeleccionadaFn = (loteria: Loteria) => {
-    setLoteria(loteria);
+    setLoteriaSeleccionada(loteria);
     abrirModal();
   };
 
@@ -42,7 +44,7 @@ const QueCayoScreen: React.FC = () => {
       <Header></Header>
 
       <IonContent className="ion-no-padding">
-        {loteria !== undefined ? (
+        {loteriaSeleccionada !== undefined ? (
           <IonModal isOpen={verModal} cssClass="la-que-cayo-modal">
             <ModalQueCayo
               ocultarModal={cerrarModal}
@@ -63,7 +65,7 @@ const QueCayoScreen: React.FC = () => {
               <IonCol className="la-fuente-subtitulo">
                 <IonText>
                   Lorem ipsum dolor sit amet, consectetur adipis elit sed
-                  malesuada aliquam pharetra dignissim volutpat parturient.
+                  malesuada aliquam pharetra dignissim volutpat parturient.sdfsdf
                 </IonText>
               </IonCol>
             </IonRow>

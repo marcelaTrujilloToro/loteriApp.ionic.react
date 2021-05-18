@@ -10,7 +10,6 @@ import {
   IonRow,
 } from "@ionic/react";
 import { useHistory } from "react-router";
-import { Loteria } from "../../../../models/loteria/Loteria";
 import { LoteriaContext } from "../../../../providers/loteria/loteria.context";
 
 interface ModalQueCayoProps {
@@ -20,12 +19,12 @@ interface ModalQueCayoProps {
 const ModalQueCayo: React.FC<ModalQueCayoProps> = (props) => {
   const history = useHistory();
 
-  const {loteria} = useContext(LoteriaContext);
+  const {loteriaSeleccionada} = useContext(LoteriaContext);
 
-  const [sorteoDigito1, setSorteoDigito1] = useState <string>(loteria.ultimoSorteo[0]);
-  const [sorteoDigito2, setSorteoDigito2] = useState <string>(loteria.ultimoSorteo[1]);
-  const [sorteoDigito3, setSorteoDigito3] = useState <string>(loteria.ultimoSorteo[2]);
-  const [sorteoDigito4, setSorteoDigito4] = useState <string>(loteria.ultimoSorteo[3]);
+  const [sorteoDigito1, setSorteoDigito1] = useState <string>(loteriaSeleccionada.ultimoSorteo[0]);
+  const [sorteoDigito2, setSorteoDigito2] = useState <string>(loteriaSeleccionada.ultimoSorteo[1]);
+  const [sorteoDigito3, setSorteoDigito3] = useState <string>(loteriaSeleccionada.ultimoSorteo[2]);
+  const [sorteoDigito4, setSorteoDigito4] = useState <string>(loteriaSeleccionada.ultimoSorteo[3]);
 
   const getSorteo = () => {
     return`${sorteoDigito1}${sorteoDigito2}${sorteoDigito3}${sorteoDigito4}`;

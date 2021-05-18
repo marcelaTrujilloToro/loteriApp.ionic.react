@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import "./yo-gane.style.css";
 import Header from "../../../components/header/header.comp";
@@ -16,13 +16,16 @@ import {
   IonText,
   IonTitle,
 } from "@ionic/react";
+import { LoteriaContext } from "../../../providers/loteria/loteria.context";
 
 
 const YoGaneScreen: React.FC = () => {
   
   const [verModal, setVerModal] = useState(false);
 
-  const [loteriaSeleccionada, setLoteriaSeleccionada] = useState<Loteria>();
+  const {loteriaSeleccionada, setLoteriaSeleccionada} = useContext(LoteriaContext);
+
+  
 
   const abrirModal = () => {
     setVerModal(true);
@@ -46,7 +49,6 @@ const YoGaneScreen: React.FC = () => {
           <IonModal isOpen={verModal} cssClass="la-modal-yo-gane">
             <ModalYoGane
               ocultarModal={cerrarModal}
-              loteria={loteriaSeleccionada}
             />
           </IonModal>
         ) : null}

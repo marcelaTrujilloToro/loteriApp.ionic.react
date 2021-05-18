@@ -16,11 +16,11 @@ export interface QueCayoResultadoScreenParams {
 
 const QueCayoResultadoScreen: React.FC = () => {
   
-  const {loteria} = useContext(LoteriaContext);
+  const {loteriaSeleccionada} = useContext(LoteriaContext);
   
   const { numeroSorteo } = useParams<QueCayoResultadoScreenParams>();
 
-  const { isLoading, isError, data:resultado } = useResultados(loteria.codigo, numeroSorteo);
+  const { isLoading, isError, data:resultado } = useResultados(loteriaSeleccionada.codigo, numeroSorteo);
 
   
 
@@ -43,7 +43,7 @@ const QueCayoResultadoScreen: React.FC = () => {
       <Header></Header>
 
       <IonContent className="ion-no-padding">
-        <div className="la-content-gradiente-darker">
+        <div className="la-content-gradiente-darker ">
           <IonGrid className=" la-content-grid">
             <IonRow className="la-title-row">
               <IonCol className="la-col-titulo-resultado">
@@ -58,7 +58,7 @@ const QueCayoResultadoScreen: React.FC = () => {
                   <IonRow>
                     <IonCol>
                       <img className="la-logo-ltr"
-                        src={`/assets/imagenes/${loteria.codigo}-sin-fondo.png`}
+                        src={`/assets/imagenes/${loteriaSeleccionada.codigo}-sin-fondo.png`}
                         alt=""
                       />
                     </IonCol>

@@ -1,3 +1,7 @@
+.la-content-height{
+  height: auto;
+  min-height: 100%;
+}
 
 .la-titulo-ns-row {
   height: 15%;
@@ -30,13 +34,15 @@ height: 30%;
 
 .la-titulo-suertudos {
   position: relative;
-  top: 15px;
+  top: 40px;
+}
+
+.la-linea-roja-ns{
+  position: relative;
+  top: 50px;
 }
 
 .la-logo-loteria{
+  margin-top: 60px;
   width: 50%;
-}
-
-.la-select-suertudos .item-interactive .item-select .item-md .ion-activatable .ion-focusable .hydrated .item-label{
-  background-color: chartreuse;
 }

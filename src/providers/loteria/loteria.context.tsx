@@ -9,11 +9,11 @@ export const LoteriaContext = createContext(initialState);
 
 export const LoteriaProvider: React.FC = ({children})=>{
 
-    const [loteria, setLoteria] = useState(initialState.loteria);
+    const [loteriaSeleccionada, setLoteriaSeleccionada] = useState(initialState.loteriaSeleccionada);
 
     const loteriaState = {
-        loteria,
-        setLoteria
+        loteriaSeleccionada,
+        setLoteriaSeleccionada
     } as ILoteriaState;
 
     return  (<LoteriaContext.Provider value={loteriaState}>

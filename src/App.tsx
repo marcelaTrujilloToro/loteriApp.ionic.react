@@ -65,22 +65,22 @@ const App: React.FC = () => {
                 >
                   <QueCayoResultadoScreen />
                 </Route>
+
+                <Route path="/screens/yo-gane-principal/:name" exact={true}>
+                  <YoGanePrincipalScreen />
+                </Route>
+
+                <Route path="/screens/yo-gane/:name" exact={true}>
+                  <YoGaneScreen />
+                </Route>
+
+                <Route
+                  path="/screens/yo-gane/yo-gane-resultado/yo-gane-resultado.screen/:numeroSorteo/:numero/:serie"
+                  exact={true}
+                  >
+                  <YoGaneResultadoScreen />
+                </Route>
               </LoteriaProvider>
-
-              <Route path="/screens/yo-gane-principal/:name" exact={true}>
-                <YoGanePrincipalScreen />
-              </Route>
-
-              <Route path="/screens/yo-gane/:name" exact={true}>
-                <YoGaneScreen />
-              </Route>
-
-              <Route
-                path="/screens/yo-gane/yo-gane-resultado/yo-gane-resultado.screen/:codigoLoteria/:numeroSorteo/:numero/:serie"
-                exact={true}
-              >
-                <YoGaneResultadoScreen />
-              </Route>
 
               <Route path="/screens/numeros-suertudos/:name" exact={true}>
                 <NumerosSuertudosScreen />

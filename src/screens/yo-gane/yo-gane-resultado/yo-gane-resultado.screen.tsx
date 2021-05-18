@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import {
   IonCol,
@@ -17,23 +17,26 @@ import { useYoGane } from "../../../hooks/yo-gane/useYoGane.hook";
 import { useParams } from "react-router";
 import Loading from "../../../shared/screen/loading/loading.screen";
 import Error from "../../../shared/screen/error/error.screen";
+import { LoteriaContext } from "../../../providers/loteria/loteria.context";
 
 export interface YoGaneResultadoScreenParams {
-  codigoLoteria: string;
   numeroSorteo: string;
   numero: string;
   serie: string;
 }
 
 const YoGaneResultadoScreen: React.FC = () => {
-  const { codigoLoteria, numeroSorteo, numero, serie } =
+
+  const {loteriaSeleccionada} = useContext(LoteriaContext);
+
+  const {numeroSorteo, numero, serie } =
     useParams<YoGaneResultadoScreenParams>();
 
   const {
     isLoading,
     isError,
     data: resultados,
-  } = useYoGane(codigoLoteria, numeroSorteo, numero, serie);
+  } = useYoGane(loteriaSeleccionada.codigo, numeroSorteo, numero, serie);
 
   if (isLoading) {
     return <Loading></Loading>;

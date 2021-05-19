@@ -1,0 +1,56 @@
+
+.la-row-titulo-avisame{
+    height: 15%;
+}
+
+.la-col-titulo-avisame{
+    top: 20px;
+}
+
+.la-row-texto-avisame{
+    height: 30%;
+    align-items: center;
+}
+
+.la-row-dato-celular{
+    height: 20%;
+}
+
+.la-row-dato-email{
+    height: 20%;
+}
+
+.la-row-boton-enviar{
+    height: 15%;
+    position: relative;
+    bottom: 30px;
+}
+
+
+.la-linea-datos-avisame{
+    width: 200px;
+}
+
+.la-texto-avisame{
+    font-weight: lighter;
+    color: rgba(1, 95, 163, 1);
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .la-avisame-verificacion-modal .modal-wrapper.sc-ion-modal-ios,
+.modal-shadow.sc-ion-modal-ios {
+  width: 80%;
+  height: 45%;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.la-avisame-verificacion-modal .modal-wrapper.sc-ion-modal-md,
+.modal-shadow.sc-ion-modal-md {
+  width: 80%;
+  height: 45%;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}

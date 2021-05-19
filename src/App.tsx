@@ -39,6 +39,7 @@ import NumerosSuertudosScreen from "./screens/numeros-suertudos/numeros-suertudo
 import NumerosSuertudosResultadosScreen from "./screens/numeros-suertudos/numeros-suertudos-resultados/numeros-suertudos-resultados.screen";
 import AvisameSiGanoScreen from "./screens/avisame-si-gano/avisame-si-gano/avisame-si-gano.screen";
 import { LoteriaProvider } from "./providers/loteria/loteria.context";
+import AvisameSiGanoDatosScren from "./screens/avisame-si-gano/avisame-si-gano-datos/avisame-si-gano-datos.screen";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -99,7 +100,7 @@ const App: React.FC = () => {
               </Route>
 
               <Route path="/screens/avisame-si-gano/avisame-si-gano-datos/avisame-si-gano-datos.screen" exact={true}>
-                <AvisameSiGanoScreen/>
+                <AvisameSiGanoDatosScren/>
               </Route>
 
 

@@ -39,6 +39,7 @@ const NumerosSuertudosScreen: React.FC = () => {
       <Header></Header>
 
       <IonContent className="ion-no-padding">
+        
         {loteriaSeleccionada !== undefined ? (
           <IonModal isOpen={verModal} cssClass="la-num-suertudos-modal">
             <ModalNumerosSuertudos

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Loteria } from "../../../models/loteria/Loteria";
+import { useHistory } from "react-router";
 import Header from "../../../components/header/header.comp";
 import ListaLoterias from "../../../components/lista-loterias/lista-loterias.comp";
 import ModalNumerosSuertudos from "../../numeros-suertudos/components/modal-numeros-suertudos/modal-numeros-suertudos.comp";
+import AvisameSiGanoDatosScren from "../avisame-si-gano-datos/avisame-si-gano-datos.screen";
 
 import {
   IonCol,
@@ -16,36 +18,24 @@ import {
 } from "@ionic/react";
 
 const AvisameSiGanoScreen: React.FC = () => {
-  const [verModal, setVerModal] = useState(false);
+  
   
   const [loteriaSeleccionada, setLoteriaSeleccionada] = useState<Loteria>();
 
-  const abrirModal = () => {
-    setVerModal(true);
-  };
-
-  const cerrarModal = () => {
-    setVerModal(false);
-  };
+  const history = useHistory();
 
   const onLoteriaSeleccionadaFn = (loteria: Loteria) => {
     setLoteriaSeleccionada(loteria);
-    abrirModal();
+    history.push({
+      pathname: `/screens/avisame-si-gano/avisame-si-gano-datos/avisame-si-gano-datos.screen`,
+    });
+   
   };
   return (
     <IonPage>
       <Header></Header>
 
       <IonContent className="ion-no-padding">
-        {loteriaSeleccionada !== undefined ? (
-          <IonModal isOpen={verModal} cssClass="la-que-cayo-modal">
-            <ModalNumerosSuertudos
-              ocultarModal={cerrarModal}
-              loteria={loteriaSeleccionada}
-            />
-          </IonModal>
-        ) : null}
-
         <div className="la-content-gradiente-darker">
           <IonGrid>
             <IonRow>

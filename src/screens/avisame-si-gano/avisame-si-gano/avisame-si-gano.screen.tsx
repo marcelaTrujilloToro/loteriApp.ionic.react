@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Loteria } from "../../../models/loteria/Loteria";
 import { useHistory } from "react-router";
 import Header from "../../../components/header/header.comp";
@@ -16,11 +16,12 @@ import {
   IonText,
   IonTitle,
 } from "@ionic/react";
+import { LoteriaContext } from "../../../providers/loteria/loteria.context";
 
 const AvisameSiGanoScreen: React.FC = () => {
   
+  const {loteriaSeleccionada, setLoteriaSeleccionada} = useContext(LoteriaContext);
   
-  const [loteriaSeleccionada, setLoteriaSeleccionada] = useState<Loteria>();
 
   const history = useHistory();
 

@@ -106,7 +106,7 @@
         "codigoVerificacion":
           {
             "valido": 1,
-            "mensaje": "Excedio cantidad de intentos",
+            "mensaje": "El número no es correcto",
             "excedeIntentos": 1
           },
         "notificacion":

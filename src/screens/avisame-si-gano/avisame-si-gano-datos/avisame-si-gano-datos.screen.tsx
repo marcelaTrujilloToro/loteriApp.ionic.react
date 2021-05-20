@@ -18,20 +18,39 @@ import {
   IonAlert,
 } from "@ionic/react";
 import { Loteria } from "../../../models/loteria/Loteria";
+import ModalAvisameSiGano from "../components/modal-avisame-si-gano/modal-avisame-si-gano.comp";
 
 const AvisameSiGanoDatosScren: React.FC = () => {
+
   const [celular, setCelular] = useState<string>();
   const [email, setEmail] = useState<string>();
 
-  const [verModal, setVerModal] = useState(false);
+  const [verModalVerificacion, setVerModalVerificacion] = useState(false);
 
-  const abrirModal = () => {
-    setVerModal(true);
+  const abrirModalVerificacion = () => {
+    setVerModalVerificacion(true);
   };
 
-  const cerrarModal = () => {
-    setVerModal(false);
+  const cerrarModalVerificacion = (valido?: number) => {
+    setVerModalVerificacion(false);
+    if (valido===1) {
+      setVerModalAvisame(true);
+    };
+      
+  }
+
+  const [verModalAvisame, setVerModalAvisame] = useState(false);
+
+  const abrirModalAvisame = () => {
+    setVerModalAvisame(true);
   };
+
+  const cerrarModalAvisame = (valido?:number) => {
+    setVerModalAvisame(false);
+    
+  };
+
+
 
   return (
     <IonPage>
@@ -62,7 +81,6 @@ const AvisameSiGanoDatosScren: React.FC = () => {
                     <IonCol>
                       <IonInput
                         type="tel"
-                        required={true}
                         maxlength={10}
                         value={celular}
                         placeholder="Numero de celular"
@@ -106,29 +124,46 @@ const AvisameSiGanoDatosScren: React.FC = () => {
             </IonRow>
 
             <IonModal
-              isOpen={verModal}
+              isOpen={verModalVerificacion}
               cssClass="la-avisame-verificacion-modal"
             >
-              <ModalAvisameVerificacion
-                ocultarModal={cerrarModal}
-                celular={celular}
-                email={email}
-              />
+              {
+                celular  && email 
+                ?
+                <ModalAvisameVerificacion
+                  ocultarModal={cerrarModalVerificacion}
+                  abrirModal={abrirModalVerificacion}
+                  celular={celular}
+                  email={email}
+                />
+                : null
+              }
             </IonModal>
+
             <IonRow className="la-row-boton-enviar">
               <IonCol>
                 <button
                   className="la-boton la-boton-consultar"
                   onClick={() => {
-                    abrirModal();
+                    abrirModalVerificacion();
                   }}
-                >
+                  >
                   ENVIAR
                 </button>
               </IonCol>
             </IonRow>
           </IonGrid>
         </div>
+       
+          <IonModal
+              isOpen={verModalAvisame}
+              cssClass="la-avisame-verificacion-modal"
+            >
+
+              <ModalAvisameSiGano ocultarModalAvisame={cerrarModalAvisame}></ModalAvisameSiGano>
+            </IonModal>
+        
+        
       </IonContent>
     </IonPage>
   );

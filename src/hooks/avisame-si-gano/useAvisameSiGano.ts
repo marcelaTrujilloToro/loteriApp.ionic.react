@@ -4,10 +4,9 @@ import {
 
 import useAzenApi from '../../api/useAzenApi';
 import { AvisameSiGano } from "../../models/avisame-si-gano/AvisameSiGano";
-import { CodigoVerificacion } from '../../models/avisame-si-gano/CodigoVerificacion';
 
 
-export const useAvisameSiGano = (codigoLoteria: string, celular:string, email: string, fecha:number, codigoVerificacion: CodigoVerificacion, numero: string, operacion: number) => {
+export const useAvisameSiGano = (codigoLoteria: string, celular:string, email: string, codigoVerificacion?:number, fecha?:number, numero?:number, operacion?: number) => {
     
     const azenApi = useAzenApi();
 

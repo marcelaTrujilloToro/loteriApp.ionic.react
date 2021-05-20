@@ -1,7 +1,10 @@
-import React, { useState } from "react";
-import { Loteria } from "../../../../models/loteria/Loteria";
+import React, { useContext, useState } from "react";
 import { useHistory } from "react-router";
 import "./modal-avisame-verificacion.style.css";
+import { useAvisameSiGano } from "../../../../hooks/avisame-si-gano/useAvisameSiGano";
+import { LoteriaContext } from "../../../../providers/loteria/loteria.context";
+import ModalAvisameSiGano from "../modal-avisame-si-gano/modal-avisame-si-gano.comp";
+
 import {
   IonButton,
   IonCol,
@@ -9,12 +12,14 @@ import {
   IonGrid,
   IonInput,
   IonRow,
+  IonModal,
 } from "@ionic/react";
 
 interface ModalAvisameVerificacionProps {
-  ocultarModal: () => void;
-  celular: string | undefined;
-  email: string | undefined;
+  ocultarModal: (valido?:number) => void;
+  abrirModal: () => void;
+  celular: string;
+  email: string;
 }
 
 const ModalAvisameVerificacion: React.FC<ModalAvisameVerificacionProps> = (
@@ -22,10 +27,26 @@ const ModalAvisameVerificacion: React.FC<ModalAvisameVerificacionProps> = (
 ) => {
   const history = useHistory();
 
-  const [codigoVerificacion, setCodigoVerificacion] = useState<number>();
+  const { loteriaSeleccionada } = useContext(LoteriaContext);
+
+  const [codigoVerificacion, setCodigoVerificacion] = useState<number>(0);
+
+  const { data: avisame } = useAvisameSiGano(
+    loteriaSeleccionada.codigo,
+    props.celular,
+    props.email
+  );
+
+  const validarCodigoVerificacion = () => {
+    if (avisame?.codigoVerificacion.valido === 1) {
+      return  1;
+    }
+    return 0;
+  };
 
   return (
     <IonContent>
+      
       <div className="la-avisame-modal-content">
         <IonButton
           className="la-boton-cerrar"
@@ -40,7 +61,8 @@ const ModalAvisameVerificacion: React.FC<ModalAvisameVerificacionProps> = (
           <IonRow>
             <IonCol>
               <p className="la-texto-darkblue-12 la-texto">
-                Se envió al correo o celular un código de confirmación de 6 dígitos, por favor ingréselo. 
+                Se envió al correo o celular un código de confirmación de{" "}
+                <b>6</b> dígitos, por favor ingréselo.
               </p>
             </IonCol>
           </IonRow>
@@ -77,21 +99,23 @@ const ModalAvisameVerificacion: React.FC<ModalAvisameVerificacionProps> = (
             </IonCol>
           </IonRow>
 
-          <IonRow>
-            <IonCol>
-              <button
-                className="la-boton la-boton-consultar"
-                onClick={() => {
-                  props.ocultarModal();
-                  history.push({
-                    pathname: `/screens/que-cayo-resultado/que-cayo-resultado.screen`,
-                  });
-                }}
-              >
-                CONFIRMAR
-              </button>
-            </IonCol>
-          </IonRow>
+
+            <IonRow>
+              <IonCol>
+                <button
+                  className="la-boton la-boton-consultar"
+                  onClick={() => {
+                    const valido = validarCodigoVerificacion();
+                    props.ocultarModal(valido);
+                  }}
+                >
+                  CONFIRMAR
+                </button>
+              </IonCol>
+            </IonRow>
+           
+
+          
         </IonGrid>
       </div>
     </IonContent>

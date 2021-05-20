@@ -82,6 +82,14 @@ const App: React.FC = () => {
                   >
                   <YoGaneResultadoScreen />
                 </Route>
+
+                <Route path="/screens/avisame-si-gano/:name" exact={true}>
+                  <AvisameSiGanoScreen/>
+                </Route>
+
+                <Route path="/screens/avisame-si-gano/avisame-si-gano-datos/avisame-si-gano-datos.screen" exact={true}>
+                  <AvisameSiGanoDatosScren/>
+                </Route>
               </LoteriaProvider>
 
               <Route path="/screens/numeros-suertudos/:name" exact={true}>
@@ -95,13 +103,7 @@ const App: React.FC = () => {
                 <NumerosSuertudosResultadosScreen />
               </Route>
 
-              <Route path="/screens/avisame-si-gano/:name" exact={true}>
-                <AvisameSiGanoScreen/>
-              </Route>
-
-              <Route path="/screens/avisame-si-gano/avisame-si-gano-datos/avisame-si-gano-datos.screen" exact={true}>
-                <AvisameSiGanoDatosScren/>
-              </Route>
+             
 
 
             </IonRouterOutlet>

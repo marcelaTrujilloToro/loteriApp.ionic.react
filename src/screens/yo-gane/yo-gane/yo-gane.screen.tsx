@@ -16,16 +16,13 @@ import {
   IonText,
   IonTitle,
 } from "@ionic/react";
-import { LoteriaContext } from "../../../providers/loteria/loteria.context";
 
 
 const YoGaneScreen: React.FC = () => {
   
   const [verModal, setVerModal] = useState(false);
 
-  const {loteriaSeleccionada, setLoteriaSeleccionada} = useContext(LoteriaContext);
-
-  
+  const [loteriaSeleccionada, setLoteriaSeleccionada] =useState<Loteria>();
 
   const abrirModal = () => {
     setVerModal(true);
@@ -48,6 +45,7 @@ const YoGaneScreen: React.FC = () => {
         {loteriaSeleccionada !== undefined ? (
           <IonModal isOpen={verModal} cssClass="la-modal-yo-gane">
             <ModalYoGane
+              loteria={loteriaSeleccionada}
               ocultarModal={cerrarModal}
             />
           </IonModal>

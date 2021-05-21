@@ -5,8 +5,8 @@
   "dependencies": {
     "@capacitor/android": "^2.4.7",
     "@capacitor/core": "2.4.7",
-    "@ionic-native/barcode-scanner": "^5.32.1",
-    "@ionic-native/core": "^5.32.1",
+    "@ionic-native/barcode-scanner": "^5.33.0",
+    "@ionic-native/core": "^5.33.0",
     "@ionic/react": "^5.5.0",
     "@ionic/react-router": "^5.5.0",
     "@testing-library/jest-dom": "^5.11.9",

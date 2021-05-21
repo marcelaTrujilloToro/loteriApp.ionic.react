@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package azen.loteriapp;
 
 import android.os.Bundle;
 

@@ -23,8 +23,8 @@ const YoGanePrincipalScreen: React.FC = () => {
   const iniciarScanner = async () => {
     
     const data = await BarcodeScanner.scan({
-      showTorchButton: true, // iOS and Android
-      prompt: "Acerque la línea roja al código de barras del billete", // Android
+      showTorchButton: true, 
+      prompt: "Acerque la línea roja al código de barras del billete",
       formats: "CODE_128",
     });
 
@@ -34,8 +34,10 @@ const YoGanePrincipalScreen: React.FC = () => {
       });
     }
 
+    // alert(JSON.stringify(data.text));
     return data.text;
   };
+
 
   const obtenerDatosCodigoBarras = (
     codigo: string,
@@ -95,6 +97,7 @@ const YoGanePrincipalScreen: React.FC = () => {
             <IonRow className="la-row-botones">
               <IonCol>
                 <div className="la-div-botones">
+                
                   <button
                     className="la-boton la-boton-camara"
                     onClick={async () => {
@@ -110,6 +113,8 @@ const YoGanePrincipalScreen: React.FC = () => {
                   >
                     CÁMARA
                   </button>
+
+                  
                   <button
                     className="la-boton la-boton-datos"
                     onClick={() => {
@@ -125,7 +130,7 @@ const YoGanePrincipalScreen: React.FC = () => {
             </IonRow>
           </IonGrid>
         </div>
-      </IonContent>
+      </IonContent> 
     </IonPage>
   );
 };

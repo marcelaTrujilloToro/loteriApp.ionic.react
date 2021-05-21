@@ -15,6 +15,7 @@ import {
 import { LoteriaContext } from "../../../../providers/loteria/loteria.context";
 
 interface ModalYoGaneProps {
+  loteria: Loteria;
   ocultarModal: () => void;
 }
 
@@ -22,12 +23,12 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
 
     const history = useHistory();
     
-    const {loteriaSeleccionada} = useContext(LoteriaContext);
+    const [loteriaSeleccionada,setLoteriaSeleccionada] = useState();
 
-    const [sorteoDig1, setSorteoDig1] = useState<string>(loteriaSeleccionada.ultimoSorteo[0]);
-    const [sorteoDig2, setSorteoDig2] = useState<string>(loteriaSeleccionada.ultimoSorteo[1]);
-    const [sorteoDig3, setSorteoDig3] = useState<string>(loteriaSeleccionada.ultimoSorteo[2]);
-    const [sorteoDig4, setSorteoDig4] = useState<string>(loteriaSeleccionada.ultimoSorteo[3]);
+    const [sorteoDig1, setSorteoDig1] = useState<string>(props.loteria.ultimoSorteo[0]);
+    const [sorteoDig2, setSorteoDig2] = useState<string>(props.loteria.ultimoSorteo[1]);
+    const [sorteoDig3, setSorteoDig3] = useState<string>(props.loteria.ultimoSorteo[2]);
+    const [sorteoDig4, setSorteoDig4] = useState<string>(props.loteria.ultimoSorteo[3]);
 
     const [tiqueteDig1, setTiqueteDig1] = useState<string>();
     const [tiqueteDig2, setTiqueteDig2] = useState<string>();
@@ -335,7 +336,7 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
                 onClick={() => {
                     props.ocultarModal();
                     history.push({
-                      pathname: `/screens/yo-gane/yo-gane-resultado/yo-gane-resultado.screen/${getSorteo()}/${getTiquete()}/${getSerie()}`,
+                      pathname: `/screens/yo-gane/yo-gane-resultado/yo-gane-resultado.screen/${props.loteria.codigo}/${getSorteo()}/${getTiquete()}/${getSerie()}`,
                     });
                   }}
               >

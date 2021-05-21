@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "loteriApp.ionic.react",
+  "appId": "azen.loteriapp",
+  "appName": "LoteriApp",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "build",

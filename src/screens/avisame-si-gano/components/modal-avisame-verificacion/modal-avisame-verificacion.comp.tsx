@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router";
 import "./modal-avisame-verificacion.style.css";
-import { useAvisameSiGano } from "../../../../hooks/avisame-si-gano/useAvisameSiGano";
+import { useAvisameSiGano } from "../../../../hooks/avisame-si-gano/useAvisamePrimerosParametros.hook";
 import { LoteriaContext } from "../../../../providers/loteria/loteria.context";
 import ModalAvisameSiGano from "../modal-avisame-si-gano/modal-avisame-si-gano.comp";
 
@@ -34,7 +34,8 @@ const ModalAvisameVerificacion: React.FC<ModalAvisameVerificacionProps> = (
   const { data: avisame } = useAvisameSiGano(
     loteriaSeleccionada.codigo,
     props.celular,
-    props.email
+    props.email,
+    codigoVerificacion
   );
 
   const validarCodigoVerificacion = () => {

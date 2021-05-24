@@ -39,7 +39,7 @@
     padding-right: 20px;
   }
 
-  .la-avisame-verificacion-modal .modal-wrapper.sc-ion-modal-ios,
+.la-avisame-verificacion-modal .modal-wrapper.sc-ion-modal-ios,
 .modal-shadow.sc-ion-modal-ios {
   width: 80%;
   min-height: 50%;
@@ -53,6 +53,40 @@
   width: 80%;
   min-height: 50%;
   height: auto;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.la-avisame-si-gano-modal .modal-wrapper.sc-ion-modal-ios,
+.modal-shadow.sc-ion-modal-ios {
+  width: 80%;
+  min-height: 70%;
+  height: auto;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.la-avisame-si-gano-modal .modal-wrapper.sc-ion-modal-md,
+.modal-shadow.sc-ion-modal-md {
+  width: 80%;
+  min-height: 70%;
+  height: auto;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.la-notificacion-guardada-modal .modal-wrapper.sc-ion-modal-md,
+.modal-shadow.sc-ion-modal-md {
+  width: 50%;
+  height: 30%;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.la-notificacion-guardada-modal .modal-wrapper.sc-ion-modal-ios,
+.modal-shadow.sc-ion-modal-ios {
+  width: 50%;
+  height: 30%;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
 }

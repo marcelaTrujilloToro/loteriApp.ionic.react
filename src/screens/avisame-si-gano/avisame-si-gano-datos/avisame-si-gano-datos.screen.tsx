@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./avisame-si-gano-datos.style.css";
 import Header from "../../../components/header/header.comp";
 import { useHistory } from "react-router";
-
+import { LoteriaContext } from "../../../providers/loteria/loteria.context";
 import ModalAvisameVerificacion from "../components/modal-avisame-verificacion/modal-avisame-verificacion.comp";
+import ModalAvisameSiGano from "../components/modal-avisame-si-gano/modal-avisame-si-gano.comp";
+import { useAvisameSegundoHook } from "../../../hooks/avisame-si-gano/useAvisameSegundosParametros.hook";
 
 import {
   IonCol,
@@ -17,39 +19,53 @@ import {
   IonInput,
   IonAlert,
 } from "@ionic/react";
-import { Loteria } from "../../../models/loteria/Loteria";
-import ModalAvisameSiGano from "../components/modal-avisame-si-gano/modal-avisame-si-gano.comp";
+import { AvisameSiGano } from "../../../models/avisame-si-gano/AvisameSiGano";
+import ModalNotificacionGuardada from "../components/modal-notificacion-guardada/modal-notificacion-guardada.comp";
+
 
 const AvisameSiGanoDatosScren: React.FC = () => {
 
+  const { loteriaSeleccionada } = useContext(LoteriaContext);
   const [celular, setCelular] = useState<string>();
   const [email, setEmail] = useState<string>();
-
+  
   const [verModalVerificacion, setVerModalVerificacion] = useState(false);
-
+  
   const abrirModalVerificacion = () => {
     setVerModalVerificacion(true);
   };
-
+  
   const cerrarModalVerificacion = (valido?: number) => {
     setVerModalVerificacion(false);
-    if (valido===1) {
+    if (valido === 1) {
       setVerModalAvisame(true);
-    };
-      
-  }
-
+    }
+  };
+  
   const [verModalAvisame, setVerModalAvisame] = useState(false);
-
+  
   const abrirModalAvisame = () => {
     setVerModalAvisame(true);
   };
-
-  const cerrarModalAvisame = (valido?:number) => {
+  
+  const cerrarModalAvisame = (valido?: number) => {
     setVerModalAvisame(false);
+  };
+  
+
+  const [verModalNotificacionGuardada, setVerModalNotificacionGuardada] = useState(false);
+  const abrirModalNotificacionGuardada = () => {
+    setVerModalAvisame(true);
+  };
+  
+  const cerrarModalNotificacionGuardada = () => {
+    setVerModalAvisame(false);
+  };
+  
+ 
+  const recuperarRespuesta = (avisame: AvisameSiGano) => {
     
   };
-
 
 
   return (
@@ -127,17 +143,14 @@ const AvisameSiGanoDatosScren: React.FC = () => {
               isOpen={verModalVerificacion}
               cssClass="la-avisame-verificacion-modal"
             >
-              {
-                celular  && email 
-                ?
+              {celular && email ? (
                 <ModalAvisameVerificacion
                   ocultarModal={cerrarModalVerificacion}
                   abrirModal={abrirModalVerificacion}
                   celular={celular}
                   email={email}
                 />
-                : null
-              }
+              ) : null}
             </IonModal>
 
             <IonRow className="la-row-boton-enviar">
@@ -147,22 +160,29 @@ const AvisameSiGanoDatosScren: React.FC = () => {
                   onClick={() => {
                     abrirModalVerificacion();
                   }}
-                  >
+                >
                   ENVIAR
                 </button>
               </IonCol>
             </IonRow>
           </IonGrid>
         </div>
-       
-          <IonModal
-              isOpen={verModalAvisame}
-              cssClass="la-avisame-verificacion-modal"
-            >
 
-              <ModalAvisameSiGano ocultarModalAvisame={cerrarModalAvisame}></ModalAvisameSiGano>
-            </IonModal>
-        
+        <IonModal isOpen={verModalAvisame} cssClass="la-avisame-si-gano-modal">
+          <ModalAvisameSiGano
+            ocultarModalAvisame={cerrarModalAvisame}
+            abrirModalNotificacionGuardada={abrirModalNotificacionGuardada}
+            recuperarRespuesta= {recuperarRespuesta}
+          ></ModalAvisameSiGano>
+        </IonModal>
+
+        <IonModal isOpen={verModalNotificacionGuardada} cssClass="la-notificacion-guardada-modal">
+          <ModalNotificacionGuardada
+            ocultarModalNotificacionGuardada= {cerrarModalNotificacionGuardada}
+            // mensaje= {mensaje}
+          ></ModalNotificacionGuardada>
+        </IonModal>
+
         
       </IonContent>
     </IonPage>

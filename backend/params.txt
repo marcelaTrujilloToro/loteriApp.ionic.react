@@ -22,7 +22,22 @@ numeros-suertudos:
     "cantidadSorteos": "";
 }
 
-avisame:
+avisamePrimerosParams:
+{
+    "loteria": "024",
+    "celular": "1111111111";
+    "email": "pepitoperez@correo.com";
+}
+
+avisameSegundosParams:
+{
+    "loteria": "024",
+    "celular": "1111111111";
+    "email": "pepitoperez@correo.com";
+    "codigo: 123456;
+}
+
+avisameTercerosParams:
 {
     "loteria": "024",
     "celular": "1111111111";
@@ -31,4 +46,5 @@ avisame:
     "codigo: 123456;
     "numero: "1234";
     "operacion: 1|0;
+    "cantidadSorteos": "";
 }

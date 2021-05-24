@@ -1,1 +1,1 @@
-export const AZEN_API_BASE_URL = "https://6092afbf85ff5100172136cd.mockapi.io";
+export const AZEN_API_BASE_URL = "http://localhost:3001";

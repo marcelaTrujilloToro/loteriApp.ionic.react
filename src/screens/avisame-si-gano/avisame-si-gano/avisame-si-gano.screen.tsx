@@ -3,8 +3,6 @@ import { Loteria } from "../../../models/loteria/Loteria";
 import { useHistory } from "react-router";
 import Header from "../../../components/header/header.comp";
 import ListaLoterias from "../../../components/lista-loterias/lista-loterias.comp";
-import ModalNumerosSuertudos from "../../numeros-suertudos/components/modal-numeros-suertudos/modal-numeros-suertudos.comp";
-import AvisameSiGanoDatosScren from "../avisame-si-gano-datos/avisame-si-gano-datos.screen";
 
 import {
   IonCol,
@@ -16,22 +14,30 @@ import {
   IonText,
   IonTitle,
 } from "@ionic/react";
-import { LoteriaContext } from "../../../providers/loteria/loteria.context";
+import { AvisameSiGanoContext } from "../../../providers/avisame-si-gano/avisameSiGano.context";
+import { useAvisameSiGano } from "../../../hooks/avisame-si-gano/useAvisameSiGano.hook";
 
 const AvisameSiGanoScreen: React.FC = () => {
-  
-  const {loteriaSeleccionada, setLoteriaSeleccionada} = useContext(LoteriaContext);
-  
+
+
+  const {avisameSiGanoParams, setAvisameSiGanoParams} = useContext(AvisameSiGanoContext);
 
   const history = useHistory();
 
-  const onLoteriaSeleccionadaFn = (loteria: Loteria) => {
-    setLoteriaSeleccionada(loteria);
+  
+  
+  const onLoteriaSeleccionadaFn = (loteriaSeleccionada: Loteria) => {
+    setAvisameSiGanoParams({...avisameSiGanoParams, loteria: loteriaSeleccionada });
+    
     history.push({
       pathname: `/screens/avisame-si-gano/avisame-si-gano-datos/avisame-si-gano-datos.screen`,
     });
-   
+    
   };
+  
+  const { isLoading, isError, data:resultado } = useAvisameSiGano(avisameSiGanoParams);
+  
+  
   return (
     <IonPage>
       <Header></Header>

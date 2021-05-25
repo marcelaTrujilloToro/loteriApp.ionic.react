@@ -13,7 +13,7 @@ import {
 
 interface ModalNotificacionGuardadaProps {
   ocultarModalNotificacionGuardada: () => void;
-  // mensaje: string;
+  
 }
 
 const ModalNotificacionGuardada: React.FC<ModalNotificacionGuardadaProps> = (props) => {

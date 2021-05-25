@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import "./modal-avisame.si.gano.style.css";
-import { useAvisameSiGano } from "../../../../hooks/avisame-si-gano/useAvisamePrimerosParametros.hook";
-import { useAvisameSegundoHook } from "../../../../hooks/avisame-si-gano/useAvisameSegundosParametros.hook";
 
 import {
   IonButton,
@@ -14,9 +12,8 @@ import {
 import { AvisameSiGano } from "../../../../models/avisame-si-gano/AvisameSiGano";
 
 interface ModalAvisameSiGanoProps {
-  ocultarModalAvisame: () => void;
-  abrirModalNotificacionGuardada: () => void;
-  recuperarRespuesta: (avisame: AvisameSiGano) => void;
+  ocultarModalAvisame: (abrir:boolean) => void;
+ 
 }
 
 let opcion: number;
@@ -44,16 +41,6 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
     const mesReal = completarMes(mes);
     return `${date.getFullYear()}${mesReal}${date.getDate()}`;
   };
-
-
-  const { data: avisame } = useAvisameSegundoHook(
-    obtenerNumeroSuerte(), obtenerFechaActual(),  opcion
-    
-  );
-
-  if (avisame) {
-    props.recuperarRespuesta(avisame);
-  }
   
   
   
@@ -63,7 +50,7 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
         <IonButton
           className="la-boton-cerrar"
           onClick={() => {
-            props.ocultarModalAvisame();
+            props.ocultarModalAvisame(false);
           }}
           fill="clear"
         >
@@ -176,7 +163,7 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
               <button
                 className="la-boton la-boton-consultar"
                 onClick={() => {
-                  props.abrirModalNotificacionGuardada();
+                  
                 }}
                 >
                 REGISTRAR

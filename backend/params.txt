@@ -34,7 +34,7 @@ avisameSegundosParams:
     "loteria": "024",
     "celular": "1111111111";
     "email": "pepitoperez@correo.com";
-    "codigo: 123456;
+    "codigo: "123456";
 }
 
 avisameTercerosParams:
@@ -43,7 +43,7 @@ avisameTercerosParams:
     "celular": "1111111111";
     "email": "pepitoperez@correo.com";
     "fecha": aaaammdd
-    "codigo: 123456;
+    "codigo: "123456";
     "numero: "1234";
     "operacion: 1|0;
     "cantidadSorteos": "";

@@ -38,8 +38,9 @@ import YoGaneResultadoScreen from "./screens/yo-gane/yo-gane-resultado/yo-gane-r
 import NumerosSuertudosScreen from "./screens/numeros-suertudos/numeros-suertudos/numeros-suertudos.screen";
 import NumerosSuertudosResultadosScreen from "./screens/numeros-suertudos/numeros-suertudos-resultados/numeros-suertudos-resultados.screen";
 import AvisameSiGanoScreen from "./screens/avisame-si-gano/avisame-si-gano/avisame-si-gano.screen";
-import { LoteriaProvider } from "./providers/loteria/loteria.context";
 import AvisameSiGanoDatosScren from "./screens/avisame-si-gano/avisame-si-gano-datos/avisame-si-gano-datos.screen";
+import { LoteriaProvider } from "./providers/loteria/loteria.context";
+import { AvisameSiGanoProvider } from "./providers/avisame-si-gano/avisameSiGano.context";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -66,15 +67,7 @@ const App: React.FC = () => {
                   exact={true}
                 >
                   <QueCayoResultadoScreen />
-                </Route>
-
-                <Route path="/screens/avisame-si-gano/:name" exact={true}>
-                  <AvisameSiGanoScreen/>
-                </Route>
-
-                <Route path="/screens/avisame-si-gano/avisame-si-gano-datos/avisame-si-gano-datos.screen" exact={true}>
-                  <AvisameSiGanoDatosScren/>
-                </Route>
+                </Route>                
               </LoteriaProvider>
 
               <Route path="/screens/yo-gane-principal/:name" exact={true}>
@@ -103,7 +96,17 @@ const App: React.FC = () => {
                 <NumerosSuertudosResultadosScreen />
               </Route>
 
-             
+              <AvisameSiGanoProvider>
+
+              <Route path="/screens/avisame-si-gano/:name" exact={true}>
+                  <AvisameSiGanoScreen/>
+                </Route>
+
+                <Route path="/screens/avisame-si-gano/avisame-si-gano-datos/avisame-si-gano-datos.screen" exact={true}>
+                  <AvisameSiGanoDatosScren/>
+                </Route>
+
+              </AvisameSiGanoProvider>
 
 
             </IonRouterOutlet>

@@ -48,3 +48,11 @@ avisameTercerosParams:
     "operacion: 1|0;
     "cantidadSorteos": "";
 }
+
+eliminarSubscripcion:
+{
+    "loteria": "024",
+    "celular": "1111111111";
+    "email": "pepitoperez@correo.com";
+    "numero: "1234";
+}

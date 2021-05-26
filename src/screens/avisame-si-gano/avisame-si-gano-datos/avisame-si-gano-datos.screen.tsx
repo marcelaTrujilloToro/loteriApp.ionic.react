@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
 import "./avisame-si-gano-datos.style.css";
 import Header from "../../../components/header/header.comp";
-import { useHistory } from "react-router";
-import { LoteriaContext } from "../../../providers/loteria/loteria.context";
+import { useAvisameSiGano } from "../../../hooks/avisame-si-gano/useAvisameSiGano.hook";
+import { AvisameSiGanoContext } from "../../../providers/avisame-si-gano/avisameSiGano.context";
 import ModalAvisameVerificacion from "../components/modal-avisame-verificacion/modal-avisame-verificacion.comp";
 import ModalAvisameSiGano from "../components/modal-avisame-si-gano/modal-avisame-si-gano.comp";
+import ModalNotificacionGuardada from "../components/modal-notificacion-guardada/modal-notificacion-guardada.comp";
 
 import {
   IonCol,
@@ -18,9 +19,6 @@ import {
   IonInput,
   IonAlert,
 } from "@ionic/react";
-import ModalNotificacionGuardada from "../components/modal-notificacion-guardada/modal-notificacion-guardada.comp";
-import { AvisameSiGanoContext } from "../../../providers/avisame-si-gano/avisameSiGano.context";
-import { useAvisameSiGano } from "../../../hooks/avisame-si-gano/useAvisameSiGano.hook";
 
 const AvisameSiGanoDatosScren: React.FC = () => {
 
@@ -31,23 +29,33 @@ const AvisameSiGanoDatosScren: React.FC = () => {
     useState<boolean>(false);
 
   const [verModalAvisame, setVerModalAvisame] = useState<boolean>(false);
-
-  const {} = useAvisameSiGano(avisameSiGanoParams);
-
+  
+  const {data: respuesta} = useAvisameSiGano(avisameSiGanoParams);
+  
   const abrirModalVerificacion = () => {
     setVerModalCodigoVerificacion(true);
   };
   const cerrarModalVerificacion = () => {
     setVerModalCodigoVerificacion(false);
   };
-
+  
   const abrirModalAvisame = () => {
     setVerModalAvisame(true);
   };
   const cerrarModalAvisame = () => {
     setVerModalAvisame(false);
   };
+  
+  const [verModalNotificacion, setVerModalNotificacion] = useState<boolean>(false);
 
+  const abrirModalNotificacion = () => {
+    setVerModalNotificacion(true);
+  };
+  const cerrarModalNotificacion = () => {
+    setVerModalNotificacion(false);
+  };
+
+  
 
   return (
     <IonPage>
@@ -142,27 +150,30 @@ const AvisameSiGanoDatosScren: React.FC = () => {
         </div>
 
        </IonContent>
-        <IonModal
-          isOpen={verModalCodigoVerificacion}
-          cssClass="la-avisame-verificacion-modal"
-        >
-        
-          <ModalAvisameVerificacion ocultarModal={cerrarModalVerificacion}
-          abrirModalAvisame={abrirModalAvisame} />
-        </IonModal>
+
+          <IonModal
+            isOpen={verModalCodigoVerificacion}
+            cssClass="la-avisame-verificacion-modal"
+          >
+            <ModalAvisameVerificacion ocultarModal={cerrarModalVerificacion}
+            abrirModalVerificacion={abrirModalVerificacion}
+            abrirModalAvisame={abrirModalAvisame} />
+          </IonModal>
 
         <IonModal isOpen={verModalAvisame} cssClass="la-avisame-si-gano-modal">
           <ModalAvisameSiGano
             ocultarModalAvisame={cerrarModalAvisame}
+            abrirModalNotificacion={abrirModalNotificacion}
           ></ModalAvisameSiGano>
         </IonModal> 
 
-        {/* <IonModal isOpen={verModalNotificacionGuardada} cssClass="la-notificacion-guardada-modal">
+        <IonModal isOpen={verModalNotificacion} cssClass="la-notificacion-guardada-modal">
           <ModalNotificacionGuardada
-            ocultarModalNotificacionGuardada= {cerrarModalNotificacionGuardada}
-            // mensaje= {mensaje}
+            ocultarModalNotificacionGuardada= {cerrarModalNotificacion}
           ></ModalNotificacionGuardada>
-        </IonModal> */}
+        </IonModal>
+
+        
     </IonPage>
   );
 };

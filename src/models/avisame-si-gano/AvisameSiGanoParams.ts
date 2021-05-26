@@ -4,7 +4,7 @@ export interface AvisameSiGanoParams {
     loteria: Loteria,
     celular: string,
     email: string,
-    codigoVerificacion: number,
+    codigoVerificacion: number | null,
     fecha: number,
     numero: string,
     operacion: number,

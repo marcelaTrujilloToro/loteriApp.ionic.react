@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./modal-notificacion-guardada.style.css";
 
 import {
@@ -10,6 +10,8 @@ import {
   IonRow,
   IonTitle,
 } from "@ionic/react";
+import { useAvisameSiGano } from "../../../../hooks/avisame-si-gano/useAvisameSiGano.hook";
+import { AvisameSiGanoContext } from "../../../../providers/avisame-si-gano/avisameSiGano.context";
 
 interface ModalNotificacionGuardadaProps {
   ocultarModalNotificacionGuardada: () => void;
@@ -17,6 +19,12 @@ interface ModalNotificacionGuardadaProps {
 }
 
 const ModalNotificacionGuardada: React.FC<ModalNotificacionGuardadaProps> = (props) => {
+
+  const {avisameSiGanoParams, setAvisameSiGanoParams} = useContext(AvisameSiGanoContext);
+
+  const { data:respuesta } = useAvisameSiGano(avisameSiGanoParams);
+
+  console.log(avisameSiGanoParams);
   return (
     <IonContent>
       <div className="la-modal-notificacion-guardada">
@@ -33,7 +41,7 @@ const ModalNotificacionGuardada: React.FC<ModalNotificacionGuardadaProps> = (pro
             <IonRow className="la-altura-row">
                 <IonCol>
                     <p className="la-mensaje-notificacion">
-                      {/* {props.mensaje} */}
+                      {respuesta?.notificacion.mensaje}
                     </p>
                 </IonCol>
             </IonRow>

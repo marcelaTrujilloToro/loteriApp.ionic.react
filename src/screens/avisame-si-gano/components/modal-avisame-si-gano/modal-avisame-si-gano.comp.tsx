@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./modal-avisame.si.gano.style.css";
 
 import {
@@ -10,19 +10,25 @@ import {
   IonRow,
 } from "@ionic/react";
 import { AvisameSiGano } from "../../../../models/avisame-si-gano/AvisameSiGano";
+import { AvisameSiGanoContext } from "../../../../providers/avisame-si-gano/avisameSiGano.context";
+import { useAvisameSiGano } from "../../../../hooks/avisame-si-gano/useAvisameSiGano.hook";
 
 interface ModalAvisameSiGanoProps {
-  ocultarModalAvisame: (abrir:boolean) => void;
- 
+  ocultarModalAvisame: () => void;
+  abrirModalNotificacion: () => void;
 }
 
-let opcion: number;
 
 const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
+
   const [numeroDigito1, setNumeroDigito1] = useState<number>();
   const [numeroDigito2, setNumeroDigito2] = useState<number>();
   const [numeroDigito3, setNumeroDigito3] = useState<number>();
   const [numeroDigito4, setNumeroDigito4] = useState<number>();
+
+  const {avisameSiGanoParams, setAvisameSiGanoParams} = useContext(AvisameSiGanoContext);
+
+  const { data:respuesta } = useAvisameSiGano(avisameSiGanoParams);
   
   const obtenerNumeroSuerte = () => {
     return `${numeroDigito1}${numeroDigito2}${numeroDigito3}${numeroDigito4}`;
@@ -42,7 +48,7 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
     return `${date.getFullYear()}${mesReal}${date.getDate()}`;
   };
   
-  
+  console.log(avisameSiGanoParams);
   
   return (
     <IonContent>
@@ -50,7 +56,7 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
         <IonButton
           className="la-boton-cerrar"
           onClick={() => {
-            props.ocultarModalAvisame(false);
+            props.ocultarModalAvisame();
           }}
           fill="clear"
         >
@@ -78,8 +84,9 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
                 <IonRow>
                   <IonCol>
                     <IonInput
-                      type="number"
+                      type="tel"
                       value={numeroDigito1}
+                      maxlength={1}
                       onIonChange={(e: any) => {
                         setNumeroDigito1(e.detail.value);
                       }}
@@ -99,8 +106,9 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
                 <IonRow>
                   <IonCol>
                     <IonInput
-                      type="number"
+                      type="tel"
                       value={numeroDigito2}
+                      maxlength={1}
                       onIonChange={(e: any) => {
                         setNumeroDigito2(e.detail.value);
                       }}
@@ -120,8 +128,9 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
                 <IonRow>
                   <IonCol>
                     <IonInput
-                      type="number"
+                      type="tel"
                       value={numeroDigito3}
+                      maxlength={1}
                       onIonChange={(e: any) => {
                         setNumeroDigito3(e.detail.value);
                       }}
@@ -141,8 +150,9 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
                 <IonRow>
                   <IonCol>
                     <IonInput
-                      type="text"
+                      type="tel"
                       value={numeroDigito4}
+                      maxlength={1}
                       onIonChange={(e: any) => {
                         setNumeroDigito4(e.detail.value);
                       }}
@@ -158,20 +168,48 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
             </IonCol>
           </IonRow>
 
+          <IonRow>
+            <IonCol>
+              <p className="la-titulo-16">Cantidad de Sorteos</p>
+            </IonCol>
+          </IonRow>
+          <IonRow>
+            <IonCol>
+              <IonGrid>
+                <IonRow>
+                  <IonCol>
+                    <IonInput
+                      type="tel"
+                      maxlength={2}
+                      value={avisameSiGanoParams.cantidadSorteos}
+                      onIonChange={(e: any) => {
+                        setAvisameSiGanoParams({...avisameSiGanoParams, cantidadSorteos: e.detail.value});
+                      }}
+                    ></IonInput>
+                  </IonCol>
+                </IonRow>
+                <IonRow>
+                  <IonCol>
+                    <div className="la-linea-roja-digito"></div>
+                  </IonCol>
+                </IonRow>
+              </IonGrid>
+            </IonCol>
+          </IonRow>
           <IonRow className="la-row-botones-avisame">
             <IonCol>
               <button
                 className="la-boton la-boton-consultar"
                 onClick={() => {
-                  
+                  setAvisameSiGanoParams({...avisameSiGanoParams, operacion:1, numero: obtenerNumeroSuerte(), fecha: parseInt(obtenerFechaActual()) })
+                    props.ocultarModalAvisame();
+                    props.abrirModalNotificacion();
                 }}
                 >
                 REGISTRAR
               </button>
             </IonCol>
-          </IonRow>
 
-          <IonRow>
             <IonCol>
               <button
                 className="la-boton la-boton-consultar"
@@ -183,6 +221,7 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
               </button>
             </IonCol>
           </IonRow>
+
         </IonGrid>
       </div>
     </IonContent>

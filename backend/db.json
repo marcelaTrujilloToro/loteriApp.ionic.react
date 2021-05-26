@@ -105,15 +105,26 @@
       {
         "codigoVerificacion":
           {
-            "valido": 1,
-            "mensaje": "El número no es correcto",
+            "valido": 0,
+            "mensaje": "Ha excedido el número de intentos",
             "excedeIntentos": 1
           },
         "notificacion":
           {
-            "eliminado": 0,
             "mensaje": "Notificaciones Guardadas"
-          }
+          },
+          "subscripciones":
+          [
+            {
+              "numero": 1111,
+              "sorteosPendientes": 3
+            },
+            {
+              "numero": 1111,
+              "sorteosPendientes": 4
+            }
+           ]
+
         
       }    
 }

@@ -13,23 +13,47 @@ import {
   IonInput,
   IonRow,
   IonModal,
+  IonAlert,
 } from "@ionic/react";
 
 interface ModalAvisameVerificacionProps {
   ocultarModal: () => void;
+  abrirModalVerificacion: () => void;
   abrirModalAvisame: () => void;
 }
 
-const ModalAvisameVerificacion: React.FC<ModalAvisameVerificacionProps> = (props) => {
+const ModalAvisameVerificacion: React.FC<ModalAvisameVerificacionProps> = (
+  props
+) => {
+  const { avisameSiGanoParams, setAvisameSiGanoParams } =
+    useContext(AvisameSiGanoContext);
 
+  const { data: respuesta } = useAvisameSiGano(avisameSiGanoParams);
 
-  const {avisameSiGanoParams, setAvisameSiGanoParams} = useContext(AvisameSiGanoContext);
+  const history = useHistory();
 
-  const { data:resultado } = useAvisameSiGano(avisameSiGanoParams);
+  const [verAlerta, setVerAlerta] = useState(false);
+
+  const [verAlertExcedeIntento, setVerAlertExcedeIntento] = useState(false);
+
+  const validarRespuestaCodigoVerificacion = () => {
+    if (respuesta?.codigoVerificacion.valido === 1) {
+      props.ocultarModal();
+      props.abrirModalAvisame();
+    } else if (
+      respuesta?.codigoVerificacion.valido === 0 &&
+      respuesta.codigoVerificacion.excedeIntentos === 0
+    ) {
+      setVerAlerta(true);
+    } else if (
+      respuesta?.codigoVerificacion.excedeIntentos === 1
+    ) {
+      setVerAlertExcedeIntento(true);
+    }
+  }
 
   return (
     <IonContent>
-      
       <div className="la-avisame-modal-content">
         <IonButton
           className="la-boton-cerrar"
@@ -68,7 +92,10 @@ const ModalAvisameVerificacion: React.FC<ModalAvisameVerificacionProps> = (props
                       maxlength={6}
                       placeholder="######"
                       onIonChange={(e: any) => {
-                        setAvisameSiGanoParams({...avisameSiGanoParams, codigoVerificacion: e.detail.value});
+                        setAvisameSiGanoParams({
+                          ...avisameSiGanoParams,
+                          codigoVerificacion: e.detail.value,
+                        });
                       }}
                     ></IonInput>
                   </IonCol>
@@ -81,27 +108,63 @@ const ModalAvisameVerificacion: React.FC<ModalAvisameVerificacionProps> = (props
               </IonGrid>
             </IonCol>
           </IonRow>
-
-
-            <IonRow>
-              <IonCol>
-                <button
-                  className="la-boton la-boton-consultar"
-                  onClick={() => {
-                    if (resultado?.codigoVerificacion.valido === 1) {
-                      props.abrirModalAvisame();
-                    }
-                  }}
-                >
-                  CONFIRMAR
-                </button>
-              </IonCol>
-            </IonRow>
-           
-
-          
+          <IonRow>
+            <IonCol>
+              <button
+                className="la-boton la-boton-consultar"
+                onClick={() => {
+                  validarRespuestaCodigoVerificacion();
+                }}
+              >
+                CONFIRMAR
+              </button>
+            </IonCol>
+          </IonRow>
         </IonGrid>
       </div>
+
+      <IonAlert
+        isOpen={verAlerta}
+        onDidDismiss={() => setVerAlerta(false)}
+        cssClass="my-custom-class"
+        header={respuesta?.codigoVerificacion.mensaje}
+        buttons={[
+          {
+            text: "Aceptar",
+            handler: () => {
+              setAvisameSiGanoParams({...avisameSiGanoParams, codigoVerificacion: null})
+              setVerAlerta(false);
+            },
+          },
+        ]}
+      />
+
+      <IonAlert
+        isOpen={verAlertExcedeIntento}
+        onDidDismiss={() => setVerAlertExcedeIntento(false)}
+        cssClass="my-custom-class"
+        header={respuesta?.codigoVerificacion.mensaje}
+        message={"¿Desea solicitar un nuevo código?"}
+        buttons={[
+          {
+            text: "Cancelar",
+            role: "cancel",
+            cssClass: "secondary",
+            handler: (blah) => {
+              history.push({
+                pathname: `/`,
+              });;
+            },
+          },
+          {
+            text: "Aceptar",
+            handler: () => {
+              setAvisameSiGanoParams({...avisameSiGanoParams, codigoVerificacion: null})
+              props.abrirModalVerificacion();
+            },
+          },
+        ]}
+      />
     </IonContent>
   );
 };

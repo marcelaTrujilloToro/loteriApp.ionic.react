@@ -48,7 +48,6 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
     return `${date.getFullYear()}${mesReal}${date.getDate()}`;
   };
   
-  console.log(avisameSiGanoParams);
   
   return (
     <IonContent>
@@ -201,7 +200,7 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
               <button
                 className="la-boton la-boton-consultar"
                 onClick={() => {
-                  setAvisameSiGanoParams({...avisameSiGanoParams, operacion:1, numero: obtenerNumeroSuerte(), fecha: parseInt(obtenerFechaActual()) })
+                  setAvisameSiGanoParams({...avisameSiGanoParams, numero: obtenerNumeroSuerte(), fecha: parseInt(obtenerFechaActual()) })
                     props.ocultarModalAvisame();
                     props.abrirModalNotificacion();
                 }}
@@ -210,16 +209,7 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
               </button>
             </IonCol>
 
-            <IonCol>
-              <button
-                className="la-boton la-boton-consultar"
-                onClick={() => {
-                  
-                }}
-              >
-                ELIMINAR
-              </button>
-            </IonCol>
+          
           </IonRow>
 
         </IonGrid>

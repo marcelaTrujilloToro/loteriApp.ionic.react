@@ -19,8 +19,16 @@ import {
   IonInput,
   IonAlert,
 } from "@ionic/react";
+import { useParams } from "react-router";
+import { AvisameSiGanoParams } from "../../../models/avisame-si-gano/AvisameSiGanoParams";
+
+export interface AvisameSiGanoScreenParams{
+  opcion: string;
+}
 
 const AvisameSiGanoDatosScren: React.FC = () => {
+
+  const {opcion} = useParams<AvisameSiGanoScreenParams>();
 
   const { avisameSiGanoParams, setAvisameSiGanoParams } = useContext(AvisameSiGanoContext);
 
@@ -65,7 +73,13 @@ const AvisameSiGanoDatosScren: React.FC = () => {
           <IonGrid className="la-content-grid ion-no-padding">
             <IonRow className="la-row-titulo-avisame">
               <IonCol className="la-col-titulo la-col-titulo-avisame">
-                <IonTitle className="la-titulo-22">Avísame sí Gano</IonTitle>
+                {
+                  opcion === "1"
+                  ? 
+                  <IonTitle className="la-titulo-22">Avísame sí Gano</IonTitle>
+                  :
+                  <IonTitle className="la-titulo-22">Mis Subscripciones</IonTitle>
+                }
                 <div className="la-linea-roja "></div>
               </IonCol>
             </IonRow>
@@ -157,7 +171,9 @@ const AvisameSiGanoDatosScren: React.FC = () => {
           >
             <ModalAvisameVerificacion ocultarModal={cerrarModalVerificacion}
             abrirModalVerificacion={abrirModalVerificacion}
-            abrirModalAvisame={abrirModalAvisame} />
+            abrirModalAvisame={abrirModalAvisame} 
+            opcion={opcion}
+            />
           </IonModal>
 
         <IonModal isOpen={verModalAvisame} cssClass="la-avisame-si-gano-modal">

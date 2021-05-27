@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./numeros-suertudos-resultados.style.css";
 import Header from "../../../components/header/header.comp";
 import ListaSuertudos from "../components/lista-suertudos/lista-suertudos-comp";
-import { useSuertudos } from "../../../hooks/suertudos/useSuertudos";
+import { useSuertudos } from "../../../hooks/suertudos/useSuertudos.hook";
 
 import {
   IonCol,

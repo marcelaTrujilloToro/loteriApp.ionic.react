@@ -1,0 +1,29 @@
+
+.la-subscripcion-titulo-row{
+    height: 15%;
+}
+
+.la-subscripcion-subtitulos-row{
+    height: 15%;
+    align-items: center;
+}
+
+.la-subscripcion-logo-row{
+    height: 30%;
+}
+
+.la-subscripcion-lista-row{
+    height: 40%;
+}
+
+.la-col-titulo-subscripcion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+.la-titulo-subscripcion {
+    position: relative;
+    top: 40px;
+ }
+  

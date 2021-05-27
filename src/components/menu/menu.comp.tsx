@@ -50,6 +50,12 @@ const appPages: AppPage[] = [
     iosIcon: chevronForward,
     mdIcon: chevronForward,
   },
+  {
+    title: 'Mis subscripciones',
+    url: "/screens/eliminar-subscripcion/:name",
+    iosIcon: chevronForward,
+    mdIcon: chevronForward,
+  },
   // {
   //   title: 'Disponibilidad de Número',
   //   url: "",

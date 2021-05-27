@@ -20,6 +20,7 @@ interface ModalAvisameVerificacionProps {
   ocultarModal: () => void;
   abrirModalVerificacion: () => void;
   abrirModalAvisame: () => void;
+  opcion: string;
 }
 
 const ModalAvisameVerificacion: React.FC<ModalAvisameVerificacionProps> = (
@@ -32,25 +33,31 @@ const ModalAvisameVerificacion: React.FC<ModalAvisameVerificacionProps> = (
 
   const history = useHistory();
 
+
+
   const [verAlerta, setVerAlerta] = useState(false);
 
   const [verAlertExcedeIntento, setVerAlertExcedeIntento] = useState(false);
 
   const validarRespuestaCodigoVerificacion = () => {
     if (respuesta?.codigoVerificacion.valido === 1) {
-      props.ocultarModal();
-      props.abrirModalAvisame();
+      if (props.opcion === "1") {
+        props.ocultarModal();
+        props.abrirModalAvisame();
+      } else if (props.opcion === "0") {
+        history.push({
+          pathname: `/screens/eliminar-subscripcion/eliminar-subscripcion-resultado/eliminar-subscripcion-resultado.screen/${avisameSiGanoParams.loteria.codigo}/${avisameSiGanoParams.celular}/${avisameSiGanoParams.email}`,
+        });
+      }
     } else if (
       respuesta?.codigoVerificacion.valido === 0 &&
       respuesta.codigoVerificacion.excedeIntentos === 0
     ) {
       setVerAlerta(true);
-    } else if (
-      respuesta?.codigoVerificacion.excedeIntentos === 1
-    ) {
+    } else if (respuesta?.codigoVerificacion.excedeIntentos === 1) {
       setVerAlertExcedeIntento(true);
     }
-  }
+  };
 
   return (
     <IonContent>
@@ -132,7 +139,10 @@ const ModalAvisameVerificacion: React.FC<ModalAvisameVerificacionProps> = (
           {
             text: "Aceptar",
             handler: () => {
-              setAvisameSiGanoParams({...avisameSiGanoParams, codigoVerificacion: null})
+              setAvisameSiGanoParams({
+                ...avisameSiGanoParams,
+                codigoVerificacion: null,
+              });
               setVerAlerta(false);
             },
           },
@@ -153,13 +163,16 @@ const ModalAvisameVerificacion: React.FC<ModalAvisameVerificacionProps> = (
             handler: (blah) => {
               history.push({
                 pathname: `/`,
-              });;
+              });
             },
           },
           {
             text: "Aceptar",
             handler: () => {
-              setAvisameSiGanoParams({...avisameSiGanoParams, codigoVerificacion: null})
+              setAvisameSiGanoParams({
+                ...avisameSiGanoParams,
+                codigoVerificacion: null,
+              });
               props.abrirModalVerificacion();
             },
           },

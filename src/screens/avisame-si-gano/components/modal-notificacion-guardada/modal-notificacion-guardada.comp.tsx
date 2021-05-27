@@ -24,7 +24,6 @@ const ModalNotificacionGuardada: React.FC<ModalNotificacionGuardadaProps> = (pro
 
   const { data:respuesta } = useAvisameSiGano(avisameSiGanoParams);
 
-  console.log(avisameSiGanoParams);
   return (
     <IonContent>
       <div className="la-modal-notificacion-guardada">

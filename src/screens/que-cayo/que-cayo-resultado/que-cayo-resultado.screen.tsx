@@ -45,6 +45,7 @@ const QueCayoResultadoScreen: React.FC = () => {
       <IonContent className="ion-no-padding">
         <div className="la-content-gradiente-darker ">
           <IonGrid className=" la-content-grid">
+            
             <IonRow className="la-title-row">
               <IonCol className="la-col-titulo-resultado">
                 <div className="la-titulo-22 ">Resultados de Sorteo</div>

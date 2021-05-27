@@ -105,26 +105,52 @@
       {
         "codigoVerificacion":
           {
-            "valido": 0,
+            "valido": 1,
             "mensaje": "Ha excedido el número de intentos",
-            "excedeIntentos": 1
+            "excedeIntentos": 0
           },
         "notificacion":
           {
             "mensaje": "Notificaciones Guardadas"
-          },
-          "subscripciones":
-          [
-            {
-              "numero": 1111,
-              "sorteosPendientes": 3
-            },
-            {
-              "numero": 1111,
-              "sorteosPendientes": 4
-            }
-           ]
+          }  
+      },
 
-        
-      }    
+      "subscripciones":
+        [
+          {
+            "numero": "1111",
+            "sorteosPendientes": 3,
+            "eliminado": 1
+          },
+          {
+            "numero": "0410",
+            "sorteosPendientes": 4,
+            "eliminado": 0
+          },
+          {
+            "numero": "0330",
+            "sorteosPendientes": 1,
+            "eliminado": 0
+          },
+          {
+            "numero": "0104",
+            "sorteosPendientes": 4,
+            "eliminado": 0
+          },
+          {
+            "numero": "1108",
+            "sorteosPendientes": 3,
+            "eliminado": 0
+          },
+          {
+            "numero": "4578",
+            "sorteosPendientes": 3,
+            "eliminado": 0
+          },
+          {
+            "numero": "4153",
+            "sorteosPendientes": 3,
+            "eliminado": 0
+          }
+        ]    
 }

@@ -2,11 +2,10 @@ import { Loteria } from "../loteria/Loteria";
 
 export interface AvisameSiGanoParams {
     loteria: Loteria,
-    celular: string,
-    email: string,
+    celular: string | undefined,
+    email: string | undefined,
     codigoVerificacion: number | null,
     fecha: number,
     numero: string,
-    operacion: number,
     cantidadSorteos: number
 }

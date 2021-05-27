@@ -45,7 +45,6 @@ avisameTercerosParams:
     "fecha": aaaammdd
     "codigo: "123456";
     "numero: "1234";
-    "operacion: 1|0;
     "cantidadSorteos": "";
 }
 

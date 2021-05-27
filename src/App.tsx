@@ -28,6 +28,8 @@ import { Redirect, Route } from "react-router-dom";
 import "./theme/variables.css";
 import "./App.css";
 
+import { LoteriaProvider } from "./providers/loteria/loteria.context";
+import { AvisameSiGanoProvider } from "./providers/avisame-si-gano/avisameSiGano.context";
 import Menu from "./components/menu/menu.comp";
 import QueCayoScreen from "./screens/que-cayo/que-cayo/que-cayo.screen";
 import Home from "./screens/home/Home.screen";
@@ -39,8 +41,8 @@ import NumerosSuertudosScreen from "./screens/numeros-suertudos/numeros-suertudo
 import NumerosSuertudosResultadosScreen from "./screens/numeros-suertudos/numeros-suertudos-resultados/numeros-suertudos-resultados.screen";
 import AvisameSiGanoScreen from "./screens/avisame-si-gano/avisame-si-gano/avisame-si-gano.screen";
 import AvisameSiGanoDatosScren from "./screens/avisame-si-gano/avisame-si-gano-datos/avisame-si-gano-datos.screen";
-import { LoteriaProvider } from "./providers/loteria/loteria.context";
-import { AvisameSiGanoProvider } from "./providers/avisame-si-gano/avisameSiGano.context";
+import EliminarSubscripcionScreen from "./screens/eliminar-subscripcion/eliminar-subscripcion/eliminar-subscripcion.screen";
+import EliminarSubscripcionResultadoScreen from "./screens/eliminar-subscripcion/eliminar-subscripcion-resultado/eliminar-subscripcion-resultado.screen";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -57,58 +59,67 @@ const App: React.FC = () => {
                 <Home />
               </Route>
 
-              <LoteriaProvider>
-                <Route path="/screens/que-cayo/:name" exact={true}>
-                  <QueCayoScreen />
-                </Route>
-
-                <Route
-                  path="/screens/que-cayo-resultado/que-cayo-resultado.screen/:numeroSorteo"
-                  exact={true}
-                >
-                  <QueCayoResultadoScreen />
-                </Route>                
-              </LoteriaProvider>
-
-              <Route path="/screens/yo-gane-principal/:name" exact={true}>
-                  <YoGanePrincipalScreen />
-                </Route>
-
-                <Route path="/screens/yo-gane/:name" exact={true}>
-                  <YoGaneScreen />
-                </Route>
-
-                <Route
-                  path="/screens/yo-gane/yo-gane-resultado/yo-gane-resultado.screen/:codigoLoteria/:numeroSorteo/:numero/:serie"
-                  exact={true}
-                  >
-                  <YoGaneResultadoScreen />
-                </Route>
-
-              <Route path="/screens/numeros-suertudos/:name" exact={true}>
-                <NumerosSuertudosScreen />
-              </Route>
-
-              <Route
-                path="/screens/numeros-suertudos/numeros-suertudos-resultados/numeros-suertudos-resultados.screen/:codigoLoteria/:primeraCifra/:segundaCifra/:terceraCifra/:ultimaCifra/:cantidadSorteos"
-                exact={true}
-              >
-                <NumerosSuertudosResultadosScreen />
-              </Route>
-
               <AvisameSiGanoProvider>
+                <LoteriaProvider>
+                  <Route path="/screens/que-cayo/:name" exact={true}>
+                    <QueCayoScreen />
+                  </Route>
 
-              <Route path="/screens/avisame-si-gano/:name" exact={true}>
-                  <AvisameSiGanoScreen/>
-                </Route>
+                  <Route
+                    path="/screens/que-cayo-resultado/que-cayo-resultado.screen/:numeroSorteo"
+                    exact={true}
+                  >
+                    <QueCayoResultadoScreen />
+                  </Route>
 
-                <Route path="/screens/avisame-si-gano/avisame-si-gano-datos/avisame-si-gano-datos.screen" exact={true}>
-                  <AvisameSiGanoDatosScren/>
-                </Route>
+                  <Route path="/screens/yo-gane-principal/:name" exact={true}>
+                    <YoGanePrincipalScreen />
+                  </Route>
 
+                  <Route path="/screens/yo-gane/:name" exact={true}>
+                    <YoGaneScreen />
+                  </Route>
+
+                  <Route
+                    path="/screens/yo-gane/yo-gane-resultado/yo-gane-resultado.screen/:codigoLoteria/:numeroSorteo/:numero/:serie"
+                    exact={true}
+                  >
+                    <YoGaneResultadoScreen />
+                  </Route>
+
+                  <Route path="/screens/numeros-suertudos/:name" exact={true}>
+                    <NumerosSuertudosScreen />
+                  </Route>
+
+                  <Route
+                    path="/screens/numeros-suertudos/numeros-suertudos-resultados/numeros-suertudos-resultados.screen/:codigoLoteria/:primeraCifra/:segundaCifra/:terceraCifra/:ultimaCifra/:cantidadSorteos"
+                    exact={true}
+                  >
+                    <NumerosSuertudosResultadosScreen />
+                  </Route>
+
+                  <Route path="/screens/avisame-si-gano/:name" exact={true}>
+                    <AvisameSiGanoScreen />
+                  </Route>
+
+                  <Route
+                    path="/screens/avisame-si-gano/avisame-si-gano-datos/avisame-si-gano-datos.screen/:opcion"
+                    exact={true}
+                  >
+                    <AvisameSiGanoDatosScren />
+                  </Route>
+
+                  <Route path="/screens/eliminar-subscripcion/:name" exact={true}>
+                    <EliminarSubscripcionScreen />
+                  </Route>
+
+                  <Route path="/screens/eliminar-subscripcion/eliminar-subscripcion-resultado/eliminar-subscripcion-resultado.screen/:codigoLoteria/:celular/:email" exact={true}>
+                    <EliminarSubscripcionResultadoScreen />
+                  </Route>
+
+
+                </LoteriaProvider>
               </AvisameSiGanoProvider>
-
-
             </IonRouterOutlet>
           </IonSplitPane>
         </IonReactRouter>

@@ -46,7 +46,7 @@ const ModalAvisameVerificacion: React.FC<ModalAvisameVerificacionProps> = (
         props.abrirModalAvisame();
       } else if (props.opcion === "0") {
         history.push({
-          pathname: `/screens/eliminar-subscripcion/eliminar-subscripcion-resultado/eliminar-subscripcion-resultado.screen/${avisameSiGanoParams.loteria.codigo}/${avisameSiGanoParams.celular}/${avisameSiGanoParams.email}`,
+          pathname: `/screens/eliminar-subscripcion/eliminar-subscripcion-resultado/eliminar-subscripcion-resultado.screen/`,
         });
       }
     } else if (

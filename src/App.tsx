@@ -30,6 +30,7 @@ import "./App.css";
 
 import { LoteriaProvider } from "./providers/loteria/loteria.context";
 import { AvisameSiGanoProvider } from "./providers/avisame-si-gano/avisameSiGano.context";
+import { EliminarSubscripcionProvider } from "./providers/eliminar-subscripcion/eliminarSubscripcion.context";
 import Menu from "./components/menu/menu.comp";
 import QueCayoScreen from "./screens/que-cayo/que-cayo/que-cayo.screen";
 import Home from "./screens/home/Home.screen";
@@ -59,6 +60,7 @@ const App: React.FC = () => {
                 <Home />
               </Route>
 
+              <EliminarSubscripcionProvider>              
               <AvisameSiGanoProvider>
                 <LoteriaProvider>
                   <Route path="/screens/que-cayo/:name" exact={true}>
@@ -113,13 +115,14 @@ const App: React.FC = () => {
                     <EliminarSubscripcionScreen />
                   </Route>
 
-                  <Route path="/screens/eliminar-subscripcion/eliminar-subscripcion-resultado/eliminar-subscripcion-resultado.screen/:codigoLoteria/:celular/:email" exact={true}>
+                  <Route path="/screens/eliminar-subscripcion/eliminar-subscripcion-resultado/eliminar-subscripcion-resultado.screen/" exact={true}>
                     <EliminarSubscripcionResultadoScreen />
                   </Route>
 
 
                 </LoteriaProvider>
               </AvisameSiGanoProvider>
+              </EliminarSubscripcionProvider>
             </IonRouterOutlet>
           </IonSplitPane>
         </IonReactRouter>

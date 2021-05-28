@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import "./eliminar-subscripcion.style.css";
 import Header from "../../../components/header/header.comp";
@@ -14,22 +14,15 @@ import {
   IonRow,
   IonTitle,
 } from "@ionic/react";
+import { Subscripcion } from "../../../models/eliminar-subscripcion/Subscripcion";
+import { EliminarSubscripcionContext } from "../../../providers/eliminar-subscripcion/eliminarSubscripcion.context";
 
-export interface EliminarSubscripcionResultadoScreenParams {
-  codigoLoteria: string;
-  celular: string;
-  email: string;
-}
 
 const EliminarSubscripcionResultadoScreen = () => {
-  const { codigoLoteria, celular, email } =
-    useParams<EliminarSubscripcionResultadoScreenParams>();
 
-  const { data: respuesta } = useEliminarSubscripcion(
-    codigoLoteria,
-    celular,
-    email
-  );
+  const { eliminarSubscripcionParams} = useContext(EliminarSubscripcionContext);
+
+  const {data: respuesta} = useEliminarSubscripcion(eliminarSubscripcionParams);
 
   return (
     <IonPage>
@@ -52,7 +45,7 @@ const EliminarSubscripcionResultadoScreen = () => {
               <IonCol>
                 <img
                   className="la-logo-loteria"
-                  src={`/assets/imagenes/${codigoLoteria}-sin-fondo.png`}
+                  src={`/assets/imagenes/${eliminarSubscripcionParams.codigoLoteria}-sin-fondo.png`}
                   alt=""
                 />
               </IonCol>
@@ -74,8 +67,7 @@ const EliminarSubscripcionResultadoScreen = () => {
 
             <IonRow className="la-subscripcion-lista-row">
                 <IonCol>
-                    < ListaSubscripciones listaSubscripciones={respuesta}
-                    ></ListaSubscripciones>
+                    < ListaSubscripciones listaSubscripciones={respuesta}></ListaSubscripciones>
                 </IonCol>
             </IonRow>
           </IonGrid>

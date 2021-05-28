@@ -3,11 +3,10 @@ import {
 } from 'react-query';
 
 import  { Subscripcion } from '../../models/eliminar-subscripcion/Subscripcion';
-
+import {EliminarSubscripcionParams} from '../../models/eliminar-subscripcion/EliminarSubscripcionParams';
 import useAzenApi from '../../api/useAzenApi';
 
-export const useEliminarSubscripcion = (codigoLoteria: string, celular?: string, email?: string, numero?: number) => {
-
+export const useEliminarSubscripcion = (EliminarSubscripcionParams: EliminarSubscripcionParams) => {
 
     const azenApi = useAzenApi();
 

@@ -21,6 +21,8 @@ import {
 } from "@ionic/react";
 import { useParams } from "react-router";
 import { AvisameSiGanoParams } from "../../../models/avisame-si-gano/AvisameSiGanoParams";
+import { EliminarSubscripcionContext } from "../../../providers/eliminar-subscripcion/eliminarSubscripcion.context";
+import { useEliminarSubscripcion } from "../../../hooks/eliminar-susbcripcion/useEliminarSubscripcion.hook";
 
 export interface AvisameSiGanoScreenParams{
   opcion: string;
@@ -39,6 +41,7 @@ const AvisameSiGanoDatosScren: React.FC = () => {
   const [verModalAvisame, setVerModalAvisame] = useState<boolean>(false);
   
   const {data: respuesta} = useAvisameSiGano(avisameSiGanoParams);
+
   
   const abrirModalVerificacion = () => {
     setVerModalCodigoVerificacion(true);
@@ -63,7 +66,8 @@ const AvisameSiGanoDatosScren: React.FC = () => {
     setVerModalNotificacion(false);
   };
 
-  
+  const { eliminarSubscripcionParams, setEliminarSubscripcionParams } = useContext(EliminarSubscripcionContext);
+  const {data: resultado} = useEliminarSubscripcion(eliminarSubscripcionParams);
 
   return (
     <IonPage>
@@ -108,8 +112,9 @@ const AvisameSiGanoDatosScren: React.FC = () => {
                             ...avisameSiGanoParams,
                             celular: e.detail.value,
                           });
+                          setEliminarSubscripcionParams({...eliminarSubscripcionParams, celular: e.detail.value});
                         }}
-                      ></IonInput>
+                        ></IonInput>
                     </IonCol>
                   </IonRow>
                   <IonRow>
@@ -135,8 +140,9 @@ const AvisameSiGanoDatosScren: React.FC = () => {
                             ...avisameSiGanoParams,
                             email: e.detail.value,
                           });
+                          setEliminarSubscripcionParams({...eliminarSubscripcionParams, email: e.detail.value});
                         }}
-                      ></IonInput>
+                        ></IonInput>
                     </IonCol>
                   </IonRow>
                   <IonRow>

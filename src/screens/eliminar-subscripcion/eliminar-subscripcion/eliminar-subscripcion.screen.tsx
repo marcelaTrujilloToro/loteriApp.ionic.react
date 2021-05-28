@@ -17,16 +17,19 @@ import {
 } from "@ionic/react";
 import { AvisameSiGanoContext } from "../../../providers/avisame-si-gano/avisameSiGano.context";
 import { useAvisameSiGano } from "../../../hooks/avisame-si-gano/useAvisameSiGano.hook";
+import { EliminarSubscripcionContext } from "../../../providers/eliminar-subscripcion/eliminarSubscripcion.context";
 
 
 const EliminarSubscripcionScreen: React.FC = () => {
   
   const history = useHistory();
   const {avisameSiGanoParams, setAvisameSiGanoParams} = useContext(AvisameSiGanoContext);
+  const { eliminarSubscripcionParams, setEliminarSubscripcionParams } = useContext(EliminarSubscripcionContext);
 
 
   const onLoteriaSeleccionadaFn = (loteriaSeleccionada: Loteria) => {
     setAvisameSiGanoParams({...avisameSiGanoParams, loteria: loteriaSeleccionada });
+    setEliminarSubscripcionParams({...eliminarSubscripcionParams, codigoLoteria: loteriaSeleccionada.codigo})
     const opcion = "0";
     history.push({
       pathname: `/screens/avisame-si-gano/avisame-si-gano-datos/avisame-si-gano-datos.screen/${opcion}`,

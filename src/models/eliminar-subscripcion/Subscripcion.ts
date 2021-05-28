@@ -1,5 +1,5 @@
 export interface Subscripcion {
-    numero: number,
+    numero: string,
     sorteosPendientes: number,
     eliminado: number
 }

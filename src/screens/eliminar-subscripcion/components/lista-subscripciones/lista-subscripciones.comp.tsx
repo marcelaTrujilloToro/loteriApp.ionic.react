@@ -8,18 +8,24 @@ type ListaSubscripcionesProps = {
 };
 
 const ListaSubscripciones: React.FC<ListaSubscripcionesProps> = (props) => {
+  
   if (props.listaSubscripciones === undefined) {
     return <IonTitle>No hay numeros inscritos</IonTitle>;
-  } else {
+
+  } 
+  
+  else {
+
     return (
       <IonGrid className=" ion-no-padding">
         {props.listaSubscripciones.map((subscripcion) => {
           return (
-            <SubscripcionItem
-              key={subscripcion.numero}
-              subscripcion={subscripcion}
-              
-            ></SubscripcionItem>
+            <>
+              <SubscripcionItem
+                key={subscripcion.numero}
+                subscripcion={subscripcion}
+              ></SubscripcionItem>
+            </>
           );
         })}
       </IonGrid>

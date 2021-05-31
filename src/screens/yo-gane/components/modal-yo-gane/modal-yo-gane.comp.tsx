@@ -12,7 +12,6 @@ import {
     IonInput,
     IonRow,
 } from "@ionic/react";
-import { LoteriaContext } from "../../../../providers/loteria/loteria.context";
 
 interface ModalYoGaneProps {
   loteria: Loteria;
@@ -23,7 +22,6 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
 
     const history = useHistory();
     
-    const [loteriaSeleccionada,setLoteriaSeleccionada] = useState();
 
     const [sorteoDig1, setSorteoDig1] = useState<string>(props.loteria.ultimoSorteo[0]);
     const [sorteoDig2, setSorteoDig2] = useState<string>(props.loteria.ultimoSorteo[1]);
@@ -85,7 +83,8 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
                 <IonRow>
                   <IonCol>
                     <IonInput
-                        type="number" 
+                        type="tel"
+                        maxlength={1} 
                         value={sorteoDig1}
                         onIonChange={(e:any) =>{
                           setSorteoDig1(e.detail.value);
@@ -106,7 +105,8 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
                 <IonRow>
                   <IonCol>
                     <IonInput
-                        type="number"
+                        type="tel"
+                        maxlength={1}
                         value={sorteoDig2}
                         onIonChange={(e:any) =>{
                           setSorteoDig2(e.detail.value);
@@ -127,7 +127,8 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
                 <IonRow>
                   <IonCol>
                   <IonInput
-                        type="number" 
+                        type="tel"
+                        maxlength={1} 
                         value={sorteoDig3}
                         onIonChange={(e:any) =>{
                           setSorteoDig3(e.detail.value);
@@ -148,7 +149,8 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
                 <IonRow>
                   <IonCol>
                   <IonInput
-                        type="number"  
+                        type="tel"
+                        maxlength={1}  
                         value={sorteoDig4}
                         onIonChange={(e:any) =>{
                           setSorteoDig4(e.detail.value);
@@ -177,7 +179,8 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
                 <IonRow>
                   <IonCol>
                   <IonInput
-                        type="number"
+                        type="tel"
+                        maxlength={1}
                         value={tiqueteDig1}
                         onIonChange={(e:any) =>{
                           setTiqueteDig1(e.detail.value);
@@ -198,7 +201,8 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
                 <IonRow>
                   <IonCol>
                   <IonInput
-                        type="number"
+                        type="tel"
+                        maxlength={1}
                         value={tiqueteDig2}
                         onIonChange={(e:any) =>{
                           setTiqueteDig2(e.detail.value);
@@ -219,7 +223,8 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
                 <IonRow>
                   <IonCol>
                   <IonInput
-                        type="number"
+                        type="tel"
+                        maxlength={1}
                         value={tiqueteDig3}
                         onIonChange={(e:any) =>{
                           setTiqueteDig3(e.detail.value);
@@ -240,7 +245,8 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
                 <IonRow>
                   <IonCol>
                   <IonInput
-                        type="number"  
+                        type="tel"
+                        maxlength={1}  
                         value={tiqueteDig4}
                         onIonChange={(e:any) =>{
                           setTiqueteDig4(e.detail.value);
@@ -269,7 +275,8 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
                 <IonRow>
                   <IonCol>
                     <IonInput
-                        type="number"   
+                        type="tel"
+                        maxlength={1}   
                         value={serieDig1}
                         onIonChange={(e:any) =>{
                           setSerieDig1(e.detail.value);
@@ -290,7 +297,8 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
                 <IonRow>
                   <IonCol>
                   <IonInput
-                        type="number" 
+                        type="tel"
+                        maxlength={1} 
                         value={serieDig2}
                         onIonChange={(e:any) =>{
                           setSerieDig2(e.detail.value);
@@ -311,7 +319,8 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
                 <IonRow>
                   <IonCol>
                   <IonInput
-                        type="number"
+                        type="tel"
+                        maxlength={1}
                         value={serieDig3}
                         onIonChange={(e:any) =>{
                           setSerieDig3(e.detail.value);

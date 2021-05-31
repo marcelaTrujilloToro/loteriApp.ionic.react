@@ -56,12 +56,12 @@ const appPages: AppPage[] = [
     iosIcon: chevronForward,
     mdIcon: chevronForward,
   },
-  // {
-  //   title: 'Disponibilidad de Número',
-  //   url: "",
-  //   iosIcon: chevronForward,
-  //   mdIcon: chevronForward,
-  // }
+  {
+    title: 'Disponibilidad de Número',
+    url: "/screens/disponibilidad-numero/:name",
+    iosIcon: chevronForward,
+    mdIcon: chevronForward,
+  }
 ];
 
 

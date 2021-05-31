@@ -55,3 +55,10 @@ eliminarSubscripcion:
     "email": "pepitoperez@correo.com";
     "numero: "1234";
 }
+
+disponibilidadNumero:
+{
+    "loteria": "024",
+    "numero": "4444",
+    "serie": "1231"
+}

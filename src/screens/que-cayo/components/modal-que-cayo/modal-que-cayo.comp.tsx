@@ -64,8 +64,9 @@ const ModalQueCayo: React.FC<ModalQueCayoProps> = (props) => {
                 <IonRow >
                   <IonCol>
                     <IonInput
-                      type="number"
+                      type="tel"
                       value={sorteoDigito1}
+                      maxlength={1}
                       onIonChange={(e:any) =>{
                         setSorteoDigito1(e.detail.value);
                       }}
@@ -85,8 +86,9 @@ const ModalQueCayo: React.FC<ModalQueCayoProps> = (props) => {
                 <IonRow >
                   <IonCol>
                     <IonInput
-                      type="number"
+                      type="tel"
                       value={sorteoDigito2}
+                      maxlength={1}
                       onIonChange={(e:any) =>{
                         setSorteoDigito2(e.detail.value);
                       }}
@@ -106,8 +108,9 @@ const ModalQueCayo: React.FC<ModalQueCayoProps> = (props) => {
                 <IonRow >
                   <IonCol>
                     <IonInput
-                      type="number"
+                      type="tel"
                       value={sorteoDigito3}
+                      maxlength={1}
                       onIonChange={(e:any) =>{
                         setSorteoDigito3(e.detail.value);
                       }}
@@ -127,8 +130,9 @@ const ModalQueCayo: React.FC<ModalQueCayoProps> = (props) => {
                 <IonRow >
                   <IonCol>
                     <IonInput
-                      type="text"
+                      type="tel"
                       value={sorteoDigito4}
+                      maxlength={1}
                       onIonChange={(e:any) =>{
                         setSorteoDigito4(e.detail.value);
                       }}

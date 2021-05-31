@@ -44,6 +44,8 @@ import AvisameSiGanoScreen from "./screens/avisame-si-gano/avisame-si-gano/avisa
 import AvisameSiGanoDatosScren from "./screens/avisame-si-gano/avisame-si-gano-datos/avisame-si-gano-datos.screen";
 import EliminarSubscripcionScreen from "./screens/eliminar-subscripcion/eliminar-subscripcion/eliminar-subscripcion.screen";
 import EliminarSubscripcionResultadoScreen from "./screens/eliminar-subscripcion/eliminar-subscripcion-resultado/eliminar-subscripcion-resultado.screen";
+import DisponibilidadNumeroScreen from "./screens/disponibilidad-numero/disponibilidad-numero/disponibilidad-numero.screen";
+import DisponibilidadNumeroResultadoScreen from "./screens/disponibilidad-numero/disponibilidad-numero-resultado/disponibilidad-numero-resultado.screen";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -119,6 +121,16 @@ const App: React.FC = () => {
                     <EliminarSubscripcionResultadoScreen />
                   </Route>
 
+                  <Route path="/screens/disponibilidad-numero/:name" exact={true}>
+                    <DisponibilidadNumeroScreen />
+                  </Route>
+
+                  <Route
+                    path="/screens/disponibilidad-numero/disponibilidad-numero-resultado/disponibilidad-numero-resultado.screen/:codigoLoteria/:numero/:serie"
+                    exact={true}
+                  >
+                    <DisponibilidadNumeroResultadoScreen />
+                  </Route>
 
                 </LoteriaProvider>
               </AvisameSiGanoProvider>

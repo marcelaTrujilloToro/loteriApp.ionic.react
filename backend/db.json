@@ -138,5 +138,22 @@
             "eliminado": 0
           }
           
-        ]    
+        ],
+        "disponibilidadNumero":
+        [
+          {
+            "numero": "1004",
+            "serie": "123",
+            "distribuidor": "Comercializadora lottired",
+            "ciudad": "Manizales",
+            "telefono": "2321564"
+          },
+          {
+            "numero": "1004",
+            "serie": "123",
+            "distribuidor": "Distribuidora loteria",
+            "ciudad": "Cuaspud-Carlosama",
+            "telefono": "8264563"
+          }
+        ]   
 }

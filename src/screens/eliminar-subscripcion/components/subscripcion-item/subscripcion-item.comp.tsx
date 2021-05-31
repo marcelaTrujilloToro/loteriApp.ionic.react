@@ -17,6 +17,7 @@ export const SubscripcionItem: React.FC<SubscripcionProps> = (props) => {
   );
 
   const [verAlertEliminado, setVerAlertEliminado] = useState(false);
+  const [verAlertEliminadoError, setVerAlertEliminadoError] = useState(false);
 
   const verificarSiNumeroEliminado = () => {
     if (respuesta) {
@@ -24,12 +25,14 @@ export const SubscripcionItem: React.FC<SubscripcionProps> = (props) => {
         if (props.subscripcion.numero === respuesta[i].numero) {
           if (respuesta[i].eliminado === 1) {
             setVerAlertEliminado(true);
-            console.log(respuesta[i].numero);
+          }else if (respuesta[i].eliminado === 0) {
+            setVerAlertEliminadoError(true);
+            
           }
         }
       }
     }
-  }
+  };
 
   return (
     <>
@@ -66,9 +69,25 @@ export const SubscripcionItem: React.FC<SubscripcionProps> = (props) => {
         message={"Se ha eliminado la subscripcion al número seleccionado"}
         buttons={[
           {
-            text: "Okay",
+            text: "Aceptar",
             handler: () => {
               setVerAlertEliminado(false);
+            },
+          },
+        ]}
+      />
+
+      <IonAlert
+        isOpen={verAlertEliminadoError}
+        onDidDismiss={() => setVerAlertEliminadoError(false)}
+        cssClass="my-custom-class"
+        header={"Error"}
+        message={"No se ha podido eliminar la subscripcion"}
+        buttons={[
+          {
+            text: "Aceptar",
+            handler: () => {
+              setVerAlertEliminadoError(false);
             },
           },
         ]}

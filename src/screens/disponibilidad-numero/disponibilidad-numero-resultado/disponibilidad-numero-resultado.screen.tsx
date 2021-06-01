@@ -61,15 +61,14 @@ const DisponibilidadNumeroResultadoScreen: React.FC = () => {
                   Número: <span>{numero}</span>
                 </p>
               </IonCol>
-              <IonCol>
-                <p>
-                  Serie: <span>{serie}</span>
-                </p>
-              </IonCol>
+              
             </IonRow>
 
             <IonRow className="la-items-disponibilidad-row">
-              <IonCol size="6">
+              <IonCol size="2">
+                <p>Serie</p>
+              </IonCol>
+              <IonCol size="4">
                 <p>Distribuidor</p>
               </IonCol>
               <IonCol size="3">

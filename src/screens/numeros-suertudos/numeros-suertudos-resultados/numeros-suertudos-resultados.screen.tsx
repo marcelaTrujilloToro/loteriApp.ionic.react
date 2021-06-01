@@ -85,7 +85,7 @@ const NumerosSuertudosResultadosScreen: React.FC = () => {
             <IonRow className="la-subtitulo-suertudos-row">
               <IonCol>
                 <p>
-                  Suertudos de los últimos {cantidadSorteos} sorteos
+                  Suertudos de los últimos <span>{cantidadSorteos}</span> sorteos
                 </p>
               </IonCol>
             </IonRow>

@@ -43,13 +43,13 @@ const QueCayoResultadoScreen: React.FC = () => {
       <Header></Header>
 
       <IonContent className="ion-no-padding">
-        <div className="la-content-gradiente-darker ">
+        <div className="la-content-gradiente-darker la-content-height">
           <IonGrid className=" la-content-grid">
             
-            <IonRow className="la-title-row">
-              <IonCol className="la-col-titulo-resultado">
-                <div className="la-titulo-22 ">Resultados de Sorteo</div>
-                <div className="la-rectangulo-rojo "></div>
+            <IonRow className="la-titulo-que-cayo-row">
+              <IonCol className=" la-col-titulo-que-cayo">
+                <div className="la-titulo-22 la-titulo-que-cayo">Resultados de Sorteo</div>
+                <div className="la-content-rectangulo-rojo la-linea-roja-que-cayo"></div>
               </IonCol>
             </IonRow>
 

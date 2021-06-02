@@ -63,6 +63,7 @@ const NumerosSuertudosResultadosScreen: React.FC = () => {
       <IonContent className="ion-no-padding ">
         <div className="la-content-gradiente-darker la-content-height">
           <IonGrid className=" la-content-grid ion-no-padding">
+            
             <IonRow className="la-titulo-ns-row">
               <IonCol className=" la-col-titulo-suertudos">
                 <IonTitle className="la-titulo-22 la-titulo-suertudos">

@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import "./modal-avisame.si.gano.style.css";
 
 import {
   IonButton,
@@ -62,7 +61,7 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
           X
         </IonButton>
         <IonGrid className="ion-no-padding la-content-grid">
-          <IonRow className="la-row-avisame-texto">
+          <IonRow >
             <IonCol>
               <p className="la-texto-darkblue-12 la-texto">
                 Lorem ipsum dolor sit amet, consectetur adipis elit sed
@@ -71,13 +70,13 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
             </IonCol>
           </IonRow>
 
-          <IonRow className="la-row-titulo-avisame">
+          <IonRow >
             <IonCol>
               <p className="la-titulo-16">Tú número de la Suerte:</p>
             </IonCol>
           </IonRow>
 
-          <IonRow className="la-row-digitos-numero-avisame">
+          <IonRow >
             <IonCol>
               <IonGrid>
                 <IonRow>
@@ -195,7 +194,8 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
               </IonGrid>
             </IonCol>
           </IonRow>
-          <IonRow className="la-row-botones-avisame">
+
+          <IonRow >
             <IonCol>
               <button
                 className="la-boton la-boton-consultar"

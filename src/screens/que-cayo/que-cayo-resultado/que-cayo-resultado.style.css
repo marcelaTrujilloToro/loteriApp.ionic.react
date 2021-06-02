@@ -1,29 +1,20 @@
-.la-col-titulo-resultado{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.la-content-height{
+  height: auto;
+  min-height: 100%;
 }
 
-.la-rectangulo-rojo {
-  background: rgba(236, 8, 0, 1);
-  border-radius: 1.15px;
-  height: 2.25px;
-  width: 56px;
-  border-radius: 1.2px;
-  position: relative;
-  top: 15px;
-}
-
-.la-title-row {
-  height: 15%;
+.la-titulo-que-cayo-row {
+  height: 25%;
 }
 
 .la-billete-row {
+  margin-top: 10px;
   height: 35%;
 }
 
 .la-lista-sorteo-row {
-  height: 45%;
+  margin-top: 15px;
+  height: 30%;
   text-align: left;
 }
 
@@ -31,6 +22,22 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+}
+
+.la-col-titulo-que-cayo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.la-titulo-que-cayo {
+  position: relative;
+  top: 30px;
+}
+
+.la-linea-roja-que-cayo{
+  position: relative;
+  top: 35px;
 }
 
 .la-balota-blanca {
@@ -109,6 +116,8 @@
 }
 
 .la-billete-amarillo{
+  position: relative;
+  top: 35px;
   background-image: url('../../../assets/imagenes/LoteriApp-billete-completo.png');
   background-repeat: no-repeat ;
   background-size: cover;

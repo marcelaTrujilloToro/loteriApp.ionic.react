@@ -41,7 +41,22 @@
                 "serie": "245"
               },
               {
+                "nombre": "SEGUNDO PREMIO SECO DE 5 MILL",
+                "numero": "0936",
+                "serie": "245"
+              },
+              {
+                "nombre": "PRIMER PREMIO SECO DE 5 MILL",
+                "numero": "0936",
+                "serie": "245"
+              },
+              {
                 "nombre": "SEGUNDO PREMIO SECO DE 20 MILL",
+                "numero": "0936",
+                "serie": "245"
+              },
+              {
+                "nombre": "PRIMER PREMIO SECO DE 20 MILL",
                 "numero": "0936",
                 "serie": "245"
               }
@@ -153,7 +168,7 @@
             "serie": "123",
             "distribuidor": "Distribuidora loteria",
             "ciudad": "Cuaspud-Carlosama",
-            "telefono": "8264563"
+            "telefono": "3101536215"
           }
         ]   
 }

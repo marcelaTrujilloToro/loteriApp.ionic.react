@@ -45,8 +45,7 @@ const HomeScreen = () => {
                     <IonCol>
                       <p className="la-texto-blue-14 la-texto-row">
                         Lorem ipsum dolor sit amet, consectetur adipis elit sed
-                        malesuada aliquam pharetra dignissim volutpat parturient
-                        risus sem.
+                        malesuada aliquam pharetra.
                       </p>
                     </IonCol>
                   </IonRow>

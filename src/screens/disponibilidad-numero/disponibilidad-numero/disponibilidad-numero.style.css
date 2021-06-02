@@ -1,7 +1,7 @@
 .la-disponibilidad-modal .modal-wrapper.sc-ion-modal-ios,
 .modal-shadow.sc-ion-modal-ios {
   width: 80%;
-  height: 60%;
+  height: 65%;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
 }
@@ -9,7 +9,7 @@
 .la-disponibilidad-modal .modal-wrapper.sc-ion-modal-md,
 .modal-shadow.sc-ion-modal-md {
   width: 80%;
-  height: 60%;
+  height: 65%;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
 }

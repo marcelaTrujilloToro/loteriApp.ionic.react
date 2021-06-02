@@ -14,7 +14,7 @@ ion-col {
 }
 
 .la-imagen-row {
-  height: 37%;
+  height: 40%;
   background: rgba(0, 78, 133, 1);  
   padding-top: 35px;
   padding-bottom: 10px;
@@ -29,7 +29,11 @@ ion-col {
 
 
 .la-titulo-texto-row {
-  height: 25%;
+  height: 20%;
+}
+
+.la-menu-opciones-row {
+  height: 40%;
 }
 
 .la-contenedor-texto {
@@ -50,9 +54,6 @@ ion-col {
   text-align: left;
 }
 
-.la-menu-opciones-row {
-  height: 40%;
-}
 
 .la-opciones-contenedor {
   width: 100%;

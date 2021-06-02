@@ -24,6 +24,7 @@ height: 30%;
 
 .la-lista-premios-disponibilidad-row {
   height: 35%;
+  text-align: center;
 }
 
 .la-col-titulo-disponibilidad {
@@ -54,3 +55,5 @@ span{
 .la-fuente-12{
   font-size: 12px;
 }
+
+

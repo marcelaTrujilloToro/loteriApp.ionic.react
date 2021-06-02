@@ -14,7 +14,7 @@ const ListaDisponibilidadNumeros: React.FC<ListaDisponibilidadNumerosProps> = (
     return <IonTitle>No hay numeros disponibles</IonTitle>;
   } else {
     return (
-      <IonGrid className=" ion-no-padding ">
+      <IonGrid  className=" ion-no-padding ">
         {props.listaDisponibilidadNumeros.map((disponibilidadNumero) => {
           return (
             <DisponibilidadNumeroItem

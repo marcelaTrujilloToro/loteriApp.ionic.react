@@ -3,14 +3,16 @@
 }
 
 .la-row-img-scanner {
-  height: 30%;
-}
-
-.la-row-texto {
   height: 25%;
 }
 
+.la-row-texto {
+  height: 30%;
+  align-items: center;
+}
+
 .la-row-botones{
+  padding-top: 5px;
   height: 30%;
 }
 

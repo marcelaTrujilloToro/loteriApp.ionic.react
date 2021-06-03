@@ -84,7 +84,7 @@ const AvisameSiGanoDatosScren: React.FC = () => {
                   :
                   <IonTitle className="la-titulo-22">Mis Subscripciones</IonTitle>
                 }
-                <div className="la-linea-roja-avisame"></div>
+                <div className="la-content-rectangulo-rojo la-height-linea"></div>
               </IonCol>
             </IonRow>
 

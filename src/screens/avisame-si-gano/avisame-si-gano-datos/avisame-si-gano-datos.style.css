@@ -26,15 +26,10 @@
     bottom: 30px;
 }
 
-.la-linea-roja-avisame{
-  background: rgba(236, 8, 0, 1);
-  border-radius: 1.15px;
-  height: 2.25px;
-  width: 56px;
-  border-radius: 1.2px;
-  position: relative;
-  top: 20px;
+.la-height-linea{
+  top: -5px;
 }
+
 
 .la-linea-datos-avisame{
     width: 200px;
@@ -51,7 +46,7 @@
 .la-avisame-verificacion-modal .modal-wrapper.sc-ion-modal-ios,
 .modal-shadow.sc-ion-modal-ios {
   width: 80%;
-  min-height: 50%;
+  min-height: 45%;
   height: auto;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
@@ -60,7 +55,7 @@
 .la-avisame-verificacion-modal .modal-wrapper.sc-ion-modal-md,
 .modal-shadow.sc-ion-modal-md {
   width: 80%;
-  min-height: 50%;
+  min-height: 45%;
   height: auto;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
@@ -69,7 +64,7 @@
 .la-avisame-si-gano-modal .modal-wrapper.sc-ion-modal-ios,
 .modal-shadow.sc-ion-modal-ios {
   width: 80%;
-  height: 65%;
+  height: 60%;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
 }
@@ -77,7 +72,7 @@
 .la-avisame-si-gano-modal .modal-wrapper.sc-ion-modal-md,
 .modal-shadow.sc-ion-modal-md {
   width: 80%;
-  height: 65%;
+  height: 60%;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
 }

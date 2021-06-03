@@ -52,9 +52,9 @@ const NumerosSuertudosResultadosScreen: React.FC = () => {
     return <Loading></Loading>;
   }
 
-  if (isError) {
-    return <Error></Error>;
-  }
+  // if (isError) {
+  //   return <Error></Error>;
+  // }
 
   return (
     <IonPage>
@@ -63,7 +63,6 @@ const NumerosSuertudosResultadosScreen: React.FC = () => {
       <IonContent className="ion-no-padding ">
         <div className="la-content-gradiente-darker la-content-height">
           <IonGrid className=" la-content-grid ion-no-padding">
-            
             <IonRow className="la-titulo-ns-row">
               <IonCol className=" la-col-titulo-suertudos">
                 <IonTitle className="la-titulo-22 la-titulo-suertudos">
@@ -86,7 +85,8 @@ const NumerosSuertudosResultadosScreen: React.FC = () => {
             <IonRow className="la-subtitulo-suertudos-row">
               <IonCol>
                 <p>
-                  Suertudos de los últimos <span>{cantidadSorteos}</span> sorteos
+                  Suertudos de los últimos <span>{cantidadSorteos}</span>{" "}
+                  sorteos
                 </p>
               </IonCol>
             </IonRow>
@@ -105,9 +105,13 @@ const NumerosSuertudosResultadosScreen: React.FC = () => {
 
             <IonRow className="la-lista-premios-ns-row">
               <IonCol>
-                <ListaSuertudos
-                  listaSuertudos={resultadoSuertudos}
-                ></ListaSuertudos>
+                {isError ? (
+                  <Error></Error>
+                ) : (
+                  <ListaSuertudos
+                    listaSuertudos={resultadoSuertudos}
+                  ></ListaSuertudos>
+                )}
               </IonCol>
             </IonRow>
           </IonGrid>

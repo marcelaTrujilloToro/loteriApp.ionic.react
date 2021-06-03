@@ -27,9 +27,7 @@ export interface YoGaneResultadoScreenParams {
 }
 
 const YoGaneResultadoScreen: React.FC = () => {
-
-
-  const {codigoLoteria, numeroSorteo, numero, serie } =
+  const { codigoLoteria, numeroSorteo, numero, serie } =
     useParams<YoGaneResultadoScreenParams>();
 
   const {
@@ -42,9 +40,9 @@ const YoGaneResultadoScreen: React.FC = () => {
     return <Loading></Loading>;
   }
 
-  if (isError) {
-    return <Error></Error>;
-  }
+  // if (isError) {
+  //   return <Error></Error>;
+  // }
 
   return (
     <IonPage>
@@ -74,60 +72,52 @@ const YoGaneResultadoScreen: React.FC = () => {
               <IonCol>
                 <IonGrid className="ion-no-padding">
                   <IonRow>
-                    <IonCol>
-                      Sorteo
-                    </IonCol>
+                    <IonCol>Sorteo</IonCol>
                   </IonRow>
                   <IonRow>
-                    <IonCol>
-                      {numeroSorteo}
-                    </IonCol>
+                    <IonCol>{numeroSorteo}</IonCol>
                   </IonRow>
                 </IonGrid>
               </IonCol>
               <IonCol>
-              <IonGrid className="ion-no-padding">
+                <IonGrid className="ion-no-padding">
                   <IonRow>
-                    <IonCol>
-                     Numero
-                    </IonCol>
+                    <IonCol>Numero</IonCol>
                   </IonRow>
                   <IonRow>
-                    <IonCol>
-                      {numero}
-                    </IonCol>
+                    <IonCol>{numero}</IonCol>
                   </IonRow>
                 </IonGrid>
               </IonCol>
               <IonCol>
-              <IonGrid className="ion-no-padding">
+                <IonGrid className="ion-no-padding">
                   <IonRow>
-                    <IonCol>
-                      Serie
-                    </IonCol>
+                    <IonCol>Serie</IonCol>
                   </IonRow>
                   <IonRow>
-                    <IonCol>
-                      {serie}
-                    </IonCol>
+                    <IonCol>{serie}</IonCol>
                   </IonRow>
                 </IonGrid>
               </IonCol>
             </IonRow>
 
             <IonRow className="la-yg-row-lista">
-              <IonCol>
-                {resultados?.premios ? (
-                  <ListaPremios
-                    listaPremios={resultados?.premios}
-                  ></ListaPremios>
-                ) : (
-                  <img
-                    className="la-imagen-perdio"
-                    src={resultados?.imagenPerdio}
-                  />
-                )}
-              </IonCol>
+              {isError ? (
+                <Error></Error>
+              ) : (
+                <IonCol>
+                  {resultados?.premios ? (
+                    <ListaPremios
+                      listaPremios={resultados?.premios}
+                    ></ListaPremios>
+                  ) : (
+                    <img
+                      className="la-imagen-perdio"
+                      src={resultados?.imagenPerdio}
+                    />
+                  )}
+                </IonCol>
+              )}
             </IonRow>
 
             <IonRow className="la-yg-row-slider">

@@ -31,12 +31,12 @@ const QueCayoResultadoScreen: React.FC = () => {
   }
 
 
-  if (isError) {
+  // if (isError) {
 
-    return (
-      <Error></Error>
-    );
-  }
+  //   return (
+  //     <Error></Error>
+  //   );
+  // }
 
   return (
     <IonPage>
@@ -95,7 +95,14 @@ const QueCayoResultadoScreen: React.FC = () => {
 
             <IonRow className="la-lista-sorteo-row">
               <IonCol>
-                <ListaSecos listaSecos={resultado?.secos}></ListaSecos>
+                {
+                  isError
+                  ?
+                  <Error></Error>
+                  :
+                  <ListaSecos listaSecos={resultado?.secos}></ListaSecos>
+
+                }
               </IonCol>
             </IonRow>
           </IonGrid>

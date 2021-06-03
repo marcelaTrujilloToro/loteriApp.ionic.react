@@ -1,42 +1,50 @@
-import React from 'react'
-import { useParams } from 'react-router';
-import './disponibilidad-numero-resultado.style.css';
+import React from "react";
+import { useParams } from "react-router";
+import "./disponibilidad-numero-resultado.style.css";
 import Header from "../../../components/header/header.comp";
-import {useDisponibilidadNumero} from '../../../hooks/disponibilidad-numero/useDisponibilidadNumero.hook';
-import ListaDisponibilidadNumeros from '../components/lista-disponibilidad-numeros/lista-disponibilidad-numeros.comp';
-import './disponibilidad-numero-resultado.style.css';
-
+import { useDisponibilidadNumero } from "../../../hooks/disponibilidad-numero/useDisponibilidadNumero.hook";
+import ListaDisponibilidadNumeros from "../components/lista-disponibilidad-numeros/lista-disponibilidad-numeros.comp";
+import "./disponibilidad-numero-resultado.style.css";
 
 import {
-    IonCol,
-    IonContent,
-    IonGrid,
-    IonPage,
-    IonRow,
-    IonTitle,
-  } from "@ionic/react";
+  IonCol,
+  IonContent,
+  IonGrid,
+  IonPage,
+  IonRow,
+  IonTitle,
+} from "@ionic/react";
+import Loading from "../../../shared/screen/loading/loading.screen";
+import Error from "../../../shared/screen/error/error.screen";
 
-interface DisponibilidadNumeroResultadoScreenParams{
-    codigoLoteria: string;
-    numero: string;
-    serie: string;
+interface DisponibilidadNumeroResultadoScreenParams {
+  codigoLoteria: string;
+  numero: string;
+  serie: string;
 }
 
 const DisponibilidadNumeroResultadoScreen: React.FC = () => {
+  const { codigoLoteria, numero, serie } =
+    useParams<DisponibilidadNumeroResultadoScreenParams>();
 
-    const { codigoLoteria, numero, serie } = useParams<DisponibilidadNumeroResultadoScreenParams>();
+  const {
+    isError,
+    isLoading,
+    data: respuesta,
+  } = useDisponibilidadNumero(codigoLoteria, numero, serie);
 
-  const {data: respuesta} = useDisponibilidadNumero(codigoLoteria, numero, serie);
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
 
-    return (
-        <IonPage>
+  return (
+    <IonPage>
       <Header></Header>
 
       <IonContent className="ion-no-padding ">
         <div className="la-content-gradiente-darker la-content-height">
           <IonGrid className=" la-content-grid ion-no-padding">
-
-          <IonRow className="la-titulo-disponibilidad-row">
+            <IonRow className="la-titulo-disponibilidad-row">
               <IonCol className=" la-col-titulo-disponibilidad">
                 <IonTitle className="la-titulo-22 la-titulo-disponibilidad">
                   Disponibilidad de Números
@@ -61,7 +69,6 @@ const DisponibilidadNumeroResultadoScreen: React.FC = () => {
                   Número: <span>{numero}</span>
                 </p>
               </IonCol>
-              
             </IonRow>
 
             <IonRow className="la-items-disponibilidad-row">
@@ -81,15 +88,19 @@ const DisponibilidadNumeroResultadoScreen: React.FC = () => {
 
             <IonRow className="la-lista-premios-disponibilidad-row">
               <IonCol>
-                <ListaDisponibilidadNumeros
-                  listaDisponibilidadNumeros={respuesta}
-                ></ListaDisponibilidadNumeros>
+                {isError ? (
+                  <Error></Error>
+                ) : (
+                  <ListaDisponibilidadNumeros
+                    listaDisponibilidadNumeros={respuesta}
+                  ></ListaDisponibilidadNumeros>
+                )}
               </IonCol>
             </IonRow>
           </IonGrid>
         </div>
       </IonContent>
     </IonPage>
-    )
+  );
 };
 export default DisponibilidadNumeroResultadoScreen;

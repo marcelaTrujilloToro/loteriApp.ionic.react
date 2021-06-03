@@ -16,28 +16,36 @@ import {
 } from "@ionic/react";
 import { AvisameSiGanoContext } from "../../../providers/avisame-si-gano/avisameSiGano.context";
 import { useAvisameSiGano } from "../../../hooks/avisame-si-gano/useAvisameSiGano.hook";
+import Loading from "../../../shared/screen/loading/loading.screen";
+import Error from "../../../shared/screen/error/error.screen";
 
 const AvisameSiGanoScreen: React.FC = () => {
-
-
-  const {avisameSiGanoParams, setAvisameSiGanoParams} = useContext(AvisameSiGanoContext);
+  const { avisameSiGanoParams, setAvisameSiGanoParams } =
+    useContext(AvisameSiGanoContext);
 
   const history = useHistory();
 
-  
-  
   const onLoteriaSeleccionadaFn = (loteriaSeleccionada: Loteria) => {
-    setAvisameSiGanoParams({...avisameSiGanoParams, loteria: loteriaSeleccionada });
+    setAvisameSiGanoParams({
+      ...avisameSiGanoParams,
+      loteria: loteriaSeleccionada,
+    });
     const opcion = "1";
     history.push({
       pathname: `/screens/avisame-si-gano/avisame-si-gano-datos/avisame-si-gano-datos.screen/${opcion}`,
     });
-    
   };
-  
-  const { isLoading, isError, data:resultado } = useAvisameSiGano(avisameSiGanoParams);
-  
-  
+
+  const {
+    isLoading,
+    isError,
+    data: resultado,
+  } = useAvisameSiGano(avisameSiGanoParams);
+
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
+
   return (
     <IonPage>
       <Header></Header>
@@ -60,8 +68,13 @@ const AvisameSiGanoScreen: React.FC = () => {
                 </IonText>
               </IonCol>
             </IonRow>
-
-            <ListaLoterias onLoteriaSeleccionadaFn={onLoteriaSeleccionadaFn}/>
+            {isError ? (
+              <Error></Error>
+            ) : (
+              <ListaLoterias
+                onLoteriaSeleccionadaFn={onLoteriaSeleccionadaFn}
+              />
+            )}
           </IonGrid>
         </div>
       </IonContent>

@@ -19,16 +19,14 @@ const Error: React.FC = () => {
     return (
     
       
-      <IonContent>
         <div className="la-content-gradiente-darker">
           <IonAlert            
             isOpen={error}
             onDidDismiss={() => setError(false)}
             header={"Error"}
-            message={"Al cargar la lista de loterias"}          
+            message={"Al cargar los resultados"}          
             />
         </div>
-      </IonContent>
    
   );
 };

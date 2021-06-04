@@ -1,11 +1,17 @@
-import React, { useContext, useState } from "react";
+import React, { StrictMode, useContext, useState } from "react";
 import "./avisame-si-gano-datos.style.css";
+
 import Header from "../../../components/header/header.comp";
 import { useAvisameSiGano } from "../../../hooks/avisame-si-gano/useAvisameSiGano.hook";
 import { AvisameSiGanoContext } from "../../../providers/avisame-si-gano/avisameSiGano.context";
 import ModalAvisameVerificacion from "../components/modal-avisame-verificacion/modal-avisame-verificacion.comp";
 import ModalAvisameSiGano from "../components/modal-avisame-si-gano/modal-avisame-si-gano.comp";
 import ModalNotificacionGuardada from "../components/modal-notificacion-guardada/modal-notificacion-guardada.comp";
+import { useParams } from "react-router";
+import { AvisameSiGanoParams } from "../../../models/avisame-si-gano/AvisameSiGanoParams";
+import { EliminarSubscripcionContext } from "../../../providers/eliminar-subscripcion/eliminarSubscripcion.context";
+import { useEliminarSubscripcion } from "../../../hooks/eliminar-susbcripcion/useEliminarSubscripcion.hook";
+import validator from "validator";
 
 import {
   IonCol,
@@ -19,45 +25,44 @@ import {
   IonInput,
   IonAlert,
 } from "@ionic/react";
-import { useParams } from "react-router";
-import { AvisameSiGanoParams } from "../../../models/avisame-si-gano/AvisameSiGanoParams";
-import { EliminarSubscripcionContext } from "../../../providers/eliminar-subscripcion/eliminarSubscripcion.context";
-import { useEliminarSubscripcion } from "../../../hooks/eliminar-susbcripcion/useEliminarSubscripcion.hook";
 
-export interface AvisameSiGanoScreenParams{
+export interface AvisameSiGanoScreenParams {
   opcion: string;
 }
 
 const AvisameSiGanoDatosScren: React.FC = () => {
+  const { opcion } = useParams<AvisameSiGanoScreenParams>();
 
-  const {opcion} = useParams<AvisameSiGanoScreenParams>();
-
-  const { avisameSiGanoParams, setAvisameSiGanoParams } = useContext(AvisameSiGanoContext);
-
+  const { avisameSiGanoParams, setAvisameSiGanoParams } =
+    useContext(AvisameSiGanoContext);
 
   const [verModalCodigoVerificacion, setVerModalCodigoVerificacion] =
     useState<boolean>(false);
 
   const [verModalAvisame, setVerModalAvisame] = useState<boolean>(false);
-  
-  const {data: respuesta} = useAvisameSiGano(avisameSiGanoParams);
 
-  
+  const { data: respuesta } = useAvisameSiGano(avisameSiGanoParams);
+
   const abrirModalVerificacion = () => {
     setVerModalCodigoVerificacion(true);
   };
   const cerrarModalVerificacion = () => {
     setVerModalCodigoVerificacion(false);
   };
-  
+
   const abrirModalAvisame = () => {
     setVerModalAvisame(true);
   };
   const cerrarModalAvisame = () => {
     setVerModalAvisame(false);
   };
+
+  const [verModalNotificacion, setVerModalNotificacion] =
+    useState<boolean>(false);
+
+  const [verAlertaDatosInvalidos, setVerAlertaDatosInvalidos] = useState(false);
+
   
-  const [verModalNotificacion, setVerModalNotificacion] = useState<boolean>(false);
 
   const abrirModalNotificacion = () => {
     setVerModalNotificacion(true);
@@ -66,8 +71,29 @@ const AvisameSiGanoDatosScren: React.FC = () => {
     setVerModalNotificacion(false);
   };
 
-  const { eliminarSubscripcionParams, setEliminarSubscripcionParams } = useContext(EliminarSubscripcionContext);
-  const {data: resultado} = useEliminarSubscripcion(eliminarSubscripcionParams);
+  const { eliminarSubscripcionParams, setEliminarSubscripcionParams } =
+    useContext(EliminarSubscripcionContext);
+  const { data: resultado } = useEliminarSubscripcion(
+    eliminarSubscripcionParams
+  );
+
+  const validarCorreo = () => {
+    if (avisameSiGanoParams.email) {
+      if (!validator.isEmail(avisameSiGanoParams.email)) {
+        return false;
+      }
+      return true;
+    }
+  };
+
+  const validarCelular = () => {
+    if (avisameSiGanoParams.celular) {
+      if (avisameSiGanoParams.celular.length < 10) {
+        return false;
+      }
+      return true;
+    }
+  };
 
   return (
     <IonPage>
@@ -77,13 +103,13 @@ const AvisameSiGanoDatosScren: React.FC = () => {
           <IonGrid className="la-content-grid ion-no-padding">
             <IonRow className="la-row-titulo-avisame">
               <IonCol className="la-col-titulo la-col-titulo-avisame">
-                {
-                  opcion === "1"
-                  ? 
+                {opcion === "1" ? (
                   <IonTitle className="la-titulo-22">Avísame sí Gano</IonTitle>
-                  :
-                  <IonTitle className="la-titulo-22">Mis Subscripciones</IonTitle>
-                }
+                ) : (
+                  <IonTitle className="la-titulo-22">
+                    Mis Subscripciones
+                  </IonTitle>
+                )}
                 <div className="la-content-rectangulo-rojo la-height-linea"></div>
               </IonCol>
             </IonRow>
@@ -106,15 +132,18 @@ const AvisameSiGanoDatosScren: React.FC = () => {
                         type="tel"
                         maxlength={10}
                         value={avisameSiGanoParams.celular}
-                        placeholder="Numero de celular"
+                        placeholder="Número de celular"
                         onIonChange={(e: any) => {
                           setAvisameSiGanoParams({
                             ...avisameSiGanoParams,
                             celular: e.detail.value,
                           });
-                          setEliminarSubscripcionParams({...eliminarSubscripcionParams, celular: e.detail.value});
+                          setEliminarSubscripcionParams({
+                            ...eliminarSubscripcionParams,
+                            celular: e.detail.value,
+                          });
                         }}
-                        ></IonInput>
+                      ></IonInput>
                     </IonCol>
                   </IonRow>
                   <IonRow>
@@ -140,9 +169,12 @@ const AvisameSiGanoDatosScren: React.FC = () => {
                             ...avisameSiGanoParams,
                             email: e.detail.value,
                           });
-                          setEliminarSubscripcionParams({...eliminarSubscripcionParams, email: e.detail.value});
+                          setEliminarSubscripcionParams({
+                            ...eliminarSubscripcionParams,
+                            email: e.detail.value,
+                          });
                         }}
-                        ></IonInput>
+                      ></IonInput>
                     </IonCol>
                   </IonRow>
                   <IonRow>
@@ -159,7 +191,11 @@ const AvisameSiGanoDatosScren: React.FC = () => {
                 <button
                   className="la-boton la-boton-consultar"
                   onClick={() => {
-                    abrirModalVerificacion();
+                    if (validarCorreo() === false || validarCelular() === false) {
+                      setVerAlertaDatosInvalidos(true);
+                    } else {
+                      abrirModalVerificacion();
+                    }
                   }}
                 >
                   ENVIAR
@@ -168,34 +204,57 @@ const AvisameSiGanoDatosScren: React.FC = () => {
             </IonRow>
           </IonGrid>
         </div>
+      </IonContent>
 
-       </IonContent>
+      <IonModal
+        isOpen={verModalCodigoVerificacion}
+        cssClass="la-avisame-verificacion-modal"
+      >
+        <ModalAvisameVerificacion
+          ocultarModal={cerrarModalVerificacion}
+          abrirModalVerificacion={abrirModalVerificacion}
+          abrirModalAvisame={abrirModalAvisame}
+          opcion={opcion}
+        />
+      </IonModal>
 
-          <IonModal
-            isOpen={verModalCodigoVerificacion}
-            cssClass="la-avisame-verificacion-modal"
-          >
-            <ModalAvisameVerificacion ocultarModal={cerrarModalVerificacion}
-            abrirModalVerificacion={abrirModalVerificacion}
-            abrirModalAvisame={abrirModalAvisame} 
-            opcion={opcion}
-            />
-          </IonModal>
+      <IonModal isOpen={verModalAvisame} cssClass="la-avisame-si-gano-modal">
+        <ModalAvisameSiGano
+          ocultarModalAvisame={cerrarModalAvisame}
+          abrirModalNotificacion={abrirModalNotificacion}
+        ></ModalAvisameSiGano>
+      </IonModal>
 
-        <IonModal isOpen={verModalAvisame} cssClass="la-avisame-si-gano-modal">
-          <ModalAvisameSiGano
-            ocultarModalAvisame={cerrarModalAvisame}
-            abrirModalNotificacion={abrirModalNotificacion}
-          ></ModalAvisameSiGano>
-        </IonModal> 
+      <IonModal
+        isOpen={verModalNotificacion}
+        cssClass="la-notificacion-guardada-modal"
+      >
+        <ModalNotificacionGuardada
+          ocultarModalNotificacionGuardada={cerrarModalNotificacion}
+        ></ModalNotificacionGuardada>
+      </IonModal>
 
-        <IonModal isOpen={verModalNotificacion} cssClass="la-notificacion-guardada-modal">
-          <ModalNotificacionGuardada
-            ocultarModalNotificacionGuardada= {cerrarModalNotificacion}
-          ></ModalNotificacionGuardada>
-        </IonModal>
+      <IonAlert
+        isOpen={verAlertaDatosInvalidos}
+        onDidDismiss={() => setVerAlertaDatosInvalidos(false)}
+        cssClass="my-custom-class"
+        header={"Error"}
+        message={"Ha ingresado mal un dato"}
+        buttons={[
+          {
+            text: "Aceptar",
+            handler: () => {
+              setVerAlertaDatosInvalidos(false);
+              setAvisameSiGanoParams({
+                ...avisameSiGanoParams,
+                email: undefined, celular: undefined
+              });
+            },
+          },
+        ]}
+      />
 
-        
+      
     </IonPage>
   );
 };

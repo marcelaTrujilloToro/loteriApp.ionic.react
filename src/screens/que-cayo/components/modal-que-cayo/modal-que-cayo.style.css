@@ -28,16 +28,18 @@ ion-modal {
   border-radius: 5px;
 }
 
-.native-input.sc-ion-input-ios {
+
+.la-input-digito{
   padding: 0px;
   color: rgba(0, 78, 133, 1);
   font-weight: bold;
   font-size: 22px;
+  background-color: transparent;
+  border-color: transparent;
+  border-width: 0px;
+  text-align: center;
+  border-style:dotted;
+  width: 25px;
+  
 }
 
-.native-input.sc-ion-input-md {
-  padding: 0px;
-  color: rgba(0, 78, 133, 1);
-  font-weight: bold;
-  font-size: 22px;
-}

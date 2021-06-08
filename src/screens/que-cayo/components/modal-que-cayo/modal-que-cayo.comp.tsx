@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { MutableRefObject, useContext, useRef, useState } from "react";
 import "./modal-que-cayo.style.css";
 
 import {
@@ -19,17 +19,54 @@ interface ModalQueCayoProps {
 const ModalQueCayo: React.FC<ModalQueCayoProps> = (props) => {
   const history = useHistory();
 
-  const {loteriaSeleccionada} = useContext(LoteriaContext);
+  const { loteriaSeleccionada } = useContext(LoteriaContext);
 
-  const [sorteoDigito1, setSorteoDigito1] = useState <string>(loteriaSeleccionada.ultimoSorteo[0]);
-  const [sorteoDigito2, setSorteoDigito2] = useState <string>(loteriaSeleccionada.ultimoSorteo[1]);
-  const [sorteoDigito3, setSorteoDigito3] = useState <string>(loteriaSeleccionada.ultimoSorteo[2]);
-  const [sorteoDigito4, setSorteoDigito4] = useState <string>(loteriaSeleccionada.ultimoSorteo[3]);
+  const [sorteoDigito1, setSorteoDigito1] = useState<string>(loteriaSeleccionada.ultimoSorteo[0]);
+  const [sorteoDigito2, setSorteoDigito2] = useState<string>(loteriaSeleccionada.ultimoSorteo[1]);
+  const [sorteoDigito3, setSorteoDigito3] = useState<string>(loteriaSeleccionada.ultimoSorteo[2]);
+  const [sorteoDigito4, setSorteoDigito4] = useState<string>(loteriaSeleccionada.ultimoSorteo[3]);
 
-  const getSorteo = () => {
-    return`${sorteoDigito1}${sorteoDigito2}${sorteoDigito3}${sorteoDigito4}`;
+  let refDigito1: any = React.createRef();
+  let refDigito2: any = React.createRef();
+  let refDigito3: any = React.createRef();
+  let refDigito4: any = React.createRef();
+
+  
+  const onDigito1Change = (digito1: string) => {
+    setSorteoDigito1(digito1);
+    if (isNaN(parseInt(digito1))) {
+      return;
+    }
+    
+    refDigito2.current?.focus();
   };
-
+  
+  const onDigito2Change = (digito2: string) => {
+    setSorteoDigito2(digito2);
+    if (isNaN(parseInt(digito2))) {
+      return;
+    }
+    
+    refDigito3.current?.focus();
+  };
+  
+  const onDigito3Change = (digito3: string) => {
+    setSorteoDigito3(digito3);
+    if (isNaN(parseInt(digito3))) {
+      return;
+    }
+    
+    refDigito4.current?.focus();
+  };
+  
+  const onDigito4Change = (digito4: string) => {
+    setSorteoDigito4(digito4);
+  };
+  
+  const getSorteo = () => {
+    return `${sorteoDigito1}${sorteoDigito2}${sorteoDigito3}${sorteoDigito4}`;
+  };
+  
   return (
     <IonContent>
       <div className="la-que-cayo-modal-content">
@@ -61,16 +98,18 @@ const ModalQueCayo: React.FC<ModalQueCayoProps> = (props) => {
           <IonRow>
             <IonCol>
               <IonGrid>
-                <IonRow >
+                <IonRow>
                   <IonCol>
-                    <IonInput
+                    <input
+                      className="la-input-digito"
                       type="tel"
                       value={sorteoDigito1}
-                      maxlength={1}
-                      onIonChange={(e:any) =>{
-                        setSorteoDigito1(e.detail.value);
+                      maxLength={1}
+                      ref={refDigito1}
+                      onChange={(e: any) => {
+                        onDigito1Change(e.target.value);
                       }}
-                    ></IonInput>
+                    ></input>
                   </IonCol>
                 </IonRow>
                 <IonRow>
@@ -83,16 +122,18 @@ const ModalQueCayo: React.FC<ModalQueCayoProps> = (props) => {
 
             <IonCol>
               <IonGrid>
-                <IonRow >
+                <IonRow>
                   <IonCol>
-                    <IonInput
+                    <input
+                      className="la-input-digito"
                       type="tel"
                       value={sorteoDigito2}
-                      maxlength={1}
-                      onIonChange={(e:any) =>{
-                        setSorteoDigito2(e.detail.value);
+                      maxLength={1}
+                      ref={refDigito2}
+                      onChange={(e: any) => {
+                        onDigito2Change(e.target.value);
                       }}
-                    ></IonInput>
+                    ></input>
                   </IonCol>
                 </IonRow>
                 <IonRow>
@@ -105,16 +146,18 @@ const ModalQueCayo: React.FC<ModalQueCayoProps> = (props) => {
 
             <IonCol>
               <IonGrid>
-                <IonRow >
+                <IonRow>
                   <IonCol>
-                    <IonInput
+                    <input
                       type="tel"
+                      className="la-input-digito"
                       value={sorteoDigito3}
-                      maxlength={1}
-                      onIonChange={(e:any) =>{
-                        setSorteoDigito3(e.detail.value);
+                      maxLength={1}
+                      ref={refDigito3}
+                      onChange={(e: any) => {
+                        onDigito3Change(e.target.value);
                       }}
-                    ></IonInput>
+                    ></input>
                   </IonCol>
                 </IonRow>
                 <IonRow>
@@ -127,16 +170,18 @@ const ModalQueCayo: React.FC<ModalQueCayoProps> = (props) => {
 
             <IonCol>
               <IonGrid>
-                <IonRow >
+                <IonRow>
                   <IonCol>
-                    <IonInput
+                    <input
                       type="tel"
                       value={sorteoDigito4}
-                      maxlength={1}
-                      onIonChange={(e:any) =>{
-                        setSorteoDigito4(e.detail.value);
+                      className="la-input-digito"
+                      maxLength={1}
+                      ref={refDigito4}
+                      onChange={(e: any) => {
+                        onDigito4Change(e.target.value);
                       }}
-                    ></IonInput>
+                    ></input>
                   </IonCol>
                 </IonRow>
                 <IonRow>

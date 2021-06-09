@@ -70,11 +70,9 @@ const SolicitudCodigoScreen: React.FC = () => {
     setVerModalNotificacion(false);
   };
 
-  const { eliminarSubscripcionParams, setEliminarSubscripcionParams } =
-    useContext(EliminarSubscripcionContext);
-  const { data: resultado } = useEliminarSubscripcion(
-    eliminarSubscripcionParams
-  );
+  const { eliminarSubscripcionParams, setEliminarSubscripcionParams } = useContext(EliminarSubscripcionContext);
+
+  const { data: resultado } = useEliminarSubscripcion(eliminarSubscripcionParams);
 
   const validarCorreo = () => {
     if (avisameSiGanoParams.email) {
@@ -133,14 +131,19 @@ const SolicitudCodigoScreen: React.FC = () => {
                         value={avisameSiGanoParams.celular}
                         placeholder="Número de celular"
                         onIonChange={(e: any) => {
-                          setAvisameSiGanoParams({
-                            ...avisameSiGanoParams,
-                            celular: e.detail.value,
-                          });
-                          setEliminarSubscripcionParams({
-                            ...eliminarSubscripcionParams,
-                            celular: e.detail.value,
-                          });
+                          if (opcion === "1") {
+                            setAvisameSiGanoParams({
+                              ...avisameSiGanoParams,
+                              celular: e.detail.value,
+                            });
+                          };
+
+                          if (opcion === "0") {
+                            setEliminarSubscripcionParams({
+                              ...eliminarSubscripcionParams,
+                              celular: e.detail.value,
+                            });
+                          }
                         }}
                       ></IonInput>
                     </IonCol>
@@ -164,14 +167,19 @@ const SolicitudCodigoScreen: React.FC = () => {
                         placeholder="Correo electronico"
                         value={avisameSiGanoParams.email}
                         onIonChange={(e: any) => {
-                          setAvisameSiGanoParams({
-                            ...avisameSiGanoParams,
-                            email: e.detail.value,
-                          });
-                          setEliminarSubscripcionParams({
-                            ...eliminarSubscripcionParams,
-                            email: e.detail.value,
-                          });
+                          if (opcion === "1") {
+                            setAvisameSiGanoParams({
+                              ...avisameSiGanoParams,
+                              email: e.detail.value,
+                            });
+                          };
+
+                          if (opcion === "0") {
+                            setEliminarSubscripcionParams({
+                              ...eliminarSubscripcionParams,
+                              email: e.detail.value,
+                            });
+                          }
                         }}
                       ></IonInput>
                     </IonCol>

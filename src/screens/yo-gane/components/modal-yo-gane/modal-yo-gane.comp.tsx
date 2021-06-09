@@ -1,16 +1,16 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 
 import "./modal-yo-gane.style.css";
 import { Loteria } from "../../../../models/loteria/Loteria";
 import { useHistory } from "react-router";
 
 import {
-    IonButton,
-    IonCol,
-    IonContent,
-    IonGrid,
-    IonInput,
-    IonRow,
+  IonButton,
+  IonCol,
+  IonContent,
+  IonGrid,
+  IonInput,
+  IonRow,
 } from "@ionic/react";
 
 interface ModalYoGaneProps {
@@ -18,38 +18,55 @@ interface ModalYoGaneProps {
   ocultarModal: () => void;
 }
 
-const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
+const ModalYoGane: React.FC<ModalYoGaneProps> = (props) => {
+  const history = useHistory();
 
-    const history = useHistory();
-    
+  const [numeroSorteoArr, setNumeroSorteoArr] = useState([
+    props.loteria.ultimoSorteo[0],
+    props.loteria.ultimoSorteo[1],
+    props.loteria.ultimoSorteo[2],
+    props.loteria.ultimoSorteo[3],
+  ]);
 
-    const [sorteoDig1, setSorteoDig1] = useState<string>(props.loteria.ultimoSorteo[0]);
-    const [sorteoDig2, setSorteoDig2] = useState<string>(props.loteria.ultimoSorteo[1]);
-    const [sorteoDig3, setSorteoDig3] = useState<string>(props.loteria.ultimoSorteo[2]);
-    const [sorteoDig4, setSorteoDig4] = useState<string>(props.loteria.ultimoSorteo[3]);
+  let inputSorteoRefsArr = Array<any>(numeroSorteoArr.length);
 
-    const [tiqueteDig1, setTiqueteDig1] = useState<string>();
-    const [tiqueteDig2, setTiqueteDig2] = useState<string>();
-    const [tiqueteDig3, setTiqueteDig3] = useState<string>();
-    const [tiqueteDig4, setTiqueteDig4] = useState<string>();
+  const [numeroTiqueteArr, setNumeroTiqueteArr] = useState(["", "", "", ""]);
 
-    const [serieDig1, setSerieDig1] = useState<string>();
-    const [serieDig2, setSerieDig2] = useState<string>();
-    const [serieDig3, setSerieDig3] = useState<string>();
+  let inputTiqueteRefsArr = Array<any>(numeroTiqueteArr.length);
 
-    const getSorteo = () => {
-      return`${sorteoDig1}${sorteoDig2}${sorteoDig3}${sorteoDig4}`;
-    };
+  const [numeroSerieArr, setNumeroSerieArr] = useState(["", "", ""]);
 
-    const getTiquete = () => {
-      return`${tiqueteDig1}${tiqueteDig2}${tiqueteDig3}${tiqueteDig4}`;
-    };
+  let inputSerieRefsArr = Array<any>(numeroSerieArr.length);
 
-    const getSerie = () => {
-      return`${serieDig1}${serieDig2}${serieDig3}`;
-    };
+  const cambiarFocoDigito = (digitoEvt: any, index: any, setArreglo: any, arregloDigitos: any, inputRefsArr: any) => {
+    const digito = digitoEvt.target.value;
 
-    return (
+    setArreglo(
+      arregloDigitos.map((valor: any, i: any) => (i !== index ? valor : digito))
+    );
+
+    if (isNaN(parseInt(digito))) {
+      return;
+    }
+
+    if (index < arregloDigitos.length - 1) {
+      inputRefsArr[index + 1].focus();
+    }
+  };
+
+  const getSorteo = () => {
+    return `${numeroSorteoArr[0]}${numeroSorteoArr[1]}${numeroSorteoArr[2]}${numeroSorteoArr[3]}`;
+  };
+
+  const getTiquete = () => {
+    return `${numeroTiqueteArr[0]}${numeroTiqueteArr[1]}${numeroTiqueteArr[2]}${numeroTiqueteArr[3]}`;
+  };
+
+  const getSerie = () => {
+    return `${numeroSerieArr[0]}${numeroSerieArr[0]}${numeroSerieArr[0]}`;
+  };
+
+  return (
     <IonContent>
       <div className="la-yo-gane-modal-content">
         <IonButton
@@ -78,93 +95,39 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
           </IonRow>
 
           <IonRow>
-            <IonCol>
-              <IonGrid>
-                <IonRow>
-                  <IonCol>
-                    <IonInput
+            {numeroSorteoArr.map((digito, index) => (
+              <IonCol key={index}>
+                <IonGrid>
+                  <IonRow>
+                    <IonCol>
+                      <input
                         type="tel"
-                        maxlength={1} 
-                        value={sorteoDig1}
-                        onIonChange={(e:any) =>{
-                          setSorteoDig1(e.detail.value);
-                        }}                   
-                    ></IonInput>
-                  </IonCol>
-                </IonRow>
-                <IonRow>
-                  <IonCol>
-                    <div className="la-linea-roja-digito"></div>
-                  </IonCol>
-                </IonRow>
-              </IonGrid>
-            </IonCol>
-
-            <IonCol>
-              <IonGrid>
-                <IonRow>
-                  <IonCol>
-                    <IonInput
-                        type="tel"
-                        maxlength={1}
-                        value={sorteoDig2}
-                        onIonChange={(e:any) =>{
-                          setSorteoDig2(e.detail.value);
-                        }}   
-                    ></IonInput>
-                  </IonCol>
-                </IonRow>
-                <IonRow>
-                  <IonCol>
-                    <div className="la-linea-roja-digito"></div>
-                  </IonCol>
-                </IonRow>
-              </IonGrid>
-            </IonCol>
-
-            <IonCol>
-              <IonGrid>
-                <IonRow>
-                  <IonCol>
-                  <IonInput
-                        type="tel"
-                        maxlength={1} 
-                        value={sorteoDig3}
-                        onIonChange={(e:any) =>{
-                          setSorteoDig3(e.detail.value);
-                        }}                      
-                    ></IonInput>
-                  </IonCol>
-                </IonRow>
-                <IonRow>
-                  <IonCol>
-                    <div className="la-linea-roja-digito"></div>
-                  </IonCol>
-                </IonRow>
-              </IonGrid>
-            </IonCol>
-
-            <IonCol>
-              <IonGrid>
-                <IonRow>
-                  <IonCol>
-                  <IonInput
-                        type="tel"
-                        maxlength={1}  
-                        value={sorteoDig4}
-                        onIonChange={(e:any) =>{
-                          setSorteoDig4(e.detail.value);
-                        }}                     
-                    ></IonInput>
-                  </IonCol>
-                </IonRow>
-                <IonRow>
-                  <IonCol>
-                    <div className="la-linea-roja-digito"></div>
-                  </IonCol>
-                </IonRow>
-              </IonGrid>
-            </IonCol>
+                        className="la-input-digito"
+                        maxLength={1}
+                        value={digito}
+                        ref={(inputRef: any) => {
+                          inputSorteoRefsArr[index] = inputRef;
+                        }}
+                        onChange={(e: any) => {
+                          cambiarFocoDigito(
+                            e,
+                            index,
+                            setNumeroSorteoArr,
+                            numeroSorteoArr,
+                            inputSorteoRefsArr
+                          );
+                        }}
+                      ></input>
+                    </IonCol>
+                  </IonRow>
+                  <IonRow>
+                    <IonCol>
+                      <div className="la-linea-roja-digito"></div>
+                    </IonCol>
+                  </IonRow>
+                </IonGrid>
+              </IonCol>
+            ))}
           </IonRow>
 
           <IonRow>
@@ -174,93 +137,39 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
           </IonRow>
 
           <IonRow>
-            <IonCol>
-              <IonGrid>
-                <IonRow>
-                  <IonCol>
-                  <IonInput
+            {numeroTiqueteArr.map((digito, index) => (
+              <IonCol key={index}>
+                <IonGrid>
+                  <IonRow>
+                    <IonCol>
+                      <input
                         type="tel"
-                        maxlength={1}
-                        value={tiqueteDig1}
-                        onIonChange={(e:any) =>{
-                          setTiqueteDig1(e.detail.value);
-                        }}                       
-                    ></IonInput>
-                  </IonCol>
-                </IonRow>
-                <IonRow>
-                  <IonCol>
-                    <div className="la-linea-roja-digito"></div>
-                  </IonCol>
-                </IonRow>
-              </IonGrid>
-            </IonCol>
-
-            <IonCol>
-              <IonGrid>
-                <IonRow>
-                  <IonCol>
-                  <IonInput
-                        type="tel"
-                        maxlength={1}
-                        value={tiqueteDig2}
-                        onIonChange={(e:any) =>{
-                          setTiqueteDig2(e.detail.value);
-                        }}                    
-                    ></IonInput>
-                  </IonCol>
-                </IonRow>
-                <IonRow>
-                  <IonCol>
-                    <div className="la-linea-roja-digito"></div>
-                  </IonCol>
-                </IonRow>
-              </IonGrid>
-            </IonCol>
-
-            <IonCol>
-              <IonGrid>
-                <IonRow>
-                  <IonCol>
-                  <IonInput
-                        type="tel"
-                        maxlength={1}
-                        value={tiqueteDig3}
-                        onIonChange={(e:any) =>{
-                          setTiqueteDig3(e.detail.value);
-                        }}                     
-                    ></IonInput>
-                  </IonCol>
-                </IonRow>
-                <IonRow>
-                  <IonCol>
-                    <div className="la-linea-roja-digito"></div>
-                  </IonCol>
-                </IonRow>
-              </IonGrid>
-            </IonCol>
-
-            <IonCol>
-              <IonGrid>
-                <IonRow>
-                  <IonCol>
-                  <IonInput
-                        type="tel"
-                        maxlength={1}  
-                        value={tiqueteDig4}
-                        onIonChange={(e:any) =>{
-                          setTiqueteDig4(e.detail.value);
-                        }}                   
-                    ></IonInput>
-                  </IonCol>
-                </IonRow>
-                <IonRow>
-                  <IonCol>
-                    <div className="la-linea-roja-digito"></div>
-                  </IonCol>
-                </IonRow>
-              </IonGrid>
-            </IonCol>
+                        className="la-input-digito"
+                        maxLength={1}
+                        value={digito}
+                        ref={(inputRef: any) => {
+                          inputTiqueteRefsArr[index] = inputRef;
+                        }}
+                        onChange={(e: any) => {
+                          cambiarFocoDigito(
+                            e,
+                            index,
+                            setNumeroTiqueteArr,
+                            numeroTiqueteArr,
+                            inputTiqueteRefsArr
+                          );
+                        }}
+                      ></input>
+                    </IonCol>
+                  </IonRow>
+                  <IonRow>
+                    <IonCol>
+                      <div className="la-linea-roja-digito"></div>
+                    </IonCol>
+                  </IonRow>
+                </IonGrid>
+              </IonCol>
+            ))}
           </IonRow>
 
           <IonRow>
@@ -270,72 +179,39 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
           </IonRow>
 
           <IonRow>
-            <IonCol>
-              <IonGrid>
-                <IonRow>
-                  <IonCol>
-                    <IonInput
+            {numeroSerieArr.map((digito, index) => (
+              <IonCol key={index}>
+                <IonGrid>
+                  <IonRow>
+                    <IonCol>
+                      <input
                         type="tel"
-                        maxlength={1}   
-                        value={serieDig1}
-                        onIonChange={(e:any) =>{
-                          setSerieDig1(e.detail.value);
-                        }}                  
-                    ></IonInput>
-                  </IonCol>
-                </IonRow>
-                <IonRow>
-                  <IonCol>
-                    <div className="la-linea-roja-digito"></div>
-                  </IonCol>
-                </IonRow>
-              </IonGrid>
-            </IonCol>
-
-            <IonCol>
-              <IonGrid>
-                <IonRow>
-                  <IonCol>
-                  <IonInput
-                        type="tel"
-                        maxlength={1} 
-                        value={serieDig2}
-                        onIonChange={(e:any) =>{
-                          setSerieDig2(e.detail.value);
-                        }}                    
-                    ></IonInput>
-                  </IonCol>
-                </IonRow>
-                <IonRow>
-                  <IonCol>
-                    <div className="la-linea-roja-digito"></div>
-                  </IonCol>
-                </IonRow>
-              </IonGrid>
-            </IonCol>
-
-            <IonCol>
-              <IonGrid>
-                <IonRow>
-                  <IonCol>
-                  <IonInput
-                        type="tel"
-                        maxlength={1}
-                        value={serieDig3}
-                        onIonChange={(e:any) =>{
-                          setSerieDig3(e.detail.value);
-                        }}                     
-                    ></IonInput>
-                  </IonCol>
-                </IonRow>
-                <IonRow>
-                  <IonCol>
-                    <div className="la-linea-roja-digito"></div>
-                  </IonCol>
-                </IonRow>
-              </IonGrid>
-            </IonCol>
-
+                        className="la-input-digito"
+                        maxLength={1}
+                        value={digito}
+                        ref={(inputRef: any) => {
+                          inputSerieRefsArr[index] = inputRef;
+                        }}
+                        onChange={(e: any) => {
+                          cambiarFocoDigito(
+                            e,
+                            index,
+                            setNumeroSerieArr,
+                            numeroSerieArr,
+                            inputSerieRefsArr
+                          );
+                        }}
+                      ></input>
+                    </IonCol>
+                  </IonRow>
+                  <IonRow>
+                    <IonCol>
+                      <div className="la-linea-roja-digito"></div>
+                    </IonCol>
+                  </IonRow>
+                </IonGrid>
+              </IonCol>
+            ))}
           </IonRow>
 
           <IonRow>
@@ -343,11 +219,13 @@ const ModalYoGane: React.FC <ModalYoGaneProps> = (props) => {
               <button
                 className="la-boton la-boton-consultar"
                 onClick={() => {
-                    props.ocultarModal();
-                    history.push({
-                      pathname: `/screens/yo-gane/yo-gane-resultado/yo-gane-resultado.screen/${props.loteria.codigo}/${getSorteo()}/${getTiquete()}/${getSerie()}`,
-                    });
-                  }}
+                  props.ocultarModal();
+                  history.push({
+                    pathname: `/screens/yo-gane/yo-gane-resultado/yo-gane-resultado.screen/${
+                      props.loteria.codigo
+                    }/${getSorteo()}/${getTiquete()}/${getSerie()}`,
+                  });
+                }}
               >
                 CONSULTAR
               </button>

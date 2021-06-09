@@ -1,14 +1,13 @@
 import React, { StrictMode, useContext, useState } from "react";
-import "./avisame-si-gano-datos.style.css";
+import "./solicitud-codigo.style.css";
 
 import Header from "../../../components/header/header.comp";
 import { useAvisameSiGano } from "../../../hooks/avisame-si-gano/useAvisameSiGano.hook";
 import { AvisameSiGanoContext } from "../../../providers/avisame-si-gano/avisameSiGano.context";
-import ModalAvisameVerificacion from "../components/modal-avisame-verificacion/modal-avisame-verificacion.comp";
-import ModalAvisameSiGano from "../components/modal-avisame-si-gano/modal-avisame-si-gano.comp";
-import ModalNotificacionGuardada from "../components/modal-notificacion-guardada/modal-notificacion-guardada.comp";
+import ModalCodigoVerificacion from "../components/modal-avisame-verificacion/modal-codigo-verificacion.comp";
+import ModalAvisameSiGano from "../../avisame-si-gano/components/modal-avisame-si-gano/modal-avisame-si-gano.comp";
+import ModalNotificacionGuardada from "../../avisame-si-gano/components/modal-notificacion-guardada/modal-notificacion-guardada.comp";
 import { useParams } from "react-router";
-import { AvisameSiGanoParams } from "../../../models/avisame-si-gano/AvisameSiGanoParams";
 import { EliminarSubscripcionContext } from "../../../providers/eliminar-subscripcion/eliminarSubscripcion.context";
 import { useEliminarSubscripcion } from "../../../hooks/eliminar-susbcripcion/useEliminarSubscripcion.hook";
 import validator from "validator";
@@ -30,7 +29,7 @@ export interface AvisameSiGanoScreenParams {
   opcion: string;
 }
 
-const AvisameSiGanoDatosScren: React.FC = () => {
+const SolicitudCodigoScreen: React.FC = () => {
   const { opcion } = useParams<AvisameSiGanoScreenParams>();
 
   const { avisameSiGanoParams, setAvisameSiGanoParams } =
@@ -210,7 +209,7 @@ const AvisameSiGanoDatosScren: React.FC = () => {
         isOpen={verModalCodigoVerificacion}
         cssClass="la-avisame-verificacion-modal"
       >
-        <ModalAvisameVerificacion
+        <ModalCodigoVerificacion
           ocultarModal={cerrarModalVerificacion}
           abrirModalVerificacion={abrirModalVerificacion}
           abrirModalAvisame={abrirModalAvisame}
@@ -259,4 +258,4 @@ const AvisameSiGanoDatosScren: React.FC = () => {
   );
 };
 
-export default AvisameSiGanoDatosScren;
+export default SolicitudCodigoScreen;

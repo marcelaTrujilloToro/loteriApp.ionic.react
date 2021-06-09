@@ -108,3 +108,29 @@ ion-page {
   height: 1.5px;
   background-color: #ec0800;
 }
+
+.la-input-digito{
+  padding: 0px;
+  color: rgb(0, 78, 133);
+  font-weight: bold;
+  font-size: 22px;
+  background-color: transparent;
+  border-color: transparent;
+  border-width: 0px;
+  text-align: center;
+  width: 25px;  
+}
+
+.native-input.sc-ion-input-ios {
+  padding: 0px;
+  color: rgba(0, 78, 133, 1);
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.native-input.sc-ion-input-md {
+  padding: 0px;
+  color: rgba(0, 78, 133, 1);
+  font-weight: bold;
+  font-size: 22px;
+}

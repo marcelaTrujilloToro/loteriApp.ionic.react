@@ -32,7 +32,7 @@ const AvisameSiGanoScreen: React.FC = () => {
     });
     const opcion = "1";
     history.push({
-      pathname: `/screens/avisame-si-gano/avisame-si-gano-datos/avisame-si-gano-datos.screen/${opcion}`,
+      pathname: `/screens/solicitud-codigo/solicitud-codigo/solicitud-codigo.screen/${opcion}`,
     });
   };
 

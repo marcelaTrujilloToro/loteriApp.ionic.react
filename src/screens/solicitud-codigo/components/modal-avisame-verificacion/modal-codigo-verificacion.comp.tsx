@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router";
-import "./modal-avisame-verificacion.style.css";
-import ModalAvisameSiGano from "../modal-avisame-si-gano/modal-avisame-si-gano.comp";
+import "./modal-codigo-verificacion.style.css";
 import { AvisameSiGanoContext } from "../../../../providers/avisame-si-gano/avisameSiGano.context";
 import { useAvisameSiGano } from "../../../../hooks/avisame-si-gano/useAvisameSiGano.hook";
 
@@ -23,7 +22,7 @@ interface ModalAvisameVerificacionProps {
   opcion: string;
 }
 
-const ModalAvisameVerificacion: React.FC<ModalAvisameVerificacionProps> = (
+const ModalCodigoVerificacion: React.FC<ModalAvisameVerificacionProps> = (
   props
 ) => {
   const { avisameSiGanoParams, setAvisameSiGanoParams } =
@@ -181,4 +180,4 @@ const ModalAvisameVerificacion: React.FC<ModalAvisameVerificacionProps> = (
     </IonContent>
   );
 };
-export default ModalAvisameVerificacion;
+export default ModalCodigoVerificacion;

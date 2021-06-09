@@ -41,7 +41,7 @@ import YoGaneResultadoScreen from "./screens/yo-gane/yo-gane-resultado/yo-gane-r
 import NumerosSuertudosScreen from "./screens/numeros-suertudos/numeros-suertudos/numeros-suertudos.screen";
 import NumerosSuertudosResultadosScreen from "./screens/numeros-suertudos/numeros-suertudos-resultados/numeros-suertudos-resultados.screen";
 import AvisameSiGanoScreen from "./screens/avisame-si-gano/avisame-si-gano/avisame-si-gano.screen";
-import AvisameSiGanoDatosScren from "./screens/avisame-si-gano/avisame-si-gano-datos/avisame-si-gano-datos.screen";
+import SolicitudCodigoScreen from "./screens/solicitud-codigo/solicitud-codigo/solicitud-codigo.screen";
 import EliminarSubscripcionScreen from "./screens/eliminar-subscripcion/eliminar-subscripcion/eliminar-subscripcion.screen";
 import EliminarSubscripcionResultadoScreen from "./screens/eliminar-subscripcion/eliminar-subscripcion-resultado/eliminar-subscripcion-resultado.screen";
 import DisponibilidadNumeroScreen from "./screens/disponibilidad-numero/disponibilidad-numero/disponibilidad-numero.screen";
@@ -107,10 +107,10 @@ const App: React.FC = () => {
                   </Route>
 
                   <Route
-                    path="/screens/avisame-si-gano/avisame-si-gano-datos/avisame-si-gano-datos.screen/:opcion"
+                    path="/screens/solicitud-codigo/solicitud-codigo/solicitud-codigo.screen/:opcion"
                     exact={true}
                   >
-                    <AvisameSiGanoDatosScren />
+                    <SolicitudCodigoScreen />
                   </Route>
 
                   <Route path="/screens/eliminar-subscripcion/:name" exact={true}>

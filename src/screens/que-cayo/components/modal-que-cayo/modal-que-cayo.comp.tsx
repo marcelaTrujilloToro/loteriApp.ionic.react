@@ -21,52 +21,37 @@ const ModalQueCayo: React.FC<ModalQueCayoProps> = (props) => {
 
   const { loteriaSeleccionada } = useContext(LoteriaContext);
 
-  const [sorteoDigito1, setSorteoDigito1] = useState<string>(loteriaSeleccionada.ultimoSorteo[0]);
-  const [sorteoDigito2, setSorteoDigito2] = useState<string>(loteriaSeleccionada.ultimoSorteo[1]);
-  const [sorteoDigito3, setSorteoDigito3] = useState<string>(loteriaSeleccionada.ultimoSorteo[2]);
-  const [sorteoDigito4, setSorteoDigito4] = useState<string>(loteriaSeleccionada.ultimoSorteo[3]);
+  const [numeroSorteoArr, setNumeroSorteoArr] = useState([
+    loteriaSeleccionada.ultimoSorteo[0],
+    loteriaSeleccionada.ultimoSorteo[1],
+    loteriaSeleccionada.ultimoSorteo[2],
+    loteriaSeleccionada.ultimoSorteo[3],
+  ]);
 
-  let refDigito1: any = React.createRef();
-  let refDigito2: any = React.createRef();
-  let refDigito3: any = React.createRef();
-  let refDigito4: any = React.createRef();
+  let inputSorteoRefsArr = Array<any>(numeroSorteoArr.length);
 
-  
-  const onDigito1Change = (digito1: string) => {
-    setSorteoDigito1(digito1);
-    if (isNaN(parseInt(digito1))) {
+  const cambiarFocoDigito = (digitoEvt: any, index: any) => {
+    const digito = digitoEvt.target.value;
+
+    setNumeroSorteoArr(
+      numeroSorteoArr.map((valor: any, i: any) =>
+        i !== index ? valor : digito
+      )
+    );
+
+    if (isNaN(parseInt(digito))) {
       return;
     }
-    
-    refDigito2.current?.focus();
-  };
-  
-  const onDigito2Change = (digito2: string) => {
-    setSorteoDigito2(digito2);
-    if (isNaN(parseInt(digito2))) {
-      return;
+
+    if (index < numeroSorteoArr.length - 1) {
+      inputSorteoRefsArr[index + 1].focus();
     }
-    
-    refDigito3.current?.focus();
   };
-  
-  const onDigito3Change = (digito3: string) => {
-    setSorteoDigito3(digito3);
-    if (isNaN(parseInt(digito3))) {
-      return;
-    }
-    
-    refDigito4.current?.focus();
-  };
-  
-  const onDigito4Change = (digito4: string) => {
-    setSorteoDigito4(digito4);
-  };
-  
+
   const getSorteo = () => {
-    return `${sorteoDigito1}${sorteoDigito2}${sorteoDigito3}${sorteoDigito4}`;
+    return `${numeroSorteoArr[0]}${numeroSorteoArr[1]}${numeroSorteoArr[2]}${numeroSorteoArr[3]}`;
   };
-  
+
   return (
     <IonContent>
       <div className="la-que-cayo-modal-content">
@@ -96,18 +81,21 @@ const ModalQueCayo: React.FC<ModalQueCayoProps> = (props) => {
           </IonRow>
 
           <IonRow>
-            <IonCol>
+          {numeroSorteoArr.map((digito, index) => (
+            <IonCol key={index}>
               <IonGrid>
                 <IonRow>
                   <IonCol>
                     <input
-                      className="la-input-digito"
                       type="tel"
-                      value={sorteoDigito1}
+                      className="la-input-digito"
                       maxLength={1}
-                      ref={refDigito1}
+                      value={digito}
+                      ref={(inputRef: any) => {
+                        inputSorteoRefsArr[index] = inputRef;
+                      }}
                       onChange={(e: any) => {
-                        onDigito1Change(e.target.value);
+                        cambiarFocoDigito(e, index);
                       }}
                     ></input>
                   </IonCol>
@@ -119,80 +107,9 @@ const ModalQueCayo: React.FC<ModalQueCayoProps> = (props) => {
                 </IonRow>
               </IonGrid>
             </IonCol>
-
-            <IonCol>
-              <IonGrid>
-                <IonRow>
-                  <IonCol>
-                    <input
-                      className="la-input-digito"
-                      type="tel"
-                      value={sorteoDigito2}
-                      maxLength={1}
-                      ref={refDigito2}
-                      onChange={(e: any) => {
-                        onDigito2Change(e.target.value);
-                      }}
-                    ></input>
-                  </IonCol>
-                </IonRow>
-                <IonRow>
-                  <IonCol>
-                    <div className="la-linea-roja-digito"></div>
-                  </IonCol>
-                </IonRow>
-              </IonGrid>
-            </IonCol>
-
-            <IonCol>
-              <IonGrid>
-                <IonRow>
-                  <IonCol>
-                    <input
-                      type="tel"
-                      className="la-input-digito"
-                      value={sorteoDigito3}
-                      maxLength={1}
-                      ref={refDigito3}
-                      onChange={(e: any) => {
-                        onDigito3Change(e.target.value);
-                      }}
-                    ></input>
-                  </IonCol>
-                </IonRow>
-                <IonRow>
-                  <IonCol>
-                    <div className="la-linea-roja-digito"></div>
-                  </IonCol>
-                </IonRow>
-              </IonGrid>
-            </IonCol>
-
-            <IonCol>
-              <IonGrid>
-                <IonRow>
-                  <IonCol>
-                    <input
-                      type="tel"
-                      value={sorteoDigito4}
-                      className="la-input-digito"
-                      maxLength={1}
-                      ref={refDigito4}
-                      onChange={(e: any) => {
-                        onDigito4Change(e.target.value);
-                      }}
-                    ></input>
-                  </IonCol>
-                </IonRow>
-                <IonRow>
-                  <IonCol>
-                    <div className="la-linea-roja-digito"></div>
-                  </IonCol>
-                </IonRow>
-              </IonGrid>
-            </IonCol>
+          ))}
           </IonRow>
-
+          
           <IonRow>
             <IonCol>
               <button

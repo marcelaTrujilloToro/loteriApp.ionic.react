@@ -32,7 +32,7 @@ const EliminarSubscripcionScreen: React.FC = () => {
     setEliminarSubscripcionParams({...eliminarSubscripcionParams, codigoLoteria: loteriaSeleccionada.codigo})
     const opcion = "0";
     history.push({
-      pathname: `/screens/avisame-si-gano/avisame-si-gano-datos/avisame-si-gano-datos.screen/${opcion}`,
+      pathname: `/screens/solicitud-codigo/solicitud-codigo/solicitud-codigo.screen/${opcion}`,
     });
   };
 

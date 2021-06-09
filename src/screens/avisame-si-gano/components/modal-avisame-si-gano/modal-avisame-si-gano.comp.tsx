@@ -20,17 +20,38 @@ interface ModalAvisameSiGanoProps {
 
 const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
 
-  const [numeroDigito1, setNumeroDigito1] = useState<number>();
-  const [numeroDigito2, setNumeroDigito2] = useState<number>();
-  const [numeroDigito3, setNumeroDigito3] = useState<number>();
-  const [numeroDigito4, setNumeroDigito4] = useState<number>();
+  const [numeroSuerteArr, setNumeroSuerteArr] = useState([
+    "",
+    "",
+    "",
+    ""
+  ]);
+
+  let inputNumeroSuerteArr = Array<any>(numeroSuerteArr.length);
 
   const {avisameSiGanoParams, setAvisameSiGanoParams} = useContext(AvisameSiGanoContext);
 
   const { data:respuesta } = useAvisameSiGano(avisameSiGanoParams);
   
+
+  const cambiarFocoDigito = (digitoEvt: any, index: any) => {
+    const digito = digitoEvt.target.value;
+
+    setNumeroSuerteArr(
+     numeroSuerteArr.map((valor: any, i: any) => (i !== index ? valor : digito))
+    );
+
+    if (isNaN(parseInt(digito))) {
+      return;
+    }
+
+    if (index <numeroSuerteArr.length - 1) {
+      inputNumeroSuerteArr[index + 1].focus();
+    }
+  };
+
   const obtenerNumeroSuerte = () => {
-    return `${numeroDigito1}${numeroDigito2}${numeroDigito3}${numeroDigito4}`;
+    return `${numeroSuerteArr[0]}${numeroSuerteArr[1]}${numeroSuerteArr[2]}${numeroSuerteArr[3]}`;
   };
   
   const completarMes = (mesAValidar: number) => {
@@ -77,93 +98,36 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
           </IonRow>
 
           <IonRow >
-            <IonCol>
-              <IonGrid>
-                <IonRow>
-                  <IonCol>
-                    <IonInput
-                      type="tel"
-                      value={numeroDigito1}
-                      maxlength={1}
-                      onIonChange={(e: any) => {
-                        setNumeroDigito1(e.detail.value);
-                      }}
-                    ></IonInput>
-                  </IonCol>
-                </IonRow>
-                <IonRow>
-                  <IonCol>
-                    <div className="la-linea-roja-digito"></div>
-                  </IonCol>
-                </IonRow>
-              </IonGrid>
-            </IonCol>
-
-            <IonCol>
-              <IonGrid>
-                <IonRow>
-                  <IonCol>
-                    <IonInput
-                      type="tel"
-                      value={numeroDigito2}
-                      maxlength={1}
-                      onIonChange={(e: any) => {
-                        setNumeroDigito2(e.detail.value);
-                      }}
-                    ></IonInput>
-                  </IonCol>
-                </IonRow>
-                <IonRow>
-                  <IonCol>
-                    <div className="la-linea-roja-digito"></div>
-                  </IonCol>
-                </IonRow>
-              </IonGrid>
-            </IonCol>
-
-            <IonCol>
-              <IonGrid>
-                <IonRow>
-                  <IonCol>
-                    <IonInput
-                      type="tel"
-                      value={numeroDigito3}
-                      maxlength={1}
-                      onIonChange={(e: any) => {
-                        setNumeroDigito3(e.detail.value);
-                      }}
-                    ></IonInput>
-                  </IonCol>
-                </IonRow>
-                <IonRow>
-                  <IonCol>
-                    <div className="la-linea-roja-digito"></div>
-                  </IonCol>
-                </IonRow>
-              </IonGrid>
-            </IonCol>
-
-            <IonCol>
-              <IonGrid>
-                <IonRow>
-                  <IonCol>
-                    <IonInput
-                      type="tel"
-                      value={numeroDigito4}
-                      maxlength={1}
-                      onIonChange={(e: any) => {
-                        setNumeroDigito4(e.detail.value);
-                      }}
-                    ></IonInput>
-                  </IonCol>
-                </IonRow>
-                <IonRow>
-                  <IonCol>
-                    <div className="la-linea-roja-digito"></div>
-                  </IonCol>
-                </IonRow>
-              </IonGrid>
-            </IonCol>
+          {numeroSuerteArr.map((digito, index) => (
+              <IonCol key={index}>
+                <IonGrid>
+                  <IonRow>
+                    <IonCol>
+                      <input
+                        type="tel"
+                        className="la-input-digito"
+                        maxLength={1}
+                        value={digito}
+                        ref={(inputRef: any) => {
+                          inputNumeroSuerteArr[index] = inputRef;
+                        }}
+                        onChange={(e: any) => {
+                          cambiarFocoDigito(
+                            e,
+                            index
+                          );
+                        }}
+                      ></input>
+                    </IonCol>
+                  </IonRow>
+                  <IonRow>
+                    <IonCol>
+                      <div className="la-linea-roja-digito"></div>
+                    </IonCol>
+                  </IonRow>
+                </IonGrid>
+              </IonCol>
+            ))}
           </IonRow>
 
           <IonRow>
@@ -178,6 +142,7 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
                   <IonCol>
                     <IonInput
                       type="tel"
+                      className="la-input-digito"
                       maxlength={2}
                       value={avisameSiGanoParams.cantidadSorteos}
                       onIonChange={(e: any) => {

@@ -131,19 +131,15 @@ const SolicitudCodigoScreen: React.FC = () => {
                         value={avisameSiGanoParams.celular}
                         placeholder="Número de celular"
                         onIonChange={(e: any) => {
-                          if (opcion === "1") {
                             setAvisameSiGanoParams({
                               ...avisameSiGanoParams,
                               celular: e.detail.value,
                             });
-                          };
 
-                          if (opcion === "0") {
                             setEliminarSubscripcionParams({
                               ...eliminarSubscripcionParams,
                               celular: e.detail.value,
-                            });
-                          }
+                          });
                         }}
                       ></IonInput>
                     </IonCol>
@@ -167,19 +163,15 @@ const SolicitudCodigoScreen: React.FC = () => {
                         placeholder="Correo electronico"
                         value={avisameSiGanoParams.email}
                         onIonChange={(e: any) => {
-                          if (opcion === "1") {
                             setAvisameSiGanoParams({
                               ...avisameSiGanoParams,
                               email: e.detail.value,
                             });
-                          };
 
-                          if (opcion === "0") {
                             setEliminarSubscripcionParams({
                               ...eliminarSubscripcionParams,
                               email: e.detail.value,
                             });
-                          }
                         }}
                       ></IonInput>
                     </IonCol>

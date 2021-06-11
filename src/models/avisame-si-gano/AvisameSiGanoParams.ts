@@ -7,5 +7,5 @@ export interface AvisameSiGanoParams {
     codigoVerificacion: number | null,
     fecha: number,
     numero: string,
-    cantidadSorteos: number
+    cantidadSorteos: number | undefined
 }

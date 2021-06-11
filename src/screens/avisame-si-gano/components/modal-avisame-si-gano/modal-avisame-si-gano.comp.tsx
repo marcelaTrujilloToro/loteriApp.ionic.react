@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 
 import {
+  IonAlert,
   IonButton,
   IonCol,
   IonContent,
@@ -30,6 +31,17 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
   let inputNumeroSuerteArr = Array<any>(numeroSuerteArr.length);
 
   const {avisameSiGanoParams, setAvisameSiGanoParams} = useContext(AvisameSiGanoContext);
+
+  const [alertaErrorCantSorteos, setAlertaErrorCantSorteos] = useState<boolean>(false)
+
+  const validarCantidadSorteos = () => {
+    if (avisameSiGanoParams.cantidadSorteos) {
+      if (avisameSiGanoParams.cantidadSorteos > 20) {
+        return false;
+      }
+      return true;
+    }
+  };
 
   const { data:respuesta } = useAvisameSiGano(avisameSiGanoParams);
   
@@ -165,9 +177,13 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
               <button
                 className="la-boton la-boton-consultar"
                 onClick={() => {
-                  setAvisameSiGanoParams({...avisameSiGanoParams, numero: obtenerNumeroSuerte(), fecha: parseInt(obtenerFechaActual()) })
-                    props.ocultarModalAvisame();
-                    props.abrirModalNotificacion();
+                  if (validarCantidadSorteos() === false) {
+                    setAlertaErrorCantSorteos(true);
+                  }else {
+                    setAvisameSiGanoParams({...avisameSiGanoParams, numero: obtenerNumeroSuerte(), fecha: parseInt(obtenerFechaActual()) })
+                      props.ocultarModalAvisame();
+                      props.abrirModalNotificacion();
+                  }
                 }}
                 >
                 REGISTRAR
@@ -179,6 +195,22 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
 
         </IonGrid>
       </div>
+
+      <IonAlert
+        isOpen={alertaErrorCantSorteos}
+        onDidDismiss={() => setAlertaErrorCantSorteos(false)}
+        header={"Error"}
+        message={"La cantidad de sorteos debe ser inferior a 20"}
+        buttons={[
+          {
+            text: "Aceptar",
+            handler: () => {
+              setAlertaErrorCantSorteos(false);
+              setAvisameSiGanoParams({...avisameSiGanoParams, cantidadSorteos: undefined})
+            },
+          },
+        ]}
+      />
     </IonContent>
   );
 };

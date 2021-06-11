@@ -3,6 +3,7 @@ import { Loteria } from "../../../../models/loteria/Loteria";
 import { useHistory } from "react-router";
 import "./modal-numeros-suertudos.style.css";
 import {
+  IonAlert,
   IonButton,
   IonCheckbox,
   IonCol,
@@ -29,8 +30,17 @@ const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
   const [checkTerceraCifra, setCheckTerceraCifra] = useState(false);
   const [checkUltimaCifra, setCheckUltimaCifra] = useState(false);
 
-  const [cantidadSorteos, setCantidadSorteos] = useState<string>("10");
+  const [cantidadSorteos, setCantidadSorteos] = useState<number | undefined>(10);
+  const [alertaErrorCantSorteos, setAlertaErrorCantSorteos] = useState<boolean>(false)
 
+  const validarCantidadSorteos = () => {
+    if (cantidadSorteos) {
+      if (cantidadSorteos > 20) {
+        return false;
+      }
+      return true;
+    }
+  };
 
   return (
     <IonContent>
@@ -117,7 +127,7 @@ const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
                       type="number"
                       value={cantidadSorteos}
                       onIonChange={(e: any) => {
-                        setCantidadSorteos(e.detail.value);
+                          setCantidadSorteos(e.detail.value);
                       }}
                     ></IonInput>
                   </IonCol>
@@ -136,10 +146,14 @@ const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
               <button
                 className="la-boton la-boton-consultar"
                 onClick={() => {
-                  props.ocultarModal();
-                  history.push({
-                    pathname: `/screens/numeros-suertudos/numeros-suertudos-resultados/numeros-suertudos-resultados.screen/${props.loteria.codigo}/${checkPrimeraCifra}/${checkSegundaCifra}/${checkTerceraCifra}/${checkUltimaCifra}/${cantidadSorteos}/`,
-                  });
+                  if (validarCantidadSorteos() === false) {
+                    setAlertaErrorCantSorteos(true);
+                  }else{
+                    props.ocultarModal();
+                    history.push({
+                      pathname: `/screens/numeros-suertudos/numeros-suertudos-resultados/numeros-suertudos-resultados.screen/${props.loteria.codigo}/${checkPrimeraCifra}/${checkSegundaCifra}/${checkTerceraCifra}/${checkUltimaCifra}/${cantidadSorteos}/`,
+                    });
+                  }
                 }}
               >
                 CONSULTAR
@@ -148,6 +162,22 @@ const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
           </IonRow>
         </IonGrid>
       </div>
+
+      <IonAlert
+        isOpen={alertaErrorCantSorteos}
+        onDidDismiss={() => setAlertaErrorCantSorteos(false)}
+        header={"Error"}
+        message={"La cantidad de sorteos debe ser inferior a 20"}
+        buttons={[
+          {
+            text: "Aceptar",
+            handler: () => {
+              setAlertaErrorCantSorteos(false);
+              setCantidadSorteos(undefined);
+            },
+          },
+        ]}
+      />
     </IonContent>
   );
 };

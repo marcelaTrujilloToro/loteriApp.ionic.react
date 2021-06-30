@@ -54,7 +54,8 @@
 }
 
 .la-texto-yo-gane{
-  color: rgba(1, 95, 163, 1);
+  /* color: rgba(1, 95, 163, 1); */
+  color: #284304;
   font-weight: lighter;
   text-align: center;
   padding-left: 20px;

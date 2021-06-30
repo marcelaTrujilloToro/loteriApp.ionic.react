@@ -10,7 +10,8 @@
 }
 
 .la-fuente-subtitulo {
-  color: rgba(1, 95, 163, 1);
+  /* color: rgba(1, 95, 163, 1); */
+  color:#284304;
   position: relative;
   font-weight: lighter;
   top: 70px;
@@ -22,7 +23,8 @@
 .la-rectangulo-azul {
   width: 115px;
   height: 115px;
-  background: rgba(208, 228, 242, 1);
+  /* background: rgba(208, 228, 242, 1); */
+  background: #a1ca6c;
   border-radius: 5px;
   position: relative;
   top: 100px;

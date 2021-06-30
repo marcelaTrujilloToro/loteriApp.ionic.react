@@ -28,7 +28,7 @@ const HomeScreen = () => {
           <IonGrid className="ion-no-padding la-content-grid">
             <IonRow className="la-imagen-row">
               <IonCol>
-                <IonImg src="https://caracoltv.brightspotcdn.com/dims4/default/1399f0a/2147483647/strip/true/crop/678x381+0+25/resize/1200x675!/quality/90/?url=http%3A%2F%2Fcaracol-brightspot.s3.amazonaws.com%2Ff2%2F38%2Fbb6cd590473395775fb5d25e88c3%2Floteria-del-valle-agosto-12-2020-2.jpg"></IonImg>
+                <IonImg src="https://www.loteriadelvalle.com/sites/default/files/fotos/redes-billetedelasemana-galeria-ganador.jpg"></IonImg>
               </IonCol>
             </IonRow>
 

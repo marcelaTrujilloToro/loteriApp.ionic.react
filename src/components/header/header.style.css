@@ -1,6 +1,6 @@
 ion-header {
   height: 60px;
-  background: rgba(38, 139, 200, 1);
+  background: #63A70A;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,7 +22,8 @@ ion-header {
   height: 60px;
   width: 90%;
   border-radius: 50%;
-  background: rgba(38, 139, 200, 1);
+  /* background: rgba(38, 139, 200, 1); */
+  background: #63A70A;
   position: relative;
   top: 26px;
   left: -18px;

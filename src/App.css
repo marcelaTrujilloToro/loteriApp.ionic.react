@@ -3,12 +3,14 @@ ion-page {
 }
 
 .la-content-gradiente-light {
-  background: rgba(214, 229, 240, 1);
+  /* background: rgba(214, 229, 240, 1); */
+  background: #d0e5b6;
   height: 100%;
 }
 
 .la-content-gradiente-darker {
-  background: linear-gradient(180deg, #b3d5ee 0%, #c5daea 100%);
+  /* background: linear-gradient(180deg, #b3d5ee 0%, #c5daea 100%); */
+  background: #c1dc9d;
   height: 100%;
 }
 
@@ -18,7 +20,8 @@ ion-page {
 }
 
 .la-titulo-18 {
-  color: rgba(19, 11, 89, 1);
+  /* color: rgba(19, 11, 89, 1); */
+  color:#E20613;
   font-weight: bold;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 18px;
@@ -35,14 +38,16 @@ ion-page {
 }
 
 .la-titulo-22 {
-  color: rgba(19, 11, 89, 1);
+  /* color: rgba(19, 11, 89, 1); */
+  color: #E20613;
   font-weight: bold;
   font-size: 22px;
   display: flex;
 }
 
 .la-texto-blue-14 {
-  color: rgba(1, 95, 163, 1);
+  /* color: rgba(1, 95, 163, 1); */
+  color: #1e3203;
   position: relative;
   font-weight: lighter;
   font-size: 14px;
@@ -59,11 +64,13 @@ ion-page {
   font-weight: normal;
   font-size: 12px;
   line-height: 16px;
-  color: rgba(19, 11, 89, 1);
+  /* color: rgba(19, 11, 89, 1); */
+  color: #E20613;
 }
 
 .la-boton {
-  background: #004e85;
+  /* background: #004e85; */
+  background: #E20613;
   border-radius: 5px;
   color:white;
   font-size: 12px;
@@ -98,7 +105,8 @@ ion-page {
   font-weight: normal;
   font-size: 14.5px;
   line-height: 16px;
-  color: rgba(1, 95, 163, 1);
+  /* color: rgba(1, 95, 163, 1); */
+  color: #284304;
   text-align: left;
   align-items: center;
 }
@@ -111,7 +119,8 @@ ion-page {
 
 .la-input-digito{
   padding: 0px;
-  color: rgb(0, 78, 133);
+  /* color: rgb(0, 78, 133); */
+  color: #63a70a;
   font-weight: bold;
   font-size: 22px;
   background-color: transparent;
@@ -123,14 +132,16 @@ ion-page {
 
 .native-input.sc-ion-input-ios {
   padding: 0px;
-  color: rgba(0, 78, 133, 1);
+  /* color: rgba(0, 78, 133, 1); */
+  color: #63a70a;
   font-weight: bold;
   font-size: 22px;
 }
 
 .native-input.sc-ion-input-md {
   padding: 0px;
-  color: rgba(0, 78, 133, 1);
+  /* color: rgba(0, 78, 133, 1); */
+  color: #63a70a;
   font-weight: bold;
   font-size: 22px;
 }

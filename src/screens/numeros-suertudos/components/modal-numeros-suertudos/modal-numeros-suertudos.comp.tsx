@@ -67,7 +67,7 @@ const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
             <IonCol>
               <IonList className="check">
                 <IonItem>
-                  <IonLabel color="primary">Primera cifra</IonLabel>
+                  <IonLabel color="danger">Primera cifra</IonLabel>
                   <IonCheckbox
                     slot="end"
                     checked={checkPrimeraCifra}
@@ -77,7 +77,7 @@ const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
                   />
                 </IonItem>
                 <IonItem>
-                  <IonLabel color="primary">Segunda cifra</IonLabel>
+                  <IonLabel color="danger">Segunda cifra</IonLabel>
                   <IonCheckbox
                     slot="end"
                     checked={checkSegundaCifra}
@@ -87,7 +87,7 @@ const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
                   />
                 </IonItem>
                 <IonItem>
-                  <IonLabel color="primary">Tercera cifra</IonLabel>
+                  <IonLabel color="danger">Tercera cifra</IonLabel>
                   <IonCheckbox
                     slot="end"
                     checked={checkTerceraCifra}
@@ -99,7 +99,7 @@ const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
                   />
                 </IonItem>
                 <IonItem>
-                  <IonLabel color="primary">Ultima cifra</IonLabel>
+                  <IonLabel color="danger">Ultima cifra</IonLabel>
                   <IonCheckbox
                     slot="end"
                     checked={checkUltimaCifra}

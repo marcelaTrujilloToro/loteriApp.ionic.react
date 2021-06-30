@@ -124,19 +124,19 @@ const YoGaneResultadoScreen: React.FC = () => {
               <IonSlides pager={true}>
                 <IonSlide>
                   <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaHxk_yxlr0r_MHzI2NHw9V719TrDmsztZaw&usqp=CAU"
+                    src="https://www.loteriadelvalle.com/sites/default/files/fotos/galeria_billete-sorteo-4590.jpg"
                     alt=""
                   />
                 </IonSlide>
                 <IonSlide>
                   <img
-                    src="https://github.com/marcelaTrujilloToro/loteriApp.ionic.react/blob/main/public/assets/img/splash/LoteriApp_azen_96x30.png?raw=true"
+                    src="https://www.loteriadelvalle.com/sites/default/files/fotos/galeria_billete-sorteo-4589.jpg"
                     alt=""
                   />
                 </IonSlide>
                 <IonSlide>
                   <img
-                    src="https://github.com/marcelaTrujilloToro/loteriApp.ionic.react/blob/main/public/assets/img/consulta_premios/LoteriApp_consultapremios_slider_360x180px.jpg?raw=true"
+                    src="https://www.loteriadelvalle.com/sites/default/files/fotos/galeria_billete-sorteo-4591.jpg"
                     alt=""
                   />
                 </IonSlide>

@@ -16,4 +16,4 @@ export const useLoterias = () => {
         staleTime: Infinity,
         retry: 1,
     });
-}
+};

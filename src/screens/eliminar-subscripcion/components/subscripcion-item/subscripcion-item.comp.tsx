@@ -47,6 +47,7 @@ export const SubscripcionItem: React.FC<SubscripcionProps> = (props) => {
           {respuesta ? (
             <IonButton
               size="small"
+              color="danger"
               onClick={() => {
                 setEliminarSubscripcionParams({
                   ...eliminarSubscripcionParams,

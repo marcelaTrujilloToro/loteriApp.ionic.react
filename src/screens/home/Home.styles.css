@@ -4,7 +4,8 @@ ion-page {
 
 ion-col {
   text-align: center;
-  color: rgba(19, 11, 89, 1);
+  /* color: rgba(19, 11, 89, 1); */
+  color: #E20613;
   font-weight: bold;
 }
 
@@ -15,7 +16,8 @@ ion-col {
 
 .la-imagen-row {
   height: 40%;
-  background: rgba(0, 78, 133, 1);  
+  /* background: rgba(0, 78, 133, 1);   */
+  background: #E20613;  
   padding-top: 35px;
   padding-bottom: 10px;
 }
@@ -58,7 +60,8 @@ ion-col {
 .la-opciones-contenedor {
   width: 100%;
   height: 100%;
-  background: rgba(197, 218, 234, 1);
+  /* background: rgba(197, 218, 234, 1); */
+  background: #b1d385;
   border-radius: 20px 20px 0px 0px;
 }
 

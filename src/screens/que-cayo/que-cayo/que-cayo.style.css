@@ -1,6 +1,7 @@
 
 .la-content-rectangulo-rojo {
   background: rgba(236, 8, 0, 1);
+  background: rgba(236, 8, 0, 1);
   border-radius: 1.15px;
   height: 2.25px;
   width: 56px;
@@ -11,7 +12,7 @@
 
 .la-fuente-subtitulo {
   /* color: rgba(1, 95, 163, 1); */
-  color:#284304;
+  color:#000000;
   position: relative;
   font-weight: lighter;
   top: 70px;
@@ -24,7 +25,7 @@
   width: 115px;
   height: 115px;
   /* background: rgba(208, 228, 242, 1); */
-  background: #a1ca6c;
+  background: #9e1915;
   border-radius: 5px;
   position: relative;
   top: 100px;

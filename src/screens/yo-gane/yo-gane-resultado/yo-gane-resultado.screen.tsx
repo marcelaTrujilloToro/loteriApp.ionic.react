@@ -124,19 +124,19 @@ const YoGaneResultadoScreen: React.FC = () => {
               <IonSlides pager={true}>
                 <IonSlide>
                   <img
-                    src="https://www.loteriadelvalle.com/sites/default/files/fotos/galeria_billete-sorteo-4590.jpg"
+                    src="https://loteriadeltolima.com/wp-content/uploads/2021/06/PROMOCIONAL-BICICLETA-Y-PATINETA-1.jpg"
                     alt=""
                   />
                 </IonSlide>
                 <IonSlide>
                   <img
-                    src="https://www.loteriadelvalle.com/sites/default/files/fotos/galeria_billete-sorteo-4589.jpg"
+                    src="https://loteriadeltolima.com/wp-content/uploads/2021/06/promocional_sorteo_3915.jpg"
                     alt=""
                   />
                 </IonSlide>
                 <IonSlide>
                   <img
-                    src="https://www.loteriadelvalle.com/sites/default/files/fotos/galeria_billete-sorteo-4591.jpg"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5A4on3kBVGLxG2-Na2oD-7Q4z1q4O61rLeQ&usqp=CAU"
                     alt=""
                   />
                 </IonSlide>

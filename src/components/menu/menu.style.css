@@ -4,7 +4,7 @@ ion-page{
 
 ion-menu ion-content {
   /* --background: var(--ion-item-background, var(--ion-background-color,rgba(1, 95, 163, 1))); */
-  --background: var(--ion-item-background, var(--ion-background-color,#63A70A));
+  --background: var(--ion-item-background, var(--ion-background-color,#F4C325));
 }
 
 
@@ -135,7 +135,7 @@ ion-menu ion-content{
 
 .la-header-gradiente{
   /* background: linear-gradient(180deg, #268BC8 0%, #8DC2E2 96.62%); */
-  background: #63A70A;
+  background: #F4C325;
   width: 100%;
   height: 148px;
   display: flex;  
@@ -149,4 +149,9 @@ ion-menu ion-content{
 
 .la-menu-header{
   padding-inline-start: 0px;
+}
+
+.la-logo-app{
+  width: 80%;
+  height: 80%;
 }

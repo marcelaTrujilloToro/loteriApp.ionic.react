@@ -124,7 +124,7 @@ const SolicitudCodigoScreen: React.FC = () => {
               <IonCol>
                 <IonGrid>
                   <IonRow>
-                    <IonCol>
+                    <IonCol >
                       <IonInput
                         type="tel"
                         maxlength={10}

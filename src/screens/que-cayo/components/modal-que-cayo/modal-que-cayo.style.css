@@ -22,7 +22,8 @@ ion-modal {
 }
 
 .la-que-cayo-modal-content {
-  background: rgba(235, 219, 82, 1);
+  /* background: rgba(235, 219, 82, 1); */
+  background: #9e1915;
   height: 115%;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
   border-radius: 5px;

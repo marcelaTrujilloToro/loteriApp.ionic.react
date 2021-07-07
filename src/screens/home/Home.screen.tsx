@@ -14,11 +14,9 @@ import Header from "../../components/header/header.comp";
 import QueCayoScreen from "../que-cayo/que-cayo/que-cayo.screen";
 import { useHistory } from "react-router";
 
-
 const HomeScreen = () => {
-
   const history = useHistory();
-  
+
   return (
     <IonPage>
       <Header></Header>
@@ -28,13 +26,12 @@ const HomeScreen = () => {
           <IonGrid className="ion-no-padding la-content-grid">
             <IonRow className="la-imagen-row">
               <IonCol>
-                <IonImg src="https://www.loteriadelvalle.com/sites/default/files/fotos/redes-billetedelasemana-galeria-ganador.jpg"></IonImg>
+              <IonImg src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHzZYKKFfuQAGgnNKGlNzA1G0qZFwWeK0inkUzKmuF_37o38OKJbYP7oqhQZSywZQXtlE&usqp=CAU"/>
               </IonCol>
             </IonRow>
 
             <IonRow className="la-titulo-texto-row">
               <IonCol>
-
                 <IonGrid className="la-contenedor-texto">
                   <IonRow className="ion-align-items-end">
                     <IonCol>
@@ -50,7 +47,6 @@ const HomeScreen = () => {
                     </IonCol>
                   </IonRow>
                 </IonGrid>
-
               </IonCol>
             </IonRow>
 
@@ -70,7 +66,7 @@ const HomeScreen = () => {
                                   onClick={() => {
                                     history.push({
                                       pathname: `/screens/que-cayo/que-cayo.screen`,
-                                    })
+                                    });
                                   }}
                                 ></IonImg>
                               </div>
@@ -102,7 +98,7 @@ const HomeScreen = () => {
                                   onClick={() => {
                                     history.push({
                                       pathname: `/screens/yo-gane-principal/yo-gane.screen`,
-                                    })
+                                    });
                                   }}
                                 ></IonImg>
                               </div>
@@ -136,7 +132,7 @@ const HomeScreen = () => {
                                   onClick={() => {
                                     history.push({
                                       pathname: `/screens/numeros-suertudos/numeros-suertudos.screen`,
-                                    })
+                                    });
                                   }}
                                 ></IonImg>
                               </div>
@@ -168,7 +164,7 @@ const HomeScreen = () => {
                                   onClick={() => {
                                     history.push({
                                       pathname: `/screens/avisame-si-gano/avisame-si-gano.screen`,
-                                    })
+                                    });
                                   }}
                                 ></IonImg>
                               </div>

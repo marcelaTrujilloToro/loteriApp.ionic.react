@@ -4,13 +4,13 @@ ion-page {
 
 .la-content-gradiente-light {
   /* background: rgba(214, 229, 240, 1); */
-  background: #d0e5b6;
+  background: #fef9e9;
   height: 100%;
 }
 
 .la-content-gradiente-darker {
   /* background: linear-gradient(180deg, #b3d5ee 0%, #c5daea 100%); */
-  background: #c1dc9d;
+  background: #f5e8e8;
   height: 100%;
 }
 
@@ -47,7 +47,7 @@ ion-page {
 
 .la-texto-blue-14 {
   /* color: rgba(1, 95, 163, 1); */
-  color: #1e3203;
+  color: #000000;
   position: relative;
   font-weight: lighter;
   font-size: 14px;
@@ -58,6 +58,7 @@ ion-page {
   font-weight: bold;
   font-size: 16px;
   line-height: 20px;
+  color: #F4C325;
 }
 
 .la-texto-darkblue-12 {
@@ -65,12 +66,12 @@ ion-page {
   font-size: 12px;
   line-height: 16px;
   /* color: rgba(19, 11, 89, 1); */
-  color: #E20613;
+  color: #ffffff;
 }
 
 .la-boton {
   /* background: #004e85; */
-  background: #E20613;
+  background: #F4C325;
   border-radius: 5px;
   color:white;
   font-size: 12px;
@@ -86,7 +87,8 @@ ion-page {
   font-weight: normal;
   font-size: 18px;
   line-height: 16px;
-  color: rgba(94, 59, 11, 1);
+  /* color: rgba(94, 59, 11, 1); */
+  color: #F4C325;
   position: absolute;
   top: 0;
   right: 0;
@@ -95,7 +97,8 @@ ion-page {
 
 .la-division-premios {
   list-style-type: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  /* border-top: 1px solid rgba(255, 255, 255, 0.5); */
+  border-top: 1px solid #9e1915;
   padding-top: 7px;
   padding-bottom: 7px;
 }
@@ -106,7 +109,7 @@ ion-page {
   font-size: 14.5px;
   line-height: 16px;
   /* color: rgba(1, 95, 163, 1); */
-  color: #284304;
+  color: #000000;
   text-align: left;
   align-items: center;
 }
@@ -114,13 +117,13 @@ ion-page {
 .la-linea-roja-digito {
   width: 30px;
   height: 1.5px;
-  background-color: #ec0800;
+  background-color: #F4C325;
 }
 
 .la-input-digito{
   padding: 0px;
   /* color: rgb(0, 78, 133); */
-  color: #63a70a;
+  color: #ffffff;
   font-weight: bold;
   font-size: 22px;
   background-color: transparent;
@@ -133,7 +136,7 @@ ion-page {
 .native-input.sc-ion-input-ios {
   padding: 0px;
   /* color: rgba(0, 78, 133, 1); */
-  color: #63a70a;
+  color: #ffffff;
   font-weight: bold;
   font-size: 22px;
 }
@@ -141,7 +144,7 @@ ion-page {
 .native-input.sc-ion-input-md {
   padding: 0px;
   /* color: rgba(0, 78, 133, 1); */
-  color: #63a70a;
+  color: #F4C325;
   font-weight: bold;
   font-size: 22px;
 }

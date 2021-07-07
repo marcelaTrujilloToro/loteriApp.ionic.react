@@ -38,12 +38,12 @@
 .la-texto-avisame{
     font-weight: lighter;
     /* color: rgba(1, 95, 163, 1); */
-    color: #284304;
+    color: #000000;
     text-align: center;
     padding-left: 20px;
     padding-right: 20px;
-  }
-  
+}
+
 
 
 .la-avisame-verificacion-modal .modal-wrapper.sc-ion-modal-ios,

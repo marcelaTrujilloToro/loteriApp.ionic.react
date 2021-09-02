@@ -13,8 +13,14 @@ import "./Home.styles.css";
 import Header from "../../components/header/header.comp";
 import QueCayoScreen from "../que-cayo/que-cayo/que-cayo.screen";
 import { useHistory } from "react-router";
+import {useLogin} from '../../hooks/login/login.hook';
 
 const HomeScreen = () => {
+
+  const {data} = useLogin('bngjdcfk+pojR/p2nKmPzw==', 'bngjdcfk+pojR/p2nKmPzw==', '3j90RSuQkQAGdPlGTOyx+g==');
+
+  console.log(data);
+
   const history = useHistory();
 
   return (

@@ -3,17 +3,19 @@ import {
 } from 'react-query';
 
 import useAzenApi from '../../api/useAzenApi';
-import {Login} from '../../models/login/login';
 
-export const useLogin = (username: string, password: string, password2: string) => {
+export const useLogin = (username: string, password: string) => {
     
     const azenApi = useAzenApi();
 
-    return useQuery('api/service/login', async () => {
-        const { data } = await azenApi.get(`api/service/login`);
+    return useQuery('azenTkn', async () => {
+        const { data } = await azenApi.post(`api/service/login`,{
+            UserName: username,
+            Password: password
+        });
         return data;
     }, {
-        staleTime: 2,
+        staleTime: 1,
         retry: 1,
     });
 };

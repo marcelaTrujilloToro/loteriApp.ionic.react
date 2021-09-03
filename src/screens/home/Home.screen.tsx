@@ -17,7 +17,7 @@ import {useLogin} from '../../hooks/login/login.hook';
 
 const HomeScreen = () => {
 
-  const {data} = useLogin('bngjdcfk+pojR/p2nKmPzw==', 'bngjdcfk+pojR/p2nKmPzw==', '3j90RSuQkQAGdPlGTOyx+g==');
+  const {data} = useLogin('bngjdcfk+pojR/p2nKmPzw==', 'bngjdcfk+pojR/p2nKmPzw==');
 
   console.log(data);
 

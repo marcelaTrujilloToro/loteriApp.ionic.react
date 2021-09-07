@@ -16,7 +16,7 @@ import "@ionic/react/css/flex-utils.css";
 import "@ionic/react/css/display.css";
 
 import React from "react";
-
+import queryClient from './react-query-client';
 import { useQueryClient, QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 
@@ -47,8 +47,7 @@ import EliminarSubscripcionResultadoScreen from "./screens/eliminar-subscripcion
 import DisponibilidadNumeroScreen from "./screens/disponibilidad-numero/disponibilidad-numero/disponibilidad-numero.screen";
 import DisponibilidadNumeroResultadoScreen from "./screens/disponibilidad-numero/disponibilidad-numero-resultado/disponibilidad-numero-resultado.screen";
 
-// Create a client
-const queryClient = new QueryClient();
+
 
 const App: React.FC = () => {
   return (

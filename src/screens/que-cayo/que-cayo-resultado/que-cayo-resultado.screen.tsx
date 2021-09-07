@@ -17,6 +17,7 @@ export interface QueCayoResultadoScreenParams {
 const QueCayoResultadoScreen: React.FC = () => {
   
   const {loteriaSeleccionada} = useContext(LoteriaContext);
+
   
   const { numeroSorteo } = useParams<QueCayoResultadoScreenParams>();
 

@@ -10,14 +10,21 @@ export const useLoterias = () => {
     
     const azenApi = useAzenApi();
 
+    const codDesde = "";
+    const codHasta = "";
+
     return useQuery<Loteria[]>(['loterias'], async () => {
+
         const azenToken = queryClient.getQueryData('azenTkn');
-        const { data } = await azenApi.get(`loterias`,{
+
+        const { data } = await azenApi.post(`api/service/azenaut_ms/autinf_Loterias`,{
+            codDesde: codDesde,
+            codHasta: codHasta
+        },{
             headers:{
                 Authorization: 'Bearer ' + azenToken
             }
         });
-        console.log(`token, ${azenToken}`);
         return data;
     }, {
         staleTime: Infinity,

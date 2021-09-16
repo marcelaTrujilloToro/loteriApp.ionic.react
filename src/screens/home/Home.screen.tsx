@@ -20,8 +20,6 @@ const HomeScreen = () => {
 
   const {data} = useLogin('awKfzUMihDq2rODcjNUbuQ==', 'awKfzUMihDq2rODcjNUbuQ==');
 
-  console.log(data);
-
   const history = useHistory();
 
   return (

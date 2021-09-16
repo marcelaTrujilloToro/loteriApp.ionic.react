@@ -11,8 +11,9 @@
 }
 
 .la-fuente-subtitulo {
-  /* color: rgba(1, 95, 163, 1); */
-  color:#000000;
+  color: rgba(1, 95, 163, 1);
+  /* tolima */
+  /* color:#000000; */
   position: relative;
   font-weight: lighter;
   top: 70px;
@@ -24,8 +25,9 @@
 .la-rectangulo-azul {
   width: 115px;
   height: 115px;
-  /* background: rgba(208, 228, 242, 1); */
-  background: #9e1915;
+  background: rgba(208, 228, 242, 1);
+  /* tolima */
+  /* background: #9e1915; */
   border-radius: 5px;
   position: relative;
   top: 100px;

@@ -25,7 +25,7 @@ const Header = () => {
             <div className="la-header-elipse">
               <IonImg
                 className="la-header-logo"
-                src="../../assets/imagenes/026-sin-fondo.png"
+                src="../../assets/imagenes/LoteriApp_logo_300x148 3.png"
               ></IonImg>
             </div>
           </IonCol>

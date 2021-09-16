@@ -74,7 +74,7 @@ const Menu: React.FC = () => {
         <IonList id="inbox-list">
           <IonListHeader className="la-menu-header">
             <div className="la-header-gradiente">
-              <IonImg  className="la-logo-app" src="../../assets/imagenes/026-sin-fondo.png"></IonImg>
+              <IonImg  className="la-logo-app" src="../../assets/imagenes/LoteriApp_logo_300x148 3.png"></IonImg>
             </div>
           </IonListHeader>
 

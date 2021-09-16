@@ -3,8 +3,9 @@ ion-page{
 }
 
 ion-menu ion-content {
-  /* --background: var(--ion-item-background, var(--ion-background-color,rgba(1, 95, 163, 1))); */
-  --background: var(--ion-item-background, var(--ion-background-color,#F4C325));
+  --background: var(--ion-item-background, var(--ion-background-color,rgba(1, 95, 163, 1)));
+  /* tolima */
+  /* --background: var(--ion-item-background, var(--ion-background-color,#F4C325)); */
 }
 
 
@@ -116,8 +117,9 @@ ion-item.selected {
 }
 
 ion-item{
-  /* color: rgba(166, 199, 223, 1); */
-  color: #E4271E;
+  color: rgba(166, 199, 223, 1);
+  /* tolima */
+  /* color: #E4271E; */
   font-weight: bold;  
   background-color: rgba(1, 95, 163, 1);
 } 
@@ -134,8 +136,9 @@ ion-menu ion-content{
 }
 
 .la-header-gradiente{
-  /* background: linear-gradient(180deg, #268BC8 0%, #8DC2E2 96.62%); */
-  background: #F4C325;
+  background: linear-gradient(180deg, #268BC8 0%, #8DC2E2 96.62%);
+  /* tolima */
+  /* background: #F4C325; */
   width: 100%;
   height: 148px;
   display: flex;  

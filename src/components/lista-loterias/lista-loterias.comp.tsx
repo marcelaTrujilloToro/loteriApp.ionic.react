@@ -18,13 +18,22 @@ const ListaLoterias: React.FC <ListaLoteriasProps> = (props) => {
     return <Loading/>;
   }
 
-  if (isError) {
-    return <Error/>;
-  }
+  const mensaje = "Error al cargar la lista de loterias";
+
+  // if (isError) {
+  //   return <Error mensaje={mensaje}/>;
+  // }
 
   return (
     <IonRow>
-      {loteriasList?.map((loteria) => (
+
+
+      { isError 
+      ? 
+      <Error mensaje={mensaje}></Error>
+      :
+      
+      loteriasList?.map((loteria) => (
         <IonCol key={loteria.codigo}>
           <div className="la-rectangulo-azul">
             <img

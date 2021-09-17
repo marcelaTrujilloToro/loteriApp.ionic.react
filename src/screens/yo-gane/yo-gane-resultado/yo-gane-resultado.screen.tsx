@@ -44,6 +44,8 @@ const YoGaneResultadoScreen: React.FC = () => {
   //   return <Error></Error>;
   // }
 
+  const mensaje = "El numero de sorteo no existe en la base de datos"
+
   return (
     <IonPage>
       <Header></Header>
@@ -103,7 +105,7 @@ const YoGaneResultadoScreen: React.FC = () => {
 
             <IonRow className="la-yg-row-lista">
               {isError ? (
-                <Error></Error>
+                <Error mensaje={mensaje}></Error>
               ) : (
                 <IonCol>
                   {resultados?.premios ? (

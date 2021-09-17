@@ -56,6 +56,7 @@ const NumerosSuertudosResultadosScreen: React.FC = () => {
   //   return <Error></Error>;
   // }
 
+  const mensaje = "";
   return (
     <IonPage>
       <Header></Header>
@@ -106,7 +107,7 @@ const NumerosSuertudosResultadosScreen: React.FC = () => {
             <IonRow className="la-lista-premios-ns-row">
               <IonCol>
                 {isError ? (
-                  <Error></Error>
+                  <Error mensaje={mensaje}></Error>
                 ) : (
                   <ListaSuertudos
                     listaSuertudos={resultadoSuertudos}

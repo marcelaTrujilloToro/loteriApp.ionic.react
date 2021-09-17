@@ -34,6 +34,7 @@ const EliminarSubscripcionResultadoScreen = () => {
     return <Loading></Loading>;
   }
 
+  const mensaje = "";
   return (
     <IonPage>
       <Header></Header>
@@ -76,7 +77,7 @@ const EliminarSubscripcionResultadoScreen = () => {
             <IonRow className="la-subscripcion-lista-row">
               <IonCol>
                 {isError ? (
-                  <Error></Error>
+                  <Error mensaje={mensaje}></Error>
                 ) : (
                   <ListaSubscripciones
                     listaSubscripciones={respuesta}

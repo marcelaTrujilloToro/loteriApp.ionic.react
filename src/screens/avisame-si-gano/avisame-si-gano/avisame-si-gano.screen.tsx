@@ -45,6 +45,7 @@ const AvisameSiGanoScreen: React.FC = () => {
   if (isLoading) {
     return <Loading></Loading>;
   }
+  const mensaje = "";
 
   return (
     <IonPage>
@@ -69,7 +70,7 @@ const AvisameSiGanoScreen: React.FC = () => {
               </IonCol>
             </IonRow>
             {isError ? (
-              <Error></Error>
+              <Error mensaje={mensaje}></Error>
             ) : (
               <ListaLoterias
                 onLoteriaSeleccionadaFn={onLoteriaSeleccionadaFn}

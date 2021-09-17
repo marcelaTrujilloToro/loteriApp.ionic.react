@@ -38,7 +38,7 @@ const QueCayoResultadoScreen: React.FC = () => {
   //     <Error></Error>
   //   );
   // }
-
+  const mensaje = "El numero de sorteo no existe en la base de datos"
   return (
     <IonPage>
       <Header></Header>
@@ -99,7 +99,7 @@ const QueCayoResultadoScreen: React.FC = () => {
                 {
                   isError
                   ?
-                  <Error></Error>
+                  <Error mensaje={mensaje}></Error>
                   :
                   <ListaSecos listaSecos={resultado?.secos}></ListaSecos>
 

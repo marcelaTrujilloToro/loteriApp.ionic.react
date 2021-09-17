@@ -37,6 +37,7 @@ const DisponibilidadNumeroResultadoScreen: React.FC = () => {
     return <Loading></Loading>;
   }
 
+  const mensaje = "";
   return (
     <IonPage>
       <Header></Header>
@@ -89,7 +90,7 @@ const DisponibilidadNumeroResultadoScreen: React.FC = () => {
             <IonRow className="la-lista-premios-disponibilidad-row">
               <IonCol>
                 {isError ? (
-                  <Error></Error>
+                  <Error mensaje={mensaje}></Error>
                 ) : (
                   <ListaDisponibilidadNumeros
                     listaDisponibilidadNumeros={respuesta}

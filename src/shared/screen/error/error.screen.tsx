@@ -10,24 +10,40 @@ import {
 } from "@ionic/react";
 
 import Header from "../../../components/header/header.comp";
+import { useHistory } from "react-router";
 
+interface ErrorProps {
+  mensaje: string
+}
 
-const Error: React.FC = () => {
+const Error: React.FC<ErrorProps> = (props) => {
     
     const [error, setError] = useState(true);
 
+    const history = useHistory();
+
     return (
     
-      
-        <div className="la-content-gradiente-darker">
+      <div className="la-content-gradiente-darker">
           <IonAlert            
             isOpen={error}
             onDidDismiss={() => setError(false)}
             header={"Error"}
-            message={"Al cargar los resultados"}          
+            message={props.mensaje}   
+            buttons={[
+              {
+                text: "Volver a qué cayo?",
+                handler: () => {
+                  history.push({
+                    pathname: `/screens/que-cayo/:name`,
+                  });
+                }
+              }
+            ]}      
             />
         </div>
    
   );
 };
 export default Error;
+

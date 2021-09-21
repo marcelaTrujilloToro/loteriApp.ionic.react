@@ -31,7 +31,7 @@ const HomeScreen = () => {
           <IonGrid className="ion-no-padding la-content-grid">
             <IonRow className="la-imagen-row">
               <IonCol>
-              <IonImg src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHzZYKKFfuQAGgnNKGlNzA1G0qZFwWeK0inkUzKmuF_37o38OKJbYP7oqhQZSywZQXtlE&usqp=CAU"/>
+              <IonImg src="https://www.benevalle.gov.co/sites/default/files/multimedia/boletin_web_promocionaloct30.jpg"/>
               </IonCol>
             </IonRow>
 
@@ -80,7 +80,7 @@ const HomeScreen = () => {
 
                           <IonRow>
                             <IonCol>
-                              <IonText>¿Qué Cayó?</IonText>
+                              <IonText className="la-titulo-opcion">¿Qué Cayó?</IonText>
                             </IonCol>
                           </IonRow>
 
@@ -112,7 +112,7 @@ const HomeScreen = () => {
 
                           <IonRow>
                             <IonCol>
-                              <IonText>¿Yo Gané?</IonText>
+                              <IonText className="la-titulo-opcion">¿Yo Gané?</IonText>
                             </IonCol>
                           </IonRow>
 
@@ -146,7 +146,7 @@ const HomeScreen = () => {
 
                           <IonRow>
                             <IonCol>
-                              <IonText># Suertudos</IonText>
+                              <IonText className="la-titulo-opcion"># Suertudos</IonText>
                             </IonCol>
                           </IonRow>
 
@@ -178,7 +178,7 @@ const HomeScreen = () => {
 
                           <IonRow>
                             <IonCol>
-                              <IonText>Avísame si gano</IonText>
+                              <IonText className="la-titulo-opcion">Avísame si gano</IonText>
                             </IonCol>
                           </IonRow>
 

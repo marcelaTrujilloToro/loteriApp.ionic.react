@@ -3,16 +3,22 @@ ion-page {
 }
 
 .la-content-gradiente-light {
-  background: rgba(214, 229, 240, 1);
+  /* loteriapp */
+  /* background: rgba(214, 229, 240, 1); */
   /* tolima */
   /* background: #fef9e9; */
+  /* valle */
+  background: white;
   height: 100%;
 }
 
 .la-content-gradiente-darker {
-  background: linear-gradient(180deg, #b3d5ee 0%, #c5daea 100%);
+  /* loteriapp */
+  /* background: linear-gradient(180deg, #b3d5ee 0%, #c5daea 100%); */
   /* tolima */
   /* background: #f5e8e8; */
+  /* valle */
+  background: white;
   height: 100%;
 }
 
@@ -22,9 +28,12 @@ ion-page {
 }
 
 .la-titulo-18 {
-  color: rgba(19, 11, 89, 1);
+  /* loteriapp */
+  /* color: rgba(19, 11, 89, 1); */
   /* tolima */
   /* color:#E20613; */
+  /* valle */
+  color: #65b32e  ;
   font-weight: bold;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 18px;
@@ -41,18 +50,23 @@ ion-page {
 }
 
 .la-titulo-22 {
-  color: rgba(19, 11, 89, 1);
+  /* loteriapp */
+  /* color: rgba(19, 11, 89, 1); */
   /* tolima */
   /* color: #E20613; */
+  /* valle */
+  color: #65b32e;
   font-weight: bold;
   font-size: 22px;
   display: flex;
 }
 
 .la-texto-blue-14 {
-  color: rgba(1, 95, 163, 1);
+  /* color: rgba(1, 95, 163, 1); */
   /* tolima */
   /* color: #000000; */
+  /* valle */
+  color: #335a17 ;
   position: relative;
   font-weight: lighter;
   font-size: 14px;
@@ -63,24 +77,33 @@ ion-page {
   font-weight: bold;
   font-size: 16px;
   line-height: 20px;
-  color: rgba(19, 11, 89, 1);
+  /* loteriapp */
+  /* color: rgba(19, 11, 89, 1); */
   /* tolima */
   /* color: #F4C325; */
+  /* valle */
+  color: #65b32e;
 }
 
 .la-texto-darkblue-12 {
   font-weight: normal;
   font-size: 12px;
   line-height: 16px;
-  color: rgba(19, 11, 89, 1);
+  /* loteriapp */
+  /* color: rgba(19, 11, 89, 1); */
   /* tolima */
   /* color: #ffffff; */
+  /* valle */
+  color: #65b32e;
 }
 
 .la-boton {
-  background: #004e85;
+  /* loteriapp */
+  /* background: #004e85; */
   /* tolima */
   /* background: #F4C325; */
+  /* valle */
+  background: #65b32e;
   border-radius: 5px;
   color:white;
   font-size: 12px;
@@ -119,9 +142,12 @@ ion-page {
   font-weight: normal;
   font-size: 14.5px;
   line-height: 16px;
-  color: rgba(1, 95, 163, 1);
+  /* loteriapp */
+  /* color: rgba(1, 95, 163, 1); */
   /* tolima */
   /* color: #000000; */
+  /* valle */
+  color: #335a17  ;
   text-align: left;
   align-items: center;
 }

@@ -17,13 +17,14 @@ export const useLoterias = () => {
 
         const azenToken = queryClient.getQueryData('azenTkn');
 
-        const { data } = await azenApi.post(`api/service/azenaut_ms/autinf_Loterias`,{
-            codDesde: codDesde,
-            codHasta: codHasta
-        },{
-            headers:{
-                Authorization: 'Bearer ' + azenToken
-            }
+        // const { data } = await azenApi.post(`api/service/azenaut_ms/autinf_Loterias`,{
+        const { data } = await azenApi.get(`loterias`,{
+        //     codDesde: codDesde,
+        //     codHasta: codHasta
+        // },{
+        //     headers:{
+        //         Authorization: 'Bearer ' + azenToken
+        //     }
         });
         return data;
     }, {

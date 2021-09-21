@@ -1,4 +1,4 @@
-export const AZEN_API_BASE_URL = "https://localhost:44391";
+export const AZEN_API_BASE_URL = "http://localhost:3001";
 
 //http://52.89.69.223:8080
 

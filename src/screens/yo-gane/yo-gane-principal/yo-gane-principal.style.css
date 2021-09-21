@@ -55,8 +55,11 @@
 }
 
 .la-texto-yo-gane{
-  color: rgba(1, 95, 163, 1);
+  /* loteriapp */
+  /* color: rgba(1, 95, 163, 1); */
   /* color: #000000; */
+  /* valle */
+  color: #65b32e;
   font-weight: lighter;
   text-align: center;
   padding-left: 20px;

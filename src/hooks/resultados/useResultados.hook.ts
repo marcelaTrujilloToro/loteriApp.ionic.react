@@ -18,13 +18,14 @@ export const useResultados = (codigoLoteria:string, sorteo:string) => {
     return useQuery<Resultado>('resultados', async () => {
         
         const azenToken = queryClient.getQueryData('azenTkn');
-        const { data } = await azenApi.post(`/api/service/azenaut_ms/autmsvr_ResultadosSorteo`,{
-            loteria: codigoLoteria,
-            sorteo: sorteo
-        },{
-            headers:{
-                Authorization: 'Bearer ' + azenToken
-            }
+        // const { data } = await azenApi.post(`/api/service/azenaut_ms/autmsvr_ResultadosSorteo`,{
+        const { data } = await azenApi.get(`resultados`,{
+        //     loteria: codigoLoteria,
+        //     sorteo: sorteo
+        // },{
+        //     headers:{
+        //         Authorization: 'Bearer ' + azenToken
+        //     }
         });
         console.log(`data ${JSON.stringify(data)}`);
         return data;

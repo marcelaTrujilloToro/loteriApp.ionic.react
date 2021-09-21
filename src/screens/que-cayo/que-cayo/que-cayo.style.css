@@ -11,9 +11,12 @@
 }
 
 .la-fuente-subtitulo {
-  color: rgba(1, 95, 163, 1);
+  /* loteriapp */
+  /* color: rgba(1, 95, 163, 1); */
   /* tolima */
   /* color:#000000; */
+  /* valle */
+  color: #65b32e;
   position: relative;
   font-weight: lighter;
   top: 70px;

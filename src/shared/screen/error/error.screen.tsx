@@ -32,10 +32,10 @@ const Error: React.FC<ErrorProps> = (props) => {
             message={props.mensaje}   
             buttons={[
               {
-                text: "Volver a qué cayo?",
+                text: "Volver al menu principal?",
                 handler: () => {
                   history.push({
-                    pathname: `/screens/que-cayo/:name`,
+                    pathname: `/`,
                   });
                 }
               }

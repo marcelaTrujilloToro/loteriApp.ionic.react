@@ -19,7 +19,6 @@ import queryClient from "../../react-query-client";
 const HomeScreen = () => {
 
   const {data} = useLogin('awKfzUMihDq2rODcjNUbuQ==', 'awKfzUMihDq2rODcjNUbuQ==');
-
   const history = useHistory();
 
   return (

@@ -1,5 +1,6 @@
 .la-modal-notificacion-guardada {
-    background: rgba(0, 78, 133, 1);
+    /* background: rgba(0, 78, 133, 1); */
+    background: #65b32e;
     height: 100%;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
@@ -7,7 +8,8 @@
 
 .la-mensaje-notificacion{
     
-    color: rgba(235, 219, 82, 1);
+    /* color: rgba(235, 219, 82, 1); */
+    color:#272e22;
 
 }
 

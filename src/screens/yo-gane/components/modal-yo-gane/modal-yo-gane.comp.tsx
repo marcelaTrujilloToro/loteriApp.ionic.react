@@ -63,7 +63,7 @@ const ModalYoGane: React.FC<ModalYoGaneProps> = (props) => {
   };
 
   const getSerie = () => {
-    return `${numeroSerieArr[0]}${numeroSerieArr[0]}${numeroSerieArr[0]}`;
+    return `${numeroSerieArr[0]}${numeroSerieArr[1]}${numeroSerieArr[2]}`;
   };
 
   return (

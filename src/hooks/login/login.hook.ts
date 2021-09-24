@@ -9,7 +9,7 @@ export const useLogin = (username: string, password: string) => {
     const azenApi = useAzenApi();
 
     return useQuery<any>('azenTkn', async () => {
-        const { data } = await azenApi.post(`/api/service/login`,{
+        const { data } = await azenApi.post(`/login`,{
             UserName: username,
             Password: password
         });

@@ -107,7 +107,7 @@ const NumerosSuertudosResultadosScreen: React.FC = () => {
             <IonRow className="la-lista-premios-ns-row">
               <IonCol>
                 {isError ? (
-                  <Error mensaje={mensaje}></Error>
+                  <Error mensaje={mensaje} direccion={"screens/numeros-suertudos/numeros-suertudos.screen"}></Error>
                 ) : (
                   <ListaSuertudos
                     listaSuertudos={resultadoSuertudos}

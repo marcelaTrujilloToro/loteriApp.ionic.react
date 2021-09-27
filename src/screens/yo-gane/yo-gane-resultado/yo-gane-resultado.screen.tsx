@@ -44,7 +44,7 @@ const YoGaneResultadoScreen: React.FC = () => {
   //   return <Error></Error>;
   // }
 
-  const mensaje = "Algun de los campos ingresados no es correcto"
+  const mensaje = "Alguno de los campos ingresados no es correcto"
 
   return (
     <IonPage>
@@ -105,7 +105,7 @@ const YoGaneResultadoScreen: React.FC = () => {
 
             <IonRow className="la-yg-row-lista">
               {isError ? (
-                <Error mensaje={mensaje}></Error>
+                <Error mensaje={mensaje} direccion={"screens/yo-gane-principal/yo-gane.screen"}></Error>
               ) : (
                 <IonCol>
                   {resultados?.premios ? (

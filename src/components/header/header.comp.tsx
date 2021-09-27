@@ -18,7 +18,7 @@ const Header = () => {
         <IonRow>
           <IonCol size="2" className="ion-align-self-center">
             <IonButton fill="clear" className="la-header-menu">
-              <IonMenuButton slot="start" color="warning"></IonMenuButton>
+              <IonMenuButton slot="start" color="light"></IonMenuButton>
             </IonButton>
           </IonCol>
           <IonCol size="10">

@@ -14,6 +14,7 @@ import { useHistory } from "react-router";
 
 interface ErrorProps {
   mensaje: string
+  direccion: string
 }
 
 const Error: React.FC<ErrorProps> = (props) => {
@@ -32,10 +33,10 @@ const Error: React.FC<ErrorProps> = (props) => {
             message={props.mensaje}   
             buttons={[
               {
-                text: "Volver al menu principal?",
+                text: "¿Ingresar datos?",
                 handler: () => {
                   history.push({
-                    pathname: `/`,
+                    pathname: `/${props.direccion}`,
                   });
                 }
               }

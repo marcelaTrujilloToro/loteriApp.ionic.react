@@ -99,7 +99,7 @@ const QueCayoResultadoScreen: React.FC = () => {
                 {
                   isError
                   ?
-                  <Error mensaje={mensaje}></Error>
+                  <Error mensaje={mensaje} direccion={"screens/que-cayo/que-cayo.screen"}></Error>
                   :
                   <ListaSecos listaSecos={resultado?.secos}></ListaSecos>
 

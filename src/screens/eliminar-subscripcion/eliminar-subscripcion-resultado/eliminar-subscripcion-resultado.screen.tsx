@@ -77,7 +77,7 @@ const EliminarSubscripcionResultadoScreen = () => {
             <IonRow className="la-subscripcion-lista-row">
               <IonCol>
                 {isError ? (
-                  <Error mensaje={mensaje}></Error>
+                  <Error mensaje={mensaje} direccion={"screens/eliminar-subscripcion/:name"}></Error>
                 ) : (
                   <ListaSubscripciones
                     listaSubscripciones={respuesta}

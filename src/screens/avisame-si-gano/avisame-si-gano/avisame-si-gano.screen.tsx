@@ -70,7 +70,7 @@ const AvisameSiGanoScreen: React.FC = () => {
               </IonCol>
             </IonRow>
             {isError ? (
-              <Error mensaje={mensaje}></Error>
+              <Error mensaje={mensaje} direccion={"/screens/avisame-si-gano/:name"}></Error>
             ) : (
               <ListaLoterias
                 onLoteriaSeleccionadaFn={onLoteriaSeleccionadaFn}

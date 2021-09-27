@@ -90,7 +90,7 @@ const DisponibilidadNumeroResultadoScreen: React.FC = () => {
             <IonRow className="la-lista-premios-disponibilidad-row">
               <IonCol>
                 {isError ? (
-                  <Error mensaje={mensaje}></Error>
+                  <Error mensaje={mensaje} direccion={"screens/disponibilidad-numero/:name"}></Error>
                 ) : (
                   <ListaDisponibilidadNumeros
                     listaDisponibilidadNumeros={respuesta}

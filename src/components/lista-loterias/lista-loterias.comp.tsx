@@ -30,7 +30,7 @@ const ListaLoterias: React.FC <ListaLoteriasProps> = (props) => {
 
       { isError 
       ? 
-      <Error mensaje={mensaje}></Error>
+      <Error mensaje={mensaje} direccion={""}></Error>
       :
       
       loteriasList?.map((loteria) => (

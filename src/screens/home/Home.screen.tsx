@@ -13,12 +13,14 @@ import "./Home.styles.css";
 import Header from "../../components/header/header.comp";
 import QueCayoScreen from "../que-cayo/que-cayo/que-cayo.screen";
 import { useHistory } from "react-router";
-import {useLogin} from '../../hooks/login/login.hook';
+import { useLogin } from "../../hooks/login/login.hook";
 import queryClient from "../../react-query-client";
 
 const HomeScreen = () => {
-
-  const {data} = useLogin('awKfzUMihDq2rODcjNUbuQ==', 'awKfzUMihDq2rODcjNUbuQ==');
+  const { data } = useLogin(
+    "awKfzUMihDq2rODcjNUbuQ==",
+    "awKfzUMihDq2rODcjNUbuQ=="
+  );
   const history = useHistory();
 
   return (
@@ -30,11 +32,11 @@ const HomeScreen = () => {
           <IonGrid className="ion-no-padding la-content-grid">
             <IonRow className="la-imagen-row">
               <IonCol>
-              <IonImg src="https://www.benevalle.gov.co/sites/default/files/multimedia/boletin_web_promocionaloct30.jpg"/>
+                <IonImg src="https://www.benevalle.gov.co/sites/default/files/multimedia/boletin_web_promocionaloct30.jpg" />
               </IonCol>
             </IonRow>
 
-            <IonRow className="la-titulo-texto-row">
+            {/* <IonRow className="la-titulo-texto-row">
               <IonCol>
                 <IonGrid className="la-contenedor-texto">
                   <IonRow className="ion-align-items-end">
@@ -52,7 +54,7 @@ const HomeScreen = () => {
                   </IonRow>
                 </IonGrid>
               </IonCol>
-            </IonRow>
+            </IonRow> */}
 
             <IonRow className="la-menu-opciones-row">
               <IonCol>
@@ -79,7 +81,9 @@ const HomeScreen = () => {
 
                           <IonRow>
                             <IonCol>
-                              <IonText className="la-titulo-opcion">¿Qué Cayó?</IonText>
+                              <IonText className="la-titulo-opcion">
+                                ¿Qué Cayó?
+                              </IonText>
                             </IonCol>
                           </IonRow>
 
@@ -111,7 +115,9 @@ const HomeScreen = () => {
 
                           <IonRow>
                             <IonCol>
-                              <IonText className="la-titulo-opcion">¿Yo Gané?</IonText>
+                              <IonText className="la-titulo-opcion">
+                                ¿Yo Gané?
+                              </IonText>
                             </IonCol>
                           </IonRow>
 
@@ -145,7 +151,9 @@ const HomeScreen = () => {
 
                           <IonRow>
                             <IonCol>
-                              <IonText className="la-titulo-opcion"># Suertudos</IonText>
+                              <IonText className="la-titulo-opcion">
+                                # Suertudos
+                              </IonText>
                             </IonCol>
                           </IonRow>
 
@@ -157,6 +165,42 @@ const HomeScreen = () => {
                         </IonGrid>
                       </IonCol>
 
+                      <IonCol>
+                        <IonGrid className="la-contenedor-opcion">
+                          <IonRow>
+                            <IonCol>
+                              <div className="cuadro-amarillo">
+                                <IonImg
+                                  className="la-img-opcion"
+                                  src="/assets/imagenes/Loteriapp_opcion_que_cayo.png"
+                                  onClick={() => {
+                                    history.push({
+                                      pathname: `/screens/que-cayo/que-cayo.screen`,
+                                    });
+                                  }}
+                                ></IonImg>
+                              </div>
+                            </IonCol>
+                          </IonRow>
+
+                          <IonRow>
+                            <IonCol>
+                              <IonText className="la-titulo-opcion">
+                                Disponibilidad #
+                              </IonText>
+                            </IonCol>
+                          </IonRow>
+
+                          <IonRow>
+                            <IonCol>
+                              <div className="la-linea-roja-opcion"></div>
+                            </IonCol>
+                          </IonRow>
+                        </IonGrid>
+                      </IonCol>
+                    </IonRow>
+
+                    <IonRow className="la-contendor-row">
                       <IonCol>
                         <IonGrid className="la-contenedor-opcion">
                           <IonRow>
@@ -177,7 +221,9 @@ const HomeScreen = () => {
 
                           <IonRow>
                             <IonCol>
-                              <IonText className="la-titulo-opcion">Avísame si gano</IonText>
+                              <IonText className="la-titulo-opcion">
+                                Avísame si gano
+                              </IonText>
                             </IonCol>
                           </IonRow>
 

@@ -96,7 +96,7 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
         <IonGrid className="ion-no-padding la-content-grid">
           <IonRow >
             <IonCol>
-              <p className="la-texto-darkblue-12 la-texto">
+              <p className="la-texto-darkblue-12 la-texto la-texto-modal">
                 Lorem ipsum dolor sit amet, consectetur adipis elit sed
                 malesuada aliquam pharetra dignissim volutpat parturient.
               </p>
@@ -105,7 +105,7 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
 
           <IonRow >
             <IonCol>
-              <p className="la-titulo-16">Tú número de la Suerte:</p>
+              <p className="la-titulo-16 la-titulo-modal">Tú número de la Suerte:</p>
             </IonCol>
           </IonRow>
 
@@ -114,7 +114,7 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
               <IonCol key={index}>
                 <IonGrid>
                   <IonRow>
-                    <IonCol>
+                    <IonCol className="la-fondo-digito">
                       <input
                         type="tel"
                         className="la-input-digito"
@@ -144,14 +144,14 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
 
           <IonRow>
             <IonCol>
-              <p className="la-titulo-16">Cantidad de Sorteos</p>
+              <p className="la-titulo-16 la-titulo-modal">Cantidad de Sorteos</p>
             </IonCol>
           </IonRow>
           <IonRow>
             <IonCol>
               <IonGrid>
                 <IonRow>
-                  <IonCol>
+                  <IonCol className="la-fondo-digito">
                     <IonInput
                       type="tel"
                       className="la-input-digito"

@@ -13,7 +13,7 @@ ion-col {
 }
 
 .la-titulo-opcion{
-  color: white;
+  color: #333333;
 }
 
 .la-content-grid {
@@ -42,11 +42,11 @@ ion-col {
 
 
 .la-titulo-texto-row {
-  height: 20%;
+  height: 0%;
 }
 
 .la-menu-opciones-row {
-  height: 40%;
+  height: 60%;
 }
 
 .la-contenedor-texto {
@@ -76,7 +76,8 @@ ion-col {
   /* tolima */
   /* background: #9E1915; */
   /* valle */
-  background: #e30613;
+  /* background: #e30613; */
+  background-color: white;
   border-radius: 20px 20px 0px 0px;
 }
 
@@ -86,7 +87,7 @@ ion-col {
 }
 
 .la-contendor-row {
-  height: 50%;
+  height: 40%;
   display: flex;
   align-items: center;
 }
@@ -100,14 +101,14 @@ ion-col {
 }
 
 .cuadro-amarillo{
-  width: 65px;
-  height: 65px;
+  width: 75px;
+  height: 75px;
   /* background: rgba(255, 220, 0, 0.65); */
   /* tolima */
   /* background: #f4c325; */
   /* valle */
-  background: #ffcc00;
-  border-radius: 5px;
+  background: #65b32e;
+  border-radius: 50%;
 }
 
 .la-img-opcion {

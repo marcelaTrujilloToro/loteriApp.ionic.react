@@ -69,7 +69,7 @@ const ModalDisponibilidadNumero: React.FC<ModalDisponibilidadNumeroProps> = (pro
           <IonGrid className="ion-no-padding">
             <IonRow>
               <IonCol>
-                <p className="la-texto-darkblue-12 la-texto">
+                <p className="la-texto-darkblue-12 la-texto la-texto-modal">
                   Lorem ipsum dolor sit amet, consectetur adipis elit sed
                   malesuada aliquam pharetra dignissim volutpat parturient.
                 </p>
@@ -80,7 +80,7 @@ const ModalDisponibilidadNumero: React.FC<ModalDisponibilidadNumeroProps> = (pro
   
             <IonRow>
               <IonCol>
-                <p className="la-titulo-16">Número de Tiquete</p>
+                <p className="la-titulo-16 la-titulo-modal">Número de Tiquete</p>
               </IonCol>
             </IonRow>
   
@@ -89,7 +89,7 @@ const ModalDisponibilidadNumero: React.FC<ModalDisponibilidadNumeroProps> = (pro
               <IonCol key={index}>
                 <IonGrid>
                   <IonRow>
-                    <IonCol>
+                    <IonCol className="la-fondo-digito">
                       <input
                         type="tel"
                         className="la-input-digito"
@@ -122,7 +122,7 @@ const ModalDisponibilidadNumero: React.FC<ModalDisponibilidadNumeroProps> = (pro
   
             <IonRow>
               <IonCol>
-                <p className="la-titulo-16">Número de Serie</p>
+                <p className="la-titulo-16 la-titulo-modal">Número de Serie</p>
               </IonCol>
             </IonRow>
   
@@ -131,7 +131,7 @@ const ModalDisponibilidadNumero: React.FC<ModalDisponibilidadNumeroProps> = (pro
               <IonCol key={index}>
                 <IonGrid>
                   <IonRow>
-                    <IonCol>
+                    <IonCol className="la-fondo-digito">
                       <input
                         type="tel"
                         className="la-input-digito"

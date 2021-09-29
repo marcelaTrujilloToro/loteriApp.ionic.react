@@ -1,7 +1,9 @@
 .la-modal-suertudos-content {
-    background-color: rgba(235, 219, 82, 1);
+    /* background-color: rgba(235, 219, 82, 1); */
     /* tolima */
     /* background-color: #9E1915;  */
+    /* valle */
+    background: #e30613;
     min-height: 140%;
     height: auto;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);

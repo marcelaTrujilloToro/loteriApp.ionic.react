@@ -67,7 +67,7 @@ const ModalQueCayo: React.FC<ModalQueCayoProps> = (props) => {
         <IonGrid className="ion-no-padding">
           <IonRow>
             <IonCol>
-              <p className="la-texto-darkblue-12 la-texto">
+              <p className="la-texto-darkblue-12 la-texto la-texto-modal">
                 Lorem ipsum dolor sit amet, consectetur adipis elit sed
                 malesuada aliquam pharetra dignissim volutpat parturient.
               </p>
@@ -76,7 +76,7 @@ const ModalQueCayo: React.FC<ModalQueCayoProps> = (props) => {
 
           <IonRow>
             <IonCol>
-              <p className="la-titulo-16">Número de Sorteo</p>
+              <p className="la-titulo-16 la-titulo-modal">Número de Sorteo</p>
             </IonCol>
           </IonRow>
 
@@ -85,7 +85,7 @@ const ModalQueCayo: React.FC<ModalQueCayoProps> = (props) => {
             <IonCol key={index}>
               <IonGrid>
                 <IonRow>
-                  <IonCol>
+                  <IonCol className="la-fondo-digito">
                     <input
                       type="tel"
                       className="la-input-digito"

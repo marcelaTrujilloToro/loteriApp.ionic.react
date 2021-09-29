@@ -73,7 +73,7 @@ const ModalCodigoVerificacion: React.FC<ModalAvisameVerificacionProps> = (
         <IonGrid className="ion-no-padding">
           <IonRow>
             <IonCol>
-              <p className="la-texto-darkblue-12 la-texto">
+              <p className="la-texto-darkblue-12 la-texto la-texto-modal">
                 Se envió al correo o celular un código de confirmación de{" "}
                 <b>6</b> dígitos, por favor ingréselo.
               </p>
@@ -82,7 +82,7 @@ const ModalCodigoVerificacion: React.FC<ModalAvisameVerificacionProps> = (
 
           <IonRow>
             <IonCol>
-              <p className="la-titulo-16">Código de confirmación:</p>
+              <p className="la-titulo-16 la-titulo-modal">Código de confirmación:</p>
             </IonCol>
           </IonRow>
 
@@ -90,7 +90,7 @@ const ModalCodigoVerificacion: React.FC<ModalAvisameVerificacionProps> = (
             <IonCol>
               <IonGrid>
                 <IonRow>
-                  <IonCol>
+                  <IonCol className="la-fondo-digito">
                     <IonInput
                       type="tel"
                       value={avisameSiGanoParams.codigoVerificacion}

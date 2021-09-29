@@ -101,6 +101,8 @@ const Menu: React.FC = () => {
             );
           })}
         </IonList>
+          <p className="la-texto-menu">©2021 Loteria del valle. Todos los derechos reservados.</p>
+          <p className="la-texto-menu"> Juegue con responsabilidad. Los juegos de suerte y azar son exclusivos para mayores de edad.</p>
       </IonContent>
     </IonMenu>
   );

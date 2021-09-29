@@ -55,7 +55,7 @@ ion-page {
   /* tolima */
   /* color: #E20613; */
   /* valle */
-  color: #65b32e;
+  color: #e30613;
   font-weight: bold;
   font-size: 22px;
   display: flex;
@@ -119,9 +119,11 @@ ion-page {
   font-weight: normal;
   font-size: 18px;
   line-height: 16px;
-  color: rgba(94, 59, 11, 1);
+  /* color: rgba(94, 59, 11, 1); */
   /* tolima */
   /* color: #F4C325; */
+  /* valle */
+  color: white;
   position: absolute;
   top: 0;
   right: 0;
@@ -191,4 +193,18 @@ ion-page {
   /* color: #F4C325; */
   font-weight: bold;
   font-size: 22px;
+}
+
+.la-texto-modal{
+  color: white;
+}
+
+.la-titulo-modal{
+  color: #ffcc00;
+}
+
+.la-fondo-digito{
+  background: white;
+  border-radius: 10%;
+  height: 40px;
 }

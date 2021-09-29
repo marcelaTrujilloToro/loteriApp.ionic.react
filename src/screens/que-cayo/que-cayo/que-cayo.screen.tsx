@@ -56,7 +56,7 @@ const QueCayoScreen: React.FC = () => {
           <IonGrid>
             <IonRow>
               <IonCol className="la-col-titulo">
-                <IonTitle className="la-titulo-22">¿Qué Cayó?</IonTitle>
+                <IonTitle className="la-titulo-22">¿QUÉ CAYÓ?</IonTitle>
                 <div className="la-content-rectangulo-rojo "></div>
               </IonCol>
             </IonRow>
@@ -64,8 +64,7 @@ const QueCayoScreen: React.FC = () => {
             <IonRow>
               <IonCol className="la-fuente-subtitulo">
                 <IonText>
-                  Lorem ipsum dolor sit amet, consectetur adipis elit sed
-                  malesuada aliquam pharetra dignissim volutpat parturient.sdfsdf
+                 Conoce los números ganadores de los sorteos realizados todos los miercoles.
                 </IonText>
               </IonCol>
             </IonRow>

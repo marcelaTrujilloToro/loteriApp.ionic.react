@@ -42,6 +42,13 @@ const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
     }
   };
 
+  const cambiarCheck = (check: boolean) => {
+    if (check === true) {
+      return "X";
+    }
+    return " ";
+  }
+
   return (
     <IonContent>
       <div className="la-modal-suertudos-content">
@@ -57,7 +64,7 @@ const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
         <IonGrid className="ion-no-padding">
           <IonRow>
             <IonCol className="la-titulo-modal-suertudos">
-              <p className="la-titulo-16">
+              <p className="la-titulo-16 la-texto-modal">
                 Aproximación con tus números de la suerte
               </p>
             </IonCol>
@@ -114,7 +121,7 @@ const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
 
           <IonRow>
             <IonCol>
-              <p className="la-titulo-16">Cantidad de Sorteos</p>
+              <p className="la-titulo-16 la-titulo-modal">Cantidad de Sorteos</p>
             </IonCol>
           </IonRow>
 
@@ -122,7 +129,7 @@ const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
             <IonCol>
               <IonGrid>
                 <IonRow>
-                  <IonCol>
+                  <IonCol className="la-fondo-digito">
                     <IonInput
                       type="number"
                       value={cantidadSorteos}
@@ -151,7 +158,7 @@ const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
                   }else{
                     props.ocultarModal();
                     history.push({
-                      pathname: `/screens/numeros-suertudos/numeros-suertudos-resultados/numeros-suertudos-resultados.screen/${props.loteria.codigo}/${checkPrimeraCifra}/${checkSegundaCifra}/${checkTerceraCifra}/${checkUltimaCifra}/${cantidadSorteos}/`,
+                      pathname: `/screens/numeros-suertudos/numeros-suertudos-resultados/numeros-suertudos-resultados.screen/${props.loteria.codigo}/${cambiarCheck(checkPrimeraCifra)}/${cambiarCheck(checkSegundaCifra)}/${cambiarCheck(checkTerceraCifra)}/${cambiarCheck(checkUltimaCifra)}/${cantidadSorteos}/`,
                     });
                   }
                 }}

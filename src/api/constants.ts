@@ -1,10 +1,10 @@
-export const AZEN_API_BASE_URL = "http://localhost:3001";
+export const AZEN_API_BASE_URL = "https://localhost:44391/api/service";
 
 //azen desarollo
-//http://52.89.69.223:8080/api/service/azenaut_ms
+//http://52.89.69.223:8080/api/service
 
 //azen en local
-//https://localhost:44391/api/service/azenaut_ms
+//https://localhost:44391/api/service
 
 // http://localhost:3001
 //json-server --watch backend/db.json --port 3001

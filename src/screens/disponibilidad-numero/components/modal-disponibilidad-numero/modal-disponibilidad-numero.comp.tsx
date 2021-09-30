@@ -4,6 +4,7 @@ import { useHistory } from "react-router";
 import './modal-disponibilidad-numero.style.css';
 
 import {
+  IonAlert,
     IonButton,
     IonCol,
     IonContent,
@@ -26,6 +27,8 @@ const ModalDisponibilidadNumero: React.FC<ModalDisponibilidadNumeroProps> = (pro
   let inputTiqueteRefsArr = Array<any>(numeroTiqueteArr.length);
 
   const [numeroSerieArr, setNumeroSerieArr] = useState(["", "", ""]);
+
+  const [verAlertaDatosInvalidos, setVerAlertaDatosInvalidos] = useState(false);
 
   let inputSerieRefsArr = Array<any>(numeroSerieArr.length);
 
@@ -168,11 +171,15 @@ const ModalDisponibilidadNumero: React.FC<ModalDisponibilidadNumeroProps> = (pro
                 <button
                   className="la-boton la-boton-consultar"
                   onClick={() => {
+                    if (getSerie().length === 0 || getTiquete().length === 0) {
+                      setVerAlertaDatosInvalidos(true);
+                    }else{
                       props.ocultarModal();
                       history.push({
                         pathname: `/screens/disponibilidad-numero/disponibilidad-numero-resultado/disponibilidad-numero-resultado.screen/${props.loteria.codigo}/${getTiquete()}/${getSerie()}`,
                       });
                     }}
+                  }
                 >
                   CONSULTAR
                 </button>
@@ -180,6 +187,21 @@ const ModalDisponibilidadNumero: React.FC<ModalDisponibilidadNumeroProps> = (pro
             </IonRow>
           </IonGrid>
         </div>
+        <IonAlert
+        isOpen={verAlertaDatosInvalidos}
+        cssClass="my-custom-class"
+        header={"Error"}
+        message={"Debe ingresar todos los datos"}
+        backdropDismiss={true}
+        buttons={[
+          {
+            text: "Aceptar",
+            handler: () => {
+              setVerAlertaDatosInvalidos(false)
+            },
+          },
+        ]}
+      />
       </IonContent>
     )
 };

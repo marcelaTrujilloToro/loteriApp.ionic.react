@@ -64,7 +64,7 @@ const YoGanePrincipalScreen: React.FC = () => {
             <IonRow className="la-row-titulo">
               <IonCol className="la-col-titulo-yo-gane">
                 <IonTitle className="la-titulo-22 la-yo-gane">
-                  ¿Yo Gané?
+                  ¿YO GANÉ?
                 </IonTitle>
                 <div className="la-linea-roja"></div>
               </IonCol>

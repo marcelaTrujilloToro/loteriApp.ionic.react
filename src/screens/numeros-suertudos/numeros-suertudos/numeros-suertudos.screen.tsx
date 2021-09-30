@@ -53,7 +53,7 @@ const NumerosSuertudosScreen: React.FC = () => {
           <IonGrid>
             <IonRow>
               <IonCol className="la-col-titulo">
-                <IonTitle className="la-titulo-22">Los Números Suertudos</IonTitle>
+                <IonTitle className="la-titulo-22">LOS NÚMEROS SUERTUDOS</IonTitle>
                 <div className="la-content-rectangulo-rojo "></div>
               </IonCol>
             </IonRow>

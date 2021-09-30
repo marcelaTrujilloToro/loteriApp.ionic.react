@@ -67,7 +67,7 @@ const NumerosSuertudosResultadosScreen: React.FC = () => {
             <IonRow className="la-titulo-ns-row">
               <IonCol className=" la-col-titulo-suertudos">
                 <IonTitle className="la-titulo-22 la-titulo-suertudos">
-                  Los Números Suertudos
+                LOS NÚMEROS SUERTUDOS
                 </IonTitle>
                 <div className="la-content-rectangulo-rojo la-linea-roja-ns"></div>
               </IonCol>

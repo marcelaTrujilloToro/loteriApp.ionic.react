@@ -48,7 +48,7 @@ const DisponibilidadNumeroResultadoScreen: React.FC = () => {
             <IonRow className="la-titulo-disponibilidad-row">
               <IonCol className=" la-col-titulo-disponibilidad">
                 <IonTitle className="la-titulo-22 la-titulo-disponibilidad">
-                  Disponibilidad de Números
+                DISPONIBILIDAD DE NÚMERO
                 </IonTitle>
                 <div className="la-content-rectangulo-rojo la-linea-roja-disponibilidad"></div>
               </IonCol>

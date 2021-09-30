@@ -54,7 +54,7 @@ const YoGaneScreen: React.FC = () => {
           <IonGrid>
             <IonRow>
               <IonCol className="la-col-titulo">
-                <IonTitle className="la-titulo-22">¿Yo Gané?</IonTitle>
+                <IonTitle className="la-titulo-22">¿YO GANÉ?</IonTitle>
                 <div className="la-content-rectangulo-rojo "></div>
               </IonCol>
             </IonRow>

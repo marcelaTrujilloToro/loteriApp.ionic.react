@@ -49,7 +49,7 @@ const QueCayoResultadoScreen: React.FC = () => {
             
             <IonRow className="la-titulo-que-cayo-row">
               <IonCol className=" la-col-titulo-que-cayo">
-                <div className="la-titulo-22 la-titulo-que-cayo">Resultados de Sorteo</div>
+                <div className="la-titulo-22 la-titulo-que-cayo">RESULTADOS DE SORTEO</div>
                 <div className="la-content-rectangulo-rojo la-linea-roja-que-cayo"></div>
               </IonCol>
             </IonRow>

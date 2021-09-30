@@ -171,5 +171,6 @@ ion-menu ion-content{
 
 .la-texto-menu{
   color: white;
-  
+  text-align: justify;
+  padding: 8px;
 }

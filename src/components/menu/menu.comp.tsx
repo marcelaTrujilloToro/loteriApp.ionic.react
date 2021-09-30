@@ -11,7 +11,7 @@ import {
   IonNote,
 } from "@ionic/react";
 
-import { useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import {
   chevronForward,
 } from "ionicons/icons";
@@ -67,6 +67,7 @@ const appPages: AppPage[] = [
 
 const Menu: React.FC = () => {
   const location = useLocation();
+  const history = useHistory();
 
   return (
     <IonMenu contentId="main" type="overlay">
@@ -74,7 +75,14 @@ const Menu: React.FC = () => {
         <IonList id="inbox-list">
           <IonListHeader className="la-menu-header">
             <div className="la-header-gradiente">
-              <IonImg  className="la-logo-app" src="../../assets/imagenes/logoValleFondoRojo.png"></IonImg>
+              <IonImg  
+                className="la-logo-app" 
+                src="../../assets/imagenes/logoValleFondoRojo.png" 
+                onClick={() => {
+                  history.push({
+                    pathname: `/`,
+                  });
+                }}></IonImg>
             </div>
           </IonListHeader>
 

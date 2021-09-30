@@ -56,7 +56,7 @@ const AvisameSiGanoScreen: React.FC = () => {
           <IonGrid>
             <IonRow>
               <IonCol className="la-col-titulo">
-                <IonTitle className="la-titulo-22">Avísame sí Gano</IonTitle>
+                <IonTitle className="la-titulo-22">AVÍSAME SI GANO</IonTitle>
                 <div className="la-content-rectangulo-rojo "></div>
               </IonCol>
             </IonRow>

@@ -52,7 +52,7 @@ const DisponibilidadNumeroScreen: React.FC = () => {
           <IonGrid>
             <IonRow>
               <IonCol className="la-col-titulo">
-                <IonTitle className="la-titulo-22">Disponibilidad de Número</IonTitle>
+                <IonTitle className="la-titulo-22">DISPONIBILIDAD DE NÚMERO</IonTitle>
                 <div className="la-content-rectangulo-rojo "></div>
               </IonCol>
             </IonRow>

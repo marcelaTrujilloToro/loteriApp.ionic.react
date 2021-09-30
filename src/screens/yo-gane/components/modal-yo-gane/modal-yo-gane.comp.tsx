@@ -5,6 +5,7 @@ import { Loteria } from "../../../../models/loteria/Loteria";
 import { useHistory } from "react-router";
 
 import {
+  IonAlert,
   IonButton,
   IonCol,
   IonContent,
@@ -36,6 +37,8 @@ const ModalYoGane: React.FC<ModalYoGaneProps> = (props) => {
 
   const [numeroSerieArr, setNumeroSerieArr] = useState(["", "", ""]);
 
+  const [verAlertaDatosInvalidos, setVerAlertaDatosInvalidos] = useState(false);
+
   let inputSerieRefsArr = Array<any>(numeroSerieArr.length);
 
   const cambiarFocoDigito = (digitoEvt: any, index: any, setArreglo: any, arregloDigitos: any, inputRefsArr: any) => {
@@ -65,6 +68,7 @@ const ModalYoGane: React.FC<ModalYoGaneProps> = (props) => {
   const getSerie = () => {
     return `${numeroSerieArr[0]}${numeroSerieArr[1]}${numeroSerieArr[2]}`;
   };
+
 
   return (
     <IonContent>
@@ -219,12 +223,17 @@ const ModalYoGane: React.FC<ModalYoGaneProps> = (props) => {
               <button
                 className="la-boton la-boton-consultar"
                 onClick={() => {
-                  props.ocultarModal();
-                  history.push({
-                    pathname: `/screens/yo-gane/yo-gane-resultado/yo-gane-resultado.screen/${
-                      props.loteria.codigo
-                    }/${getSorteo()}/${getTiquete()}/${getSerie()}`,
-                  });
+                  if (getSerie().length === 0 || getTiquete().length === 0) {
+                    setVerAlertaDatosInvalidos(true);
+                  }else{
+                    props.ocultarModal();
+                    history.push({
+                      pathname: `/screens/yo-gane/yo-gane-resultado/yo-gane-resultado.screen/${
+                        props.loteria.codigo
+                      }/${getSorteo()}/${getTiquete()}/${getSerie()}`,
+                    });
+                  }
+                  
                 }}
               >
                 CONSULTAR
@@ -233,6 +242,21 @@ const ModalYoGane: React.FC<ModalYoGaneProps> = (props) => {
           </IonRow>
         </IonGrid>
       </div>
+      <IonAlert
+        isOpen={verAlertaDatosInvalidos}
+        cssClass="my-custom-class"
+        header={"Error"}
+        message={"Debe ingresar todos los datos"}
+        backdropDismiss={true}
+        buttons={[
+          {
+            text: "Aceptar",
+            handler: () => {
+              setVerAlertaDatosInvalidos(false)
+            },
+          },
+        ]}
+      />
     </IonContent>
   );
 };

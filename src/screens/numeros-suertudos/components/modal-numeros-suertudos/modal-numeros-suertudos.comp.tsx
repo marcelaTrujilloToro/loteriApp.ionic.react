@@ -22,7 +22,6 @@ interface ModalNumerosSuertudosProps {
 }
 
 const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
-  
   const history = useHistory();
 
   const [checkPrimeraCifra, setCheckPrimeraCifra] = useState(false);
@@ -30,12 +29,14 @@ const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
   const [checkTerceraCifra, setCheckTerceraCifra] = useState(false);
   const [checkUltimaCifra, setCheckUltimaCifra] = useState(false);
 
+  const [verAlertaChequeoCifras, setVerAlertaChequeoCifras] = useState(false);
+
   const [cantidadSorteos, setCantidadSorteos] = useState<number | undefined>(10);
-  const [alertaErrorCantSorteos, setAlertaErrorCantSorteos] = useState<boolean>(false)
+  const [alertaErrorCantSorteos, setAlertaErrorCantSorteos] =useState<boolean>(false);
 
   const validarCantidadSorteos = () => {
     if (cantidadSorteos) {
-      if (cantidadSorteos > 20) {
+      if (cantidadSorteos > 10) {
         return false;
       }
       return true;
@@ -47,8 +48,14 @@ const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
       return "X";
     }
     return " ";
-  }
+  };
 
+  const validarChequeos = () => {
+    if ( checkPrimeraCifra === false && checkSegundaCifra === false && checkTerceraCifra === false &&checkUltimaCifra === false ) {
+      return false
+    }
+    return true
+  }
   return (
     <IonContent>
       <div className="la-modal-suertudos-content">
@@ -100,9 +107,7 @@ const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
                     checked={checkTerceraCifra}
                     onIonChange={(e) => {
                       setCheckTerceraCifra(e.detail.checked);
-                      
                     }}
-                    
                   />
                 </IonItem>
                 <IonItem>
@@ -121,7 +126,9 @@ const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
 
           <IonRow>
             <IonCol>
-              <p className="la-titulo-16 la-titulo-modal">Cantidad de Sorteos</p>
+              <p className="la-titulo-16 la-titulo-modal">
+                Cantidad de Sorteos
+              </p>
             </IonCol>
           </IonRow>
 
@@ -134,7 +141,7 @@ const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
                       type="number"
                       value={cantidadSorteos}
                       onIonChange={(e: any) => {
-                          setCantidadSorteos(e.detail.value);
+                        setCantidadSorteos(e.detail.value);
                       }}
                     ></IonInput>
                   </IonCol>
@@ -153,9 +160,11 @@ const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
               <button
                 className="la-boton la-boton-consultar"
                 onClick={() => {
-                  if (validarCantidadSorteos() === false) {
+                  if (validarChequeos() === false) {
+                    setVerAlertaChequeoCifras(true);
+                  }else if (validarCantidadSorteos() === false) {
                     setAlertaErrorCantSorteos(true);
-                  }else{
+                  } else {
                     props.ocultarModal();
                     history.push({
                       pathname: `/screens/numeros-suertudos/numeros-suertudos-resultados/numeros-suertudos-resultados.screen/${props.loteria.codigo}/${cambiarCheck(checkPrimeraCifra)}/${cambiarCheck(checkSegundaCifra)}/${cambiarCheck(checkTerceraCifra)}/${cambiarCheck(checkUltimaCifra)}/${cantidadSorteos}/`,
@@ -174,13 +183,29 @@ const ModalNumerosSuertudos: React.FC<ModalNumerosSuertudosProps> = (props) => {
         isOpen={alertaErrorCantSorteos}
         onDidDismiss={() => setAlertaErrorCantSorteos(false)}
         header={"Error"}
-        message={"La cantidad de sorteos debe ser inferior a 20"}
+        message={"La cantidad de sorteos debe ser inferior a 10"}
         buttons={[
           {
             text: "Aceptar",
             handler: () => {
               setAlertaErrorCantSorteos(false);
               setCantidadSorteos(undefined);
+            },
+          },
+        ]}
+      />
+
+      <IonAlert
+        isOpen={verAlertaChequeoCifras}
+        cssClass="my-custom-class"
+        header={"Error"}
+        message={"Debe marcar al menos una cifra"}
+        backdropDismiss={true}
+        buttons={[
+          {
+            text: "Aceptar",
+            handler: () => {
+              setVerAlertaChequeoCifras(false);
             },
           },
         ]}

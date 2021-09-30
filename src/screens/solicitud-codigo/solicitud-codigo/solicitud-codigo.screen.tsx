@@ -101,10 +101,10 @@ const SolicitudCodigoScreen: React.FC = () => {
             <IonRow className="la-row-titulo-avisame">
               <IonCol className="la-col-titulo la-col-titulo-avisame">
                 {opcion === "1" ? (
-                  <IonTitle className="la-titulo-22">Avísame sí Gano</IonTitle>
+                  <IonTitle className="la-titulo-22">AVÍSAME SI GANO</IonTitle>
                 ) : (
                   <IonTitle className="la-titulo-22">
-                    Mis Subscripciones
+                    MIS SUBSCRIPCIONES
                   </IonTitle>
                 )}
                 <div className="la-content-rectangulo-rojo la-height-linea"></div>

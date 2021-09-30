@@ -23,7 +23,6 @@ export const useDisponibilidadNumero = (codigoLoteria: string, numero: string, s
                 Authorization: 'Bearer ' + azenToken
             }
         });
-        console.log(JSON.stringify(data));
         return data;
     }, {
         staleTime: Infinity,

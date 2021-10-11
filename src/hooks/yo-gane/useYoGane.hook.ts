@@ -27,7 +27,6 @@ export const useYoGane = (loteria: string, sorteo:string, numero:string, serie:s
             }
         }
         );
-        console.log(JSON.stringify(data));
         return data;
     }, {
         retry: 1,

@@ -94,7 +94,7 @@ const ModalYoGane: React.FC<ModalYoGaneProps> = (props) => {
 
           <IonRow>
             <IonCol>
-              <p className="la-titulo-16 la-titulo-modal">Número de Sorteo</p>
+              <p className="la-titulo-16 la-titulo-modal">Sorteo</p>
             </IonCol>
           </IonRow>
 
@@ -136,7 +136,7 @@ const ModalYoGane: React.FC<ModalYoGaneProps> = (props) => {
 
           <IonRow>
             <IonCol>
-              <p className="la-titulo-16 la-titulo-modal">Número de Tiquete</p>
+              <p className="la-titulo-16 la-titulo-modal">Número</p>
             </IonCol>
           </IonRow>
 
@@ -178,7 +178,7 @@ const ModalYoGane: React.FC<ModalYoGaneProps> = (props) => {
 
           <IonRow>
             <IonCol>
-              <p className="la-titulo-16 la-titulo-modal">Número de Serie</p>
+              <p className="la-titulo-16 la-titulo-modal">Serie</p>
             </IonCol>
           </IonRow>
 

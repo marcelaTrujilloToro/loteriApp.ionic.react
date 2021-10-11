@@ -27,6 +27,7 @@ avisameDatos:
     "loteria": "024",
     "celular": "1111111111";
     "email": "pepitoperez@correo.com";
+    "anioNacim": 1991
 }
 
 avisameCodigoVerificacion:
@@ -34,7 +35,7 @@ avisameCodigoVerificacion:
     "loteria": "024",
     "celular": "1111111111";
     "email": "pepitoperez@correo.com";
-    "codigo: "123456";
+    "codigoOTP: "123456";
 }
 
 avisameNumeroSuerte:
@@ -42,9 +43,10 @@ avisameNumeroSuerte:
     "loteria": "024",
     "celular": "1111111111";
     "email": "pepitoperez@correo.com";
-    "fecha": aaaammdd
-    "codigo: "123456";
+    "fchSorteo": aaaammdd
+    "codigoOTP: "123456";
     "numero: "1234";
+    "serie": "123";
     "cantidadSorteos": "";
 }
 
@@ -54,6 +56,7 @@ eliminarSubscripcion:
     "celular": "1111111111";
     "email": "pepitoperez@correo.com";
     "numero: "1234";
+    "serie": "123"
 }
 
 disponibilidadNumero:

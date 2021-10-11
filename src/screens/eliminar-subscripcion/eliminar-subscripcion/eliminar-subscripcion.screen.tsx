@@ -48,7 +48,7 @@ const EliminarSubscripcionScreen: React.FC = () => {
           <IonGrid>
             <IonRow>
               <IonCol className="la-col-titulo">
-                <IonTitle className="la-titulo-22">Mis Subscripciones</IonTitle>
+                <IonTitle className="la-titulo-22">MIS SUBSCRIPCIONES</IonTitle>
                 <div className="la-content-rectangulo-rojo "></div>
               </IonCol>
             </IonRow>

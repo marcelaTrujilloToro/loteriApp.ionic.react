@@ -45,7 +45,7 @@ const EliminarSubscripcionResultadoScreen = () => {
             <IonRow className="la-subscripcion-titulo-row">
               <IonCol className=" la-col-titulo-subscripcion ">
                 <IonTitle className="la-titulo-22 la-titulo-subscripcion">
-                  Mis números subscritos
+                  MIS NÚMEROS SUBSCRITOS
                 </IonTitle>
                 <div className="la-content-rectangulo-rojo la-linea-roja-ns"></div>
               </IonCol>
@@ -64,6 +64,9 @@ const EliminarSubscripcionResultadoScreen = () => {
             <IonRow className="la-subscripcion-subtitulos-row">
               <IonCol>
                 <p>Número</p>
+              </IonCol>
+              <IonCol>
+                <p>Serie</p>
               </IonCol>
               <IonCol>
                 <p>Sorteos pendientes</p>

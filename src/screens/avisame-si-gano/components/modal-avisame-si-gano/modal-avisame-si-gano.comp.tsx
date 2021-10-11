@@ -21,14 +21,13 @@ interface ModalAvisameSiGanoProps {
 
 const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
 
-  const [numeroSuerteArr, setNumeroSuerteArr] = useState([
-    "",
-    "",
-    "",
-    ""
-  ]);
+  const [numeroSuerteArr, setNumeroSuerteArr] = useState(["","","",""]);
 
   let inputNumeroSuerteArr = Array<any>(numeroSuerteArr.length);
+  
+  const [numeroSerieArr, setNumeroSerieArr] = useState(["","",""]);
+  
+  let inputNumeroSerieArr = Array<any>(numeroSerieArr.length);
 
   const {avisameSiGanoParams, setAvisameSiGanoParams} = useContext(AvisameSiGanoContext);
 
@@ -36,7 +35,7 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
 
   const validarCantidadSorteos = () => {
     if (avisameSiGanoParams.cantidadSorteos) {
-      if (avisameSiGanoParams.cantidadSorteos > 20) {
+      if (avisameSiGanoParams.cantidadSorteos > 10) {
         return false;
       }
       return true;
@@ -46,24 +45,28 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
   const { data:respuesta } = useAvisameSiGano(avisameSiGanoParams);
   
 
-  const cambiarFocoDigito = (digitoEvt: any, index: any) => {
+  const cambiarFocoDigito = (digitoEvt: any, index: any, setArreglo: any, arregloDigitos: any, inputRefsArr: any) => {
     const digito = digitoEvt.target.value;
 
-    setNumeroSuerteArr(
-     numeroSuerteArr.map((valor: any, i: any) => (i !== index ? valor : digito))
+    setArreglo(
+      arregloDigitos.map((valor: any, i: any) => (i !== index ? valor : digito))
     );
 
     if (isNaN(parseInt(digito))) {
       return;
     }
 
-    if (index <numeroSuerteArr.length - 1) {
-      inputNumeroSuerteArr[index + 1].focus();
+    if (index < arregloDigitos.length - 1) {
+      inputRefsArr[index + 1].focus();
     }
   };
 
   const obtenerNumeroSuerte = () => {
     return `${numeroSuerteArr[0]}${numeroSuerteArr[1]}${numeroSuerteArr[2]}${numeroSuerteArr[3]}`;
+  };
+
+  const obtenerNumeroSerie = () => {
+    return `${numeroSerieArr[0]}${numeroSerieArr[1]}${numeroSerieArr[2]}`;
   };
   
   const completarMes = (mesAValidar: number) => {
@@ -126,7 +129,52 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
                         onChange={(e: any) => {
                           cambiarFocoDigito(
                             e,
-                            index
+                            index,
+                            setNumeroSuerteArr,
+                            numeroSuerteArr,
+                            inputNumeroSuerteArr
+                          );
+                        }}
+                      ></input>
+                    </IonCol>
+                  </IonRow>
+                  <IonRow>
+                    <IonCol>
+                      <div className="la-linea-roja-digito"></div>
+                    </IonCol>
+                  </IonRow>
+                </IonGrid>
+              </IonCol>
+            ))}
+          </IonRow>
+
+          <IonRow >
+            <IonCol>
+              <p className="la-titulo-16 la-titulo-modal">Serie:</p>
+            </IonCol>
+          </IonRow>
+
+          <IonRow >
+          {numeroSerieArr.map((digito, index) => (
+              <IonCol key={index}>
+                <IonGrid>
+                  <IonRow>
+                    <IonCol className="la-fondo-digito">
+                      <input
+                        type="tel"
+                        className="la-input-digito"
+                        maxLength={1}
+                        value={digito}
+                        ref={(inputRef: any) => {
+                          inputNumeroSerieArr[index] = inputRef;
+                        }}
+                        onChange={(e: any) => {
+                          cambiarFocoDigito(
+                            e,
+                            index,
+                            setNumeroSerieArr,
+                            numeroSerieArr,
+                            inputNumeroSerieArr
                           );
                         }}
                       ></input>
@@ -180,7 +228,7 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
                   if (validarCantidadSorteos() === false) {
                     setAlertaErrorCantSorteos(true);
                   }else {
-                    setAvisameSiGanoParams({...avisameSiGanoParams, numero: obtenerNumeroSuerte(), fecha: parseInt(obtenerFechaActual()) })
+                    setAvisameSiGanoParams({...avisameSiGanoParams, serie:obtenerNumeroSerie(), numero: obtenerNumeroSuerte(), fecha: parseInt(obtenerFechaActual()) })
                       props.ocultarModalAvisame();
                       props.abrirModalNotificacion();
                   }
@@ -200,7 +248,7 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
         isOpen={alertaErrorCantSorteos}
         onDidDismiss={() => setAlertaErrorCantSorteos(false)}
         header={"Error"}
-        message={"La cantidad de sorteos debe ser inferior a 20"}
+        message={"La cantidad de sorteos debe ser máximo 10"}
         buttons={[
           {
             text: "Aceptar",

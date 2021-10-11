@@ -41,6 +41,9 @@ export const SubscripcionItem: React.FC<SubscripcionProps> = (props) => {
           {props.subscripcion.numero}
         </IonCol>
         <IonCol className="la-premio-fuente ">
+          {props.subscripcion.serie}
+        </IonCol>
+        <IonCol className="la-premio-fuente ">
           {props.subscripcion.sorteosPendientes}
         </IonCol>
         <IonCol>

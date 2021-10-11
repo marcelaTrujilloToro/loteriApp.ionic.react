@@ -83,7 +83,7 @@ const ModalDisponibilidadNumero: React.FC<ModalDisponibilidadNumeroProps> = (pro
   
             <IonRow>
               <IonCol>
-                <p className="la-titulo-16 la-titulo-modal">Número de Tiquete</p>
+                <p className="la-titulo-16 la-titulo-modal">Número</p>
               </IonCol>
             </IonRow>
   
@@ -125,7 +125,7 @@ const ModalDisponibilidadNumero: React.FC<ModalDisponibilidadNumeroProps> = (pro
   
             <IonRow>
               <IonCol>
-                <p className="la-titulo-16 la-titulo-modal">Número de Serie</p>
+                <p className="la-titulo-16 la-titulo-modal">Serie</p>
               </IonCol>
             </IonRow>
   

@@ -120,22 +120,26 @@
           {
             "numero": "1111",
             "sorteosPendientes": 3,
-            "eliminado": 1
+            "eliminado": 1,
+            "serie": "123"
           },
           {
             "numero": "0410",
             "sorteosPendientes": 4,
-            "eliminado": 0
+            "eliminado": 0,
+            "serie": "123"
           },
           {
             "numero": "0330",
             "sorteosPendientes": 1,
-            "eliminado": 0
+            "eliminado": 0,
+            "serie": "321"
           },
           {
             "numero": "0104",
             "sorteosPendientes": 4,
-            "eliminado": 0
+            "eliminado": 0,
+            "serie": "345"
           }
           
         ],

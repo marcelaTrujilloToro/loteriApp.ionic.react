@@ -32,11 +32,9 @@ export interface AvisameSiGanoScreenParams {
 const SolicitudCodigoScreen: React.FC = () => {
   const { opcion } = useParams<AvisameSiGanoScreenParams>();
 
-  const { avisameSiGanoParams, setAvisameSiGanoParams } =
-    useContext(AvisameSiGanoContext);
+  const { avisameSiGanoParams, setAvisameSiGanoParams } = useContext(AvisameSiGanoContext);
 
-  const [verModalCodigoVerificacion, setVerModalCodigoVerificacion] =
-    useState<boolean>(false);
+  const [verModalCodigoVerificacion, setVerModalCodigoVerificacion] = useState<boolean>(false);
 
   const [verModalAvisame, setVerModalAvisame] = useState<boolean>(false);
 
@@ -89,6 +87,17 @@ const SolicitudCodigoScreen: React.FC = () => {
         return false;
       }
       return true;
+    }
+  };
+
+  const validarAnio = () => {
+    if (avisameSiGanoParams.anioNacim) {
+      if (avisameSiGanoParams.anioNacim.length < 4 || avisameSiGanoParams.anioNacim.length > 4) {
+        return false;
+      }
+      return true;
+    }else if(!avisameSiGanoParams.anioNacim){
+      return false;
     }
   };
 
@@ -159,7 +168,9 @@ const SolicitudCodigoScreen: React.FC = () => {
                   <IonRow>
                     <IonCol>
                       <IonInput
-                        type="email"
+                        type="tel"
+                        maxlength={4}
+                        required={true}
                         placeholder="Correo electronico"
                         value={avisameSiGanoParams.email}
                         onIonChange={(e: any) => {
@@ -185,12 +196,45 @@ const SolicitudCodigoScreen: React.FC = () => {
               </IonCol>
             </IonRow>
 
+            <IonRow className="la-row-dato-edad">
+              <IonCol>
+                <IonGrid>
+                  <IonRow>
+                    <IonCol>
+                      <IonInput
+                        type="tel"
+                        maxlength={4}
+                        placeholder="Año nacimiento*"
+                        value={avisameSiGanoParams.anioNacim}
+                        onIonChange={(e: any) => {
+                            setAvisameSiGanoParams({
+                              ...avisameSiGanoParams,
+                              anioNacim: e.detail.value,
+                            });
+
+                            setEliminarSubscripcionParams({
+                              ...eliminarSubscripcionParams,
+                              anioNacim: e.detail.value,
+                            });
+                        }}
+                      ></IonInput>
+                    </IonCol>
+                  </IonRow>
+                  <IonRow>
+                    <IonCol>
+                      <div className="la-linea-roja-digito la-linea-datos-avisame"></div>
+                    </IonCol>
+                  </IonRow>
+                </IonGrid>
+              </IonCol>
+            </IonRow>
+
             <IonRow className="la-row-boton-enviar">
               <IonCol>
                 <button
                   className="la-boton la-boton-consultar"
                   onClick={() => {
-                    if (validarCorreo() === false || validarCelular() === false) {
+                    if (validarCorreo() === false || validarCelular() === false || validarAnio() === false) {
                       setVerAlertaDatosInvalidos(true);
                     } else {
                       abrirModalVerificacion();
@@ -238,7 +282,7 @@ const SolicitudCodigoScreen: React.FC = () => {
         onDidDismiss={() => setVerAlertaDatosInvalidos(false)}
         cssClass="my-custom-class"
         header={"Error"}
-        message={"Ha ingresado mal un dato"}
+        message={"Ha ingresado mal un dato, o no ha ingresado el año de nacimiento"}
         buttons={[
           {
             text: "Aceptar",
@@ -246,7 +290,7 @@ const SolicitudCodigoScreen: React.FC = () => {
               setVerAlertaDatosInvalidos(false);
               setAvisameSiGanoParams({
                 ...avisameSiGanoParams,
-                email: undefined, celular: undefined
+                email: undefined, celular: undefined, anioNacim: ""
               });
             },
           },

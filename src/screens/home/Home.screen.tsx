@@ -22,6 +22,7 @@ const HomeScreen = () => {
     "awKfzUMihDq2rODcjNUbuQ=="
   );
   const history = useHistory();
+  console.log(JSON.stringify(data));
 
   return (
     <IonPage>

@@ -8,7 +8,7 @@ import {
   IonText,
   IonTitle,
 } from "@ionic/react";
-import React from "react";
+import React, { useEffect } from "react";
 import "./Home.styles.css";
 import Header from "../../components/header/header.comp";
 import QueCayoScreen from "../que-cayo/que-cayo/que-cayo.screen";
@@ -17,12 +17,14 @@ import { useLogin } from "../../hooks/login/login.hook";
 import queryClient from "../../react-query-client";
 
 const HomeScreen = () => {
+
   const { data } = useLogin(
     "awKfzUMihDq2rODcjNUbuQ==",
     "awKfzUMihDq2rODcjNUbuQ=="
   );
   const history = useHistory();
   console.log(JSON.stringify(data));
+
 
   return (
     <IonPage>

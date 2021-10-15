@@ -15,7 +15,7 @@ export const useLogin = (username: string, password: string) => {
         });
         return data;
     }, {
-        staleTime: 1,
-        retry: 1,
+        staleTime: Infinity,
+        retry: 1
     });
 };

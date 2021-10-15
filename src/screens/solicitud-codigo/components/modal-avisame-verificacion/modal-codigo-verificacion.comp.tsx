@@ -2,7 +2,8 @@ import React, { useContext, useState } from "react";
 import { useHistory } from "react-router";
 import "./modal-codigo-verificacion.style.css";
 import { AvisameSiGanoContext } from "../../../../providers/avisame-si-gano/avisameSiGano.context";
-import { useAvisameSiGano } from "../../../../hooks/avisame-si-gano/useAvisameSiGano.hook";
+import { useAvisameSolicitudCodigo } from "../../../../hooks/avisame-solicitud-codigo/useAvisameSolicitudCodigo.hook";
+import {  useAvisameOTP } from "../../../../hooks/avisame-OTP/useAvisameOTP.hook";
 
 import {
   IonButton,
@@ -22,39 +23,42 @@ interface ModalAvisameVerificacionProps {
   opcion: string;
 }
 
-const ModalCodigoVerificacion: React.FC<ModalAvisameVerificacionProps> = (
-  props
-) => {
-  const { avisameSiGanoParams, setAvisameSiGanoParams } =
-    useContext(AvisameSiGanoContext);
+const ModalCodigoVerificacion: React.FC<ModalAvisameVerificacionProps> = (props) => {
+  
+  const { avisameSiGanoParams, setAvisameSiGanoParams } = useContext(AvisameSiGanoContext);
 
-  const { data: respuesta } = useAvisameSiGano(avisameSiGanoParams);
+  const { data: respuesta, isSuccess } = useAvisameSolicitudCodigo(avisameSiGanoParams);
+
+  console.log(`respuesta: ${JSON.stringify(respuesta)}, isSuccess: ${isSuccess}`);
+
+  const { data: verificacionOTP } = useAvisameOTP(avisameSiGanoParams);
+  
+
 
   const history = useHistory();
 
-
-
   const [verAlerta, setVerAlerta] = useState(false);
-
   const [verAlertExcedeIntento, setVerAlertExcedeIntento] = useState(false);
 
   const validarRespuestaCodigoVerificacion = () => {
-    if (respuesta?.codigoVerificacion.valido === 1) {
-      if (props.opcion === "1") {
-        props.ocultarModal();
-        props.abrirModalAvisame();
-      } else if (props.opcion === "0") {
-        history.push({
-          pathname: `/screens/eliminar-subscripcion/eliminar-subscripcion-resultado/eliminar-subscripcion-resultado.screen/`,
-        });
+    if (isSuccess) {
+      if (verificacionOTP?.codigoVerificacion.valido === 1) {
+        if (props.opcion === "1") {
+          props.ocultarModal();
+          props.abrirModalAvisame();
+        } else if (props.opcion === "0") {
+          history.push({
+            pathname: `/screens/eliminar-subscripcion/eliminar-subscripcion-resultado/eliminar-subscripcion-resultado.screen/`,
+          });
+        }
+      } else if (
+        verificacionOTP?.codigoVerificacion.valido === 0 &&
+        verificacionOTP.codigoVerificacion.excedeIntentos === 0
+      ) {
+        setVerAlerta(true);
+      } else if (verificacionOTP?.codigoVerificacion.excedeIntentos === 1) {
+        setVerAlertExcedeIntento(true);
       }
-    } else if (
-      respuesta?.codigoVerificacion.valido === 0 &&
-      respuesta.codigoVerificacion.excedeIntentos === 0
-    ) {
-      setVerAlerta(true);
-    } else if (respuesta?.codigoVerificacion.excedeIntentos === 1) {
-      setVerAlertExcedeIntento(true);
     }
   };
 
@@ -75,7 +79,7 @@ const ModalCodigoVerificacion: React.FC<ModalAvisameVerificacionProps> = (
             <IonCol>
               <p className="la-texto-darkblue-12 la-texto la-texto-modal">
                 Se envió al correo o celular un código de confirmación de{" "}
-                <b>6</b> dígitos, por favor ingréselo.
+                <b>10</b> carácteres, por favor ingréselo.
               </p>
             </IonCol>
           </IonRow>
@@ -95,7 +99,7 @@ const ModalCodigoVerificacion: React.FC<ModalAvisameVerificacionProps> = (
                       type="tel"
                       value={avisameSiGanoParams.codigoVerificacion}
                       required={true}
-                      maxlength={6}
+                      maxlength={10}
                       placeholder="######"
                       onIonChange={(e: any) => {
                         setAvisameSiGanoParams({
@@ -133,7 +137,7 @@ const ModalCodigoVerificacion: React.FC<ModalAvisameVerificacionProps> = (
         isOpen={verAlerta}
         onDidDismiss={() => setVerAlerta(false)}
         cssClass="my-custom-class"
-        header={respuesta?.codigoVerificacion.mensaje}
+        header={verificacionOTP?.codigoVerificacion.mensaje}
         buttons={[
           {
             text: "Aceptar",
@@ -152,7 +156,7 @@ const ModalCodigoVerificacion: React.FC<ModalAvisameVerificacionProps> = (
         isOpen={verAlertExcedeIntento}
         onDidDismiss={() => setVerAlertExcedeIntento(false)}
         cssClass="my-custom-class"
-        header={respuesta?.codigoVerificacion.mensaje}
+        header={verificacionOTP?.codigoVerificacion.mensaje}
         message={"¿Desea solicitar un nuevo código?"}
         buttons={[
           {

@@ -2,7 +2,7 @@ import React, { StrictMode, useContext, useState } from "react";
 import "./solicitud-codigo.style.css";
 
 import Header from "../../../components/header/header.comp";
-import { useAvisameSiGano } from "../../../hooks/avisame-si-gano/useAvisameSiGano.hook";
+import { useAvisameSolicitudCodigo } from "../../../hooks/avisame-solicitud-codigo/useAvisameSolicitudCodigo.hook";
 import { AvisameSiGanoContext } from "../../../providers/avisame-si-gano/avisameSiGano.context";
 import ModalCodigoVerificacion from "../components/modal-avisame-verificacion/modal-codigo-verificacion.comp";
 import ModalAvisameSiGano from "../../avisame-si-gano/components/modal-avisame-si-gano/modal-avisame-si-gano.comp";
@@ -30,15 +30,20 @@ export interface AvisameSiGanoScreenParams {
 }
 
 const SolicitudCodigoScreen: React.FC = () => {
+
   const { opcion } = useParams<AvisameSiGanoScreenParams>();
 
   const { avisameSiGanoParams, setAvisameSiGanoParams } = useContext(AvisameSiGanoContext);
+  const { eliminarSubscripcionParams, setEliminarSubscripcionParams } = useContext(EliminarSubscripcionContext);
 
   const [verModalCodigoVerificacion, setVerModalCodigoVerificacion] = useState<boolean>(false);
-
   const [verModalAvisame, setVerModalAvisame] = useState<boolean>(false);
+  const [verModalNotificacion, setVerModalNotificacion] =useState<boolean>(false);
+  const [verAlertaDatosInvalidos, setVerAlertaDatosInvalidos] = useState(false);
 
-  const { data: respuesta } = useAvisameSiGano(avisameSiGanoParams);
+
+  const { data: respuesta } = useAvisameSolicitudCodigo(avisameSiGanoParams);
+  const { data: resultado } = useEliminarSubscripcion(eliminarSubscripcionParams);
 
   const abrirModalVerificacion = () => {
     setVerModalCodigoVerificacion(true);
@@ -54,23 +59,12 @@ const SolicitudCodigoScreen: React.FC = () => {
     setVerModalAvisame(false);
   };
 
-  const [verModalNotificacion, setVerModalNotificacion] =
-    useState<boolean>(false);
-
-  const [verAlertaDatosInvalidos, setVerAlertaDatosInvalidos] = useState(false);
-
-  
-
   const abrirModalNotificacion = () => {
     setVerModalNotificacion(true);
   };
   const cerrarModalNotificacion = () => {
     setVerModalNotificacion(false);
   };
-
-  const { eliminarSubscripcionParams, setEliminarSubscripcionParams } = useContext(EliminarSubscripcionContext);
-
-  const { data: resultado } = useEliminarSubscripcion(eliminarSubscripcionParams);
 
   const validarCorreo = () => {
     if (avisameSiGanoParams.email) {
@@ -169,7 +163,6 @@ const SolicitudCodigoScreen: React.FC = () => {
                     <IonCol>
                       <IonInput
                         type="tel"
-                        maxlength={4}
                         required={true}
                         placeholder="Correo electronico"
                         value={avisameSiGanoParams.email}

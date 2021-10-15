@@ -11,7 +11,7 @@ import {
 } from "@ionic/react";
 import { AvisameSiGano } from "../../../../models/avisame-si-gano/AvisameSiGano";
 import { AvisameSiGanoContext } from "../../../../providers/avisame-si-gano/avisameSiGano.context";
-import { useAvisameSiGano } from "../../../../hooks/avisame-si-gano/useAvisameSiGano.hook";
+import { useAvisameSolicitudCodigo } from "../../../../hooks/avisame-solicitud-codigo/useAvisameSolicitudCodigo.hook";
 
 interface ModalAvisameSiGanoProps {
   ocultarModalAvisame: () => void;
@@ -22,16 +22,16 @@ interface ModalAvisameSiGanoProps {
 const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
 
   const [numeroSuerteArr, setNumeroSuerteArr] = useState(["","","",""]);
-
   let inputNumeroSuerteArr = Array<any>(numeroSuerteArr.length);
   
   const [numeroSerieArr, setNumeroSerieArr] = useState(["","",""]);
-  
   let inputNumeroSerieArr = Array<any>(numeroSerieArr.length);
+  
+  const [alertaErrorCantSorteos, setAlertaErrorCantSorteos] = useState<boolean>(false)
 
   const {avisameSiGanoParams, setAvisameSiGanoParams} = useContext(AvisameSiGanoContext);
 
-  const [alertaErrorCantSorteos, setAlertaErrorCantSorteos] = useState<boolean>(false)
+  const { data:respuesta } = useAvisameSolicitudCodigo(avisameSiGanoParams);
 
   const validarCantidadSorteos = () => {
     if (avisameSiGanoParams.cantidadSorteos) {
@@ -41,9 +41,6 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
       return true;
     }
   };
-
-  const { data:respuesta } = useAvisameSiGano(avisameSiGanoParams);
-  
 
   const cambiarFocoDigito = (digitoEvt: any, index: any, setArreglo: any, arregloDigitos: any, inputRefsArr: any) => {
     const digito = digitoEvt.target.value;

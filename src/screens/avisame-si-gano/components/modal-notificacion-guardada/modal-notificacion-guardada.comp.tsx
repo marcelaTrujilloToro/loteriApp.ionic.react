@@ -10,7 +10,7 @@ import {
   IonRow,
   IonTitle,
 } from "@ionic/react";
-import { useAvisameSiGano } from "../../../../hooks/avisame-si-gano/useAvisameSiGano.hook";
+import { useAvisameSolicitudCodigo } from "../../../../hooks/avisame-solicitud-codigo/useAvisameSolicitudCodigo.hook";
 import { AvisameSiGanoContext } from "../../../../providers/avisame-si-gano/avisameSiGano.context";
 
 interface ModalNotificacionGuardadaProps {
@@ -22,7 +22,7 @@ const ModalNotificacionGuardada: React.FC<ModalNotificacionGuardadaProps> = (pro
 
   const {avisameSiGanoParams, setAvisameSiGanoParams} = useContext(AvisameSiGanoContext);
 
-  const { data:respuesta } = useAvisameSiGano(avisameSiGanoParams);
+  const { data:respuesta } = useAvisameSolicitudCodigo(avisameSiGanoParams);
 
   return (
     <IonContent>

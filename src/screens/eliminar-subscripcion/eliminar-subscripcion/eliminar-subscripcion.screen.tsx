@@ -16,7 +16,7 @@ import {
   IonTitle,
 } from "@ionic/react";
 import { AvisameSiGanoContext } from "../../../providers/avisame-si-gano/avisameSiGano.context";
-import { useAvisameSiGano } from "../../../hooks/avisame-si-gano/useAvisameSiGano.hook";
+import { useAvisameSolicitudCodigo } from "../../../hooks/avisame-solicitud-codigo/useAvisameSolicitudCodigo.hook";
 import { EliminarSubscripcionContext } from "../../../providers/eliminar-subscripcion/eliminarSubscripcion.context";
 
 
@@ -36,7 +36,7 @@ const EliminarSubscripcionScreen: React.FC = () => {
     });
   };
 
-  const { isLoading, isError, data:resultado } = useAvisameSiGano(avisameSiGanoParams);
+  const { isLoading, isError, data:resultado } = useAvisameSolicitudCodigo(avisameSiGanoParams);
 
   return (
     <IonPage>

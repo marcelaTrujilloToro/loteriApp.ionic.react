@@ -15,9 +15,6 @@ import {
   IonTitle,
 } from "@ionic/react";
 import { AvisameSiGanoContext } from "../../../providers/avisame-si-gano/avisameSiGano.context";
-import { useAvisameSiGano } from "../../../hooks/avisame-si-gano/useAvisameSiGano.hook";
-import Loading from "../../../shared/screen/loading/loading.screen";
-import Error from "../../../shared/screen/error/error.screen";
 
 const AvisameSiGanoScreen: React.FC = () => {
   const { avisameSiGanoParams, setAvisameSiGanoParams } =
@@ -36,16 +33,6 @@ const AvisameSiGanoScreen: React.FC = () => {
     });
   };
 
-  const {
-    isLoading,
-    isError,
-    data: resultado,
-  } = useAvisameSiGano(avisameSiGanoParams);
-
-  if (isLoading) {
-    return <Loading></Loading>;
-  }
-  const mensaje = "";
 
   return (
     <IonPage>
@@ -69,13 +56,10 @@ const AvisameSiGanoScreen: React.FC = () => {
                 </IonText>
               </IonCol>
             </IonRow>
-            {isError ? (
-              <Error mensaje={mensaje} direccion={"/screens/avisame-si-gano/:name"}></Error>
-            ) : (
-              <ListaLoterias
-                onLoteriaSeleccionadaFn={onLoteriaSeleccionadaFn}
-              />
-            )}
+           
+            <ListaLoterias
+              onLoteriaSeleccionadaFn={onLoteriaSeleccionadaFn}/>
+            
           </IonGrid>
         </div>
       </IonContent>

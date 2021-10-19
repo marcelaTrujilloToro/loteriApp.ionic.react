@@ -27,5 +27,6 @@ export const useDisponibilidadNumero = (codigoLoteria: string, numero: string, s
     }, {
         staleTime: Infinity,
         retry: 1,
+        refetchInterval: 10000
     });
 }

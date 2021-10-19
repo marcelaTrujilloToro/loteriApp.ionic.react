@@ -30,6 +30,8 @@ export const useSuertudos = (codigoLoteria: string, primeraCifra:string, segunda
         });
         return data;
     }, {
-        retry:1,
+        staleTime: Infinity,
+        retry: 1,
+        refetchInterval: 10000
     });
 };

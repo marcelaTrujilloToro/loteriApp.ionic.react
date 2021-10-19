@@ -11,10 +11,9 @@ import {
 import React, { useEffect } from "react";
 import "./Home.styles.css";
 import Header from "../../components/header/header.comp";
-import QueCayoScreen from "../que-cayo/que-cayo/que-cayo.screen";
-import { useHistory } from "react-router";
+import { useHistory, useLocation, useParams } from "react-router";
 import { useLogin } from "../../hooks/login/login.hook";
-import queryClient from "../../react-query-client";
+
 
 const HomeScreen = () => {
 
@@ -22,9 +21,13 @@ const HomeScreen = () => {
     "awKfzUMihDq2rODcjNUbuQ==",
     "awKfzUMihDq2rODcjNUbuQ=="
   );
-  const history = useHistory();
-  console.log(JSON.stringify(data));
 
+
+  const history = useHistory();
+
+  useEffect(() => {
+    
+  }, [])
 
   return (
     <IonPage>
@@ -178,7 +181,7 @@ const HomeScreen = () => {
                                   src="/assets/imagenes/Loteriapp_opcion_que_cayo.png"
                                   onClick={() => {
                                     history.push({
-                                      pathname: `/screens/que-cayo/que-cayo.screen`,
+                                      pathname: `/screens/disponibilidad-numero/disponibilidad-numero.screen`,
                                     });
                                   }}
                                 ></IonImg>

@@ -29,6 +29,8 @@ export const useYoGane = (loteria: string, sorteo:string, numero:string, serie:s
         );
         return data;
     }, {
+        staleTime: Infinity,
         retry: 1,
+        refetchInterval: 10000
     });
 }

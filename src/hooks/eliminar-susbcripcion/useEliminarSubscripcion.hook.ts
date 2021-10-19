@@ -14,6 +14,7 @@ export const useEliminarSubscripcion = (EliminarSubscripcionParams: EliminarSubs
         const { data } = await azenApi.get(`subscripciones`);
         return data;
     }, {
+        staleTime: Infinity,
         retry: 1,
     });
 

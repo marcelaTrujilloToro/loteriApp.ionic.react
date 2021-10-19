@@ -30,7 +30,9 @@ export const useResultados = (codigoLoteria:string, sorteo:string) => {
         });
         return data;
     }, {
+        staleTime: 60000,
         retry: 1,
-        cacheTime: 10800000
+        cacheTime: 10800000,
+        refetchInterval: 10000
     });
 }

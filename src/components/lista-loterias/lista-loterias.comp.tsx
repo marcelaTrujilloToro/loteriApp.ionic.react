@@ -18,6 +18,7 @@ const ListaLoterias: React.FC <ListaLoteriasProps> = (props) => {
     return <Loading/>;
   }
 
+
   const mensaje = "Error al cargar la lista de loterias";
 
   // if (isError) {
@@ -26,8 +27,6 @@ const ListaLoterias: React.FC <ListaLoteriasProps> = (props) => {
 
   return (
     <IonRow>
-
-
       { isError 
       ? 
       <Error mensaje={mensaje} direccion={""}></Error>

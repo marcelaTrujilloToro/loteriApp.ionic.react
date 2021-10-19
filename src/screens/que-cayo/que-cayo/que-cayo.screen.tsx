@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./que-cayo.style.css";
 import Header from "../../../components/header/header.comp";
 import ListaLoterias from "../../../components/lista-loterias/lista-loterias.comp";

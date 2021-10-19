@@ -1,3 +1,4 @@
+
 import {
     useQuery,
 } from 'react-query';
@@ -26,7 +27,6 @@ export const useLoterias = () => {
                 Authorization: 'Bearer ' + azenToken
             }
         });
-    
         return data;
     }, {
         staleTime: Infinity,

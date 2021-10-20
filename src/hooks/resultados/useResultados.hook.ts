@@ -8,6 +8,7 @@ import queryClient from '../../react-query-client';
 
 import useAzenApi from '../../api/useAzenApi';
 import { Resultado } from '../../models/que-cayo/Resultado';
+import { error } from 'console';
 
 
 
@@ -29,10 +30,11 @@ export const useResultados = (codigoLoteria:string, sorteo:string) => {
             }
         });
         return data;
+
     }, {
         staleTime: 60000,
         retry: 1,
         cacheTime: 10800000,
-        refetchInterval: 10000
+        refetchInterval: 10000,
     });
 }

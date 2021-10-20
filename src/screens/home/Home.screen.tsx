@@ -11,7 +11,7 @@ import {
 import React, { useEffect } from "react";
 import "./Home.styles.css";
 import Header from "../../components/header/header.comp";
-import { useHistory, useLocation, useParams } from "react-router";
+import { useHistory } from "react-router";
 import { useLogin } from "../../hooks/login/login.hook";
 
 
@@ -22,12 +22,13 @@ const HomeScreen = () => {
     "awKfzUMihDq2rODcjNUbuQ=="
   );
 
-
   const history = useHistory();
 
   useEffect(() => {
     
   }, [])
+
+  
 
   return (
     <IonPage>

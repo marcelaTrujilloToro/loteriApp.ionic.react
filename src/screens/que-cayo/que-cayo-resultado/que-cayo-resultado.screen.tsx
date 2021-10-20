@@ -23,13 +23,12 @@ const QueCayoResultadoScreen: React.FC = () => {
 
   const { isLoading, isError, data:resultado } = useResultados(loteriaSeleccionada.codigo, numeroSorteo);
 
-  
-
   if (isLoading) {
     return (
       <Loading></Loading>
     );
   }
+
 
 
   // if (isError) {

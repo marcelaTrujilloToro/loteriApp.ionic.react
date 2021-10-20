@@ -12,6 +12,8 @@ export interface ListaLoteriasProps{
 
 const ListaLoterias: React.FC <ListaLoteriasProps> = (props) => {
 
+  
+
   const { isLoading, isError, data: loteriasList } = useLoterias();
 
   if (isLoading) {

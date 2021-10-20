@@ -27,9 +27,7 @@ const ModalCodigoVerificacion: React.FC<ModalAvisameVerificacionProps> = (props)
   
   const { avisameSiGanoParams, setAvisameSiGanoParams } = useContext(AvisameSiGanoContext);
 
-  const { data: respuesta, isSuccess } = useAvisameSolicitudCodigo(avisameSiGanoParams);
-
-  console.log(`respuesta: ${JSON.stringify(respuesta)}, isSuccess: ${isSuccess}`);
+  const { data: respuesta } = useAvisameSolicitudCodigo(avisameSiGanoParams);
 
   const { data: verificacionOTP } = useAvisameOTP(avisameSiGanoParams);
   
@@ -41,7 +39,7 @@ const ModalCodigoVerificacion: React.FC<ModalAvisameVerificacionProps> = (props)
   const [verAlertExcedeIntento, setVerAlertExcedeIntento] = useState(false);
 
   const validarRespuestaCodigoVerificacion = () => {
-    if (isSuccess) {
+   
       if (verificacionOTP?.codigoVerificacion.valido === 1) {
         if (props.opcion === "1") {
           props.ocultarModal();
@@ -59,7 +57,7 @@ const ModalCodigoVerificacion: React.FC<ModalAvisameVerificacionProps> = (props)
       } else if (verificacionOTP?.codigoVerificacion.excedeIntentos === 1) {
         setVerAlertExcedeIntento(true);
       }
-    }
+    
   };
 
   return (
@@ -137,7 +135,7 @@ const ModalCodigoVerificacion: React.FC<ModalAvisameVerificacionProps> = (props)
         isOpen={verAlerta}
         onDidDismiss={() => setVerAlerta(false)}
         cssClass="my-custom-class"
-        header={verificacionOTP?.codigoVerificacion.mensaje}
+        header="Error al ingresar el código"
         buttons={[
           {
             text: "Aceptar",
@@ -156,7 +154,7 @@ const ModalCodigoVerificacion: React.FC<ModalAvisameVerificacionProps> = (props)
         isOpen={verAlertExcedeIntento}
         onDidDismiss={() => setVerAlertExcedeIntento(false)}
         cssClass="my-custom-class"
-        header={verificacionOTP?.codigoVerificacion.mensaje}
+        header="Ha exedido los intentos"
         message={"¿Desea solicitar un nuevo código?"}
         buttons={[
           {

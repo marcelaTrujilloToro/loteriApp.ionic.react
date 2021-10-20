@@ -42,11 +42,17 @@ const SolicitudCodigoScreen: React.FC = () => {
   const [verAlertaDatosInvalidos, setVerAlertaDatosInvalidos] = useState(false);
 
 
-  const { data: respuesta } = useAvisameSolicitudCodigo(avisameSiGanoParams);
+  const { data: respuesta, isSuccess } = useAvisameSolicitudCodigo(avisameSiGanoParams);
+
+  console.log(JSON.stringify(avisameSiGanoParams));
+  console.log(`respuesta: ${JSON.stringify(respuesta)}, isSuccess: ${isSuccess}`);
+
   const { data: resultado } = useEliminarSubscripcion(eliminarSubscripcionParams);
 
   const abrirModalVerificacion = () => {
-    setVerModalCodigoVerificacion(true);
+    if (isSuccess) {
+      setVerModalCodigoVerificacion(true);
+    }
   };
   const cerrarModalVerificacion = () => {
     setVerModalCodigoVerificacion(false);
@@ -86,7 +92,7 @@ const SolicitudCodigoScreen: React.FC = () => {
 
   const validarAnio = () => {
     if (avisameSiGanoParams.anioNacim) {
-      if (avisameSiGanoParams.anioNacim.length < 4 || avisameSiGanoParams.anioNacim.length > 4) {
+      if (avisameSiGanoParams.anioNacim.length !== 4) {
         return false;
       }
       return true;

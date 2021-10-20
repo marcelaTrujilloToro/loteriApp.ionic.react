@@ -2,7 +2,6 @@
 import {
     useQuery,
 } from 'react-query';
-import { AZEN_API_BASE_URL } from '../../api/constants';
 
 import useAzenApi from '../../api/useAzenApi';
 
@@ -14,6 +13,7 @@ export const useLogin = (username: string, password: string) => {
         const { data } = await azenApi.post(`/login`,{
             UserName: username,
             Password: password
+
         });
         return data;
     }, {
@@ -21,3 +21,4 @@ export const useLogin = (username: string, password: string) => {
         retry: 1
     });
 };
+

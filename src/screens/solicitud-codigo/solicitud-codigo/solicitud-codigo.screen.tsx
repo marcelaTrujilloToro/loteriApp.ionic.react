@@ -42,17 +42,12 @@ const SolicitudCodigoScreen: React.FC = () => {
   const [verAlertaDatosInvalidos, setVerAlertaDatosInvalidos] = useState(false);
 
 
-  const { data: respuesta, isSuccess } = useAvisameSolicitudCodigo(avisameSiGanoParams);
-
-  console.log(JSON.stringify(avisameSiGanoParams));
-  console.log(`respuesta: ${JSON.stringify(respuesta)}, isSuccess: ${isSuccess}`);
+  const { data: respuesta, isSuccess} = useAvisameSolicitudCodigo(avisameSiGanoParams);
 
   const { data: resultado } = useEliminarSubscripcion(eliminarSubscripcionParams);
 
   const abrirModalVerificacion = () => {
-    if (isSuccess) {
       setVerModalCodigoVerificacion(true);
-    }
   };
   const cerrarModalVerificacion = () => {
     setVerModalCodigoVerificacion(false);
@@ -82,8 +77,8 @@ const SolicitudCodigoScreen: React.FC = () => {
   };
 
   const validarCelular = () => {
-    if (avisameSiGanoParams.celular) {
-      if (avisameSiGanoParams.celular.length < 10) {
+    if (avisameSiGanoParams.movil) {
+      if (avisameSiGanoParams.movil.length < 10) {
         return false;
       }
       return true;
@@ -137,17 +132,17 @@ const SolicitudCodigoScreen: React.FC = () => {
                       <IonInput
                         type="tel"
                         maxlength={10}
-                        value={avisameSiGanoParams.celular}
+                        value={avisameSiGanoParams.movil}
                         placeholder="Número de celular"
                         onIonChange={(e: any) => {
                             setAvisameSiGanoParams({
                               ...avisameSiGanoParams,
-                              celular: e.detail.value,
+                              movil: e.detail.value,
                             });
 
                             setEliminarSubscripcionParams({
                               ...eliminarSubscripcionParams,
-                              celular: e.detail.value,
+                              movil: e.detail.value,
                           });
                         }}
                       ></IonInput>
@@ -264,6 +259,9 @@ const SolicitudCodigoScreen: React.FC = () => {
         <ModalAvisameSiGano
           ocultarModalAvisame={cerrarModalAvisame}
           abrirModalNotificacion={abrirModalNotificacion}
+          abrirModalVerificacion={abrirModalVerificacion}
+          abrirModalAvisame={abrirModalAvisame}
+          opcion={opcion}
         ></ModalAvisameSiGano>
       </IonModal>
 
@@ -289,7 +287,7 @@ const SolicitudCodigoScreen: React.FC = () => {
               setVerAlertaDatosInvalidos(false);
               setAvisameSiGanoParams({
                 ...avisameSiGanoParams,
-                email: undefined, celular: undefined, anioNacim: ""
+                email: undefined, movil: undefined, anioNacim: ""
               });
             },
           },

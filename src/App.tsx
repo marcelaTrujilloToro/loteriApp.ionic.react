@@ -41,6 +41,7 @@ import YoGaneResultadoScreen from "./screens/yo-gane/yo-gane-resultado/yo-gane-r
 import NumerosSuertudosScreen from "./screens/numeros-suertudos/numeros-suertudos/numeros-suertudos.screen";
 import NumerosSuertudosResultadosScreen from "./screens/numeros-suertudos/numeros-suertudos-resultados/numeros-suertudos-resultados.screen";
 import AvisameSiGanoScreen from "./screens/avisame-si-gano/avisame-si-gano/avisame-si-gano.screen";
+import AvisameValidacion from "./screens/avisame-si-gano/avisame-si-gano/avisame-validacion";
 import SolicitudCodigoScreen from "./screens/solicitud-codigo/solicitud-codigo/solicitud-codigo.screen";
 import EliminarSubscripcionScreen from "./screens/eliminar-subscripcion/eliminar-subscripcion/eliminar-subscripcion.screen";
 import EliminarSubscripcionResultadoScreen from "./screens/eliminar-subscripcion/eliminar-subscripcion-resultado/eliminar-subscripcion-resultado.screen";
@@ -103,6 +104,10 @@ const App: React.FC = () => {
 
                   <Route path="/screens/avisame-si-gano/:name" exact={true}>
                     <AvisameSiGanoScreen />
+                  </Route>
+
+                  <Route path="/screens/avisame-si-gano/avisame-si-gano/avisame-validacion/:opcion" exact={true}>
+                    <AvisameValidacion />
                   </Route>
 
                   <Route

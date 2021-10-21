@@ -105,9 +105,9 @@
       {
         "codigoVerificacion":
           {
-            "valido": 1,
+            "valido": "1",
             "mensaje": "Ha excedido el número de intentos",
-            "excedeIntentos": 0
+            "excedeIntentos": "0"
           },
         "notificacion":
           {

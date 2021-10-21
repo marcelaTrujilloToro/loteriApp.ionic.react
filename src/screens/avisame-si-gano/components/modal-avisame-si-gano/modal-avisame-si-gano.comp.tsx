@@ -9,17 +9,21 @@ import {
   IonInput,
   IonRow,
 } from "@ionic/react";
-import { AvisameSiGano } from "../../../../models/avisame-si-gano/AvisameSiGano";
 import { AvisameSiGanoContext } from "../../../../providers/avisame-si-gano/avisameSiGano.context";
-import { useAvisameSolicitudCodigo } from "../../../../hooks/avisame-solicitud-codigo/useAvisameSolicitudCodigo.hook";
+import { useHistory } from "react-router";
 
 interface ModalAvisameSiGanoProps {
   ocultarModalAvisame: () => void;
   abrirModalNotificacion: () => void;
+  abrirModalVerificacion: () => void;
+  abrirModalAvisame: () => void;
+  opcion: string
 }
 
 
 const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
+
+  
 
   const [numeroSuerteArr, setNumeroSuerteArr] = useState(["","","",""]);
   let inputNumeroSuerteArr = Array<any>(numeroSuerteArr.length);
@@ -28,10 +32,9 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
   let inputNumeroSerieArr = Array<any>(numeroSerieArr.length);
   
   const [alertaErrorCantSorteos, setAlertaErrorCantSorteos] = useState<boolean>(false)
+  
 
   const {avisameSiGanoParams, setAvisameSiGanoParams} = useContext(AvisameSiGanoContext);
-
-  const { data:respuesta } = useAvisameSolicitudCodigo(avisameSiGanoParams);
 
   const validarCantidadSorteos = () => {
     if (avisameSiGanoParams.cantidadSorteos) {
@@ -79,6 +82,8 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
     const mesReal = completarMes(mes);
     return `${date.getFullYear()}${mesReal}${date.getDate()}`;
   };
+
+
   
   
   return (
@@ -222,14 +227,15 @@ const ModalAvisameSiGano: React.FC<ModalAvisameSiGanoProps> = (props) => {
               <button
                 className="la-boton la-boton-consultar"
                 onClick={() => {
-                  if (validarCantidadSorteos() === false) {
-                    setAlertaErrorCantSorteos(true);
-                  }else {
-                    setAvisameSiGanoParams({...avisameSiGanoParams, serie:obtenerNumeroSerie(), numero: obtenerNumeroSuerte(), fecha: parseInt(obtenerFechaActual()) })
-                      props.ocultarModalAvisame();
-                      props.abrirModalNotificacion();
+                    if (validarCantidadSorteos() === false) {
+                      setAlertaErrorCantSorteos(true);
+                    }else {
+                      setAvisameSiGanoParams({...avisameSiGanoParams, serie:obtenerNumeroSerie(), numero: obtenerNumeroSuerte(), fecha: parseInt(obtenerFechaActual()) })
+                        props.ocultarModalAvisame();
+                        props.abrirModalNotificacion();
+                    }
                   }
-                }}
+                }
                 >
                 REGISTRAR
               </button>

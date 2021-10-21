@@ -9,6 +9,8 @@ import queryClient from '../../react-query-client';
 import useAzenApi from '../../api/useAzenApi';
 import { Resultado } from '../../models/que-cayo/Resultado';
 import { error } from 'console';
+import axios from 'axios';
+import { env } from 'process';
 
 
 

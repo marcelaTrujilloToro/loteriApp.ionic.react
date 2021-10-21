@@ -18,7 +18,6 @@ const QueCayoResultadoScreen: React.FC = () => {
   
   const {loteriaSeleccionada} = useContext(LoteriaContext);
 
-  
   const { numeroSorteo } = useParams<QueCayoResultadoScreenParams>();
 
   const { isLoading, isError, data:resultado } = useResultados(loteriaSeleccionada.codigo, numeroSorteo);
@@ -29,14 +28,6 @@ const QueCayoResultadoScreen: React.FC = () => {
     );
   }
 
-
-
-  // if (isError) {
-
-  //   return (
-  //     <Error></Error>
-  //   );
-  // }
   const mensaje = "El numero de sorteo no existe en la base de datos"
   return (
     <IonPage>

@@ -15,10 +15,14 @@ export const useLogin = (username: string, password: string) => {
             Password: password
 
         });
+        alert(data)
         return data;
     }, {
         staleTime: Infinity,
-        retry: 1
+        retry: 1,
+        // onError: (error: unknown) => {
+        //     alert(JSON.stringify(error))
+        // },
     });
 };
 

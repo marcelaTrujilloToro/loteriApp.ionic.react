@@ -28,7 +28,7 @@ const HomeScreen = () => {
     
   }, [])
 
-  
+  // alert("home" + data);
 
   return (
     <IonPage>

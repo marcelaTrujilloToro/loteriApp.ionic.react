@@ -8,7 +8,6 @@ import {
   IonCol,
   IonContent,
   IonGrid,
-  IonModal,
   IonPage,
   IonRow,
   IonText,
@@ -32,7 +31,6 @@ const AvisameSiGanoScreen: React.FC = () => {
       pathname: `/screens/solicitud-codigo/solicitud-codigo/solicitud-codigo.screen/${opcion}`,
     });
   };
-
 
   return (
     <IonPage>

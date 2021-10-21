@@ -1,5 +1,5 @@
 export interface CodigoVerificacion{
-    valido: number,
+    valido: string,
     mensaje: string,
-    excedeIntentos: number
+    excedeIntentos: string
 }

@@ -17,7 +17,7 @@ export const useAvisameOTP = (AvisameSiGanoParams: AvisameSiGanoParams) => {
 
         const { data } = await azenApi.post(`/azenaut/autsus_VerificarOTP`,{
         
-            movil: AvisameSiGanoParams.celular,
+            movil: AvisameSiGanoParams.movil,
             email: AvisameSiGanoParams.email,
             codigoOTP: AvisameSiGanoParams.codigoVerificacion
         },{

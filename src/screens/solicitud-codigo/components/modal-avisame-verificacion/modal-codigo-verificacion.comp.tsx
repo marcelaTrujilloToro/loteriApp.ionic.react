@@ -12,7 +12,6 @@ import {
   IonGrid,
   IonInput,
   IonRow,
-  IonModal,
   IonAlert,
 } from "@ionic/react";
 
@@ -29,37 +28,12 @@ const ModalCodigoVerificacion: React.FC<ModalAvisameVerificacionProps> = (props)
 
   const { data: respuesta } = useAvisameSolicitudCodigo(avisameSiGanoParams);
 
-  const { data: verificacionOTP } = useAvisameOTP(avisameSiGanoParams);
-  
+  console.log(JSON.stringify(respuesta));
 
 
   const history = useHistory();
 
-  const [verAlerta, setVerAlerta] = useState(false);
-  const [verAlertExcedeIntento, setVerAlertExcedeIntento] = useState(false);
-
-  const validarRespuestaCodigoVerificacion = () => {
-   
-      if (verificacionOTP?.codigoVerificacion.valido === 1) {
-        if (props.opcion === "1") {
-          props.ocultarModal();
-          props.abrirModalAvisame();
-        } else if (props.opcion === "0") {
-          history.push({
-            pathname: `/screens/eliminar-subscripcion/eliminar-subscripcion-resultado/eliminar-subscripcion-resultado.screen/`,
-          });
-        }
-      } else if (
-        verificacionOTP?.codigoVerificacion.valido === 0 &&
-        verificacionOTP.codigoVerificacion.excedeIntentos === 0
-      ) {
-        setVerAlerta(true);
-      } else if (verificacionOTP?.codigoVerificacion.excedeIntentos === 1) {
-        setVerAlertExcedeIntento(true);
-      }
-    
-  };
-
+  const { data: verificacionOTP } = useAvisameOTP(avisameSiGanoParams);
   return (
     <IonContent>
       <div className="la-avisame-modal-content">
@@ -121,7 +95,10 @@ const ModalCodigoVerificacion: React.FC<ModalAvisameVerificacionProps> = (props)
               <button
                 className="la-boton la-boton-consultar"
                 onClick={() => {
-                  validarRespuestaCodigoVerificacion();
+                  history.push({
+                    pathname: `/screens/avisame-si-gano/avisame-si-gano/avisame-validacion/${props.opcion}/`,
+                  });
+                  
                 }}
               >
                 CONFIRMAR
@@ -131,54 +108,7 @@ const ModalCodigoVerificacion: React.FC<ModalAvisameVerificacionProps> = (props)
         </IonGrid>
       </div>
 
-      <IonAlert
-        isOpen={verAlerta}
-        onDidDismiss={() => setVerAlerta(false)}
-        cssClass="my-custom-class"
-        header="Error al ingresar el código"
-        buttons={[
-          {
-            text: "Aceptar",
-            handler: () => {
-              setAvisameSiGanoParams({
-                ...avisameSiGanoParams,
-                codigoVerificacion: null,
-              });
-              setVerAlerta(false);
-            },
-          },
-        ]}
-      />
-
-      <IonAlert
-        isOpen={verAlertExcedeIntento}
-        onDidDismiss={() => setVerAlertExcedeIntento(false)}
-        cssClass="my-custom-class"
-        header="Ha exedido los intentos"
-        message={"¿Desea solicitar un nuevo código?"}
-        buttons={[
-          {
-            text: "Cancelar",
-            role: "cancel",
-            cssClass: "secondary",
-            handler: (blah) => {
-              history.push({
-                pathname: `/`,
-              });
-            },
-          },
-          {
-            text: "Aceptar",
-            handler: () => {
-              setAvisameSiGanoParams({
-                ...avisameSiGanoParams,
-                codigoVerificacion: null,
-              });
-              props.abrirModalVerificacion();
-            },
-          },
-        ]}
-      />
+      
     </IonContent>
   );
 };

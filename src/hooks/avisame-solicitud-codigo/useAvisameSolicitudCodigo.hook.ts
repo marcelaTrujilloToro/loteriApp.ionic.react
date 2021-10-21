@@ -17,7 +17,7 @@ export const useAvisameSolicitudCodigo = (AvisameSiGanoParams: AvisameSiGanoPara
 
         const { data } = await azenApi.post(`/azenaut/autsus_RegistrarUsuarios`,{
         
-            movil: AvisameSiGanoParams.celular,
+            movil: AvisameSiGanoParams.movil,
             email: AvisameSiGanoParams.email,
             anioNacim: AvisameSiGanoParams.anioNacim
         },{

@@ -1,6 +1,6 @@
 export interface EliminarSubscripcionParams {
    codigoLoteria: string,
-   celular: string,
+   movil: string,
    email: string,
    numero: string,
    anioNacim: string

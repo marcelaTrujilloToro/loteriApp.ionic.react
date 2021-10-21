@@ -40,6 +40,7 @@ const YoGaneResultadoScreen: React.FC = () => {
     return <Loading></Loading>;
   }
 
+
   // if (isError) {
   //   return <Error></Error>;
   // }

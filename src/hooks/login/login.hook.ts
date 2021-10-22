@@ -15,7 +15,6 @@ export const useLogin = (username: string, password: string) => {
             Password: password
 
         });
-        alert(data)
         return data;
     }, {
         staleTime: Infinity,

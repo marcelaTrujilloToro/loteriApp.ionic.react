@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   IonAlert,
   IonCol,
@@ -31,6 +31,8 @@ const AvisameValidacion = () => {
 
   const { data: verificacionOTP } = useAvisameOTP(avisameSiGanoParams);
 
+  console.log(JSON.stringify(verificacionOTP));
+
   const [verAlerta, setVerAlerta] = useState(false);
   const [verAlertExcedeIntento, setVerAlertExcedeIntento] = useState(false);
 
@@ -38,18 +40,16 @@ const AvisameValidacion = () => {
   const [verModalAvisame, setVerModalAvisame] = useState<boolean>(false);
   const [verModalNotificacion, setVerModalNotificacion] =useState<boolean>(false);
 
-  console.log(`OTP fuera del metodo: ${JSON.stringify(verificacionOTP)}`);
-
   const validarRespuestaCodigoVerificacion = () => {
-   
-        if (verificacionOTP?.codigoVerificacion?.valido === "1") {
-          abrirModalAvisame();
-        } else if (verificacionOTP?.codigoVerificacion?.valido === "0" && verificacionOTP?.codigoVerificacion?.excedeIntentos === "0") {
-          setVerAlerta(true);
-        } else if (verificacionOTP?.codigoVerificacion?.excedeIntentos === "1") {
-          setVerAlertExcedeIntento(true);
-        }
-      
+   if (verificacionOTP) {
+    if (verificacionOTP?.valido === "1") {
+      abrirModalAvisame();
+    } else if (verificacionOTP?.valido === "0" && verificacionOTP?.excedeIntentos === "0") {
+      setVerAlerta(true);
+    } else if (verificacionOTP?.excedeIntentos === "1") {
+      setVerAlertExcedeIntento(true);
+    }
+   }
   };
 
 
@@ -63,7 +63,7 @@ const AvisameValidacion = () => {
   const abrirModalAvisame = () => {
     setVerModalAvisame(true);
   };
-  
+
   const cerrarModalAvisame = () => {
     setVerModalAvisame(false);
   };
@@ -75,9 +75,8 @@ const AvisameValidacion = () => {
     setVerModalNotificacion(false);
   };
 
-  if (verificacionOTP?.codigoVerificacion) {
-    validarRespuestaCodigoVerificacion()
-  }
+  validarRespuestaCodigoVerificacion();
+
 
   return (
     <IonPage>

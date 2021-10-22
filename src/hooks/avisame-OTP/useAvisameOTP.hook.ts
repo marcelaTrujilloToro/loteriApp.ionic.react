@@ -3,15 +3,15 @@ import {
 } from 'react-query';
 
 import useAzenApi from '../../api/useAzenApi';
-import { AvisameSiGano } from '../../models/avisame-si-gano/AvisameSiGano';
 import { AvisameSiGanoParams } from "../../models/avisame-si-gano/AvisameSiGanoParams";
+import { CodigoVerificacion } from '../../models/avisame-si-gano/CodigoVerificacion';
 import queryClient from '../../react-query-client';
 
 export const useAvisameOTP = (AvisameSiGanoParams: AvisameSiGanoParams) => {
 
     const azenApi = useAzenApi();
 
-    return useQuery<AvisameSiGano>('avisameOTP', async () => {
+    return useQuery<CodigoVerificacion>('avisameOTP', async () => {
 
         const azenToken = queryClient.getQueryData('azenTkn');
 

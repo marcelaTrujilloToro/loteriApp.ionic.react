@@ -33,7 +33,6 @@ const ModalCodigoVerificacion: React.FC<ModalAvisameVerificacionProps> = (props)
 
   const history = useHistory();
 
-  const { data: verificacionOTP } = useAvisameOTP(avisameSiGanoParams);
   return (
     <IonContent>
       <div className="la-avisame-modal-content">

@@ -32,8 +32,8 @@ export const useLoterias = () => {
         staleTime: Infinity,
         retry: 1,
         cacheTime: 10800000,
-        // onError: (error: unknown) => {
-        //     alert(JSON.stringify(error))
-        // },
+         onError: (error: unknown) => {
+             alert(JSON.stringify(error))
+         },
     });
 };

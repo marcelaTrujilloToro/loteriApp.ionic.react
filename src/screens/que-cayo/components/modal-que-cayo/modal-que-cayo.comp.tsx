@@ -68,8 +68,7 @@ const ModalQueCayo: React.FC<ModalQueCayoProps> = (props) => {
           <IonRow>
             <IonCol>
               <p className="la-texto-darkblue-12 la-texto la-texto-modal">
-                Lorem ipsum dolor sit amet, consectetur adipis elit sed
-                malesuada aliquam pharetra dignissim volutpat parturient.
+                
               </p>
             </IonCol>
           </IonRow>

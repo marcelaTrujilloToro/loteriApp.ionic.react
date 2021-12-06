@@ -83,13 +83,11 @@ const YoGanePrincipalScreen: React.FC = () => {
               <IonCol className="la-texto-yo-gane">
                 <IonText>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipis elit sed
-                    malesuada aliquam pharetra dignissim volutpat parturient.
+                    
                   </p>
 
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipis elit sed
-                    malesuada aliquam.
+                    
                   </p>
                 </IonText>
               </IonCol>

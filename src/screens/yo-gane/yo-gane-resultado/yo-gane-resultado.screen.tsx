@@ -106,7 +106,11 @@ const YoGaneResultadoScreen: React.FC = () => {
 
             <IonRow className="la-yg-row-lista">
               {isError ? (
-                <Error mensaje={mensaje} direccion={"screens/yo-gane-principal/yo-gane.screen"}></Error>
+               // <Error mensaje={mensaje} direccion={"screens/yo-gane-principal/yo-gane.screen"}></Error>
+               <img
+               className="la-imagen-perdio"
+               src={resultados?.imagenPerdio}
+             />
               ) : (
                 <IonCol>
                   {resultados?.premios ? (

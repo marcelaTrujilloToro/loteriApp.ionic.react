@@ -3,6 +3,7 @@
   "appName": "LoteriApp",
   "bundledWebRuntime": false,
   "npmClient": "npm",
+  "allowMixedContent": true,
   "webDir": "build",
   "plugins": {
     "SplashScreen": {

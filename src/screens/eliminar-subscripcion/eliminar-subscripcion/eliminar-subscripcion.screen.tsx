@@ -56,8 +56,7 @@ const EliminarSubscripcionScreen: React.FC = () => {
             <IonRow>
               <IonCol className="la-fuente-subtitulo">
                 <IonText>
-                  Lorem ipsum dolor sit amet, consectetur adipis elit sed
-                  malesuada aliquam pharetra dignissim volutpat parturient.
+                  
                 </IonText>
               </IonCol>
             </IonRow>
